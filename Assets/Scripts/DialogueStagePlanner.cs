@@ -10,6 +10,8 @@ public static class DialogueStagePlanner
         public DialogueCharacter Speaker { get; internal set; }
         public DialogueCharacter Left { get; internal set; }
         public DialogueCharacter Right { get; internal set; }
+        public DialogueAppearance LeftAppearance { get; internal set; }
+        public DialogueAppearance RightAppearance { get; internal set; }
         public DialogueSpeakerSide SpeakingSide { get; internal set; }
     }
 
@@ -24,6 +26,18 @@ public static class DialogueStagePlanner
             if (Valid(line) && line.character != null && !cast.Contains(line.character)) cast.Add(line.character);
         // Conversations authored with the original left/right sprite fields retain their behavior.
         if (cast.Count == 0) return result;
+        var appearances = new Dictionary<DialogueCharacter, DialogueAppearance>();
+        foreach (var actor in cast)
+        {
+            actor.TryGetAppearance(null, out var appearance);
+            appearances[actor] = appearance;
+        }
+        foreach (var selection in sequence.InitialOutfits)
+            if (selection != null && selection.character != null && appearances.ContainsKey(selection.character))
+            {
+                selection.character.TryGetAppearance(selection.outfit, out var appearance);
+                appearances[selection.character] = appearance;
+            }
         DialogueCharacter left = cast[0];
         DialogueCharacter right = cast.Count > 1 ? cast[1] : null;
         DialogueSpeakerSide previousSide = DialogueSpeakerSide.Narration;
@@ -33,6 +47,11 @@ public static class DialogueStagePlanner
             var line = lines[index];
             if (!Valid(line)) continue;
             var actor = Resolve(line, cast);
+            if (actor != null && !string.IsNullOrWhiteSpace(line.outfit))
+            {
+                actor.TryGetAppearance(line.outfit, out var appearance);
+                appearances[actor] = appearance;
+            }
             DialogueSpeakerSide side = DialogueSpeakerSide.Narration;
             if (actor != null)
             {
@@ -54,7 +73,9 @@ public static class DialogueStagePlanner
                     else { right = actor; side = DialogueSpeakerSide.Right; }
                 }
             }
-            result.Add(new Stage { Line = line, Speaker = actor, Left = left, Right = right, SpeakingSide = side });
+            result.Add(new Stage { Line = line, Speaker = actor, Left = left, Right = right, SpeakingSide = side,
+                LeftAppearance = left != null ? appearances[left] : default,
+                RightAppearance = right != null ? appearances[right] : default });
             if (side != DialogueSpeakerSide.Narration) previousSide = side;
         }
         return result;

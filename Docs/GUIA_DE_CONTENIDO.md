@@ -35,12 +35,25 @@ Crear un asset con `Create → One Hand Puzzle → Dialogue Character` y complet
 | Campo | Uso |
 | --- | --- |
 | `Display Name` | Nombre que aparece en la pestaña del diálogo. Si está vacío se usa el nombre del asset. |
-| `Portrait` | Sprite del personaje. Utilizar una imagen con transparencia y encuadre apropiado para mostrarlo aproximadamente de rodillas hacia arriba. |
+| `Portrait` | Sprite predeterminado del personaje. Utilizar una imagen con transparencia y encuadre apropiado para mostrarlo aproximadamente de rodillas hacia arriba. |
 | `Facing` | Dirección hacia la que mira el dibujo original: `Right` o `Left`. No es el lado de pantalla donde debe aparecer. |
+| `Outfits` | Variantes del mismo personaje. Cada entrada tiene un `Id` estable, un `Portrait` y su propio `Facing`. |
 
 Importar los retratos como sprites y conservar su transparencia. El sistema refleja horizontalmente el dibujo para orientar a los personajes según el lado que ocupan. No hace falta duplicar el recurso para tener una versión izquierda y otra derecha.
 
 Los personajes de prueba están en `Assets/Data/Characters`: `Traveler`, `Guide` y `Messenger`.
+
+### Varios outfits para un personaje
+
+En el asset del personaje, añadir una entrada en `Outfits` por vestuario, por ejemplo `viaje`, `gala` o `invierno`. Asignar su sprite y la dirección original de ese dibujo. Los identificadores deben ser únicos dentro del personaje; `default` está reservado para el retrato predeterminado. No hace falta duplicar el personaje ni cambiar su nombre para representar otro vestuario.
+
+En cada conversación, `Initial Outfits` permite elegir el vestuario inicial de los personajes del reparto: añadir una entrada, asignar `Character` y seleccionar `Outfit` en el desplegable. Los personajes sin entrada utilizan `Portrait` y `Facing` del asset. El outfit inicial se aplica también a los personajes que están escuchando o entran más tarde.
+
+Cada intervención tiene otro desplegable `Outfit` después de asignar `Character`. **Conservar outfit actual** mantiene la elección anterior; seleccionar un outfit la cambia desde esa intervención; **Predeterminado (restablecer)** vuelve al retrato base. La elección se conserva durante el resto de la conversación, incluso al salir y volver a entrar o al dividir una intervención en varias páginas. Cambiar el vestuario del mismo personaje mantiene su posición, sin animarlo como si llegara otro personaje.
+
+Cada conversación empieza con sus propios outfits iniciales. No se modifica el asset del personaje ni se guarda un vestuario global entre conversaciones: configurar `Initial Outfits` en cada conversación permite que las repeticiones de capítulos muestren el vestuario correcto. Los diálogos existentes no necesitan cambios.
+
+El Inspector señala identificadores duplicados, sprites sin asignar y selecciones que ya no existen. Si se renombra un `Id`, actualizar las conversaciones que lo usan; un identificador inválido emite un aviso al reproducir y utiliza el retrato predeterminado. `Tools > One Hand Puzzle > Validate Dialogue Outfits` comprueba los cambios de outfit, las orientaciones, las salidas y entradas, la paginación y la compatibilidad con las conversaciones existentes.
 
 ## Crear conversaciones
 

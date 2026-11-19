@@ -100,6 +100,7 @@ public class DialogueController : MonoBehaviour
         pages.Clear();
         if (sequence != null)
         {
+            if (!sequence.ValidateOutfits(out string outfitError)) Debug.LogWarning(outfitError, sequence);
             var stages = DialogueStagePlanner.Build(sequence);
             if (stages.Count > 0)
             {
@@ -108,10 +109,10 @@ public class DialogueController : MonoBehaviour
                         speaker = stage.Speaker != null ? stage.Speaker.DisplayName : stage.Line.speaker,
                         text = stage.Line.text, speakerSide = stage.SpeakingSide,
                         leftActor = stage.Left, rightActor = stage.Right,
-                        leftCharacter = stage.Line.hideLeftCharacter ? null : stage.Line.leftCharacter != null ? stage.Line.leftCharacter : stage.Left != null ? stage.Left.Portrait : null,
-                        rightCharacter = stage.Line.hideRightCharacter ? null : stage.Line.rightCharacter != null ? stage.Line.rightCharacter : stage.Right != null ? stage.Right.Portrait : null,
-                        leftFacesLeft = stage.Left != null && stage.Left.FacesLeft,
-                        rightFacesLeft = stage.Right != null && stage.Right.FacesLeft
+                        leftCharacter = stage.Line.hideLeftCharacter ? null : stage.Line.leftCharacter != null ? stage.Line.leftCharacter : stage.LeftAppearance.Portrait,
+                        rightCharacter = stage.Line.hideRightCharacter ? null : stage.Line.rightCharacter != null ? stage.Line.rightCharacter : stage.RightAppearance.Portrait,
+                        leftFacesLeft = stage.LeftAppearance.FacesLeft,
+                        rightFacesLeft = stage.RightAppearance.FacesLeft
                     });
             }
             else
@@ -265,7 +266,8 @@ public class DialogueController : MonoBehaviour
     private void SetCharacter(Image image, Sprite sprite, DialogueCharacter actor, bool facesLeft,
         bool speaking, bool rightSlot, CharacterFocus focus, bool snap)
     {
-        bool occupantChanged = focus.actor != actor || image.sprite != sprite;
+        bool outfitChanged = actor != null && focus.actor == actor && image.sprite != null && sprite != null;
+        bool occupantChanged = focus.actor != actor || (!outfitChanged && image.sprite != sprite);
         focus.pendingSprite = sprite;
         focus.pendingActor = actor;
         focus.pendingMirror = rightSlot != facesLeft;
@@ -289,7 +291,7 @@ public class DialogueController : MonoBehaviour
         }
         else
         {
-            focus.mirrored = focus.pendingMirror;
+            AssignPending(image, focus);
             BeginMotion(image, focus, Motion.Focus, focus.targetColor, focus.targetScale, focus.basePosition, focusTransitionDuration);
         }
     }
