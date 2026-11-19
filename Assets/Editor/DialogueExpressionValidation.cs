@@ -20,6 +20,7 @@ public static class DialogueExpressionValidation
         {
             var texture = Keep(new Texture2D(2, 2));
             Sprite Sprite() => Keep(UnityEngine.Sprite.Create(texture, new Rect(0, 0, 2, 2), Vector2.one / 2));
+            ValidateExpressionChoices(Sprite());
             var neutral = Sprite(); var happy = Sprite(); var sad = Sprite(); var angry = Sprite();
             var travel = Sprite(); var travelHappy = Sprite(); var travelSad = Sprite(); var gala = Sprite();
             var a = Actor("A", neutral, Expression("feliz", happy), Expression("triste", sad));
@@ -156,6 +157,49 @@ public static class DialogueExpressionValidation
         Require(pages.Count > 1, "Long line is paginated");
         foreach (object fragment in pages)
             Require((Sprite)Field(fragment, "leftCharacter") == sad && (Sprite)Field(fragment, "rightCharacter") == angry, "Every page keeps both expressions");
+    }
+
+    private static void ValidateExpressionChoices(Sprite sprite)
+    {
+        var actor = Actor("Outfit choices", sprite, Expression("seria", sprite), Expression("simpatica", sprite));
+        var listener = Actor("Listener choices", sprite, Expression("neutral", sprite));
+        Set(actor, "outfits", new[] {
+            new DialogueOutfit { id = "baloncesto", portrait = sprite,
+                expressions = new[] { Expression("bostezando", sprite), Expression("aburrimiento", sprite) } },
+            new DialogueOutfit { id = "sin_expresiones", portrait = sprite }
+        });
+        var sequence = Sequence(new[] { actor, listener }, new[] {
+            Line(actor), Line(listener, null, new DialogueReaction { character = actor }),
+            new DialogueLine { character = actor, outfit = "default" },
+            Line(actor, null, new DialogueReaction { character = actor }, new DialogueReaction { character = listener }),
+            Line(actor)
+        });
+        Set(sequence, "initialOutfits", new[] { new DialogueOutfitSelection { character = actor, outfit = "baloncesto" } });
+        Set(sequence, "initialExpressions", new[] { new DialogueExpressionSelection { character = actor } });
+        using (var serialized = new SerializedObject(sequence))
+        {
+            void Choices(string path, DialogueCharacter target, params string[] expected)
+            {
+                var actual = DialogueExpressionIdDrawer.AvailableExpressionIds(serialized.FindProperty(path), target).ToArray();
+                Require(actual.SequenceEqual(expected), "Outfit expression choices at " + path + ": " + string.Join(", ", actual));
+            }
+            Choices("initialExpressions.Array.data[0].expression", actor, "bostezando", "aburrimiento");
+            Choices("lines.Array.data[0].expression", actor, "bostezando", "aburrimiento");
+            Choices("lines.Array.data[1].reactions.Array.data[0].expression", actor, "bostezando", "aburrimiento");
+            Choices("lines.Array.data[2].expression", actor, "seria", "simpatica");
+            // Pending Inspector edits must be visible before ApplyModifiedProperties.
+            serialized.FindProperty("lines.Array.data[2].outfit").stringValue = "sin_expresiones";
+            Choices("lines.Array.data[2].expression", actor);
+            Choices("lines.Array.data[3].expression", actor);
+            serialized.FindProperty("lines.Array.data[3].outfit").stringValue = "baloncesto";
+            Choices("lines.Array.data[3].reactions.Array.data[0].expression", actor, "bostezando", "aburrimiento");
+            Choices("lines.Array.data[3].reactions.Array.data[1].expression", listener, "neutral");
+            Choices("lines.Array.data[4].expression", actor, "bostezando", "aburrimiento");
+            serialized.FindProperty("lines.Array.data[3].outfit").stringValue = "no_existe";
+            Choices("lines.Array.data[4].expression", actor);
+            serialized.FindProperty("initialOutfits.Array.data[0].outfit").stringValue = "default";
+            Choices("initialExpressions.Array.data[0].expression", actor, "seria", "simpatica");
+        }
     }
 
     private static DialogueExpression Expression(string id, Sprite sprite) => new DialogueExpression { id = id, portrait = sprite };
