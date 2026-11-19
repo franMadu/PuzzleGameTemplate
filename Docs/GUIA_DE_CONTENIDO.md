@@ -38,6 +38,7 @@ Crear un asset con `Create → One Hand Puzzle → Dialogue Character` y complet
 | `Portrait` | Sprite predeterminado del personaje. Utilizar una imagen con transparencia y encuadre apropiado para mostrarlo aproximadamente de rodillas hacia arriba. |
 | `Facing` | Dirección hacia la que mira el dibujo original: `Right` o `Left`. No es el lado de pantalla donde debe aparecer. |
 | `Outfits` | Variantes del mismo personaje. Cada entrada tiene un `Id` estable, un `Portrait` y su propio `Facing`. |
+| `Expressions` | Expresiones del vestuario predeterminado, con `Id` y `Portrait`. Cada entrada de `Outfits` tiene también su propia lista `Expressions`. |
 
 Importar los retratos como sprites y conservar su transparencia. El sistema refleja horizontalmente el dibujo para orientar a los personajes según el lado que ocupan. No hace falta duplicar el recurso para tener una versión izquierda y otra derecha.
 
@@ -77,6 +78,24 @@ El nombre se toma del personaje asignado. Las líneas vacías se omiten y los te
 Si hay tres o más personajes, el que entra sustituye al ocupante cuyo siguiente turno quede más lejos. Quien no vuelve a hablar tiene prioridad para salir. En caso de empate se sustituye al oyente. Un personaje mencionado mediante `Character` en una línea se incorpora al reparto aunque no se haya añadido expresamente a `Characters`; declarar el reparto completo permite controlar mejor la pareja inicial.
 
 Los personajes salen por el lateral que ocupan y sus sustitutos entran por ese mismo lateral. El personaje que escucha se muestra al 92 % de escala y con un tono más oscuro por defecto. Las animaciones y el encuadre se ajustan en el `DialogueController` de las escenas correspondientes.
+
+### Expresiones y reacciones
+
+En el personaje, añadir a `Expressions` las variantes del retrato predeterminado, por ejemplo `feliz`, `triste` y `enfadado`. En cada outfit, añadir a su propia lista `Expressions` los sprites correspondientes a ese vestuario. Utilizar los mismos identificadores en los distintos outfits para conservar una expresión al cambiar de ropa. Cada expresión utiliza un sprite completo, con el mismo encuadre, tamaño de lienzo y orientación que el retrato de su vestuario. `default` está reservado para la expresión predeterminada, representada por `Portrait`.
+
+La conversación puede configurar `Initial Expressions` por personaje. En cada intervención, `Expression` selecciona la expresión de quien habla. **Conservar expresión actual** la mantiene y **Predeterminada (restablecer)** vuelve a `Portrait` del outfit actual, conservando la ropa.
+
+`Reactions` es una lista de cambios de expresión para otros personajes en esa misma intervención. Asignar el `Character` objetivo y elegir su `Expression`. No depende de su puesto izquierdo o derecho ni le obliga a entrar en pantalla; el personaje debe estar declarado en `Characters` o participar mediante `Character` en alguna línea. También se pueden incluir reacciones en una línea de narración.
+
+| Intervención | Quién habla | `Expression` | `Reactions` |
+| --- | --- | --- | --- |
+| 1 | Personaje A | `feliz` | Vacío |
+| 2 | Personaje B | `enfadado` | Personaje A → `triste` |
+| 3 | Personaje A | Conservar expresión actual | Vacío |
+
+En la tercera intervención, A sigue triste y B sigue enfadado. Las expresiones se conservan durante toda la conversación, también al salir y volver a entrar y entre las páginas de un texto largo. Cada conversación y cada repetición comienza de nuevo con sus outfits y expresiones iniciales; no se modifican los assets de personajes.
+
+Los desplegables muestran los identificadores disponibles en el personaje. El Inspector comprueba que la combinación con el outfit activo tenga sprite y señala IDs repetidos, sprites vacíos y cambios contradictorios para el mismo personaje. Si falta una expresión para un outfit, se emite un aviso y se muestra el retrato predeterminado de ese outfit, conservando la expresión solicitada para cuando vuelva a un outfit compatible. Cambiar outfit y restablecer expresión en la misma línea evita esa combinación incompleta. `Tools > One Hand Puzzle > Validate Dialogue Expressions` comprueba expresiones simultáneas de hablante y oyente, persistencia, vestuario, reentrada y paginación.
 
 ### Campos manuales compatibles
 

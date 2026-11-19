@@ -68,6 +68,8 @@ El reparto puede contener más de dos personajes, aunque solo hay dos visibles a
 
 Cada personaje puede tener varios `Outfits`, con sprite y orientación propios. Las conversaciones eligen el vestuario inicial y pueden cambiarlo por intervención. El outfit se conserva dentro de esa conversación, también al salir y volver a entrar, sin duplicar el personaje ni alterar su retrato predeterminado. La [guía de contenido](Docs/GUIA_DE_CONTENIDO.md#varios-outfits-para-un-personaje) explica cómo configurarlo en el Inspector.
 
+Las expresiones son independientes del outfit. `Expression` cambia la de quien habla y `Reactions` permite cambiar las de otros personajes en la misma intervención. Se conservan hasta modificarlas o restablecerlas; cada vestuario tiene sus sprites de expresión. Véase [expresiones y reacciones](Docs/GUIA_DE_CONTENIDO.md#expresiones-y-reacciones).
+
 ### Galería
 
 Cada combinación de puzzle y dificultad completada tiene una entrada independiente, siempre que el puzzle se haya alcanzado en la historia. Las miniaturas muestran solo la imagen con un marco fino. Pulsar una miniatura abre la imagen completa ajustada a la pantalla, sin deformarla. Los botones **+** y **−** y la rueda del ratón permiten ampliar hasta 4×; al ampliar se puede arrastrar la imagen. **Volver** regresa a la galería. **Usar como fondo** guarda esa imagen como fondo del menú principal, también para las siguientes sesiones.

@@ -163,9 +163,16 @@ public static class CanvasValidation
     private static void ValidateBackgroundAndGallery(PuzzleCatalog source, PuzzleGallery gallery)
     {
         var catalog = UnityEngine.Object.Instantiate(source);
+        // Gallery fixtures must not depend on which puzzles the authored story contains.
+        var story = ScriptableObject.CreateInstance<StorySequence>();
+        typeof(StorySequence).GetField("steps", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(story,
+            Enumerable.Range(0, catalog.Count).Select(index => new StoryStep {
+                id = "validation-puzzle-" + index, kind = StoryStepKind.Puzzle, puzzleIndex = index
+            }).ToArray());
         string id = "CanvasValidation." + Guid.NewGuid().ToString("N");
         var serialized = new SerializedObject(catalog);
         serialized.FindProperty("progressId").stringValue = id;
+        serialized.FindProperty("story").objectReferenceValue = story;
         serialized.ApplyModifiedPropertiesWithoutUndo();
         string backgroundKey = "Game.Settings.MenuBackground." + id;
         try
@@ -201,6 +208,7 @@ public static class CanvasValidation
             for (int chapter = 0; chapter < catalog.Count; chapter++) PlayerPrefs.DeleteKey(id + ".Completed." + chapter);
             PlayerPrefs.Save();
             UnityEngine.Object.DestroyImmediate(catalog);
+            UnityEngine.Object.DestroyImmediate(story);
         }
     }
 

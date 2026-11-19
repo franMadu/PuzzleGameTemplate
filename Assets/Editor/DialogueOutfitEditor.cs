@@ -8,9 +8,7 @@ public class DialogueOutfitIdDrawer : PropertyDrawer
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
-        int separator = property.propertyPath.LastIndexOf('.');
-        string parent = separator >= 0 ? property.propertyPath.Substring(0, separator + 1) : "";
-        var character = property.serializedObject.FindProperty(parent + "character")?.objectReferenceValue as DialogueCharacter;
+        var character = FindCharacter(property);
         if (character == null || property.serializedObject.isEditingMultipleObjects)
         {
             EditorGUI.PropertyField(position, property, label);
@@ -32,9 +30,22 @@ public class DialogueOutfitIdDrawer : PropertyDrawer
             ids.Add(outfit.id);
             names.Add(outfit.id);
         }
+        DrawChoices(position, property, label, ids, names, setting.PreservePrevious);
+    }
+
+    internal static DialogueCharacter FindCharacter(SerializedProperty property)
+    {
+        int separator = property.propertyPath.LastIndexOf('.');
+        string parent = separator >= 0 ? property.propertyPath.Substring(0, separator + 1) : "";
+        return property.serializedObject.FindProperty(parent + "character")?.objectReferenceValue as DialogueCharacter;
+    }
+
+    internal static void DrawChoices(Rect position, SerializedProperty property, GUIContent label,
+        List<string> ids, List<string> names, bool preservePrevious)
+    {
         string current = property.stringValue ?? "";
         int selected = ids.FindIndex(id => string.Equals(id, current, StringComparison.OrdinalIgnoreCase));
-        if (selected < 0 && !setting.PreservePrevious && string.Equals(current, DialogueCharacter.DefaultOutfitId, StringComparison.OrdinalIgnoreCase)) selected = 0;
+        if (selected < 0 && !preservePrevious && string.Equals(current, DialogueCharacter.DefaultOutfitId, StringComparison.OrdinalIgnoreCase)) selected = 0;
         if (selected < 0)
         {
             selected = ids.Count;
@@ -49,6 +60,32 @@ public class DialogueOutfitIdDrawer : PropertyDrawer
     }
 }
 
+[CustomPropertyDrawer(typeof(DialogueExpressionIdAttribute))]
+public class DialogueExpressionIdDrawer : PropertyDrawer
+{
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    {
+        var character = DialogueOutfitIdDrawer.FindCharacter(property);
+        if (character == null || property.serializedObject.isEditingMultipleObjects)
+        {
+            EditorGUI.PropertyField(position, property, label);
+            return;
+        }
+        bool preserve = ((DialogueExpressionIdAttribute)attribute).PreservePrevious;
+        var ids = new List<string> { "" };
+        var names = new List<string> { preserve ? "Conservar expresión actual" : "Predeterminada (neutra)" };
+        if (preserve)
+        {
+            ids.Add(DialogueCharacter.DefaultExpressionId);
+            names.Add("Predeterminada (restablecer)");
+        }
+        foreach (string id in character.ExpressionIds)
+            if (!string.Equals(id, DialogueCharacter.DefaultExpressionId, StringComparison.OrdinalIgnoreCase))
+            { ids.Add(id); names.Add(id); }
+        DialogueOutfitIdDrawer.DrawChoices(position, property, label, ids, names, preserve);
+    }
+}
+
 [CustomEditor(typeof(DialogueCharacter)), CanEditMultipleObjects]
 public class DialogueCharacterEditor : Editor
 {
@@ -56,7 +93,10 @@ public class DialogueCharacterEditor : Editor
     {
         DrawDefaultInspector();
         foreach (DialogueCharacter character in targets)
+        {
             if (!character.ValidateOutfits(out string error)) EditorGUILayout.HelpBox(error, MessageType.Error);
+            if (!character.ValidateExpressions(out error)) EditorGUILayout.HelpBox(error, MessageType.Error);
+        }
     }
 }
 
@@ -67,6 +107,6 @@ public class DialogueSequenceEditor : Editor
     {
         DrawDefaultInspector();
         foreach (DialogueSequence sequence in targets)
-            if (!sequence.ValidateOutfits(out string error)) EditorGUILayout.HelpBox(error, MessageType.Error);
+            if (!sequence.ValidateAppearances(out string error)) EditorGUILayout.HelpBox(error, MessageType.Error);
     }
 }

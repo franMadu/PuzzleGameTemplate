@@ -100,7 +100,7 @@ public class DialogueController : MonoBehaviour
         pages.Clear();
         if (sequence != null)
         {
-            if (!sequence.ValidateOutfits(out string outfitError)) Debug.LogWarning(outfitError, sequence);
+            if (!sequence.ValidateAppearances(out string appearanceError)) Debug.LogWarning(appearanceError, sequence);
             var stages = DialogueStagePlanner.Build(sequence);
             if (stages.Count > 0)
             {
@@ -266,8 +266,8 @@ public class DialogueController : MonoBehaviour
     private void SetCharacter(Image image, Sprite sprite, DialogueCharacter actor, bool facesLeft,
         bool speaking, bool rightSlot, CharacterFocus focus, bool snap)
     {
-        bool outfitChanged = actor != null && focus.actor == actor && image.sprite != null && sprite != null;
-        bool occupantChanged = focus.actor != actor || (!outfitChanged && image.sprite != sprite);
+        bool sameVisibleActor = actor != null && focus.actor == actor && image.sprite != null && sprite != null;
+        bool occupantChanged = focus.actor != actor || (!sameVisibleActor && image.sprite != sprite);
         focus.pendingSprite = sprite;
         focus.pendingActor = actor;
         focus.pendingMirror = rightSlot != facesLeft;

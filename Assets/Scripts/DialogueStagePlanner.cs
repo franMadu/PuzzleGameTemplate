@@ -16,7 +16,11 @@ public static class DialogueStagePlanner
     }
 
     public static List<Stage> Build(DialogueSequence sequence)
+        => Build(sequence, out _);
+
+    public static List<Stage> Build(DialogueSequence sequence, out string appearanceError)
     {
+        appearanceError = null;
         var result = new List<Stage>();
         if (sequence == null) return result;
         var cast = new List<DialogueCharacter>();
@@ -27,17 +31,20 @@ public static class DialogueStagePlanner
         // Conversations authored with the original left/right sprite fields retain their behavior.
         if (cast.Count == 0) return result;
         var appearances = new Dictionary<DialogueCharacter, DialogueAppearance>();
+        var outfits = new Dictionary<DialogueCharacter, string>();
+        var expressions = new Dictionary<DialogueCharacter, string>();
         foreach (var actor in cast)
         {
-            actor.TryGetAppearance(null, out var appearance);
-            appearances[actor] = appearance;
+            outfits[actor] = null;
+            expressions[actor] = null;
         }
         foreach (var selection in sequence.InitialOutfits)
-            if (selection != null && selection.character != null && appearances.ContainsKey(selection.character))
-            {
-                selection.character.TryGetAppearance(selection.outfit, out var appearance);
-                appearances[selection.character] = appearance;
-            }
+            if (selection != null && selection.character != null && outfits.ContainsKey(selection.character))
+                outfits[selection.character] = selection.outfit;
+        foreach (var selection in sequence.InitialExpressions)
+            if (selection != null && selection.character != null && expressions.ContainsKey(selection.character))
+                expressions[selection.character] = selection.expression;
+        RefreshAppearances(sequence, cast, outfits, expressions, appearances, "inicio", ref appearanceError);
         DialogueCharacter left = cast[0];
         DialogueCharacter right = cast.Count > 1 ? cast[1] : null;
         DialogueSpeakerSide previousSide = DialogueSpeakerSide.Narration;
@@ -48,10 +55,13 @@ public static class DialogueStagePlanner
             if (!Valid(line)) continue;
             var actor = Resolve(line, cast);
             if (actor != null && !string.IsNullOrWhiteSpace(line.outfit))
-            {
-                actor.TryGetAppearance(line.outfit, out var appearance);
-                appearances[actor] = appearance;
-            }
+                outfits[actor] = line.outfit;
+            if (actor != null && !string.IsNullOrWhiteSpace(line.expression))
+                expressions[actor] = line.expression;
+            foreach (var reaction in line.reactions ?? Array.Empty<DialogueReaction>())
+                if (reaction?.character != null && expressions.ContainsKey(reaction.character) && !string.IsNullOrWhiteSpace(reaction.expression))
+                    expressions[reaction.character] = reaction.expression;
+            RefreshAppearances(sequence, cast, outfits, expressions, appearances, "intervención " + (index + 1), ref appearanceError);
             DialogueSpeakerSide side = DialogueSpeakerSide.Narration;
             if (actor != null)
             {
@@ -79,6 +89,20 @@ public static class DialogueStagePlanner
             if (side != DialogueSpeakerSide.Narration) previousSide = side;
         }
         return result;
+    }
+
+    private static void RefreshAppearances(DialogueSequence sequence, List<DialogueCharacter> cast,
+        Dictionary<DialogueCharacter, string> outfits, Dictionary<DialogueCharacter, string> expressions,
+        Dictionary<DialogueCharacter, DialogueAppearance> appearances, string location, ref string error)
+    {
+        foreach (var actor in cast)
+        {
+            bool valid = actor.TryGetAppearance(outfits[actor], expressions[actor], out var appearance);
+            appearances[actor] = appearance;
+            if (!valid && error == null)
+                error = sequence.name + ": no existe la combinación outfit/expresión de " + actor.DisplayName
+                    + " (" + (outfits[actor] ?? "default") + "/" + (expressions[actor] ?? "default") + ", " + location + "). Se usa el retrato de respaldo.";
+        }
     }
 
     private static bool Valid(DialogueLine line) => line != null && !string.IsNullOrWhiteSpace(line.text);

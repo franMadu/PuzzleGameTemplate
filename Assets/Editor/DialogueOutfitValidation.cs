@@ -85,7 +85,9 @@ public static class DialogueOutfitValidation
                 var existing = AssetDatabase.LoadAssetAtPath<DialogueSequence>(AssetDatabase.GUIDToAssetPath(guid));
                 Require(existing.ValidateOutfits(out string error), error);
                 var existingStages = DialogueStagePlanner.Build(existing);
-                if (existing.InitialOutfits.Length == 0 && existing.Lines.All(line => line == null || string.IsNullOrEmpty(line.outfit)))
+                if (existing.InitialOutfits.Length == 0 && existing.InitialExpressions.Length == 0
+                    && existing.Lines.All(line => line == null || (string.IsNullOrEmpty(line.outfit)
+                        && string.IsNullOrEmpty(line.expression) && (line.reactions == null || line.reactions.All(reaction => reaction == null || string.IsNullOrEmpty(reaction.expression))))))
                     foreach (var stage in existingStages)
                     {
                         if (stage.Left != null) Require(stage.LeftAppearance.Portrait == stage.Left.Portrait, "Existing left portrait compatibility");
