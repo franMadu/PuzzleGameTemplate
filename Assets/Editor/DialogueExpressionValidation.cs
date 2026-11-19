@@ -22,6 +22,7 @@ public static class DialogueExpressionValidation
             Sprite Sprite() => Keep(UnityEngine.Sprite.Create(texture, new Rect(0, 0, 2, 2), Vector2.one / 2));
             ValidateExpressionChoices(Sprite());
             ValidatePortraitEntrances(Sprite());
+            ValidateDialoguePagination();
             var neutral = Sprite(); var happy = Sprite(); var sad = Sprite(); var angry = Sprite();
             var travel = Sprite(); var travelHappy = Sprite(); var travelSad = Sprite(); var gala = Sprite();
             var a = Actor("A", neutral, Expression("feliz", happy), Expression("triste", sad));
@@ -158,6 +159,48 @@ public static class DialogueExpressionValidation
         Require(pages.Count > 1, "Long line is paginated");
         foreach (object fragment in pages)
             Require((Sprite)Field(fragment, "leftCharacter") == sad && (Sprite)Field(fragment, "rightCharacter") == angry, "Every page keeps both expressions");
+    }
+
+    private static void ValidateDialoguePagination()
+    {
+        var root = Keep(new GameObject("Four-line pagination validation"));
+        var controller = root.AddComponent<DialogueController>();
+        var body = new GameObject("Body", typeof(RectTransform), typeof(Text));
+        body.transform.SetParent(root.transform);
+        var text = body.GetComponent<Text>();
+        text.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        text.fontSize = 34;
+        text.resizeTextForBestFit = false;
+        Set(controller, "bodyText", text);
+        string[] samples = {
+            string.Join(" ", Enumerable.Repeat("Shouta acaba de despertarse y todavía no quiere ir a casa de su abuela.", 18)),
+            "Primera línea.\nSegunda línea.\nTercera línea.\nCuarta línea.\nQuinta línea.\nSexta línea.",
+            string.Join(" ", Enumerable.Repeat("¿Por qué? ¡Qué sueño! Cafe\u0301 junto al mar.", 12))
+        };
+        foreach (var size in new[] { new Vector2(808, 170), new Vector2(1400, 170), new Vector2(808, 600) })
+            foreach (string sample in samples)
+            {
+                text.rectTransform.sizeDelta = size;
+                var pages = (IList)Field(controller, "pages");
+                pages.Clear();
+                var page = Activator.CreateInstance(typeof(DialogueController).GetNestedType("Page", BindingFlags.NonPublic), true);
+                Set(page, "text", sample);
+                Invoke(controller, "AddPages", page);
+                Require(pages.Count > 1, "Long dialogue is paginated even when the box could hold more than four lines");
+                string reconstructed = "";
+                foreach (object fragment in pages)
+                {
+                    string content = (string)Field(fragment, "text");
+                    var settings = text.GetGenerationSettings(new Vector2(size.x, 0));
+                    float height = text.cachedTextGeneratorForLayout.GetPreferredHeight(content, settings) / text.pixelsPerUnit;
+                    Require(!string.IsNullOrWhiteSpace(content) && text.cachedTextGeneratorForLayout.lineCount <= 4,
+                        "Each page contains at most four rendered lines");
+                    Require(height <= size.y - 4, "Each page fits its visible text area");
+                    reconstructed += content;
+                }
+                Require(string.Concat(sample.Where(c => !char.IsWhiteSpace(c))) == string.Concat(reconstructed.Where(c => !char.IsWhiteSpace(c))),
+                    "Pagination preserves all dialogue characters and accents");
+            }
     }
 
     private static void ValidatePortraitEntrances(Sprite sprite)

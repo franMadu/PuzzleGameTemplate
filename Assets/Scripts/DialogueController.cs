@@ -16,6 +16,8 @@ public class DialogueController : MonoBehaviour
     [SerializeField, Range(0.75f, 1)] private float inactiveCharacterScale = 0.92f;
     [SerializeField, Min(0)] private float focusTransitionDuration = 0.18f;
     [SerializeField, Min(0)] private float characterTransitionDuration = 0.28f;
+    [Tooltip("Máximo de líneas de texto por página de diálogo. Los textos más largos continúan en la página siguiente.")]
+    [SerializeField, Min(1)] private int maxLinesPerPage = 4;
     public bool IsPlaying { get; private set; }
     public bool IsTyping { get; private set; }
     public int PageIndex { get; private set; }
@@ -373,8 +375,10 @@ public class DialogueController : MonoBehaviour
             {
                 int count = (low + high) / 2;
                 int length = count < offsets.Length ? offsets[count] : remaining.Length;
-                float height = bodyText.cachedTextGeneratorForLayout.GetPreferredHeight(remaining.Substring(0, length), settings) / bodyText.pixelsPerUnit;
-                if (height <= bodyText.rectTransform.rect.height - 4) { end = length; low = count + 1; }
+                var generator = bodyText.cachedTextGeneratorForLayout;
+                float height = generator.GetPreferredHeight(remaining.Substring(0, length), settings) / bodyText.pixelsPerUnit;
+                if (height <= bodyText.rectTransform.rect.height - 4 && generator.lineCount <= Mathf.Max(1, maxLinesPerPage))
+                { end = length; low = count + 1; }
                 else high = count - 1;
             }
             if (end < remaining.Length)
