@@ -8,10 +8,10 @@ public static class PuzzleSession
     public const string MenuScene = "MainMenu";
     public const string StoryScene = "Story";
     public static readonly string[] GameScenes = { "PuzzleEasy", "PuzzleNormal", "PuzzleHard" };
-    public static readonly string[] DifficultyNames = { "Fácil · 3×3", "Normal · 4×4", "Difícil · 5×5" };
     public static int Chapter { get; set; }
     public static int Difficulty { get; set; }
     public static bool StoryMode { get; set; }
+    public static bool TitleDismissed { get; set; }
     public static PuzzleMenuPage MenuPage { get; set; }
     public static int LibraryChapter { get; set; } = -1;
     public static int ReplayIndex { get; set; } = -1;
@@ -25,6 +25,7 @@ public static class PuzzleSession
         Chapter = 0;
         Difficulty = 0;
         StoryMode = false;
+        TitleDismissed = false;
         MenuPage = PuzzleMenuPage.Main;
         LibraryChapter = -1;
         EndReplay();

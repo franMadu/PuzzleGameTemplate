@@ -1,31 +1,70 @@
-using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class GalleryImageViewer : MonoBehaviour
+public class GalleryImageViewer : MonoBehaviour, IScrollHandler, IDragHandler
 {
-    public void Build(Texture2D texture, Action close)
-    {
-        var root = (RectTransform)transform;
-        var background = GetComponent<Image>();
-        background.color = Color.black;
-        var image = PuzzleUI.Rect("Full Image", root, 0, 0, 0, 0);
-        var graphic = image.gameObject.AddComponent<RawImage>();
-        graphic.texture = texture;
-        graphic.raycastTarget = false;
-        var fit = image.gameObject.AddComponent<AspectRatioFitter>();
-        fit.aspectRatio = (float)texture.width / texture.height;
-        fit.aspectMode = AspectRatioFitter.AspectMode.FitInParent;
+    private RawImage artwork;
+    private RectTransform viewport;
+    private float zoom = 1;
+    private Vector2 pan;
 
-        var button = gameObject.AddComponent<Button>();
-        button.targetGraphic = background;
-        button.transition = Selectable.Transition.None;
-        ButtonSound.Bind(button);
-        button.onClick.AddListener(() =>
+    public void Build(Texture2D texture, Action close, Action selectBackground, bool selected)
+    {
+        artwork = MenuControls.Get<RawImage>(transform, "Viewport/Artwork");
+        viewport = MenuControls.Get<RectTransform>(transform, "Viewport");
+        MenuControls.SetTexture(artwork, texture, false);
+        zoom = 1;
+        pan = Vector2.zero;
+        LayoutImage();
+        var controls = MenuControls.Get<RectTransform>(transform, "Controls");
+        MenuControls.SafeArea(controls);
+        MenuControls.Bind(controls, "Back", () => close());
+        MenuControls.Bind(controls, "Zoom In", () => ChangeZoom(0.5f));
+        MenuControls.Bind(controls, "Zoom Out", () => ChangeZoom(-0.5f));
+        var use = MenuControls.Bind(controls, "Use Background", () =>
         {
-            if (ScreenTransition.IsBusy || !button.IsInteractable()) return;
-            button.interactable = false;
-            close();
+            selectBackground();
+            CanvasText.Set(MenuControls.Get<Text>(controls, "Use Background/Label"), 1);
+            MenuControls.Get<Button>(controls, "Use Background").interactable = false;
         });
+        use.interactable = !selected;
+        CanvasText.Set(MenuControls.Get<Text>(controls, "Use Background/Label"), selected ? 1 : 0);
+    }
+
+    public void OnScroll(PointerEventData data) => ChangeZoom(data.scrollDelta.y * 0.2f);
+
+    public void OnDrag(PointerEventData data)
+    {
+        if (zoom <= 1 || artwork == null) return;
+        pan += data.delta / GetComponentInParent<Canvas>().scaleFactor;
+        LayoutImage();
+    }
+
+    private void ChangeZoom(float amount)
+    {
+        zoom = Mathf.Clamp(zoom + amount, 1, 4);
+        LayoutImage();
+    }
+
+    private void OnRectTransformDimensionsChange()
+    {
+        if (artwork != null) LayoutImage();
+    }
+
+    private void LayoutImage()
+    {
+        if (artwork == null || artwork.texture == null) return;
+        var bounds = viewport.rect.size;
+        float fit = Mathf.Min(bounds.x / artwork.texture.width, bounds.y / artwork.texture.height);
+        var size = new Vector2(artwork.texture.width, artwork.texture.height) * fit * zoom;
+        artwork.rectTransform.sizeDelta = size;
+        var limit = Vector2.Max(Vector2.zero, (size - bounds) / 2);
+        pan = new Vector2(Mathf.Clamp(pan.x, -limit.x, limit.x), Mathf.Clamp(pan.y, -limit.y, limit.y));
+        artwork.rectTransform.anchoredPosition = pan;
+        MenuControls.Get<Button>(transform, "Controls/Zoom In").interactable = zoom < 4;
+        MenuControls.Get<Button>(transform, "Controls/Zoom Out").interactable = zoom > 1;
     }
 }
+

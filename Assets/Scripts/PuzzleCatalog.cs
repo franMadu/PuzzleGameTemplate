@@ -37,11 +37,14 @@ public class PuzzleCatalog : ScriptableObject
     [Tooltip("Identificador permanente de este juego. Cada juego de la serie debe tener uno distinto.")]
     [SerializeField] private string progressId = "OneHandPuzzle";
     [SerializeField] private string gameTitle = "ONE HAND\nPUZZLE";
+    [Tooltip("Imagen de fondo del menú principal. Se recorta para llenar la pantalla sin deformarse.")]
+    [SerializeField] private Texture2D menuBackground;
     [SerializeField, TextArea(2, 4)] private string endingText = "Has completado el viaje.";
     [SerializeField] private StorySequence story;
     [SerializeField] private PuzzleChapter[] chapters;
     public string ProgressId => string.IsNullOrWhiteSpace(progressId) ? "OneHandPuzzle" : progressId;
     public string GameTitle => gameTitle;
+    public Texture2D MenuBackground => menuBackground;
     public string EndingText => endingText;
     public StorySequence Story => story;
     public int Count => chapters?.Length ?? 0;

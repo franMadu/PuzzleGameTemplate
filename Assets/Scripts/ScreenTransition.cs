@@ -122,14 +122,16 @@ public class ScreenTransition : MonoBehaviour
         curtain.alpha = target;
     }
 
-    public static void Replace(RectTransform previous, RectTransform next)
-        => EnsureInstance().StartCoroutine(Crossfade(previous, next));
+    public static void Replace(RectTransform previous, RectTransform next, bool destroyPrevious = true)
+        => EnsureInstance().StartCoroutine(Crossfade(previous, next, destroyPrevious));
 
-    private static IEnumerator Crossfade(RectTransform previous, RectTransform next)
+    private static IEnumerator Crossfade(RectTransform previous, RectTransform next, bool destroyPrevious)
     {
-        var incoming = next.gameObject.AddComponent<CanvasGroup>();
+        var incoming = next.GetComponent<CanvasGroup>();
+        if (incoming == null) incoming = next.gameObject.AddComponent<CanvasGroup>();
         incoming.alpha = 0;
         incoming.interactable = false;
+        incoming.blocksRaycasts = true;
         CanvasGroup outgoing = null;
         if (previous != null)
         {
@@ -148,6 +150,10 @@ public class ScreenTransition : MonoBehaviour
             yield return null;
         }
         if (incoming != null) { incoming.alpha = 1; incoming.interactable = true; }
-        if (previous != null) Destroy(previous.gameObject);
+        if (previous != null)
+        {
+            if (destroyPrevious) Destroy(previous.gameObject);
+            else previous.gameObject.SetActive(false);
+        }
     }
 }

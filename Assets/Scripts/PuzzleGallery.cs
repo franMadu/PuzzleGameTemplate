@@ -1,7 +1,7 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using static PuzzleUI;
+using UnityEngine.UI;
 
 public class PuzzleGallery : MonoBehaviour
 {
@@ -9,8 +9,6 @@ public class PuzzleGallery : MonoBehaviour
 
     public void Build(PuzzleCatalog catalog, int page, Action<int> changePage, Action<int> open, Action close)
     {
-        var content = (RectTransform)transform;
-        Label(content, "GALERÍA", 0, 402, 680, 60, 32, Ink);
         var completed = new List<int>();
         for (int i = 0; i < catalog.Count; i++)
             if (StoryProgress.IsPuzzleUnlocked(catalog, i))
@@ -21,31 +19,26 @@ public class PuzzleGallery : MonoBehaviour
 
         int pages = Mathf.Max(1, Mathf.CeilToInt(completed.Count / (float)PageSize));
         page = Mathf.Clamp(page, 0, pages - 1);
-        if (completed.Count == 0)
-            Label(content, "Resuelve un puzle para añadir su imagen.", 0, 35, 640, 100, 24, Muted);
-
-        for (int slot = 0; slot < PageSize && page * PageSize + slot < completed.Count; slot++)
+        transform.Find("Empty").gameObject.SetActive(completed.Count == 0);
+        for (int slot = 0; slot < PageSize; slot++)
         {
+            string path = "Image " + slot;
+            var card = transform.Find(path);
+            bool visible = page * PageSize + slot < completed.Count;
+            card.gameObject.SetActive(visible);
+            if (!visible) continue;
             int index = completed[page * PageSize + slot];
-            int puzzle = index / 3;
-            int difficulty = index % 3;
-            float x = (slot % 3 - 1) * 226;
-            float y = 215 - slot / 3 * 285;
-            var card = Button(content, "", x, y, 210, 250, () => open(index));
-            card.name = "Gallery Image " + index;
-            var rect = (RectTransform)card.transform;
-            Preview(rect, catalog[puzzle].ImageForDifficulty(difficulty), 0, 25, 180);
-            Label(rect, catalog[puzzle].title, 0, -77, 200, 34, 20, Ink);
-            Label(rect, PuzzleSession.DifficultyNames[difficulty], 0, -108, 200, 28, 16, Muted);
+            MenuControls.Bind(transform, path, () => open(index));
+            MenuControls.SetTexture(MenuControls.Get<RawImage>(card, "Artwork"),
+                catalog[index / 3].ImageForDifficulty(index % 3));
         }
 
-        if (pages > 1)
-        {
-            int current = page;
-            Button(content, "‹", -180, -365, 72, 58, () => changePage(current - 1)).interactable = page > 0;
-            Label(content, $"{page + 1} / {pages}", 0, -365, 180, 58, 23, Ink);
-            Button(content, "›", 180, -365, 72, 58, () => changePage(current + 1)).interactable = page + 1 < pages;
-        }
-        Button(content, "Volver", 0, -447, 260, 48, () => close());
+        int current = page;
+        transform.Find("Pages").gameObject.SetActive(pages > 1);
+        MenuControls.Bind(transform, "Pages/Previous", () => changePage(current - 1)).interactable = page > 0;
+        CanvasText.Set(MenuControls.Get<Text>(transform, "Pages/Number"), 0, page + 1, pages);
+        MenuControls.Bind(transform, "Pages/Next", () => changePage(current + 1)).interactable = page + 1 < pages;
+        MenuControls.Bind(transform, "Back", () => close());
     }
 }
+

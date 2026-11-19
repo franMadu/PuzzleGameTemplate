@@ -20,7 +20,7 @@ Un capítulo narrativo puede contener solo conversaciones y no necesita una entr
 
 1. Crear o duplicar un catálogo. El menú de creación es `Create → One Hand Puzzle → Catalog`.
 2. Darle un `Progress Id` permanente y propio, por ejemplo `OneHandPuzzle.NuevoViaje`. Ese valor separa el progreso de otros catálogos.
-3. Configurar `Game Title`, `Ending Text` y la referencia `Story`.
+3. Configurar `Game Title`, `Menu Background`, `Ending Text` y la referencia `Story`. `Game Title` aparece en la pantalla inicial; `Menu Background` es la textura del menú principal, ajustada para cubrir la pantalla sin deformarse. El ejemplo reutiliza `PuzzleLandscape.png`; se puede sustituir por una ilustración propia del menú.
 4. Crear o duplicar la secuencia con `Create → One Hand Puzzle → Story Sequence`.
 5. Preparar los personajes, conversaciones, definiciones de puzzles y agrupaciones narrativas descritos a continuación.
 6. Asignar el mismo catálogo al `PuzzleMenu` de `MainMenu` y a los `PuzzleSceneController` de `PuzzleEasy`, `PuzzleNormal` y `PuzzleHard`, además del `StorySceneController` de `Story`.
@@ -85,7 +85,7 @@ En `Assets/Data/PuzzleCatalog.asset`, añadir una entrada en `Chapters` y anotar
 
 | Campo | Función |
 | --- | --- |
-| `Title` | Nombre del puzzle, utilizado en resultados y galería. |
+| `Title` | Nombre del puzzle, utilizado en selección y resultados. La galería muestra solo las imágenes. |
 | `Story` | Descripción heredada; actualmente no se muestra al jugador. |
 | `Imagen · Fácil (3×3)` | Textura de la dificultad fácil. Su nombre de campo en código sigue siendo `image`. |
 | `Imagen · Normal (4×4)` | Textura de la dificultad normal, campo `normalImage`. |
@@ -185,10 +185,16 @@ Esta distribución reutiliza los recursos disponibles para probar imágenes inde
 
 ## Ajustar la presentación
 
-La interfaz se construye principalmente desde código. Los estilos compartidos están en `PuzzleUI`; menú, biblioteca, galería y ajustes definen allí sus elementos mediante sus respectivos controladores. Cambiar los elementos generados durante Play no modifica la configuración permanente.
+Los elementos estáticos de la interfaz están guardados en los Canvas de las escenas. En `MainMenu`, expandir `Main Menu Canvas` para editar título, menú principal, galería, visor, selección de historia, ajustes y recapitulación. Cada panel tiene sus controles dentro de `Content`; el visor utiliza `Viewport` y `Controls`. Activar temporalmente un panel en el editor permite ajustar posiciones, tamaños, colores y textos. Al iniciar el juego, el controlador activa la pantalla correspondiente.
+
+Los textos fijos se editan en el componente `Text` de cada objeto. Los textos que cambian de estado o muestran valores (ajustes, fondo seleccionado, movimientos, notas y paginación) tienen además un componente `CanvasText`: editar su lista **Textos por estado**, conservando los marcadores `{0}`, `{1}`, etc. para los valores del juego. Estas variantes se guardan en la escena y el código respeta su contenido. Los títulos de capítulos y las conversaciones se editan en sus assets de catálogo e historia.
+
+Las escenas `PuzzleEasy`, `PuzzleNormal` y `PuzzleHard` contienen los botones del tablero, las capas de revelado, el panel de resultados y el diálogo. `Story` contiene el diálogo y los paneles de final y error; `DialogueDemo`, el diálogo y sus botones finales. El código actualiza imágenes, valores, visibilidad y acciones sin reconstruir estos controles. Mantener los nombres de los objetos y las referencias serializadas al editar la jerarquía. `Tools > One Hand Puzzle > Validate Canvas References` comprueba las seis escenas sin modificar las escenas abiertas.
+
+`Menu Background` del catálogo es el fondo inicial del menú principal. Desde la galería, el jugador puede abrir una imagen completada y pulsar **Usar como fondo** para sustituirlo; la elección se guarda por identificador de juego. La vista ampliada dispone de zoom de 1× a 4× y arrastre cuando la imagen supera el tamaño de pantalla.
 
 Las escenas utilizan una resolución de referencia de Canvas de 900×1000. El contenido de menú utiliza un área de 720×920. El cuadro de conversación y el visor de galería se anclan al tamaño de pantalla.
 
-En `DialogueController` se pueden ajustar velocidad base, opacidad, escala del oyente, duración del cambio de foco, duración de entrada y salida y distancia al borde. Los ajustes guardados de opacidad y velocidad del jugador pueden modificar el resultado visible.
+En `DialogueController` se pueden ajustar velocidad base, opacidad, escala del oyente, duración del cambio de foco y duración de entrada y salida. La posición y distancia al borde de los personajes se editan en los RectTransform `Dialogue/Content/Left Character` y `Right Character` de cada Canvas. Los ajustes guardados de opacidad y velocidad del jugador pueden modificar el resultado visible.
 
 En el componente `Puzzle` de cada escena se configuran `Slide Duration`, `Completion Flash In Duration`, `Completion Flash Out Duration` y `Completed Image Hold Duration`. Sus valores por defecto son 0,16 s, 1 s, 1,1 s y 0,9 s, respectivamente. Son configuraciones de escena: revisar las tres dificultades al cambiarlas.

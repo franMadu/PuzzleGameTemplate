@@ -16,7 +16,6 @@ public class DialogueController : MonoBehaviour
     [SerializeField, Range(0.75f, 1)] private float inactiveCharacterScale = 0.92f;
     [SerializeField, Min(0)] private float focusTransitionDuration = 0.18f;
     [SerializeField, Min(0)] private float characterTransitionDuration = 0.28f;
-    [SerializeField, Min(0)] private float characterEdgeInset = 160;
     public bool IsPlaying { get; private set; }
     public bool IsTyping { get; private set; }
     public int PageIndex { get; private set; }
@@ -61,7 +60,8 @@ public class DialogueController : MonoBehaviour
     }
 
     private readonly List<Page> pages = new List<Page>();
-    private RectTransform screen;
+    [SerializeField] private RectTransform screen;
+    private bool uiBound;
     private Text speakerText;
     private Text bodyText;
     private Button advanceButton;
@@ -87,6 +87,10 @@ public class DialogueController : MonoBehaviour
     public void Play(DialogueSequence sequence, Texture2D image = null, Action finished = null, bool smoothTransitions = false)
     {
         EnsureUI();
+        var panel = MenuControls.Get<Image>(screen, "Content/Dialogue Box");
+        var panelColor = panel.color;
+        panelColor.a = GamePreferences.DialogueOpacity(dialogueOpacity);
+        panel.color = panelColor;
         Cancel();
         smoothPlayback = smoothTransitions;
         finishing = false;
@@ -387,72 +391,18 @@ public class DialogueController : MonoBehaviour
 
     private void EnsureUI()
     {
-        if (screen != null) return;
-        screen = Screen("Dialogue", (RectTransform)transform);
-        backdrop = Rect("Chapter Background", screen, 0, 0, 0, 0).gameObject.AddComponent<RawImage>();
-        backdrop.rectTransform.anchorMin = Vector2.zero;
-        backdrop.rectTransform.anchorMax = Vector2.one;
-        backdrop.color = new Color(0.35f, 0.35f, 0.35f, 1);
-        backdrop.raycastTarget = false;
-        var content = Rect("Content", screen, 0, 0, 0, 0);
-        content.anchorMin = Vector2.zero;
-        content.anchorMax = Vector2.one;
-        leftCharacter = CharacterImage("Left Character", content, false);
-        rightCharacter = CharacterImage("Right Character", content, true);
+        if (uiBound) return;
+        backdrop = MenuControls.Get<RawImage>(screen, "Chapter Background");
+        leftCharacter = MenuControls.Get<Image>(screen, "Content/Left Character");
+        rightCharacter = MenuControls.Get<Image>(screen, "Content/Right Character");
         leftFocus.basePosition = leftCharacter.rectTransform.anchoredPosition;
         rightFocus.basePosition = rightCharacter.rectTransform.anchoredPosition;
-        var panel = Rect("Dialogue Box", content, 0, 18, -36, 240);
-        panel.anchorMin = Vector2.zero;
-        panel.anchorMax = Vector2.right;
-        panel.pivot = new Vector2(0.5f, 0);
-        var panelColor = Panel;
-        panelColor.a = GamePreferences.DialogueOpacity(dialogueOpacity);
-        panel.gameObject.AddComponent<Image>().color = panelColor;
-        speakerTab = Rect("Speaker Name Box", panel, 0, 0, 210, 44);
-        speakerTab.gameObject.AddComponent<Image>().color = Accent;
-        speakerText = Label(speakerTab, "", 0, 0, 178, 38, 23, Ink);
-        speakerText.alignment = TextAnchor.MiddleLeft;
-        speakerText.supportRichText = false;
-        speakerText.resizeTextForBestFit = true;
-        speakerText.resizeTextMinSize = 14;
-        speakerText.resizeTextMaxSize = 23;
-        bodyText = Label(panel, "", 0, 0, 0, 0, 23, Ink);
-        bodyText.rectTransform.anchorMin = Vector2.zero;
-        bodyText.rectTransform.anchorMax = Vector2.one;
-        bodyText.rectTransform.offsetMin = new Vector2(28, 76);
-        bodyText.rectTransform.offsetMax = new Vector2(-28, -24);
-        bodyText.alignment = TextAnchor.UpperLeft;
-        bodyText.supportRichText = false;
-        advanceButton = Control(panel, false, Advance);
-        skipButton = Control(panel, true, Skip);
-        screen.gameObject.SetActive(false);
-    }
-
-    private Image CharacterImage(string name, RectTransform parent, bool right)
-    {
-        // Extend full-body cutouts below the viewport to frame the visible figure around the knees.
-        var rect = Rect(name, parent, right ? -characterEdgeInset : characterEdgeInset, -330, 600, 1320);
-        rect.anchorMin = rect.anchorMax = new Vector2(right ? 1 : 0, 0);
-        rect.pivot = new Vector2(0.5f, 0);
-        var image = rect.gameObject.AddComponent<Image>();
-        image.preserveAspect = true;
-        image.raycastTarget = false;
-        image.gameObject.SetActive(false);
-        return image;
-    }
-
-    private static Button Control(RectTransform panel, bool close, UnityEngine.Events.UnityAction action)
-    {
-        var rect = Rect(close ? "Skip" : "Advance", panel, close ? 38 : -38, 34, 64, 64);
-        rect.anchorMin = rect.anchorMax = close ? Vector2.zero : Vector2.right;
-        var graphic = rect.gameObject.AddComponent<DialogueControlGraphic>();
-        graphic.color = Ink;
-        graphic.SetCloseIcon(close);
-        var button = rect.gameObject.AddComponent<Button>();
-        ButtonSound.Bind(button);
-        button.targetGraphic = graphic;
-        button.navigation = new Navigation { mode = Navigation.Mode.None };
-        button.onClick.AddListener(action);
-        return button;
+        var panel = MenuControls.Get<RectTransform>(screen, "Content/Dialogue Box");
+        speakerTab = MenuControls.Get<RectTransform>(panel, "Speaker Name Box");
+        speakerText = MenuControls.Get<Text>(speakerTab, "Name");
+        bodyText = MenuControls.Get<Text>(panel, "Body");
+        advanceButton = MenuControls.Bind(panel, "Advance", Advance);
+        skipButton = MenuControls.Bind(panel, "Skip", Skip);
+        uiBound = true;
     }
 }

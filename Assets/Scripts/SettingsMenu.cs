@@ -1,8 +1,7 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static PuzzleUI;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -13,82 +12,82 @@ public class SettingsMenu : MonoBehaviour
     private readonly List<Vector2Int> resolutions = new List<Vector2Int>();
     private int resolutionIndex;
     private bool fullscreen;
-    private Button fullscreenButton;
     private Text resolutionLabel;
 
     public void Build(Action onClose)
     {
         close = onClose;
-        var content = (RectTransform)transform;
-        Label(content, "CONFIGURACIÓN", 0, 410, 680, 65, 34, Ink);
-        Label(content, "SONIDO", 0, 342, 680, 44, 23, Ink);
-        Volume(content, "Volumen general", "Master Volume", 285, GamePreferences.MasterVolume, GamePreferences.SetMasterVolume);
-        Volume(content, "Música", "Music Volume", 230, GamePreferences.MusicVolume, GamePreferences.SetMusicVolume);
-        Volume(content, "Efectos de sonido", "Effects Volume", 175, GamePreferences.EffectsVolume, GamePreferences.SetEffectsVolume);
-        var mute = Button(content, "", 0, 115, 540, 48, () => { });
-        var muteText = Label((RectTransform)mute.transform, MuteLabel(), 0, 0, 520, 44, 21, Ink);
-        mute.name = "Mute";
-        mute.onClick.AddListener(() => { GamePreferences.SetMuted(!GamePreferences.Muted); muteText.text = MuteLabel(); });
-
-        Label(content, "DIÁLOGOS", 0, 58, 680, 44, 23, Ink);
-        var speed = Button(content, "", 0, 0, 540, 48, () => { });
-        speed.name = "Text Speed";
-        var speedText = Label((RectTransform)speed.transform, SpeedLabel(), 0, 0, 520, 44, 21, Ink);
-        speed.onClick.AddListener(() => { GamePreferences.SetTextSpeed((GamePreferences.TextSpeed + 1) % 4); speedText.text = SpeedLabel(); });
-        Volume(content, "Opacidad del cuadro", "Dialogue Opacity", -60, GamePreferences.DialogueOpacity(), GamePreferences.SetDialogueOpacity, 0.45f);
-
-        Label(content, "PANTALLA", 0, -125, 680, 44, 23, Ink);
-        fullscreen = UnityEngine.Screen.fullScreen;
-        fullscreenButton = Button(content, FullscreenLabel(), 0, -180, 540, 48, () =>
+        Volume("Master Volume", GamePreferences.MasterVolume, GamePreferences.SetMasterVolume);
+        Volume("Music Volume", GamePreferences.MusicVolume, GamePreferences.SetMusicVolume);
+        Volume("Effects Volume", GamePreferences.EffectsVolume, GamePreferences.SetEffectsVolume);
+        Volume("Dialogue Opacity", GamePreferences.DialogueOpacity(), GamePreferences.SetDialogueOpacity);
+        MenuControls.Bind(transform, "Mute", () =>
+        {
+            GamePreferences.SetMuted(!GamePreferences.Muted);
+            RefreshLabels();
+        });
+        MenuControls.Bind(transform, "Text Speed", () =>
+        {
+            GamePreferences.SetTextSpeed((GamePreferences.TextSpeed + 1) % 4);
+            RefreshLabels();
+        });
+        fullscreen = Screen.fullScreen;
+        BuildResolutions();
+        resolutionLabel = MenuControls.Get<Text>(transform, "Resolution");
+        RefreshResolution();
+        MenuControls.Bind(transform, "Fullscreen", () =>
         {
             fullscreen = !fullscreen;
-            var selected = resolutions[resolutionIndex];
-            GamePreferences.ApplyDisplay(selected.x, selected.y, fullscreen);
-            fullscreenButton.GetComponentInChildren<Text>().text = FullscreenLabel();
-        });
-        fullscreenButton.name = "Fullscreen";
-        BuildResolutions();
-        resolutionLabel = Label(content, ResolutionLabel(), 0, -239, 420, 46, 22, Ink);
-        var previous = Button(content, "‹", -260, -239, 54, 48, () => ChangeResolution(-1));
-        var next = Button(content, "›", 260, -239, 54, 48, () => ChangeResolution(1));
-        previous.name = "Previous Resolution";
-        next.name = "Next Resolution";
-        fullscreenButton.interactable = GamePreferences.DisplaySupported;
-        previous.interactable = next.interactable = GamePreferences.DisplaySupported && resolutions.Count > 1;
-        if (!GamePreferences.DisplaySupported) resolutionLabel.text = "Automática";
-
+            var size = resolutions[resolutionIndex];
+            GamePreferences.ApplyDisplay(size.x, size.y, fullscreen);
+            RefreshLabels();
+        }).interactable = GamePreferences.DisplaySupported;
+        MenuControls.Bind(transform, "Previous Resolution", () => ChangeResolution(-1)).interactable =
+            GamePreferences.DisplaySupported && resolutions.Count > 1;
+        MenuControls.Bind(transform, "Next Resolution", () => ChangeResolution(1)).interactable =
+            GamePreferences.DisplaySupported && resolutions.Count > 1;
+        transform.Find("God Mode").gameObject.SetActive(Application.isEditor);
 #if UNITY_EDITOR
-        var godMode = Button(content, "", 0, -296, 540, 42, () => { });
-        godMode.name = "God Mode";
-        var godText = Label((RectTransform)godMode.transform, GodModeLabel(), 0, 0, 520, 40, 21, Ink);
-        godMode.onClick.AddListener(() => { GamePreferences.SetGodMode(!GamePreferences.GodMode); godText.text = GodModeLabel(); });
+        MenuControls.Bind(transform, "God Mode", () =>
+        {
+            GamePreferences.SetGodMode(!GamePreferences.GodMode);
+            RefreshLabels();
+        });
 #endif
-        Button(content, "Restablecer ajustes", 0, -355, 420, 48, () =>
+        MenuControls.Bind(transform, "Restore Defaults", () =>
         {
             GamePreferences.RestoreDefaults();
-            foreach (Transform child in transform) { child.gameObject.SetActive(false); Destroy(child.gameObject); }
             Build(close);
         });
-        Button(content, "Volver", 0, -420, 300, 60, Close);
+        MenuControls.Bind(transform, "Back", Close);
+        RefreshLabels();
     }
 
-    private static string MuteLabel() => "Silenciar: " + (GamePreferences.Muted ? "Sí" : "No");
+    private void RefreshLabels()
+    {
+        CanvasText.Set(MenuControls.Get<Text>(transform, "Mute/Label"), GamePreferences.Muted ? 1 : 0);
+        CanvasText.Set(MenuControls.Get<Text>(transform, "Text Speed/Label"), GamePreferences.TextSpeed);
+        CanvasText.Set(MenuControls.Get<Text>(transform, "Fullscreen/Label"), fullscreen ? 1 : 0);
 #if UNITY_EDITOR
-    private static string GodModeLabel() => "Modo dios (editor): " + (GamePreferences.GodMode ? "Activado" : "Desactivado");
+        CanvasText.Set(MenuControls.Get<Text>(transform, "God Mode/Label"), GamePreferences.GodMode ? 1 : 0);
 #endif
-    private static string SpeedLabel() => "Velocidad del texto: " + new[] { "Lenta", "Normal", "Rápida", "Instantánea" }[GamePreferences.TextSpeed];
-    private string FullscreenLabel() => "Modo: " + (fullscreen ? "Pantalla completa" : "Ventana");
-    private string ResolutionLabel() => $"{resolutions[resolutionIndex].x} × {resolutions[resolutionIndex].y}";
+    }
+
+    private void RefreshResolution()
+    {
+        var size = resolutions[resolutionIndex];
+        CanvasText.Set(resolutionLabel, GamePreferences.DisplaySupported ? 0 : 1, size.x, size.y);
+    }
 
     private void BuildResolutions()
     {
         resolutions.Clear();
-        foreach (var resolution in UnityEngine.Screen.resolutions)
+        foreach (var resolution in Screen.resolutions)
         {
             var size = new Vector2Int(resolution.width, resolution.height);
             if (size.x >= 640 && size.y >= 480 && !resolutions.Contains(size)) resolutions.Add(size);
         }
-        var current = new Vector2Int(UnityEngine.Screen.width, UnityEngine.Screen.height);
+        var current = new Vector2Int(Screen.width, Screen.height);
         if (!resolutions.Contains(current)) resolutions.Add(current);
         resolutions.Sort((a, b) => a.x != b.x ? a.x.CompareTo(b.x) : a.y.CompareTo(b.y));
         resolutionIndex = resolutions.IndexOf(current);
@@ -99,32 +98,17 @@ public class SettingsMenu : MonoBehaviour
         resolutionIndex = (resolutionIndex + direction + resolutions.Count) % resolutions.Count;
         var size = resolutions[resolutionIndex];
         GamePreferences.ApplyDisplay(size.x, size.y, fullscreen);
-        resolutionLabel.text = ResolutionLabel();
+        RefreshResolution();
     }
 
-    private static void Volume(RectTransform parent, string title, string name, float y, float value, Action<float> changed, float minimum = 0)
+    private void Volume(string path, float value, Action<float> changed)
     {
-        var label = Label(parent, title, -185, y, 270, 45, 21, Ink);
-        label.alignment = TextAnchor.MiddleLeft;
-        var rect = Rect(name, parent, 105, y, 270, 44);
-        rect.gameObject.AddComponent<Image>().color = Color.clear;
-        var slider = rect.gameObject.AddComponent<Slider>();
-        var track = Rect("Track", rect, 0, 0, 270, 8);
-        track.gameObject.AddComponent<Image>().color = Panel;
-        var fill = Rect("Fill", track, 0, 0, 0, 0);
-        fill.anchorMin = Vector2.zero; fill.anchorMax = Vector2.one;
-        fill.gameObject.AddComponent<Image>().color = Accent;
-        var handleArea = Rect("Handle Area", rect, 0, 0, 246, 44);
-        var handle = Rect("Handle", handleArea, 0, 0, 24, 30);
-        var graphic = handle.gameObject.AddComponent<Image>(); graphic.color = Ink;
-        slider.fillRect = fill;
-        slider.handleRect = handle;
-        slider.targetGraphic = graphic;
-        slider.minValue = minimum;
-        slider.maxValue = 1;
+        var slider = MenuControls.Get<Slider>(transform, path);
+        var percent = MenuControls.Get<Text>(transform, path + "/Percent");
+        slider.onValueChanged.RemoveAllListeners();
         slider.SetValueWithoutNotify(value);
-        var percent = Label(parent, $"{value:P0}", 290, y, 85, 44, 19, Muted);
-        slider.onValueChanged.AddListener(amount => { changed(amount); percent.text = $"{amount:P0}"; });
+        CanvasText.Set(percent, 0, value);
+        slider.onValueChanged.AddListener(amount => { changed(amount); CanvasText.Set(percent, 0, amount); });
     }
 
     private void Close() { GamePreferences.Save(); close?.Invoke(); }

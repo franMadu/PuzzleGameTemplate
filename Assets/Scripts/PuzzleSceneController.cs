@@ -17,9 +17,9 @@ public class PuzzleSceneController : MonoBehaviour
     private string storyStepId;
     private int replayStep = -1;
     private bool SequenceStory => storyMode && catalog.Story != null && storyStepId != null;
-    private RectTransform victoryScreen;
+    [SerializeField] private RectTransform victoryScreen;
     private Coroutine completionRoutine;
-    private Button completionContinue;
+    [SerializeField] private Button completionContinue;
     private int Difficulty => boardSize - 3;
 
     private void Awake()
@@ -59,12 +59,9 @@ public class PuzzleSceneController : MonoBehaviour
         }
         puzzle.Completed += OnCompleted;
         dialogue.ActiveChanged += OnDialogueActiveChanged;
-        gameTitle.text = $"{catalog[chapter].title} · {PuzzleSession.DifficultyNames[Difficulty]}";
-        gameTitle.fontSize = 28;
-        Button((RectTransform)gameLayout.transform, "Volver al menú", -184, -423, 220, 54,
+        CanvasText.Set(gameTitle, Difficulty, catalog[chapter].title);
+        MenuControls.Bind(gameLayout.transform, "Back to Menu",
             () => ReturnToMenu(PuzzleMenuPage.Main));
-        var shuffle = gameLayout.transform.Find("Shuffle Button") as RectTransform;
-        if (shuffle != null) shuffle.anchoredPosition = new Vector2(140, -423);
         PlayAgain();
     }
 
@@ -90,14 +87,13 @@ public class PuzzleSceneController : MonoBehaviour
     private void PlayAgain()
     {
         if (completionRoutine != null) { StopCoroutine(completionRoutine); completionRoutine = null; }
-        if (completionContinue != null) { Destroy(completionContinue.gameObject); completionContinue = null; }
+        completionContinue.gameObject.SetActive(false);
         var shuffle = gameLayout.transform.Find("Shuffle Button");
         if (shuffle != null) shuffle.gameObject.SetActive(true);
         dialogue.Cancel();
         if (victoryScreen != null)
         {
             victoryScreen.gameObject.SetActive(false);
-            Destroy(victoryScreen.gameObject);
         }
         gameLayout.SetActive(true);
         puzzle.Configure(catalog[chapter].ImageForDifficulty(Difficulty), boardSize);
@@ -132,7 +128,7 @@ public class PuzzleSceneController : MonoBehaviour
         completionRoutine = null;
         var shuffle = gameLayout.transform.Find("Shuffle Button");
         if (shuffle != null) shuffle.gameObject.SetActive(false);
-        completionContinue = Button((RectTransform)gameLayout.transform, "Continuar", 140, -423, 220, 54, () =>
+        MenuControls.Bind(gameLayout.transform, "Continue After Reveal", () =>
         {
             if (ScreenTransition.IsBusy || puzzle.IsRevealingCompletion) return;
             completionContinue.interactable = false;
@@ -145,33 +141,43 @@ public class PuzzleSceneController : MonoBehaviour
                 else ShowVictory();
             });
         });
-        completionContinue.name = "Continue After Reveal";
-        ScreenTransition.Replace(null, (RectTransform)completionContinue.transform);
+        completionContinue.interactable = true;
+        completionContinue.gameObject.SetActive(true);
+        ScreenTransition.Replace(null, (RectTransform)completionContinue.transform, false);
     }
 
     private void ShowVictory()
     {
-        victoryScreen = Screen("Puzzle Complete", (RectTransform)transform);
-        var content = Rect("Content", victoryScreen, 0, 0, 720, 920);
-        Label(content, catalog[chapter].title, 0, 377, 680, 70, 34, Ink);
-        Preview(content, catalog[chapter].ImageForDifficulty(Difficulty), 0, 183, 250);
-        Label(content, $"NOTA {puzzle.Grade}", 0, -26, 680, 78, 48, Ink);
-        Label(content, $"Movimientos: {puzzle.Moves} · Mínimo: {puzzle.MinimumMoves}", 0, -104, 680, 44, 23, Ink);
-        Label(content, $"Mejor: {PuzzleProgress.BestGrade(chapter, Difficulty, catalog.ProgressId)}", 0, -156, 680, 40, 21, Muted);
+        victoryScreen.gameObject.SetActive(true);
+        victoryScreen.SetAsLastSibling();
+        var content = victoryScreen.Find("Content");
+        MenuControls.Get<Text>(content, "Title").text = catalog[chapter].title;
+        MenuControls.SetTexture(MenuControls.Get<RawImage>(content, "Artwork"), catalog[chapter].ImageForDifficulty(Difficulty));
+        CanvasText.Set(MenuControls.Get<Text>(content, "Grade"), 0, puzzle.Grade);
+        CanvasText.Set(MenuControls.Get<Text>(content, "Moves"), 0, puzzle.Moves, puzzle.MinimumMoves);
+        CanvasText.Set(MenuControls.Get<Text>(content, "Best"), 0, PuzzleProgress.BestGrade(chapter, Difficulty, catalog.ProgressId));
         bool next = chapter + 1 < catalog.Count;
-        if (replayStep >= 0)
-            Button(content, "Continuar", 0, -291, 460, 66, () => ScreenTransition.LoadScene(PuzzleSession.StoryScene));
-        else if (SequenceStory)
-            Button(content, "Continuar historia", 0, -291, 460, 66, () => ScreenTransition.LoadScene(PuzzleSession.StoryScene));
+        var nextLabel = MenuControls.Get<Text>(content, "Next/Label");
+        if (replayStep >= 0 || SequenceStory)
+        {
+            CanvasText.Set(nextLabel, replayStep >= 0 ? 0 : 1);
+            MenuControls.Bind(content, "Next", () => ScreenTransition.LoadScene(PuzzleSession.StoryScene));
+        }
         else if (storyMode && next)
-            Button(content, "Siguiente capítulo", 0, -291, 460, 66, () =>
+        {
+            CanvasText.Set(nextLabel, 2);
+            MenuControls.Bind(content, "Next", () =>
             {
                 chapter++;
                 ReturnToMenu(PuzzleMenuPage.Story);
             });
+        }
         else
-            Button(content, "Elegir puzle y dificultad", 0, -291, 460, 66, () => ReturnToMenu(PuzzleMenuPage.Library));
-        Button(content, "Volver a jugar", 0, -371, 460, 60, () => ScreenTransition.Change(PlayAgain));
-        Button(content, "Menú principal", 0, -447, 300, 48, () => ReturnToMenu(PuzzleMenuPage.Main));
+        {
+            CanvasText.Set(nextLabel, 3);
+            MenuControls.Bind(content, "Next", () => ReturnToMenu(PuzzleMenuPage.Library));
+        }
+        MenuControls.Bind(content, "Play Again", () => ScreenTransition.Change(PlayAgain));
+        MenuControls.Bind(content, "Back", () => ReturnToMenu(PuzzleMenuPage.Main));
     }
 }

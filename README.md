@@ -16,14 +16,14 @@ Estado documentado: 19 de noviembre de 2026. Juego de ejemplo: **El camino de lo
 
 1. Abrir el proyecto con **Unity 6000.3.16f1**. Las dependencias están declaradas en [Packages/manifest.json](Packages/manifest.json); se utilizan uGUI, Input System y Universal Render Pipeline.
 2. Abrir [MainMenu.unity](Assets/Scenes/MainMenu.unity).
-3. Entrar en Play y elegir **Modo historia**.
+3. Entrar en Play, pulsar **Empezar juego** y elegir **Modo historia**.
 4. Para probar solo las conversaciones, abrir [DialogueDemo.unity](Assets/Scenes/DialogueDemo.unity).
 
 El menú principal es la primera escena habilitada para la compilación. También están habilitadas `Story`, las tres escenas de dificultad y `DialogueDemo`. La escena de demostración no forma parte del recorrido normal del juego.
 
 ## Funcionamiento para el jugador
 
-El menú principal ofrece **Modo historia**, **Capítulos**, **Galería**, **Salir** y un engranaje de configuración en la esquina superior derecha. El botón de historia cambia a **Continuar historia** o **Repetir historia** según el progreso.
+Al abrir el juego aparece una pantalla de título con el nombre del catálogo y **Empezar juego**. Este botón abre el menú principal, con una imagen de fondo configurable, el engranaje de ajustes arriba a la derecha y tres botones en la parte inferior: **Galería**, **Modo historia** y **Recapitulación**. Recapitulación abre los capítulos y subcapítulos desbloqueados. Al volver desde otras pantallas se regresa al menú principal sin repetir la pantalla de título.
 
 ### Historia
 
@@ -68,7 +68,7 @@ El reparto puede contener más de dos personajes, aunque solo hay dos visibles a
 
 ### Galería
 
-Cada combinación de puzzle y dificultad completada tiene una entrada independiente, siempre que el puzzle se haya alcanzado en la historia. Pulsar una miniatura abre la imagen completa ajustada a la pantalla, sin deformarla; otra pulsación vuelve a la galería. Este visor no cambia el modo de pantalla de la aplicación ni tiene zoom continuo.
+Cada combinación de puzzle y dificultad completada tiene una entrada independiente, siempre que el puzzle se haya alcanzado en la historia. Las miniaturas muestran solo la imagen con un marco fino. Pulsar una miniatura abre la imagen completa ajustada a la pantalla, sin deformarla. Los botones **+** y **−** y la rueda del ratón permiten ampliar hasta 4×; al ampliar se puede arrastrar la imagen. **Volver** regresa a la galería. **Usar como fondo** guarda esa imagen como fondo del menú principal, también para las siguientes sesiones.
 
 ### Configuración y salida
 
@@ -76,7 +76,6 @@ El engranaje abre los controles de volumen general, música, efectos, silencio, 
 
 En Unity Editor aparece además **Modo dios**, que señala la pieza del siguiente movimiento óptimo. Esta opción y el solucionador de pistas están excluidos de las compilaciones del juego, incluidas las de desarrollo.
 
-**Salir** cierra la aplicación compilada. En el Editor detiene Play.
 
 ## Contenido de ejemplo
 

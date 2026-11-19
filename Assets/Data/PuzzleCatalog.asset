@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier:
   progressId: OneHandPuzzle.RecuerdosDemo
   gameTitle: "EL CAMINO DE\nLOS RECUERDOS"
+  menuBackground: {fileID: 2800000, guid: 51d1be85345d40f18aa79160e1d881a2, type: 3}
   endingText: "Tres imágenes reconstruidas. Una promesa cumplida.\nEl próximo viaje lo empezamos juntos."
   story: {fileID: 11400000, guid: 0fe7b6d02491400f9a2d7c07c4ff8111, type: 2}
   chapters:

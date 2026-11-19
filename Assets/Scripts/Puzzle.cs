@@ -18,8 +18,8 @@ public class Puzzle : MonoBehaviour
     [SerializeField, Min(0)] private float completionFlashInDuration = 1f;
     [SerializeField, Min(0)] private float completionFlashOutDuration = 1.1f;
     [SerializeField, Min(0)] private float completedImageHoldDuration = 0.9f;
-    private RawImage completedImage;
-    private Image completionFlash;
+    [SerializeField] private RawImage completedImage;
+    [SerializeField] private Image completionFlash;
     private PuzzleTile[] cells;
     private bool initialized;
     private int emptyCell = 8;
@@ -197,8 +197,6 @@ public class Puzzle : MonoBehaviour
     private IEnumerator RevealCompletedImage()
     {
         IsRevealingCompletion = true;
-        if (completedImage == null)
-            completedImage = CompletionLayer("Completed Image").gameObject.AddComponent<RawImage>();
         completedImage.raycastTarget = false;
         completedImage.texture = puzzleImage;
         float side = Mathf.Min(puzzleImage.width, puzzleImage.height);
@@ -206,8 +204,6 @@ public class Puzzle : MonoBehaviour
         completedImage.uvRect = new Rect((1 - width) / 2, (1 - height) / 2, width, height);
         completedImage.gameObject.SetActive(false);
         completedImage.transform.SetAsLastSibling();
-        if (completionFlash == null)
-            completionFlash = CompletionLayer("Completion Flash").gameObject.AddComponent<Image>();
         completionFlash.raycastTarget = false;
         completionFlash.color = new Color(1, 1, 1, 0);
         completionFlash.gameObject.SetActive(true);
@@ -220,16 +216,6 @@ public class Puzzle : MonoBehaviour
         completionFlash.gameObject.SetActive(false);
         if (completedImageHoldDuration > 0) yield return new WaitForSecondsRealtime(completedImageHoldDuration);
         IsRevealingCompletion = false;
-    }
-
-    private RectTransform CompletionLayer(string name)
-    {
-        var rect = new GameObject(name, typeof(RectTransform)).GetComponent<RectTransform>();
-        rect.SetParent(board, false);
-        rect.anchorMin = Vector2.zero; rect.anchorMax = Vector2.one;
-        rect.offsetMin = rect.offsetMax = Vector2.zero;
-        rect.gameObject.layer = board.gameObject.layer;
-        return rect;
     }
 
     private IEnumerator FadeCompletionFlash(float from, float to, float duration)
@@ -251,6 +237,6 @@ public class Puzzle : MonoBehaviour
 
     private void UpdateStatus()
     {
-        status.text = $"Movimientos: {moves}  ·  Mínimo: {MinimumMoves}";
+        CanvasText.Set(status, 0, moves, MinimumMoves);
     }
 }

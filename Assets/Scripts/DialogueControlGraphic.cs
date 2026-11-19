@@ -5,7 +5,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(CanvasRenderer))]
 public class DialogueControlGraphic : MaskableGraphic
 {
-    private bool closeIcon;
+    [SerializeField] private bool closeIcon;
 
     public void SetCloseIcon(bool close)
     {

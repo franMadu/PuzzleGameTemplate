@@ -4,6 +4,27 @@ using UnityEngine;
 public static class GamePreferences
 {
     private const string Prefix = "Game.Settings.";
+    public static int MenuBackgroundIndex(PuzzleCatalog catalog)
+        => PlayerPrefs.GetInt(Prefix + "MenuBackground." + catalog.ProgressId, -1);
+
+    public static void SetMenuBackground(PuzzleCatalog catalog, int index)
+    {
+        PlayerPrefs.SetInt(Prefix + "MenuBackground." + catalog.ProgressId, index);
+        Save();
+    }
+
+    public static Texture2D MenuBackground(PuzzleCatalog catalog)
+    {
+        int index = MenuBackgroundIndex(catalog);
+        if (index >= 0 && index / 3 < catalog.Count
+            && StoryProgress.IsPuzzleUnlocked(catalog, index / 3)
+            && (PuzzleProgress.CompletedMask(index / 3, catalog.ProgressId) & (1 << (index % 3))) != 0)
+        {
+            var texture = catalog[index / 3].ImageForDifficulty(index % 3);
+            if (texture != null) return texture;
+        }
+        return catalog.MenuBackground;
+    }
     public static bool GodMode
     {
         get

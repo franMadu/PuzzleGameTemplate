@@ -1,12 +1,15 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using static PuzzleUI;
 
 public class StorySceneController : MonoBehaviour
 {
     [SerializeField] private PuzzleCatalog catalog;
     [SerializeField] private DialogueController dialogue;
+    [SerializeField] private RectTransform endingScreen;
+    [SerializeField] private RectTransform errorScreen;
 
     private IEnumerator Start()
     {
@@ -45,11 +48,11 @@ public class StorySceneController : MonoBehaviour
             StoryProgress.Advance(catalog, step.id);
             yield return null;
         }
-        var screen = Screen("Story Complete", (RectTransform)transform);
-        var content = Rect("Content", screen, 0, 0, 720, 920);
-        Label(content, "FIN DE LA HISTORIA", 0, 130, 680, 90, 38, Ink);
-        Label(content, catalog.EndingText, 0, 15, 680, 120, 24, Muted);
-        Button(content, "Menú principal", 0, -120, 420, 70, ReturnToMenu);
+        endingScreen.gameObject.SetActive(true);
+        endingScreen.SetAsLastSibling();
+        var content = endingScreen.Find("Content");
+        MenuControls.Get<Text>(content, "Ending").text = catalog.EndingText;
+        MenuControls.Bind(content, "Back", ReturnToMenu);
     }
 
     private IEnumerator Replay()
@@ -77,9 +80,11 @@ public class StorySceneController : MonoBehaviour
     private void ShowError(string error)
     {
         Debug.LogError(error, this);
-        var screen = Screen("Story Configuration Error", (RectTransform)transform);
-        Label(screen, error, 0, 50, 680, 160, 24, Ink);
-        Button(screen, "Menú principal", 0, -100, 420, 70, ReturnToMenu);
+        errorScreen.gameObject.SetActive(true);
+        errorScreen.SetAsLastSibling();
+        var content = errorScreen.Find("Content");
+        MenuControls.Get<Text>(content, "Error").text = error;
+        MenuControls.Bind(content, "Back", ReturnToMenu);
     }
 
     private void ReturnToMenu()

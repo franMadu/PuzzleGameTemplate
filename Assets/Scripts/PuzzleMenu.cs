@@ -1,11 +1,18 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using static PuzzleUI;
 
 public class PuzzleMenu : MonoBehaviour
 {
     [SerializeField] private PuzzleCatalog catalog;
+    [SerializeField] private RectTransform titleScreen;
+    [SerializeField] private RectTransform mainScreen;
+    [SerializeField] private RectTransform galleryScreen;
+    [SerializeField] private RectTransform imageScreen;
+    [SerializeField] private RectTransform selectionScreen;
+    [SerializeField] private RectTransform settingsScreen;
+    [SerializeField] private RectTransform chaptersScreen;
+    [SerializeField] private RectTransform subchaptersScreen;
+    [SerializeField] private RectTransform difficultyScreen;
     private RectTransform screen;
     private int selected;
     private bool storyMode;
@@ -16,87 +23,97 @@ public class PuzzleMenu : MonoBehaviour
 
     private void Start()
     {
+        foreach (var panel in new[] { titleScreen, mainScreen, galleryScreen, imageScreen,
+                     selectionScreen, settingsScreen, chaptersScreen, subchaptersScreen, difficultyScreen })
+            panel.gameObject.SetActive(false);
         GameAudio.PlayMusic(null);
         selected = Mathf.Clamp(PuzzleSession.Chapter, 0, Unlocked - 1);
         var page = PuzzleSession.MenuPage;
         PuzzleSession.MenuPage = PuzzleMenuPage.Main;
-        if (page == PuzzleMenuPage.Main) ShowMain();
+        if (page == PuzzleMenuPage.Main)
+        {
+            if (PuzzleSession.TitleDismissed) ShowMain();
+            else ShowTitle();
+        }
         else if (page == PuzzleMenuPage.Library) ShowLibrary();
         else ShowSelection(true);
     }
 
-    private RectTransform NewScreen(string name)
+    private RectTransform Open(RectTransform panel)
     {
         var previous = screen;
-        screen = Screen(name, (RectTransform)transform);
-        ScreenTransition.Replace(previous, screen);
-        return Rect("Content", screen, 0, 0, 720, 920);
+        screen = panel;
+        screen.gameObject.SetActive(true);
+        screen.SetAsLastSibling();
+        if (previous != screen) ScreenTransition.Replace(previous, screen, false);
+        return (RectTransform)screen.Find("Content");
+    }
+
+    private void ShowTitle()
+    {
+        var content = Open(titleScreen);
+        MenuControls.SafeArea(content);
+        MenuControls.Get<Text>(content, "Title").text = catalog.GameTitle;
+        MenuControls.Bind(content, "Start", () =>
+        {
+            PuzzleSession.TitleDismissed = true;
+            ShowMain();
+        });
     }
 
     public void ShowMain()
     {
-        var content = NewScreen("Main Menu");
-        var gearRect = Rect("Settings", screen, -60, -60, 72, 72);
-        gearRect.anchorMin = gearRect.anchorMax = Vector2.one;
-        var gearGraphic = gearRect.gameObject.AddComponent<SettingsGearGraphic>();
-        gearGraphic.color = Ink;
-        var gear = gearRect.gameObject.AddComponent<Button>();
-        ButtonSound.Bind(gear);
-        gear.targetGraphic = gearGraphic;
-        gear.onClick.AddListener(() => NewScreen("Settings Menu").gameObject.AddComponent<SettingsMenu>().Build(ShowMain));
-        Label(content, catalog.GameTitle, 0, 260, 660, 150, 54, Ink);
-        int completed = 0;
-        for (int i = 0; i < catalog.Count; i++) if (CompletedMask(i) != 0) completed++;
-        bool finished = HasStory ? StoryProgress.Completed(catalog) : completed == catalog.Count;
-        bool started = HasStory ? StoryProgress.CurrentIndex(catalog) > 0 : completed > 0;
-        Button(content, finished ? "Repetir historia" : started ? "Continuar historia" : "Modo historia",
-            0, 30, 460, 78, () =>
+        PuzzleSession.TitleDismissed = true;
+        var content = Open(mainScreen);
+        MenuControls.SafeArea(content);
+        var texture = GamePreferences.MenuBackground(catalog);
+        var image = MenuControls.Get<RawImage>(mainScreen, "Menu Background/Artwork");
+        MenuControls.SetTexture(image, texture, false);
+        if (texture != null)
+            image.GetComponent<AspectRatioFitter>().aspectRatio = (float)texture.width / texture.height;
+        MenuControls.Bind(content, "Settings", () =>
+        {
+            var settings = Open(settingsScreen);
+            settings.GetComponent<SettingsMenu>().Build(ShowMain);
+        });
+        MenuControls.Bind(content, "Gallery", () => ShowGallery());
+        MenuControls.Bind(content, "Story", () =>
+        {
+            selected = 0;
+            if (HasStory) selected = StoryProgress.PreviewPuzzle(catalog);
+            else
             {
-                selected = 0;
-                if (HasStory) selected = StoryProgress.PreviewPuzzle(catalog);
-                else
-                {
-                    while (selected < catalog.Count && CompletedMask(selected) != 0) selected++;
-                    if (selected == catalog.Count) selected = 0;
-                }
-                ShowSelection(true);
-            });
-        Button(content, "Capítulos", 0, -72, 460, 78, () =>
+                while (selected < catalog.Count && CompletedMask(selected) != 0) selected++;
+                if (selected == catalog.Count) selected = 0;
+            }
+            ShowSelection(true);
+        });
+        MenuControls.Bind(content, "Recap", () =>
         {
             PuzzleSession.LibraryChapter = -1;
             ShowLibrary();
-        });
-        Button(content, "Galería", 0, -174, 460, 78, () => ShowGallery());
-        Button(content, "Salir", 0, -276, 460, 78, ExitGame);
+        }).interactable = HasStory;
     }
 
     private void ShowLibrary()
     {
         if (!HasStory) return;
-        new PuzzleLibrary(catalog, NewScreen, ShowMain).Open();
+        new PuzzleLibrary(catalog, name => Open(name == "Chapter Selection" ? chaptersScreen :
+            name == "Subchapter Selection" ? subchaptersScreen : difficultyScreen), ShowMain).Open();
     }
 
     private void ShowGallery(int page = 0)
     {
-        NewScreen("Gallery").gameObject.AddComponent<PuzzleGallery>().Build(catalog, page,
+        Open(galleryScreen).GetComponent<PuzzleGallery>().Build(catalog, page,
             ShowGallery, index => ShowGalleryImage(index, page), ShowMain);
     }
 
     private void ShowGalleryImage(int index, int page)
     {
-        var content = NewScreen("Gallery Image");
-        Destroy(content.gameObject);
-        screen.gameObject.AddComponent<GalleryImageViewer>().Build(catalog[index / 3].ImageForDifficulty(index % 3), () => ShowGallery(page));
-    }
-
-    private static void ExitGame()
-    {
-        PlayerPrefs.Save();
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        Open(imageScreen);
+        imageScreen.GetComponent<GalleryImageViewer>().Build(catalog[index / 3].ImageForDifficulty(index % 3),
+            () => ShowGallery(page), () => GamePreferences.SetMenuBackground(catalog, index),
+            GamePreferences.MenuBackgroundIndex(catalog) == index);
     }
 
     private void ShowSelection(bool story)
@@ -104,17 +121,19 @@ public class PuzzleMenu : MonoBehaviour
         if (!story) { ShowLibrary(); return; }
         storyMode = true;
         if (HasStory) selected = StoryProgress.PreviewPuzzle(catalog);
-        var content = NewScreen("Story Selection");
-        Label(content, "MODO HISTORIA", 0, 402, 680, 60, 32, Ink);
+        var content = Open(selectionScreen);
         int storyDifficulty = catalog[selected].StoryDifficulty;
-        if ((CompletedMask(selected) & (1 << storyDifficulty)) != 0)
-            Preview(content, catalog[selected].ImageForDifficulty(storyDifficulty), 0, 153, 270);
-        else Label(content, "?", 0, 153, 270, 270, 80, Muted);
-        string location = HasStory ? catalog.Story[StoryProgress.Completed(catalog) ? 0 : StoryProgress.CurrentIndex(catalog)].title : catalog[selected].title;
-        Label(content, location, 0, -17, 670, 52, 28, Ink);
-        Button(content, "Continuar viaje", 0, -373, 460, 66, PlaySelected);
-        Button(content, "Volver", 0, -447, 260, 48, ShowMain);
+        bool completed = (CompletedMask(selected) & (1 << storyDifficulty)) != 0;
+        MenuControls.SetTexture(MenuControls.Get<RawImage>(content, "Artwork"),
+            completed ? catalog[selected].ImageForDifficulty(storyDifficulty) : null);
+        content.Find("Hidden").gameObject.SetActive(!completed);
+        MenuControls.Get<Text>(content, "Location").text = HasStory
+            ? catalog.Story[StoryProgress.Completed(catalog) ? 0 : StoryProgress.CurrentIndex(catalog)].title
+            : catalog[selected].title;
+        MenuControls.Bind(content, "Continue", PlaySelected);
+        MenuControls.Bind(content, "Back", ShowMain);
     }
+
     private void PlaySelected()
     {
         if (storyMode && HasStory)
@@ -134,5 +153,5 @@ public class PuzzleMenu : MonoBehaviour
         PuzzleSession.Difficulty = catalog[selected].StoryDifficulty;
         ScreenTransition.LoadScene(PuzzleSession.GameScenes[PuzzleSession.Difficulty]);
     }
-
 }
+
