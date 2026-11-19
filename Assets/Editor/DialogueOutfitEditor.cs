@@ -79,10 +79,59 @@ public class DialogueExpressionIdDrawer : PropertyDrawer
             ids.Add(DialogueCharacter.DefaultExpressionId);
             names.Add("Predeterminada (restablecer)");
         }
-        foreach (string id in character.ExpressionIds)
+        foreach (string id in AvailableExpressionIds(property, character))
             if (!string.Equals(id, DialogueCharacter.DefaultExpressionId, StringComparison.OrdinalIgnoreCase))
             { ids.Add(id); names.Add(id); }
         DialogueOutfitIdDrawer.DrawChoices(position, property, label, ids, names, preserve);
+    }
+
+    internal static IEnumerable<string> AvailableExpressionIds(SerializedProperty property, DialogueCharacter character)
+    {
+        string outfitId = EffectiveOutfit(property, character);
+        IReadOnlyList<DialogueExpression> expressions = character.Expressions;
+        if (!string.IsNullOrWhiteSpace(outfitId)
+            && !string.Equals(outfitId, DialogueCharacter.DefaultOutfitId, StringComparison.OrdinalIgnoreCase))
+        {
+            expressions = Array.Empty<DialogueExpression>();
+            foreach (var outfit in character.Outfits)
+                if (outfit != null && string.Equals(outfit.id, outfitId, StringComparison.OrdinalIgnoreCase))
+                { expressions = outfit.expressions ?? Array.Empty<DialogueExpression>(); break; }
+        }
+        var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        foreach (var expression in expressions)
+            if (expression != null && expression.portrait != null && !string.IsNullOrWhiteSpace(expression.id)
+                && seen.Add(expression.id)) yield return expression.id;
+    }
+
+    // Read SerializedProperty values so outfit changes affect the dropdown immediately,
+    // before the Inspector has applied them to the sequence asset.
+    private static string EffectiveOutfit(SerializedProperty property, DialogueCharacter character)
+    {
+        var serialized = property.serializedObject;
+        if (!(serialized.targetObject is DialogueSequence)) return null;
+        string outfitId = null;
+        var initial = serialized.FindProperty("initialOutfits");
+        for (int i = 0; i < initial.arraySize; i++)
+        {
+            var selection = initial.GetArrayElementAtIndex(i);
+            if (selection.FindPropertyRelative("character").objectReferenceValue == character)
+                outfitId = selection.FindPropertyRelative("outfit").stringValue;
+        }
+        const string linePrefix = "lines.Array.data[";
+        if (!property.propertyPath.StartsWith(linePrefix, StringComparison.Ordinal)) return outfitId;
+        int end = property.propertyPath.IndexOf(']', linePrefix.Length);
+        if (end < 0 || !int.TryParse(property.propertyPath.Substring(linePrefix.Length, end - linePrefix.Length), out int lineIndex))
+            return outfitId;
+        var lines = serialized.FindProperty("lines");
+        // Include this line: its outfit change precedes both the speaker expression and reactions.
+        for (int i = 0; i <= lineIndex && i < lines.arraySize; i++)
+        {
+            var line = lines.GetArrayElementAtIndex(i);
+            if (line.FindPropertyRelative("character").objectReferenceValue != character) continue;
+            string selected = line.FindPropertyRelative("outfit").stringValue;
+            if (!string.IsNullOrWhiteSpace(selected)) outfitId = selected;
+        }
+        return outfitId;
     }
 }
 
