@@ -1989,7 +1989,7 @@ RectTransform:
   m_Father: {fileID: 920000010}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 160, y: -330}
+  m_AnchoredPosition: {x: 240, y: -330}
   m_SizeDelta: {x: 600, y: 1320}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &920000013
@@ -2048,7 +2048,7 @@ RectTransform:
   m_Father: {fileID: 920000010}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -160, y: -330}
+  m_AnchoredPosition: {x: -240, y: -330}
   m_SizeDelta: {x: 600, y: 1320}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &920000017
