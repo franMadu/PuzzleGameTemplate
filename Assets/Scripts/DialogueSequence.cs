@@ -41,6 +41,9 @@ public class DialogueLine
     [Tooltip("Nombre manual cuando no se asigna Character.")]
     public string speaker;
     [TextArea(3, 8)] public string text;
+    [InspectorName("Pensamiento")]
+    [Tooltip("Mostrar esta intervención como pensamiento interior, con el estilo y color configurados en el texto del Canvas.")]
+    public bool isThought;
     [Tooltip("Posición manual para diálogos sin reparto. Con Character, se calcula automáticamente.")]
     public DialogueSpeakerSide speakerSide;
     [Tooltip("Opcional: sustituye el personaje izquierdo. Vacío conserva el anterior.")]

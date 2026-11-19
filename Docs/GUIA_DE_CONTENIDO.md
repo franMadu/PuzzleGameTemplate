@@ -77,6 +77,8 @@ El nombre se toma del personaje asignado. Las líneas vacías se omiten y los te
 
 El texto de diálogo usa tamaño 34 en el Canvas. Cada página muestra como máximo cuatro líneas, sin reducir automáticamente la letra; un texto más largo continúa al avanzar. El límite se ajusta en `Max Lines Per Page` del `DialogueController`, y el tamaño de letra y de la caja siguen siendo editables en el Canvas.
 
+En cada línea, activar `Pensamiento` para el monólogo interior del personaje. Por defecto usa cursiva y azul claro. La siguiente intervención sin esa opción recupera el estilo hablado. En el Canvas, `Content/Dialogue Box/Body` contiene el componente `Dialogue Text Style`, donde se pueden editar los colores y estilos de letra de ambos modos. Los pensamientos largos conservan su estilo en todas sus páginas, respetando el límite de cuatro líneas.
+
 Activar `Enter On First Speech` para comenzar sin retratos: cada personaje entra desde el lateral cuando habla por primera vez. El primero con retrato ocupa la izquierda y el segundo la derecha; las voces sin retrato no cuentan. Una vez visible, el personaje permanece mientras escucha y conserva su expresión hasta que se cambie explícitamente mediante `Expression` o `Reactions`. La visibilidad utiliza el sprite del outfit y la expresión activos.
 
 Si hay tres o más personajes, el que entra sustituye al ocupante cuyo siguiente turno quede más lejos. Quien no vuelve a hablar tiene prioridad para salir. En caso de empate se sustituye al oyente. Un personaje mencionado mediante `Character` en una línea se incorpora al reparto aunque no se haya añadido expresamente a `Characters`; declarar el reparto completo permite controlar mejor la pareja inicial.

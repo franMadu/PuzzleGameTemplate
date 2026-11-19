@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Collections;
 using System.Linq;
 using System.Reflection;
 using UnityEditor;
@@ -42,7 +43,10 @@ public static class CanvasValidation
                     int before = roots.Sum(root => root.GetComponentsInChildren<Transform>(true).Length);
                     if (name == "MainMenu") ValidateMenu(components);
                     foreach (var dialogue in components.OfType<DialogueController>())
+                    {
                         Invoke(dialogue, "EnsureUI");
+                        ValidateThoughts(dialogue);
+                    }
                     foreach (var controller in components.OfType<PuzzleSceneController>())
                     {
                         var layout = Field<GameObject>(controller, "gameLayout").transform;
@@ -73,6 +77,49 @@ public static class CanvasValidation
             Debug.LogException(error);
         }
         finally { PuzzleSession.LibraryChapter = previousLibraryChapter; }
+    }
+
+    private static void ValidateThoughts(DialogueController controller)
+    {
+        var body = Field<Text>(controller, "bodyText");
+        var style = body.GetComponent<DialogueTextStyle>();
+        Require(style != null, "Dialogue Body needs an editable thought style on the Canvas");
+        Field<RectTransform>(controller, "screen").gameObject.SetActive(true);
+        // Preview scenes have no game-view layout pass; use the authored portrait text area.
+        body.rectTransform.anchorMin = body.rectTransform.anchorMax = Vector2.zero;
+        body.rectTransform.sizeDelta = new Vector2(808, 170);
+        Canvas.ForceUpdateCanvases();
+        var lines = new[] {
+            new DialogueLine { speaker = "Personaje", isThought = true,
+                text = string.Join(" ", Enumerable.Repeat("No quiero ir. ¿Por qué tengo que visitar a la abuela?", 20)) },
+            new DialogueLine { speaker = "Personaje", text = "Ya estoy despierto." }
+        };
+        var pages = Field<IList>(controller, "pages");
+        pages.Clear();
+        foreach (var line in lines)
+        {
+            var pageType = typeof(DialogueController).GetNestedType("Page", BindingFlags.NonPublic);
+            var page = Activator.CreateInstance(pageType, true);
+            pageType.GetField("text").SetValue(page, line.text);
+            pageType.GetField("isThought").SetValue(page, line.isThought);
+            Invoke(controller, "AddPages", page);
+        }
+        Require(pages.Count > 2, "Thought is split into multiple pages");
+        for (int i = 0; i < pages.Count; i++)
+        {
+            typeof(DialogueController).GetProperty("PageIndex").SetValue(controller, i);
+            Invoke(controller, "ShowPage", true);
+            bool thought = (bool)pages[i].GetType().GetField("isThought").GetValue(pages[i]);
+            Require(thought == (i < pages.Count - 1), "All thought fragments keep the thought flag; speech resets it");
+            Require(body.fontStyle == style.GetFontStyle(thought), "Correct font style for thought/speech");
+            Require(body.color == Field<Color>(style, thought ? "thoughtColor" : "spokenColor"), "Correct Canvas color for thought/speech");
+            string content = (string)pages[i].GetType().GetField("text").GetValue(pages[i]);
+            var settings = body.GetGenerationSettings(new Vector2(body.rectTransform.rect.width, 0));
+            float height = body.cachedTextGeneratorForLayout.GetPreferredHeight(content, settings) / body.pixelsPerUnit;
+            Require(body.cachedTextGeneratorForLayout.lineCount <= 4 && height <= body.rectTransform.rect.height - 4,
+                "Thought style is measured correctly and fits within four lines");
+        }
+        pages.Clear();
     }
 
     private static void ValidateFont(Text label)

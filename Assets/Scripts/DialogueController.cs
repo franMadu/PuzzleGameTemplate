@@ -29,6 +29,7 @@ public class DialogueController : MonoBehaviour
     {
         public string speaker;
         public string text;
+        public bool isThought;
         public DialogueSpeakerSide speakerSide;
         public Sprite leftCharacter;
         public Sprite rightCharacter;
@@ -109,7 +110,7 @@ public class DialogueController : MonoBehaviour
                 foreach (var stage in stages)
                     AddPages(new Page {
                         speaker = stage.Speaker != null ? stage.Speaker.DisplayName : stage.Line.speaker,
-                        text = stage.Line.text, speakerSide = stage.SpeakingSide,
+                        text = stage.Line.text, isThought = stage.Line.isThought, speakerSide = stage.SpeakingSide,
                         leftActor = stage.Left, rightActor = stage.Right,
                         leftCharacter = stage.Line.hideLeftCharacter ? null : stage.Line.leftCharacter != null ? stage.Line.leftCharacter : stage.LeftAppearance.Portrait,
                         rightCharacter = stage.Line.hideRightCharacter ? null : stage.Line.rightCharacter != null ? stage.Line.rightCharacter : stage.RightAppearance.Portrait,
@@ -128,7 +129,7 @@ public class DialogueController : MonoBehaviour
                     else if (line.leftCharacter != null) left = line.leftCharacter;
                     if (line.hideRightCharacter) right = null;
                     else if (line.rightCharacter != null) right = line.rightCharacter;
-                    AddPages(new Page { speaker = line.speaker, text = line.text, speakerSide = line.speakerSide,
+                    AddPages(new Page { speaker = line.speaker, text = line.text, isThought = line.isThought, speakerSide = line.speakerSide,
                         leftCharacter = left, rightCharacter = right, leftFacesLeft = sequence.LeftFacesLeft, rightFacesLeft = sequence.RightFacesLeft });
                 }
             }
@@ -208,6 +209,8 @@ public class DialogueController : MonoBehaviour
     private void ShowPage(bool snapFocus = false)
     {
         var page = pages[PageIndex];
+        var style = bodyText.GetComponent<DialogueTextStyle>();
+        if (style != null) style.Apply(page.isThought);
         speakerText.text = page.speaker;
         speakerTab.gameObject.SetActive(!string.IsNullOrWhiteSpace(page.speaker));
         SetCharacter(leftCharacter, page.leftCharacter, page.leftActor, page.leftFacesLeft,
@@ -367,6 +370,8 @@ public class DialogueController : MonoBehaviour
     {
         string remaining = source.text.Trim();
         var settings = bodyText.GetGenerationSettings(new Vector2(bodyText.rectTransform.rect.width, 0));
+        var style = bodyText.GetComponent<DialogueTextStyle>();
+        if (style != null) settings.fontStyle = style.GetFontStyle(source.isThought);
         while (remaining.Length > 0)
         {
             int[] offsets = StringInfo.ParseCombiningCharacters(remaining);
@@ -387,6 +392,7 @@ public class DialogueController : MonoBehaviour
                 if (space > end / 2) end = space;
             }
             pages.Add(new Page { speaker = source.speaker, speakerSide = source.speakerSide,
+                isThought = source.isThought,
                 leftCharacter = source.leftCharacter, rightCharacter = source.rightCharacter,
                 leftActor = source.leftActor, rightActor = source.rightActor,
                 leftFacesLeft = source.leftFacesLeft, rightFacesLeft = source.rightFacesLeft,
