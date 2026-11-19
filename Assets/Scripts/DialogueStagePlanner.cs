@@ -45,8 +45,15 @@ public static class DialogueStagePlanner
             if (selection != null && selection.character != null && expressions.ContainsKey(selection.character))
                 expressions[selection.character] = selection.expression;
         RefreshAppearances(sequence, cast, outfits, expressions, appearances, "inicio", ref appearanceError);
-        DialogueCharacter left = cast[0];
-        DialogueCharacter right = cast.Count > 1 ? cast[1] : null;
+        DialogueCharacter left = null;
+        DialogueCharacter right = null;
+        if (!sequence.EnterOnFirstSpeech)
+            foreach (var actor in cast)
+            {
+                if (appearances[actor].Portrait == null) continue;
+                if (left == null) left = actor;
+                else { right = actor; break; }
+            }
         DialogueSpeakerSide previousSide = DialogueSpeakerSide.Narration;
         var lines = sequence.Lines;
         for (int index = 0; index < lines.Length; index++)
@@ -62,8 +69,12 @@ public static class DialogueStagePlanner
                 if (reaction?.character != null && expressions.ContainsKey(reaction.character) && !string.IsNullOrWhiteSpace(reaction.expression))
                     expressions[reaction.character] = reaction.expression;
             RefreshAppearances(sequence, cast, outfits, expressions, appearances, "intervención " + (index + 1), ref appearanceError);
+            // A voice without a sprite never reserves a visible slot or evicts a listener.
+            // Recheck after outfit changes, which may add or remove an actor's portrait.
+            if (left != null && appearances[left].Portrait == null) left = null;
+            if (right != null && appearances[right].Portrait == null) right = null;
             DialogueSpeakerSide side = DialogueSpeakerSide.Narration;
-            if (actor != null)
+            if (actor != null && appearances[actor].Portrait != null)
             {
                 if (actor == left) side = DialogueSpeakerSide.Left;
                 else if (actor == right) side = DialogueSpeakerSide.Right;

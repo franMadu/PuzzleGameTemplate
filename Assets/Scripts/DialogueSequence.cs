@@ -58,8 +58,10 @@ public class DialogueSequence : ScriptableObject
     [SerializeField] private Texture2D background;
     [Tooltip("Música de fondo en bucle. Vacío deja esta conversación sin música.")]
     [SerializeField] private AudioClip music;
-    [Tooltip("Reparto de la conversación. Los dos primeros aparecen al comenzar; los demás entran cuando hablan.")]
+    [Tooltip("Reparto de la conversación. Los personajes sin retrato no ocupan puestos visibles.")]
     [SerializeField] private DialogueCharacter[] characters;
+    [Tooltip("Comenzar sin retratos y mostrar cada personaje cuando habla por primera vez. Desactivado: comienzan los dos primeros personajes con retrato.")]
+    [SerializeField] private bool enterOnFirstSpeech;
     [Tooltip("Outfit inicial por personaje en esta conversación. Los personajes sin entrada usan su retrato predeterminado.")]
     [SerializeField] private DialogueOutfitSelection[] initialOutfits;
     [Tooltip("Expresión inicial por personaje, aplicada después de elegir los outfits iniciales.")]
@@ -76,6 +78,7 @@ public class DialogueSequence : ScriptableObject
     public Texture2D Background => background;
     public AudioClip Music => music;
     public DialogueCharacter[] Characters => characters ?? Array.Empty<DialogueCharacter>();
+    public bool EnterOnFirstSpeech => enterOnFirstSpeech;
     public DialogueOutfitSelection[] InitialOutfits => initialOutfits ?? Array.Empty<DialogueOutfitSelection>();
     public DialogueExpressionSelection[] InitialExpressions => initialExpressions ?? Array.Empty<DialogueExpressionSelection>();
     public bool LeftFacesLeft => leftCharacterFacing == DialogueFacing.Left;
