@@ -1,0 +1,458 @@
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using static PuzzleUI;
+#if ENABLE_INPUT_SYSTEM
+using UnityEngine.InputSystem;
+#endif
+
+public class DialogueController : MonoBehaviour
+{
+    [SerializeField, Range(0, 120)] private float charactersPerSecond = 42;
+    [SerializeField, Range(0, 1)] private float dialogueOpacity = 0.78f;
+    [SerializeField, Range(0.75f, 1)] private float inactiveCharacterScale = 0.92f;
+    [SerializeField, Min(0)] private float focusTransitionDuration = 0.18f;
+    [SerializeField, Min(0)] private float characterTransitionDuration = 0.28f;
+    [SerializeField, Min(0)] private float characterEdgeInset = 160;
+    public bool IsPlaying { get; private set; }
+    public bool IsTyping { get; private set; }
+    public int PageIndex { get; private set; }
+    public int PageCount => pages.Count;
+    public bool IsTransitioning => Replacing(leftFocus) || Replacing(rightFocus);
+    public event Action<bool> ActiveChanged;
+
+    private sealed class Page
+    {
+        public string speaker;
+        public string text;
+        public DialogueSpeakerSide speakerSide;
+        public Sprite leftCharacter;
+        public Sprite rightCharacter;
+        public DialogueCharacter leftActor;
+        public DialogueCharacter rightActor;
+        public bool leftFacesLeft;
+        public bool rightFacesLeft;
+    }
+
+    private enum Motion { None, Focus, Exit, Enter }
+
+    private sealed class CharacterFocus
+    {
+        public Color fromColor;
+        public Color toColor;
+        public float fromScale;
+        public float toScale;
+        public float elapsed;
+        public float duration;
+        public Vector2 fromPosition;
+        public Vector2 toPosition;
+        public Vector2 basePosition;
+        public Motion motion;
+        public DialogueCharacter actor;
+        public DialogueCharacter pendingActor;
+        public Sprite pendingSprite;
+        public Color targetColor;
+        public float targetScale;
+        public bool mirrored;
+        public bool pendingMirror;
+    }
+
+    private readonly List<Page> pages = new List<Page>();
+    private RectTransform screen;
+    private Text speakerText;
+    private Text bodyText;
+    private Button advanceButton;
+    private Button skipButton;
+    private RectTransform speakerTab;
+    private RawImage backdrop;
+    private Image leftCharacter;
+    private Image rightCharacter;
+    private readonly CharacterFocus leftFocus = new CharacterFocus();
+    private readonly CharacterFocus rightFocus = new CharacterFocus();
+    private Action onFinished;
+    private GameObject previousSelection;
+    private int[] textElements;
+    private int visibleElements;
+    private float revealProgress;
+    private bool smoothPlayback;
+    private bool finishing;
+    private float TextSpeed => GamePreferences.CharactersPerSecond(charactersPerSecond);
+
+    public void PlaySmooth(DialogueSequence sequence, Texture2D image = null, Action finished = null)
+        => ScreenTransition.Change(() => { if (this != null) Play(sequence, image, finished, true); });
+
+    public void Play(DialogueSequence sequence, Texture2D image = null, Action finished = null, bool smoothTransitions = false)
+    {
+        EnsureUI();
+        Cancel();
+        smoothPlayback = smoothTransitions;
+        finishing = false;
+        GameAudio.PlayMusic(sequence != null ? sequence.Music : null, this);
+        screen.gameObject.SetActive(true);
+        Canvas.ForceUpdateCanvases();
+        pages.Clear();
+        if (sequence != null)
+        {
+            var stages = DialogueStagePlanner.Build(sequence);
+            if (stages.Count > 0)
+            {
+                foreach (var stage in stages)
+                    AddPages(new Page {
+                        speaker = stage.Speaker != null ? stage.Speaker.DisplayName : stage.Line.speaker,
+                        text = stage.Line.text, speakerSide = stage.SpeakingSide,
+                        leftActor = stage.Left, rightActor = stage.Right,
+                        leftCharacter = stage.Line.hideLeftCharacter ? null : stage.Line.leftCharacter != null ? stage.Line.leftCharacter : stage.Left != null ? stage.Left.Portrait : null,
+                        rightCharacter = stage.Line.hideRightCharacter ? null : stage.Line.rightCharacter != null ? stage.Line.rightCharacter : stage.Right != null ? stage.Right.Portrait : null,
+                        leftFacesLeft = stage.Left != null && stage.Left.FacesLeft,
+                        rightFacesLeft = stage.Right != null && stage.Right.FacesLeft
+                    });
+            }
+            else
+            {
+                Sprite left = sequence.LeftCharacter;
+                Sprite right = sequence.RightCharacter;
+                foreach (var line in sequence.Lines)
+                {
+                    if (line == null || string.IsNullOrWhiteSpace(line.text)) continue;
+                    if (line.hideLeftCharacter) left = null;
+                    else if (line.leftCharacter != null) left = line.leftCharacter;
+                    if (line.hideRightCharacter) right = null;
+                    else if (line.rightCharacter != null) right = line.rightCharacter;
+                    AddPages(new Page { speaker = line.speaker, text = line.text, speakerSide = line.speakerSide,
+                        leftCharacter = left, rightCharacter = right, leftFacesLeft = sequence.LeftFacesLeft, rightFacesLeft = sequence.RightFacesLeft });
+                }
+            }
+        }
+        if (pages.Count == 0)
+        {
+            GameAudio.StopMusic(this);
+            screen.gameObject.SetActive(false);
+            finished?.Invoke();
+            return;
+        }
+        onFinished = finished;
+        if (sequence != null && sequence.Background != null) image = sequence.Background;
+        backdrop.texture = image;
+        backdrop.gameObject.SetActive(image != null);
+        if (image != null)
+        {
+            float imageAspect = image.width / (float)image.height;
+            float screenAspect = screen.rect.width / Mathf.Max(1, screen.rect.height);
+            float width = Mathf.Min(1, screenAspect / imageAspect);
+            float height = Mathf.Min(1, imageAspect / screenAspect);
+            backdrop.uvRect = new Rect((1 - width) / 2, (1 - height) / 2, width, height);
+        }
+        if (EventSystem.current != null)
+        {
+            previousSelection = EventSystem.current.currentSelectedGameObject;
+            EventSystem.current.SetSelectedGameObject(null);
+        }
+        PageIndex = 0;
+        IsPlaying = true;
+        screen.gameObject.SetActive(true);
+        screen.SetAsLastSibling();
+        ShowPage(true);
+        ActiveChanged?.Invoke(true);
+    }
+
+    public void Advance()
+    {
+        if (!IsPlaying || finishing || ScreenTransition.IsBusy) return;
+        if (IsTransitioning) return;
+        if (IsTyping)
+        {
+            Reveal(textElements.Length);
+            return;
+        }
+        if (PageIndex + 1 >= pages.Count) Finish(true);
+        else { PageIndex++; ShowPage(); }
+    }
+
+    public void Skip() => Finish(true);
+    public void Cancel() => Finish(false);
+
+    private void OnDisable() => Cancel();
+
+    private void Update()
+    {
+        if (!IsPlaying || finishing || ScreenTransition.IsBusy) return;
+        UpdateFocus(leftCharacter, leftFocus);
+        UpdateFocus(rightCharacter, rightFocus);
+        advanceButton.interactable = !IsTransitioning;
+        if (!IsTransitioning && IsTyping && TextSpeed > 0)
+        {
+            revealProgress += Time.unscaledDeltaTime * TextSpeed;
+            Reveal(Mathf.Min(textElements.Length, (int)revealProgress));
+        }
+#if ENABLE_INPUT_SYSTEM
+        var keyboard = Keyboard.current;
+        if (keyboard == null) return;
+        if (keyboard.escapeKey.wasPressedThisFrame) Skip();
+        else if (keyboard.spaceKey.wasPressedThisFrame || keyboard.enterKey.wasPressedThisFrame || keyboard.numpadEnterKey.wasPressedThisFrame) Advance();
+#elif ENABLE_LEGACY_INPUT_MANAGER
+        if (Input.GetKeyDown(KeyCode.Escape)) Skip();
+        else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) Advance();
+#endif
+    }
+
+    private void ShowPage(bool snapFocus = false)
+    {
+        var page = pages[PageIndex];
+        speakerText.text = page.speaker;
+        speakerTab.gameObject.SetActive(!string.IsNullOrWhiteSpace(page.speaker));
+        SetCharacter(leftCharacter, page.leftCharacter, page.leftActor, page.leftFacesLeft,
+            page.speakerSide == DialogueSpeakerSide.Left, false, leftFocus, snapFocus);
+        SetCharacter(rightCharacter, page.rightCharacter, page.rightActor, page.rightFacesLeft,
+            page.speakerSide == DialogueSpeakerSide.Right, true, rightFocus, snapFocus);
+        advanceButton.interactable = !IsTransitioning;
+        bool rightSpeaker = page.speakerSide == DialogueSpeakerSide.Right;
+        speakerTab.anchorMin = speakerTab.anchorMax = new Vector2(rightSpeaker ? 1 : 0, 1);
+        speakerTab.pivot = new Vector2(rightSpeaker ? 1 : 0, 0);
+        speakerTab.anchoredPosition = Vector2.zero;
+        textElements = StringInfo.ParseCombiningCharacters(page.text);
+        visibleElements = -1;
+        revealProgress = 0;
+        Reveal(TextSpeed <= 0 ? textElements.Length : 0);
+    }
+
+    private void Reveal(int count)
+    {
+        if (visibleElements == count) return;
+        visibleElements = count;
+        IsTyping = count < textElements.Length;
+        string text = pages[PageIndex].text;
+        bodyText.text = IsTyping ? text.Substring(0, textElements[count]) : text;
+    }
+
+    private void Finish(bool invokeCallback)
+    {
+        if (!IsPlaying) return;
+        if (invokeCallback && smoothPlayback)
+        {
+            if (finishing || ScreenTransition.IsBusy) return;
+            finishing = true;
+            ScreenTransition.Change(() =>
+            {
+                smoothPlayback = false;
+                Finish(true);
+            });
+            return;
+        }
+        finishing = false;
+        IsPlaying = false;
+        GameAudio.StopMusic(this);
+        IsTyping = false;
+        leftFocus.motion = rightFocus.motion = Motion.None;
+        var callback = onFinished;
+        onFinished = null;
+        screen.gameObject.SetActive(false);
+        if (EventSystem.current != null && previousSelection != null && previousSelection.activeInHierarchy)
+            EventSystem.current.SetSelectedGameObject(previousSelection);
+        previousSelection = null;
+        ActiveChanged?.Invoke(false);
+        if (invokeCallback) callback?.Invoke();
+    }
+
+    private static bool Replacing(CharacterFocus focus) => focus.motion == Motion.Exit || focus.motion == Motion.Enter;
+
+    private void SetCharacter(Image image, Sprite sprite, DialogueCharacter actor, bool facesLeft,
+        bool speaking, bool rightSlot, CharacterFocus focus, bool snap)
+    {
+        bool occupantChanged = focus.actor != actor || image.sprite != sprite;
+        focus.pendingSprite = sprite;
+        focus.pendingActor = actor;
+        focus.pendingMirror = rightSlot != facesLeft;
+        focus.targetColor = speaking ? Color.white : new Color(0.65f, 0.65f, 0.65f, 1);
+        focus.targetScale = speaking ? 1 : inactiveCharacterScale;
+        if (snap)
+        {
+            AssignPending(image, focus);
+            Pose(image, focus, focus.targetColor, focus.targetScale, focus.basePosition);
+            focus.motion = Motion.None;
+        }
+        else if (occupantChanged || (!image.gameObject.activeSelf && sprite != null))
+        {
+            if (image.gameObject.activeSelf && image.sprite != null)
+            {
+                float scale = Mathf.Abs(image.rectTransform.localScale.x);
+                BeginMotion(image, focus, Motion.Exit, image.color, scale,
+                    OffscreenPosition(image, focus, scale), characterTransitionDuration);
+            }
+            else BeginArrival(image, focus);
+        }
+        else
+        {
+            focus.mirrored = focus.pendingMirror;
+            BeginMotion(image, focus, Motion.Focus, focus.targetColor, focus.targetScale, focus.basePosition, focusTransitionDuration);
+        }
+    }
+
+    private static void Pose(Image image, CharacterFocus focus, Color color, float scale, Vector2 position)
+    {
+        image.color = color;
+        image.rectTransform.localScale = new Vector3(focus.mirrored ? -scale : scale, scale, 1);
+        image.rectTransform.anchoredPosition = position;
+    }
+
+    private static void AssignPending(Image image, CharacterFocus focus)
+    {
+        image.sprite = focus.pendingSprite;
+        focus.actor = focus.pendingActor;
+        focus.mirrored = focus.pendingMirror;
+        image.gameObject.SetActive(focus.pendingSprite != null);
+    }
+
+    private void BeginArrival(Image image, CharacterFocus focus)
+    {
+        AssignPending(image, focus);
+        if (focus.pendingSprite == null) { focus.motion = Motion.None; return; }
+        Pose(image, focus, focus.targetColor, focus.targetScale, OffscreenPosition(image, focus, focus.targetScale));
+        BeginMotion(image, focus, Motion.Enter, focus.targetColor, focus.targetScale, focus.basePosition, characterTransitionDuration);
+    }
+
+    private static Vector2 OffscreenPosition(Image image, CharacterFocus focus, float scale)
+    {
+        // Each portrait is anchored to its own screen edge, with a centered horizontal pivot.
+        float distance = image.rectTransform.rect.width * scale * 0.5f + 24;
+        return new Vector2(image.rectTransform.anchorMin.x > 0.5f ? distance : -distance, focus.basePosition.y);
+    }
+
+    private void BeginMotion(Image image, CharacterFocus focus, Motion motion, Color color, float scale, Vector2 position, float duration)
+    {
+        focus.fromColor = image.color;
+        focus.toColor = color;
+        focus.fromScale = Mathf.Abs(image.rectTransform.localScale.x);
+        focus.toScale = scale;
+        focus.fromPosition = image.rectTransform.anchoredPosition;
+        focus.toPosition = position;
+        focus.duration = duration;
+        focus.elapsed = 0;
+        focus.motion = motion;
+        if (duration <= 0)
+        {
+            Pose(image, focus, color, scale, position);
+            CompleteMotion(image, focus);
+        }
+    }
+
+    private void CompleteMotion(Image image, CharacterFocus focus)
+    {
+        if (focus.motion == Motion.Exit) BeginArrival(image, focus);
+        else focus.motion = Motion.None;
+    }
+
+    private void UpdateFocus(Image image, CharacterFocus focus)
+    {
+        if (focus.motion == Motion.None) return;
+        focus.elapsed += Time.unscaledDeltaTime;
+        float progress = Mathf.Clamp01(focus.elapsed / Mathf.Max(0.001f, focus.duration));
+        float smooth = Mathf.SmoothStep(0, 1, progress);
+        Pose(image, focus, Color.Lerp(focus.fromColor, focus.toColor, smooth),
+            Mathf.Lerp(focus.fromScale, focus.toScale, smooth), Vector2.Lerp(focus.fromPosition, focus.toPosition, smooth));
+        if (progress >= 1) CompleteMotion(image, focus);
+    }
+
+    private void AddPages(Page source)
+    {
+        string remaining = source.text.Trim();
+        var settings = bodyText.GetGenerationSettings(new Vector2(bodyText.rectTransform.rect.width, 0));
+        while (remaining.Length > 0)
+        {
+            int[] offsets = StringInfo.ParseCombiningCharacters(remaining);
+            int low = 1, high = offsets.Length, end = offsets.Length > 1 ? offsets[1] : remaining.Length;
+            while (low <= high)
+            {
+                int count = (low + high) / 2;
+                int length = count < offsets.Length ? offsets[count] : remaining.Length;
+                float height = bodyText.cachedTextGeneratorForLayout.GetPreferredHeight(remaining.Substring(0, length), settings) / bodyText.pixelsPerUnit;
+                if (height <= bodyText.rectTransform.rect.height - 4) { end = length; low = count + 1; }
+                else high = count - 1;
+            }
+            if (end < remaining.Length)
+            {
+                int space = remaining.LastIndexOfAny(new[] { ' ', '\n', '\t' }, end - 1);
+                if (space > end / 2) end = space;
+            }
+            pages.Add(new Page { speaker = source.speaker, speakerSide = source.speakerSide,
+                leftCharacter = source.leftCharacter, rightCharacter = source.rightCharacter,
+                leftActor = source.leftActor, rightActor = source.rightActor,
+                leftFacesLeft = source.leftFacesLeft, rightFacesLeft = source.rightFacesLeft,
+                text = remaining.Substring(0, end).TrimEnd() });
+            remaining = remaining.Substring(end).TrimStart();
+        }
+    }
+
+    private void EnsureUI()
+    {
+        if (screen != null) return;
+        screen = Screen("Dialogue", (RectTransform)transform);
+        backdrop = Rect("Chapter Background", screen, 0, 0, 0, 0).gameObject.AddComponent<RawImage>();
+        backdrop.rectTransform.anchorMin = Vector2.zero;
+        backdrop.rectTransform.anchorMax = Vector2.one;
+        backdrop.color = new Color(0.35f, 0.35f, 0.35f, 1);
+        backdrop.raycastTarget = false;
+        var content = Rect("Content", screen, 0, 0, 0, 0);
+        content.anchorMin = Vector2.zero;
+        content.anchorMax = Vector2.one;
+        leftCharacter = CharacterImage("Left Character", content, false);
+        rightCharacter = CharacterImage("Right Character", content, true);
+        leftFocus.basePosition = leftCharacter.rectTransform.anchoredPosition;
+        rightFocus.basePosition = rightCharacter.rectTransform.anchoredPosition;
+        var panel = Rect("Dialogue Box", content, 0, 18, -36, 240);
+        panel.anchorMin = Vector2.zero;
+        panel.anchorMax = Vector2.right;
+        panel.pivot = new Vector2(0.5f, 0);
+        var panelColor = Panel;
+        panelColor.a = GamePreferences.DialogueOpacity(dialogueOpacity);
+        panel.gameObject.AddComponent<Image>().color = panelColor;
+        speakerTab = Rect("Speaker Name Box", panel, 0, 0, 210, 44);
+        speakerTab.gameObject.AddComponent<Image>().color = Accent;
+        speakerText = Label(speakerTab, "", 0, 0, 178, 38, 23, Ink);
+        speakerText.alignment = TextAnchor.MiddleLeft;
+        speakerText.supportRichText = false;
+        speakerText.resizeTextForBestFit = true;
+        speakerText.resizeTextMinSize = 14;
+        speakerText.resizeTextMaxSize = 23;
+        bodyText = Label(panel, "", 0, 0, 0, 0, 23, Ink);
+        bodyText.rectTransform.anchorMin = Vector2.zero;
+        bodyText.rectTransform.anchorMax = Vector2.one;
+        bodyText.rectTransform.offsetMin = new Vector2(28, 76);
+        bodyText.rectTransform.offsetMax = new Vector2(-28, -24);
+        bodyText.alignment = TextAnchor.UpperLeft;
+        bodyText.supportRichText = false;
+        advanceButton = Control(panel, false, Advance);
+        skipButton = Control(panel, true, Skip);
+        screen.gameObject.SetActive(false);
+    }
+
+    private Image CharacterImage(string name, RectTransform parent, bool right)
+    {
+        // Extend full-body cutouts below the viewport to frame the visible figure around the knees.
+        var rect = Rect(name, parent, right ? -characterEdgeInset : characterEdgeInset, -330, 600, 1320);
+        rect.anchorMin = rect.anchorMax = new Vector2(right ? 1 : 0, 0);
+        rect.pivot = new Vector2(0.5f, 0);
+        var image = rect.gameObject.AddComponent<Image>();
+        image.preserveAspect = true;
+        image.raycastTarget = false;
+        image.gameObject.SetActive(false);
+        return image;
+    }
+
+    private static Button Control(RectTransform panel, bool close, UnityEngine.Events.UnityAction action)
+    {
+        var rect = Rect(close ? "Skip" : "Advance", panel, close ? 38 : -38, 34, 64, 64);
+        rect.anchorMin = rect.anchorMax = close ? Vector2.zero : Vector2.right;
+        var graphic = rect.gameObject.AddComponent<DialogueControlGraphic>();
+        graphic.color = Ink;
+        graphic.SetCloseIcon(close);
+        var button = rect.gameObject.AddComponent<Button>();
+        ButtonSound.Bind(button);
+        button.targetGraphic = graphic;
+        button.navigation = new Navigation { mode = Navigation.Mode.None };
+        button.onClick.AddListener(action);
+        return button;
+    }
+}

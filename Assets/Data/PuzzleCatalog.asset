@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4543b6c9ad438eac4c1992c5ae13bc, type: 3}
+  m_Name: PuzzleCatalog
+  m_EditorClassIdentifier:
+  progressId: OneHandPuzzle.RecuerdosDemo
+  gameTitle: "EL CAMINO DE\nLOS RECUERDOS"
+  endingText: "Tres imágenes reconstruidas. Una promesa cumplida.\nEl próximo viaje lo empezamos juntos."
+  story: {fileID: 11400000, guid: 0fe7b6d02491400f9a2d7c07c4ff8111, type: 2}
+  chapters:
+  - title: El valle
+    story: Un cuaderno con tres dibujos rotos es la única pista de un viaje olvidado. Recorre el valle junto a tu guía para recuperar el primer recuerdo.
+    image: {fileID: 2800000, guid: 51d1be85345d40f18aa79160e1d881a2, type: 3}
+    normalImage: {fileID: 2800000, guid: 302747fa8bf54d86877b098c197ef86e, type: 3}
+    hardImage: {fileID: 2800000, guid: de6c02fbb9dd472da38c8fa3e4102b7e, type: 3}
+    difficulty: 0
+    introduction: {fileID: 11400000, guid: 4c1a9f36df4e46a5b2acdbed4e4a0001, type: 2}
+    conclusion: {fileID: 11400000, guid: 4c1a9f36df4e46a5b2acdbed4e4a0002, type: 2}
+  - title: La costa
+    story: Una amiga te espera junto al faro. Explora la costa, entra en la sala de la linterna y descubre la promesa que os llevó hasta allí.
+    image: {fileID: 2800000, guid: de6c02fbb9dd472da38c8fa3e4102b7e, type: 3}
+    normalImage: {fileID: 2800000, guid: 302747fa8bf54d86877b098c197ef86e, type: 3}
+    hardImage: {fileID: 2800000, guid: 51d1be85345d40f18aa79160e1d881a2, type: 3}
+    difficulty: 1
+    introduction: {fileID: 11400000, guid: 4c1a9f36df4e46a5b2acdbed4e4a0003, type: 2}
+    conclusion: {fileID: 11400000, guid: 4c1a9f36df4e46a5b2acdbed4e4a0004, type: 2}
+  - title: El desierto
+    story: Tras un descanso en el campamento, los tres amigos alcanzan el mirador. La última imagen guarda el final de una promesa y el principio de otro viaje.
+    image: {fileID: 2800000, guid: 302747fa8bf54d86877b098c197ef86e, type: 3}
+    normalImage: {fileID: 2800000, guid: 51d1be85345d40f18aa79160e1d881a2, type: 3}
+    hardImage: {fileID: 2800000, guid: de6c02fbb9dd472da38c8fa3e4102b7e, type: 3}
+    difficulty: 2
+    introduction: {fileID: 11400000, guid: 4c1a9f36df4e46a5b2acdbed4e4a0005, type: 2}
+    conclusion: {fileID: 11400000, guid: 4c1a9f36df4e46a5b2acdbed4e4a0006, type: 2}

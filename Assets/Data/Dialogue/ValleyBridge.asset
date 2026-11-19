@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5e33e446cc4bc88bde152074d89f2a, type: 3}
+  m_Name: ValleyBridge
+  m_EditorClassIdentifier:
+  background: {fileID: 2800000, guid: 51d1be85345d40f18aa79160e1d881a2, type: 3}
+  characters:
+  - {fileID: 11400000, guid: b2171898fbca4a7b9088ddca98e9be11, type: 2}
+  - {fileID: 11400000, guid: b2171898fbca4a7b9088ddca98e9be12, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: b2171898fbca4a7b9088ddca98e9be12, type: 2}
+    text: "Desde este paso se ve todo el valle. Es el mismo encuadre del primer dibujo."
+  - character: {fileID: 11400000, guid: b2171898fbca4a7b9088ddca98e9be11, type: 2}
+    text: "Hay una frase al pie: «Cuando no recuerdes adónde ibas, recuerda con quién saliste»."
+  - character: {fileID: 11400000, guid: b2171898fbca4a7b9088ddca98e9be12, type: 2}
+    text: "No intentes recordarlo todo de golpe. Empieza por reconstruir esta imagen."
+  - character: {fileID: 11400000, guid: b2171898fbca4a7b9088ddca98e9be11, type: 2}
+    text: "Las montañas, el río, el camino... Creo que ya sé dónde va la primera pieza."

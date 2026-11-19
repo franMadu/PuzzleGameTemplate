@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5e33e446cc4bc88bde152074d89f2a, type: 3}
+  m_Name: CoastArrival
+  m_EditorClassIdentifier:
+  background: {fileID: 2800000, guid: 302747fa8bf54d86877b098c197ef86e, type: 3}
+  characters:
+  - {fileID: 11400000, guid: b2171898fbca4a7b9088ddca98e9be11, type: 2}
+  - {fileID: 11400000, guid: b2171898fbca4a7b9088ddca98e9be12, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: b2171898fbca4a7b9088ddca98e9be11, type: 2}
+    text: "Por fin el mar. El sonido de las olas me resulta más familiar que mi propio dibujo."
+  - character: {fileID: 11400000, guid: b2171898fbca4a7b9088ddca98e9be12, type: 2}
+    text: "Antes de subir al faro, nos sentamos aquí a esperar que bajara la marea."
+  - character: {fileID: 11400000, guid: b2171898fbca4a7b9088ddca98e9be11, type: 2}
+    text: "Ya recuerdo una luz sobre el agua. ¿Era una señal para nosotros?"
+  - character: {fileID: 11400000, guid: b2171898fbca4a7b9088ddca98e9be12, type: 2}
+    text: "Sí. Pero esa parte de la historia te la contará quien la encendió."

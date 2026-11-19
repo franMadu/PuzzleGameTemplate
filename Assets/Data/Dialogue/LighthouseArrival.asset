@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5e33e446cc4bc88bde152074d89f2a, type: 3}
+  m_Name: LighthouseArrival
+  m_EditorClassIdentifier:
+  background: {fileID: 2800000, guid: 302747fa8bf54d86877b098c197ef86e, type: 3}
+  characters:
+  - {fileID: 11400000, guid: b2171898fbca4a7b9088ddca98e9be11, type: 2}
+  - {fileID: 11400000, guid: b2171898fbca4a7b9088ddca98e9be12, type: 2}
+  - {fileID: 11400000, guid: b2171898fbca4a7b9088ddca98e9be13, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: b2171898fbca4a7b9088ddca98e9be11, type: 2}
+    text: "La puerta del faro está abierta. ¿Habrá alguien dentro?"
+  - character: {fileID: 11400000, guid: b2171898fbca4a7b9088ddca98e9be12, type: 2}
+    text: "Mira junto a las escaleras. Parece que han estado esperando nuestra llegada."
+  - character: {fileID: 11400000, guid: b2171898fbca4a7b9088ddca98e9be13, type: 2}
+    text: "¡Por fin! Reconocería ese cuaderno desde el otro extremo de la costa."
+  - character: {fileID: 11400000, guid: b2171898fbca4a7b9088ddca98e9be11, type: 2}
+    text: "Tu voz... Te recuerdo, aunque todavía me faltan algunas cosas."
+  - character: {fileID: 11400000, guid: b2171898fbca4a7b9088ddca98e9be13, type: 2}
+    text: "No pasa nada. Dentro guardé algo que puede ayudarte. Subid conmigo."
+  - character: {fileID: 11400000, guid: b2171898fbca4a7b9088ddca98e9be12, type: 2}
+    text: "Te seguimos. Esta vez no dejaremos ninguna página atrás."
