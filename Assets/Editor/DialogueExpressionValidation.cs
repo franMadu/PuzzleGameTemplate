@@ -21,6 +21,7 @@ public static class DialogueExpressionValidation
             var texture = Keep(new Texture2D(2, 2));
             Sprite Sprite() => Keep(UnityEngine.Sprite.Create(texture, new Rect(0, 0, 2, 2), Vector2.one / 2));
             ValidateExpressionChoices(Sprite());
+            ValidatePortraitEntrances(Sprite());
             var neutral = Sprite(); var happy = Sprite(); var sad = Sprite(); var angry = Sprite();
             var travel = Sprite(); var travelHappy = Sprite(); var travelSad = Sprite(); var gala = Sprite();
             var a = Actor("A", neutral, Expression("feliz", happy), Expression("triste", sad));
@@ -157,6 +158,64 @@ public static class DialogueExpressionValidation
         Require(pages.Count > 1, "Long line is paginated");
         foreach (object fragment in pages)
             Require((Sprite)Field(fragment, "leftCharacter") == sad && (Sprite)Field(fragment, "rightCharacter") == angry, "Every page keeps both expressions");
+    }
+
+    private static void ValidatePortraitEntrances(Sprite sprite)
+    {
+        var father = Actor("Voice", null);
+        var boy = Actor("Boy", sprite, Expression("bostezo", sprite), Expression("aburrido", sprite));
+        var girl = Actor("Girl", sprite);
+        var extra = Actor("Extra", sprite);
+        var sleepy = Keep(UnityEngine.Sprite.Create(sprite.texture, sprite.rect, Vector2.one / 2));
+        Set(boy, "expressions", new[] { Expression("bostezo", sleepy), Expression("aburrido", sprite) });
+        var sequence = Sequence(new[] { father, boy, girl }, new[] {
+            Line(father), Line(father), Line(boy, "bostezo"), Line(father),
+            Line(boy, "aburrido"), Line(father), Line(girl), Line(father), Line(boy), Line(girl)
+        });
+        Set(sequence, "enterOnFirstSpeech", true);
+        Require(sequence.ValidateAppearances(out string error), error);
+        var stages = DialogueStagePlanner.Build(sequence);
+        Require(stages[0].Speaker == father && stages[0].Left == null && stages[0].Right == null
+            && stages[1].Left == null && stages[1].Right == null, "Voice opens without revealing future speakers");
+        Require(stages[2].Left == boy && stages[2].Right == null && stages[2].SpeakingSide == DialogueSpeakerSide.Left,
+            "First portrait enters on the left when speaking");
+        Require(stages[2].LeftAppearance.Portrait == sleepy && stages[3].LeftAppearance.Portrait == sleepy,
+            "Voice does not change listener expression");
+        Require(stages[4].LeftAppearance.Portrait == sprite && stages[5].LeftAppearance.Portrait == sprite,
+            "Explicit expression change persists through following voice line");
+        for (int i = 6; i < stages.Count; i++)
+            Require(stages[i].Left == boy && stages[i].Right == girl, "Portraitless speaker never evicts either visible character");
+        Require(stages[6].SpeakingSide == DialogueSpeakerSide.Right && stages[7].SpeakingSide == DialogueSpeakerSide.Narration,
+            "Sayo speaks on the right; voice focuses neither visible portrait");
+        Require(DialogueStagePlanner.Build(sequence)[0].Left == null, "Replay resets delayed entrances");
+        Set(sequence, "enterOnFirstSpeech", false);
+        var initial = DialogueStagePlanner.Build(sequence);
+        Require(initial[0].Left == boy && initial[0].Right == girl, "Initial pair skips portraitless cast members");
+        var legacy = Sequence(new[] { boy, girl, extra }, new[] { Line(boy), Line(girl), Line(extra), Line(girl) });
+        var oldStages = DialogueStagePlanner.Build(legacy);
+        Require(oldStages[0].Left == boy && oldStages[0].Right == girl && oldStages[2].Left == extra,
+            "Existing initial pair and three-portrait replacement remain supported");
+        Set(father, "outfits", new[] { new DialogueOutfit { id = "visible", portrait = sprite } });
+        var changing = Sequence(new[] { father, boy }, new[] {
+            Line(father), new DialogueLine { character = father, outfit = "visible", text = "Ahora visible" },
+            new DialogueLine { character = father, outfit = "default", text = "Solo voz" }
+        });
+        Set(changing, "enterOnFirstSpeech", true);
+        var changes = DialogueStagePlanner.Build(changing);
+        Require(changes[0].Left == null && changes[1].Left == father && changes[2].Left == null,
+            "Visibility uses active outfit rather than only the character default");
+
+        var root = Keep(new GameObject("Delayed arrival validation"));
+        var controller = root.AddComponent<DialogueController>();
+        var imageRoot = new GameObject("Portrait", typeof(RectTransform), typeof(Image));
+        imageRoot.transform.SetParent(root.transform);
+        var image = imageRoot.GetComponent<Image>();
+        object focus = Field(controller, "leftFocus");
+        Invoke(controller, "SetCharacter", image, null, null, false, false, false, focus, true);
+        Require(!image.gameObject.activeSelf, "No portrait displayed before entrance");
+        Invoke(controller, "SetCharacter", image, sleepy, boy, false, true, false, focus, false);
+        Require(image.gameObject.activeSelf && Field(focus, "motion").ToString() == "Enter"
+            && image.rectTransform.anchoredPosition.x < 0, "Delayed speaker slides in from the left edge");
     }
 
     private static void ValidateExpressionChoices(Sprite sprite)
