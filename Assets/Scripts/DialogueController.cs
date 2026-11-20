@@ -70,6 +70,7 @@ public class DialogueController : MonoBehaviour
 
     private readonly List<Page> pages = new List<Page>();
     [SerializeField] private RectTransform screen;
+    [SerializeField, HideInInspector] private int visualStyleVersion;
     private bool uiBound;
     private Text speakerText;
     private Text bodyText;
