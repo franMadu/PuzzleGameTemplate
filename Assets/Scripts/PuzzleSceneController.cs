@@ -105,6 +105,8 @@ public class PuzzleSceneController : MonoBehaviour
             victoryScreen.gameObject.SetActive(false);
         }
         gameLayout.SetActive(true);
+        MenuControls.SafeArea((RectTransform)gameLayout.transform);
+        UpdateWallet(gameLayout.transform);
         puzzle.Configure(catalog[chapter].ImageForDifficulty(Difficulty), boardSize);
         GameAudio.PlayMusic(catalog[chapter].music, this);
     }
@@ -161,6 +163,8 @@ public class PuzzleSceneController : MonoBehaviour
         victoryScreen.gameObject.SetActive(true);
         victoryScreen.SetAsLastSibling();
         var content = victoryScreen.Find("Content");
+        MenuControls.SafeArea((RectTransform)content);
+        UpdateWallet(content);
         CanvasText.Set(MenuControls.Get<Text>(content, "Star Reward"), 0, earnedStars, StarEconomy.Balance(catalog));
         MenuControls.Get<Text>(content, "Title").text = catalog[chapter].title;
         MenuControls.SetTexture(MenuControls.Get<RawImage>(content, "Artwork"), catalog[chapter].ImageForDifficulty(Difficulty));
@@ -190,5 +194,11 @@ public class PuzzleSceneController : MonoBehaviour
         }
         MenuControls.Bind(content, "Play Again", () => ScreenTransition.Change(PlayAgain));
         MenuControls.Bind(content, "Back", () => ReturnToMenu(PuzzleMenuPage.Main));
+    }
+
+    private void UpdateWallet(Transform content)
+    {
+        if (content.Find("Wallet/Amount") != null)
+            MenuControls.Get<Text>(content, "Wallet/Amount").text = StarEconomy.Balance(catalog).ToString();
     }
 }
