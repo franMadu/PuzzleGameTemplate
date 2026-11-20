@@ -26,6 +26,14 @@ public static class EngineInteractionValidation
                 Invoke(controller, "EnsureUI");
                 ValidatePortraitHeight(controller);
                 var panel = Field<RectTransform>(controller, "dialogueBox");
+                var menu = screen.Find("Back to Menu").GetComponent<Button>();
+                var menuRect = (RectTransform)menu.transform;
+                Require(menuRect.anchorMin == new Vector2(0, 1) && menuRect.anchorMax == new Vector2(0, 1)
+                    && menuRect.anchoredPosition.x > 0 && menuRect.anchoredPosition.y < 0,
+                    "Menu button must be authored in the upper left corner");
+                Require(menu.GetComponentInChildren<Text>(true).text == "Menú principal", "Menu button needs a visible label");
+                Require(menu.transform.GetSiblingIndex() > screen.Find("Restore Dialogue").GetSiblingIndex(),
+                    "Menu button must remain above the hidden-dialogue restore overlay");
                 Require(panel.GetComponent<Button>() != null && panel.GetComponent<Image>().raycastTarget, "Whole panel must receive clicks");
                 Require(panel.Find("Next Icon").GetComponent<Button>() == null && !panel.Find("Next Icon").GetComponent<Graphic>().raycastTarget, "Next icon must not intercept clicks");
                 Require(panel.Find("Hide").GetComponent<Button>() != null && screen.Find("Restore Dialogue").GetComponent<Button>() != null, "Missing authored hide/restore controls");
@@ -48,6 +56,7 @@ public static class EngineInteractionValidation
                 string partial = body.text;
                 Click(panel.Find("Hide").GetComponent<Button>());
                 Require(controller.IsDialogueHidden && !panel.gameObject.activeSelf && screen.Find("Restore Dialogue").gameObject.activeSelf, "Hide must retain scene and enable restore overlay");
+                Require(menu.gameObject.activeInHierarchy && menu.interactable, "Menu button remains accessible with hidden dialogue");
                 typeof(DialogueController).GetField("revealProgress", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(controller, 1000f);
                 Invoke(controller, "Update");
                 Require(controller.IsTyping && body.text == partial && controller.PageIndex == 0, "Hidden dialogue must pause typing and progression");

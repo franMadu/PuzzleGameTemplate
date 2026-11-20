@@ -188,6 +188,22 @@ public class DialogueController : MonoBehaviour
     public void Skip() => Finish(true);
     public void Cancel() => Finish(false);
 
+    private void ReturnToMenu()
+    {
+        if (!IsPlaying || ScreenTransition.IsBusy) return;
+        // Leaving a conversation never invokes the completion callback or advances the story.
+        onFinished = null;
+        PuzzleSession.StoryMode = false;
+        PuzzleSession.EndReplay();
+        PuzzleSession.MenuPage = PuzzleMenuPage.Main;
+        PuzzleSession.TitleDismissed = true;
+        ScreenTransition.Change(() =>
+        {
+            if (this != null) Cancel();
+            ScreenTransition.LoadScene(PuzzleSession.MenuScene);
+        });
+    }
+
     public void HideDialogue()
     {
         if (!IsPlaying || finishing || ScreenTransition.IsBusy) return;
@@ -469,6 +485,7 @@ public class DialogueController : MonoBehaviour
         MenuControls.Bind(panel, "Hide", HideDialogue);
         restoreButton = MenuControls.Bind(screen, "Restore Dialogue", RestoreDialogue);
         skipButton = MenuControls.Bind(panel, "Skip", Skip);
+        MenuControls.Bind(screen, "Back to Menu", ReturnToMenu);
         uiBound = true;
     }
 }
