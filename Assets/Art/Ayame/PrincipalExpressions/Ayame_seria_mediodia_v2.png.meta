@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sayo_seria_mediodia_v2_0
+      name: Ayame_seria_mediodia_v2_0
       rect:
         serializedVersion: 2
         x: 210
@@ -145,7 +145,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Sayo_seria_mediodia_v2_0: -1067827879
+      Ayame_seria_mediodia_v2_0: -1067827879
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

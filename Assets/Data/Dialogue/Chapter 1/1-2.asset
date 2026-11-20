@@ -120,7 +120,7 @@ MonoBehaviour:
     - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
       expression: preocupacion
     speaker: 
-    text: "Sayo, ¿eres tú? ¿Estás bien, niña?"
+    text: "Ayame, ¿eres tú? ¿Estás bien, niña?"
     isThought: 0
     speakerSide: 0
     leftCharacter: {fileID: 0}

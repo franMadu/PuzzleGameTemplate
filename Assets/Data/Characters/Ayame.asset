@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb51e91d8e364cbeae55b799c94b0a66, type: 3}
-  m_Name: Sayo
+  m_Name: Ayame
   m_EditorClassIdentifier: Assembly-CSharp::DialogueCharacter
-  displayName: Sayo
+  displayName: Ayame
   portrait: {fileID: -1067827879, guid: 7d67e7b55078411b8a0d9d9d05b512aa, type: 3}
   facing: 0
   outfits: []

@@ -229,7 +229,7 @@ public static class DialogueExpressionValidation
         for (int i = 6; i < stages.Count; i++)
             Require(stages[i].Left == boy && stages[i].Right == girl, "Portraitless speaker never evicts either visible character");
         Require(stages[6].SpeakingSide == DialogueSpeakerSide.Right && stages[7].SpeakingSide == DialogueSpeakerSide.Narration,
-            "Sayo speaks on the right; voice focuses neither visible portrait");
+            "Ayame speaks on the right; voice focuses neither visible portrait");
         Require(DialogueStagePlanner.Build(sequence)[0].Left == null, "Replay resets delayed entrances");
         Set(sequence, "enterOnFirstSpeech", false);
         var initial = DialogueStagePlanner.Build(sequence);

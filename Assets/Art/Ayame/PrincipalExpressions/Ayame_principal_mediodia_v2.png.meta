@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d1a6b9c3b69940d6a417001bdacb6eac
+guid: 7d67e7b55078411b8a0d9d9d05b512aa
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sayo_aburrimiento_mediodia_v2_0
+      name: Ayame_principal_mediodia_v2_0
       rect:
         serializedVersion: 2
         x: 210
@@ -125,7 +125,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee64043fe0144656a16f2f87cc2031a4
+      spriteID: d8cd8e3e494c4481b9706d969d91961c
       internalID: -1067827879
       vertices: []
       indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 71f7c6a5856943c7a79aca1b4c7f6cab
+    spriteID: 1b631d405f8e4fc3b4da8081859eb5a8
     internalID: 0
     vertices: []
     indices: 
@@ -145,7 +145,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Sayo_aburrimiento_mediodia_v2_0: -1067827879
+      Ayame_principal_mediodia_v2_0: -1067827879
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

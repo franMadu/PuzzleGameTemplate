@@ -291,7 +291,7 @@ MonoBehaviour:
     expression: 
     reactions: []
     speaker: 
-    text: "Tu prima Sayo. \xBFNo te acuerdas de ella? Tambi\xE9n se quedaba en casa
+    text: "Tu prima Ayame. \xBFNo te acuerdas de ella? Tambi\xE9n se quedaba en casa
       de la abuela en vacaciones."
     isThought: 0
     speakerSide: 0
@@ -304,7 +304,7 @@ MonoBehaviour:
     expression: sorpresa_contenida
     reactions: []
     speaker: 
-    text: "\xBFSayo?"
+    text: "\xBFAyame?"
     isThought: 0
     speakerSide: 1
     leftCharacter: {fileID: 0}
@@ -317,7 +317,7 @@ MonoBehaviour:
     reactions: []
     speaker: 
     text: "Te acordar\xE1s en cuanto la veas. \xBFNo te ha dicho tu madre nada de
-      Sayo?"
+      Ayame?"
     isThought: 0
     speakerSide: 0
     leftCharacter: {fileID: 0}
@@ -343,7 +343,7 @@ MonoBehaviour:
     - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
       expression: preocupacion
     speaker: 
-    text: "Se le habr\xE1 olvidado con todo el l\xEDo del viaje. Ver\xE1s, Sayo vive
+    text: "Se le habr\xE1 olvidado con todo el l\xEDo del viaje. Ver\xE1s, Ayame vive
       con la abuela desde hace un a\xF1o. Sus padres, la hermana de tu madre y su
       marido, murieron en un accidente de coche."
     isThought: 0

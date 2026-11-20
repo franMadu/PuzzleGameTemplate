@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 58172b0966f34cf28fb4ac092964c0fa
+guid: 53468e0aa64c4eec92d112e197d717cf
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sayo_sueno_mediodia_v2_0
+      name: Ayame_simpatica_mediodia_v2_0
       rect:
         serializedVersion: 2
         x: 210
@@ -125,7 +125,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99cec9a40566410785e6dd3c2999825b
+      spriteID: 54f33706470647258d57ea9a08281b4e
       internalID: -1067827879
       vertices: []
       indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3944fc6f9bd94102ae872f5c973e0523
+    spriteID: a536668875ce4d6e8fcb381c5afddd1b
     internalID: 0
     vertices: []
     indices: 
@@ -145,7 +145,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Sayo_sueno_mediodia_v2_0: -1067827879
+      Ayame_simpatica_mediodia_v2_0: -1067827879
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
