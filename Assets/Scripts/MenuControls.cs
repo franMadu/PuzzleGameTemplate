@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public static class MenuControls
 {
     public static T Get<T>(Transform root, string path) where T : Component
-        => root.Find(path).GetComponent<T>();
+        => root.Find(path).GetComponent<T>() ?? root.Find(path).GetComponentInChildren<T>(true);
 
     public static Button Bind(Transform root, string path, UnityAction action)
     {
@@ -26,6 +26,12 @@ public static class MenuControls
         image.texture = texture;
         image.gameObject.SetActive(texture != null);
         image.uvRect = new Rect(0, 0, 1, 1);
+        var fitter = image.GetComponent<AspectRatioFitter>();
+        if (fitter != null && texture != null)
+        {
+            fitter.aspectRatio = texture.width / (float)texture.height;
+            return;
+        }
         if (!crop || texture == null) return;
         float side = Mathf.Min(texture.width, texture.height);
         float width = side / texture.width, height = side / texture.height;

@@ -60,9 +60,9 @@ public static class StarEconomyPlayValidation
                 Invoke(menu, "Start");
                 var main = Field<RectTransform>(menu, "mainScreen").Find("Content");
                 Require(MenuControls.Get<Text>(main, "Wallet/Amount").text == "3", "Main menu wallet shows earned stars");
-                // Bindings invoke transition gating; skip only visual timing between panels in this synchronous phase.
-                Invoke(menu, "ShowShop", 0, true);
+                MenuControls.Get<Button>(main, "Navigation/Shop").onClick.Invoke();
                 var shop = Field<RectTransform>(menu, "shopScreen").Find("Content");
+                MenuControls.Get<Button>(shop, "Puzzles").onClick.Invoke();
                 Require(!MenuControls.Get<Button>(shop, "Row 0/Buy").interactable, "Unaffordable purchase disabled");
                 SessionState.SetInt(Key + ".Phase", 1);
             }
@@ -123,6 +123,16 @@ public static class StarEconomyPlayValidation
                 if (Field<RectTransform>(menu, "screen") == null) return;
                 Require(MenuControls.Get<Text>(Field<RectTransform>(menu, "mainScreen").Find("Content"), "Wallet/Amount").text == "4",
                     "Menu reload refreshes persisted balance");
+                var main=Field<RectTransform>(menu,"mainScreen").Find("Content");
+                MenuControls.Get<Button>(main,"Navigation/Challenges").onClick.Invoke();
+                var challenges=Field<RectTransform>(menu,"challengesScreen").Find("Content");
+                Require(challenges.gameObject.activeInHierarchy && MenuControls.Get<Text>(challenges,"Row 2/Title").text == "Flow puzzle 2",
+                    "Bottom navigation opens purchased challenges independently of shop");
+                MenuControls.Get<Button>(challenges,"Navigation/Gallery").onClick.Invoke();
+                var gallery=Field<RectTransform>(menu,"galleryScreen").Find("Content");
+                Require(gallery.gameObject.activeInHierarchy,"Gallery reachable from persistent navigation");
+                MenuControls.Get<Button>(gallery,"Navigation/Home").onClick.Invoke();
+                Require(main.gameObject.activeInHierarchy,"Persistent navigation returns home");
                 Cleanup();
                 Debug.Log("STAR_ECONOMY_PLAY_VALIDATION_PASS: real shop purchase buttons, disabled unaffordable item, wallet refresh, hard difficulty launch beyond legacy unlock, completion event rewards, repeated completion, return to main menu and persisted balance.");
                 SessionState.SetInt(Key + ".Phase", 3);

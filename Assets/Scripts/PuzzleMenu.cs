@@ -14,6 +14,9 @@ public class PuzzleMenu : MonoBehaviour
     [SerializeField] private RectTransform subchaptersScreen;
     [SerializeField] private RectTransform difficultyScreen;
     [SerializeField] private RectTransform shopScreen;
+    [SerializeField] private RectTransform challengesScreen;
+    [SerializeField, HideInInspector] private int menuLayoutVersion;
+    private int navigationSection;
     private RectTransform screen;
     private int selected;
     private bool storyMode;
@@ -25,8 +28,8 @@ public class PuzzleMenu : MonoBehaviour
     private void Start()
     {
         foreach (var panel in new[] { titleScreen, mainScreen, galleryScreen, imageScreen,
-                     selectionScreen, settingsScreen, chaptersScreen, subchaptersScreen, difficultyScreen, shopScreen })
-            panel.gameObject.SetActive(false);
+                     selectionScreen, settingsScreen, chaptersScreen, subchaptersScreen, difficultyScreen, shopScreen, challengesScreen })
+            if (panel != null) panel.gameObject.SetActive(false);
         GameAudio.PlayMusic(null);
         selected = Mathf.Clamp(PuzzleSession.Chapter, 0, Unlocked - 1);
         var page = PuzzleSession.MenuPage;
@@ -38,6 +41,7 @@ public class PuzzleMenu : MonoBehaviour
         }
         else if (page == PuzzleMenuPage.Library) ShowLibrary();
         else if (page == PuzzleMenuPage.Shop) ShowShop(0, true);
+        else if (page == PuzzleMenuPage.Challenges) ShowChallenges();
         else ShowSelection(true);
     }
 
@@ -48,7 +52,42 @@ public class PuzzleMenu : MonoBehaviour
         screen.gameObject.SetActive(true);
         screen.SetAsLastSibling();
         if (previous != screen) ScreenTransition.Replace(previous, screen, false);
-        return (RectTransform)screen.Find("Content");
+        var content = (RectTransform)screen.Find("Content");
+        if (content != null)
+        {
+            MenuControls.SafeArea(content);
+            BindNavigation(content, panel);
+        }
+        return content;
+    }
+
+    private void BindNavigation(RectTransform content, RectTransform panel)
+    {
+        if (panel == mainScreen) navigationSection = 0;
+        else if (panel == chaptersScreen || panel == subchaptersScreen || panel == selectionScreen) navigationSection = 1;
+        else if (panel == galleryScreen) navigationSection = 2;
+        else if (panel == challengesScreen) navigationSection = 3;
+        else if (panel == shopScreen) navigationSection = 4;
+        if (content.Find("Wallet/Amount") != null)
+            MenuControls.Get<Text>(content, "Wallet/Amount").text = StarEconomy.Balance(catalog).ToString();
+        if (content.Find("Options") != null)
+            MenuControls.Bind(content, "Options", () =>
+            {
+                var previous = screen;
+                Open(settingsScreen).GetComponent<SettingsMenu>().Build(() => { Open(previous); });
+            });
+        if (content.Find("Navigation") == null) return;
+        var names = new[] { "Home", "Chapters", "Gallery", "Challenges", "Shop" };
+        UnityEngine.Events.UnityAction[] actions = { ShowMain, () => { PuzzleSession.LibraryChapter = -1; ShowLibrary(); },
+            () => ShowGallery(), () => ShowChallenges(), () => ShowShop() };
+        for (int i = 0; i < names.Length; i++)
+        {
+            var button = MenuControls.Bind(content, "Navigation/" + names[i], actions[i]);
+            bool active = i == navigationSection;
+            button.interactable = i != 1 || HasStory;
+            button.GetComponent<Image>().color = active ? PuzzleUI.Accent : PuzzleUI.Panel;
+            MenuControls.Get<Graphic>(button.transform, "Icon").color = active ? Color.white : PuzzleUI.Muted;
+        }
     }
 
     private void ShowTitle()
@@ -69,6 +108,13 @@ public class PuzzleMenu : MonoBehaviour
         var content = Open(mainScreen);
         MenuControls.SafeArea(content);
         var texture = GamePreferences.MenuBackground(catalog);
+        if (content.Find("Game Title") != null) MenuControls.Get<Text>(content, "Game Title").text = catalog.GameTitle;
+        if (content.Find("Story Card/Location") != null)
+        {
+            string location = HasStory ? catalog.Story[StoryProgress.Completed(catalog) ? 0 : StoryProgress.CurrentIndex(catalog)].title : catalog[0].title;
+            MenuControls.Get<Text>(content, "Story Card/Location").text = location;
+            CanvasText.Set(MenuControls.Get<Text>(content, "Story Card/State"), HasStory && StoryProgress.Completed(catalog) ? 1 : 0);
+        }
         MenuControls.Get<Text>(content, "Wallet/Amount").text = StarEconomy.Balance(catalog).ToString();
         MenuControls.Bind(content, "Shop", () => ShowShop());
         var image = MenuControls.Get<RawImage>(mainScreen, "Menu Background/Artwork");
@@ -113,14 +159,26 @@ public class PuzzleMenu : MonoBehaviour
     }
 
     private void ShowShopPuzzle(int index, int difficulty, int page)
+        => ShowPuzzleDetails(index, difficulty, () => ShowShop(page, true));
+
+    private void ShowChallenges(int page = 0)
     {
-        if (!StarEconomy.OwnsPuzzle(catalog, index)) return;
+        Open(challengesScreen).GetComponent<PuzzleChallenges>().Build(catalog, page, ShowChallenges,
+            index => ShowChallengePuzzle(index, 0, page), () => ShowShop(0, true), ShowMain);
+    }
+
+    private void ShowChallengePuzzle(int index, int difficulty, int page)
+        => ShowPuzzleDetails(index, difficulty, () => ShowChallenges(page));
+
+    private void ShowPuzzleDetails(int index, int difficulty, System.Action back)
+    {
+        if (!StarEconomy.CanPlayPuzzle(catalog, index)) return;
         var content = Open(difficultyScreen);
         MenuControls.Get<Text>(content, "Title").text = catalog[index].title;
         for (int i = 0; i < 3; i++)
         {
             int choice = i;
-            MenuControls.Bind(content, "Difficulty " + i, () => ShowShopPuzzle(index, choice, page)).GetComponent<Image>().color
+            MenuControls.Bind(content, "Difficulty " + i, () => ShowPuzzleDetails(index, choice, back)).GetComponent<Image>().color
                 = i == difficulty ? PuzzleUI.Accent : PuzzleUI.Panel;
         }
         bool completed = (CompletedMask(index) & (1 << difficulty)) != 0;
@@ -140,7 +198,7 @@ public class PuzzleMenu : MonoBehaviour
             PuzzleSession.StoryMode = false;
             ScreenTransition.LoadScene(PuzzleSession.GameScenes[difficulty]);
         }).interactable = image != null;
-        MenuControls.Bind(content, "Back", () => ShowShop(page, true));
+        MenuControls.Bind(content, "Back", () => back());
     }
 
     private void ShowGallery(int page = 0, GalleryCategory category = GalleryCategory.Puzzles)

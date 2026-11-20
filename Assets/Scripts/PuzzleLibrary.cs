@@ -28,12 +28,27 @@ public class PuzzleLibrary
         var content = screen("Chapter Selection");
         var visible = new List<int>();
         for (int i = 0; i < catalog.Story.Chapters.Length; i++)
-            foreach (var section in catalog.Story.Chapters[i].subchapters)
-                if (StoryProgress.IsUnlocked(catalog, section)) { visible.Add(i); break; }
+            visible.Add(i);
         page = ClampPage(page, visible.Count);
         content.Find("Empty").gameObject.SetActive(visible.Count == 0);
         Rows(content, page, visible.Count, row => catalog.Story.Chapters[visible[row]].title,
-            row => Subchapters(visible[row]));
+            row => Subchapters(visible[row]), row => ChapterUnlocked(visible[row]), row =>
+            {
+                var sections = catalog.Story.Chapters[visible[row]].subchapters;
+                int done = 0;
+                foreach (var section in sections) if (Completed(section)) done++;
+                return done == sections.Length ? 0 : 1;
+            }, row =>
+            {
+                var sections = catalog.Story.Chapters[visible[row]].subchapters;
+                int done = 0;
+                foreach (var section in sections) if (Completed(section)) done++;
+                return done + " / " + sections.Length;
+            }, null, row =>
+            {
+                var sections = catalog.Story.Chapters[visible[row]].subchapters;
+                return sections.Length == 0 ? catalog.MenuBackground : Preview(sections[0]);
+            });
         Pages(content, page, visible.Count, Chapters);
         MenuControls.Bind(content, "Back", () => close());
     }
@@ -46,7 +61,7 @@ public class PuzzleLibrary
         MenuControls.Get<Text>(content, "Title").text = definition.title;
         var visible = new List<StorySubchapter>();
         foreach (var section in definition.subchapters)
-            if (StoryProgress.IsUnlocked(catalog, section)) visible.Add(section);
+            visible.Add(section);
         page = ClampPage(page, visible.Count);
         int current = page;
         Rows(content, page, visible.Count, row => visible[row].title, row =>
@@ -54,14 +69,37 @@ public class PuzzleLibrary
             var section = visible[row];
             if (catalog.Story.PuzzleIn(section) >= 0) PuzzleDetails(chapter, current, section, 0);
             else Launch(section, 0);
-        });
+        }, row => StoryProgress.IsUnlocked(catalog, visible[row]), row => Completed(visible[row]) ? 0 : 1,
+        row => "",
+        row =>
+        {
+            int puzzle = catalog.Story.PuzzleIn(visible[row]);
+            return puzzle < 0 ? 0 : PuzzleProgress.BestStars(puzzle, catalog[puzzle].StoryDifficulty, catalog.ProgressId);
+        }, row => Preview(visible[row]), row => catalog.Story.PuzzleIn(visible[row]) >= 0 ? 1 : 2);
         Pages(content, page, visible.Count, next => Subchapters(chapter, next));
         MenuControls.Bind(content, "Back", () => Chapters());
     }
 
     private static int ClampPage(int page, int count) => Mathf.Clamp(page, 0, Mathf.Max(0, (count - 1) / PageSize));
 
-    private static void Rows(RectTransform content, int page, int count, Func<int, string> title, Action<int> open)
+    private bool ChapterUnlocked(int chapter)
+    {
+        foreach (var section in catalog.Story.Chapters[chapter].subchapters)
+            if (StoryProgress.IsUnlocked(catalog, section)) return true;
+        return false;
+    }
+    private bool Completed(StorySubchapter section) => StoryProgress.FurthestIndex(catalog) > catalog.Story.IndexOf(section.lastStepId);
+    private Texture2D Preview(StorySubchapter section)
+    {
+        int first = catalog.Story.IndexOf(section.firstStepId), last = catalog.Story.IndexOf(section.lastStepId);
+        for (int i = first; i >= 0 && i <= last; i++)
+            if (catalog.Story[i].conversation?.Background != null) return catalog.Story[i].conversation.Background;
+        return catalog.MenuBackground;
+    }
+
+    private static void Rows(RectTransform content, int page, int count, Func<int, string> title, Action<int> open,
+        Func<int, bool> unlocked, Func<int, int> state, Func<int, string> subtitle, Func<int, int> score, Func<int, Texture2D> artwork,
+        Func<int, int> subtitleKind = null)
     {
         for (int slot = 0; slot < PageSize; slot++)
         {
@@ -70,7 +108,18 @@ public class PuzzleLibrary
             content.Find(path).gameObject.SetActive(row < count);
             if (row >= count) continue;
             MenuControls.Get<Text>(content, path + "/Label").text = title(row);
-            MenuControls.Bind(content, path, () => open(row));
+            bool available = unlocked(row);
+            MenuControls.Bind(content, path, () => { if (available) open(row); }).interactable = available;
+            var card = content.Find(path);
+            if (card.Find("State") != null)
+            {
+                CanvasText.Set(MenuControls.Get<Text>(card, "State"), available ? state(row) : 2);
+                CanvasText.Set(MenuControls.Get<Text>(card, "Subtitle"), available ? subtitleKind?.Invoke(row) ?? 0 : 3, subtitle(row));
+                var stars = MenuControls.Get<PuzzleStarsGraphic>(card, "Stars");
+                stars.Stars = available && score != null ? score(row) : 0;
+                stars.gameObject.SetActive(stars.Stars > 0);
+                MenuControls.SetTexture(MenuControls.Get<RawImage>(card, "Artwork"), available ? artwork(row) : null);
+            }
         }
     }
 

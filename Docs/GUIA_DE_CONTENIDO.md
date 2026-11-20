@@ -56,6 +56,16 @@ Cada conversación empieza con sus propios outfits iniciales. No se modifica el 
 
 El Inspector señala identificadores duplicados, sprites sin asignar y selecciones que ya no existen. Si se renombra un `Id`, actualizar las conversaciones que lo usan; un identificador inválido emite un aviso al reproducir y utiliza el retrato predeterminado. `Tools > One Hand Puzzle > Validate Dialogue Outfits` comprueba los cambios de outfit, las orientaciones, las salidas y entradas, la paginación y la compatibilidad con las conversaciones existentes.
 
+## Organización de las ventanas
+
+El menú sigue una estructura común de inicio, navegación y detalle. **Inicio** deja visible la ilustración elegida y destaca **Continuar historia**, con el siguiente paso narrativo. La barra inferior conserva cinco destinos en las ventanas del menú: **Inicio**, **Capítulos**, **Galería**, **Desafíos** y **Tienda**. El saldo de estrellas y las opciones ocupan la cabecera; **Volver** mantiene la jerarquía de cada sección.
+
+**Capítulos** funciona como archivo de la historia: capítulos con progreso, subcapítulos con estado disponible/completado/bloqueado, vista previa y estrellas cuando hay puzle. Las entradas bloqueadas se ven pero no pueden abrirse. **Desafíos** permite jugar y repetir los puzles disponibles, elegir dificultad y consultar el récord; un desafío de pago sin comprar remite a la tienda. La **Tienda** agrupa categorías a la izquierda y artículos en una cuadrícula de seis tarjetas, con imagen, precio y acción. La **Galería** conserva tarjetas de solo imagen, separa puzles y fondos y abre el visor con zoom. Solo los fondos pueden seleccionarse para el inicio.
+
+La disposición se inspira en las capturas y guías consultadas: el inicio despejado y los accesos de campaña de [NIKKE](https://cow-snake.github.io/nikke-mg/features/main-screen/), la navegación estable y los mapas narrativos de [Fire Emblem Heroes](https://new-guide.fire-emblem-heroes.com/en-US/feh-1010.html), y las categorías laterales, saldo superior y cuadrícula de la [tienda de Genshin Impact](https://interfaceingame.com/screenshots/genshin-impact-mobile-paimons-bargains/). El [archivo de NIKKE](https://bsky.app/profile/nikke-en.bsky.social/post/3lbmyi2ywps2f) también distingue el acceso a recuerdos de la campaña. Son referencias de organización; los textos, los iconos y el estilo pertenecen a esta plantilla y se adaptan a sus funciones.
+
+Los objetos estáticos, los iconos y la colocación están en el Canvas de `MainMenu`, con anclajes proporcionales para distintas relaciones de aspecto. `Tools > One Hand Puzzle > Organize Menus` aplica esta disposición en el editor. Una escena abierta durante la actualización se migra en el editor conservando los datos del juego. No se crean controles del menú durante la partida.
+
 ## Economía de estrellas y tienda
 
 Las estrellas de los puzles son también moneda. Cada puzle y dificultad tiene su propio récord y puede aportar como máximo tres estrellas al saldo durante toda la partida: `0 → 1` suma una, `1 → 1` suma cero, `1 → 2` suma una y `1 → 3` suma dos. Los umbrales de rendimiento siguen siendo los de la puntuación del puzle. Gastar estrellas no borra récords ni permite volver a cobrarlos. La pantalla de resultado muestra lo ganado en ese intento y el saldo disponible; el menú principal y la tienda muestran el saldo junto a un icono de estrella.
@@ -261,7 +271,7 @@ La galería separa `Puzles` de `Fondos de pantalla`. Solo estos últimos ofrecen
 
 Para conceder un fondo al terminar una parte concreta, usar `Story → Chapters → Subchapters → Fondos al completar el subcapítulo`. Por ejemplo, asignar el coche como `Fondo inicial` y la entrada de día como recompensa del subcapítulo `1-1`: al comenzar solo estará disponible el coche y al terminar `1-1` se añadirá la entrada, sin esperar al resto del capítulo. Cada subcapítulo puede conceder uno o varios fondos.
 
-Las escenas utilizan una resolución de referencia de Canvas de 900×1000. El contenido de menú utiliza un área de 720×920. El cuadro de conversación y el visor de galería se anclan al tamaño de pantalla.
+Las escenas utilizan una resolución de referencia de Canvas de 900×1000. Los menús se extienden al área segura de la pantalla, con cabecera y navegación inferior ancladas a sus bordes. El cuadro de conversación y el visor de galería también se anclan al tamaño de pantalla.
 
 En `DialogueController` se pueden ajustar velocidad base, opacidad, escala del oyente, duración del cambio de foco y duración de entrada y salida. La posición y distancia al borde de los personajes se editan en los RectTransform `Dialogue/Content/Left Character` y `Right Character` de cada Canvas. Los ajustes guardados de opacidad y velocidad del jugador pueden modificar el resultado visible.
 
