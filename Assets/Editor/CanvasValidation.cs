@@ -31,7 +31,7 @@ public static class CanvasValidation
                     foreach (var text in components.OfType<CanvasText>()) ValidateText(text);
                     foreach (var component in components)
                     {
-                        string[] fields = component is PuzzleMenu ? new[] { "catalog", "titleScreen", "mainScreen", "galleryScreen", "imageScreen", "selectionScreen", "settingsScreen", "chaptersScreen", "subchaptersScreen", "difficultyScreen" }
+                        string[] fields = component is PuzzleMenu ? new[] { "catalog", "titleScreen", "mainScreen", "galleryScreen", "imageScreen", "selectionScreen", "settingsScreen", "chaptersScreen", "subchaptersScreen", "difficultyScreen", "shopScreen" }
                             : component is DialogueController ? new[] { "screen" }
                             : component is PuzzleSceneController ? new[] { "victoryScreen", "completionContinue", "gameLayout", "gameTitle", "catalog", "puzzle", "dialogue" }
                             : component is Puzzle ? new[] { "completedImage", "completionFlash", "board", "status" }
@@ -52,7 +52,7 @@ public static class CanvasValidation
                         var layout = Field<GameObject>(controller, "gameLayout").transform;
                         Check<Button>(layout, "Back to Menu", "Continue After Reveal", "Shuffle Button");
                         var content = Field<RectTransform>(controller, "victoryScreen").Find("Content");
-                        Check<Text>(content, "Title", "Moves", "Best", "Next/Label");
+                        Check<Text>(content, "Title", "Moves", "Best", "Next/Label", "Star Reward");
                         Check<PuzzleStarsGraphic>(content, "Grade", "Best/Stars");
                         Check<RawImage>(content, "Artwork");
                         Check<Button>(content, "Next", "Play Again", "Back");
@@ -169,7 +169,13 @@ public static class CanvasValidation
         Transform Content(string field) => Field<RectTransform>(menu, field).Find("Content");
         Check<Text>(Content("titleScreen"), "Title");
         Check<Button>(Content("titleScreen"), "Start");
-        Check<Button>(Content("mainScreen"), "Settings", "Gallery", "Story", "Recap");
+        Check<Button>(Content("mainScreen"), "Settings", "Gallery", "Story", "Recap", "Shop");
+        Check<Text>(Content("mainScreen"), "Wallet/Amount");
+        Check<PuzzleStarsGraphic>(Content("mainScreen"), "Wallet/Icon");
+        var shop = Content("shopScreen").GetComponent<StarShop>();
+        Require(shop != null, "Missing authored shop");
+        shop.Build(catalog, 0, false, (_, __) => { }, _ => { }, () => { });
+        shop.Build(catalog, int.MaxValue, true, (_, __) => { }, _ => { }, () => { });
         var background = MenuControls.Get<RawImage>(Field<RectTransform>(menu, "mainScreen"), "Menu Background/Artwork");
         Require(background.GetComponent<AspectRatioFitter>() != null, "Missing background fitter");
         Check<RawImage>(Content("selectionScreen"), "Artwork");

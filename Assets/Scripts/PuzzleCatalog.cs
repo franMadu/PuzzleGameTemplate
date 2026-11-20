@@ -11,6 +11,9 @@ public enum PuzzleDifficulty
 [Serializable]
 public class GalleryWallpaper
 {
+    [Min(0), InspectorName("Precio en estrellas")]
+    [Tooltip("Mayor que cero: se vende en la tienda. Cero: solo fondo inicial o recompensa de historia.")]
+    public int starCost;
     [Tooltip("Identificador estable del fondo para conservar la selección al reordenar la lista.")]
     public string id;
     public Texture2D image;
@@ -20,6 +23,11 @@ public class GalleryWallpaper
 [Serializable]
 public class PuzzleChapter
 {
+    [Tooltip("ID permanente y único para los puzles de la tienda. No cambiar después de publicar.")]
+    public string id;
+    [Min(0), InspectorName("Precio en estrellas")]
+    [Tooltip("Mayor que cero: puzle o desafío extra de la tienda. Cero: acceso habitual por historia.")]
+    public int starCost;
     public string title;
     [TextArea] public string story;
     [InspectorName("Imagen · Fácil (3×3)")]
@@ -48,7 +56,7 @@ public class PuzzleCatalog : ScriptableObject
     [SerializeField] private string gameTitle = "ONE HAND\nPUZZLE";
     [Tooltip("Fondo inicial del menú, siempre disponible. Añádelo también a Fondos de pantalla para poder volver a seleccionarlo en la galería.")]
     [SerializeField, InspectorName("Fondo inicial")] private Texture2D menuBackground;
-    [Tooltip("Catálogo de fondos. Solo se muestran el fondo inicial y los ganados al completar subcapítulos de Story.")]
+    [Tooltip("Catálogo de fondos. Se muestran el fondo inicial, los ganados en Story y los comprados en la tienda.")]
     [SerializeField, InspectorName("Fondos de pantalla")]
     private GalleryWallpaper[] wallpapers;
     [SerializeField, TextArea(2, 4)] private string endingText = "Has completado el viaje.";
@@ -63,4 +71,31 @@ public class PuzzleCatalog : ScriptableObject
     public StorySequence Story => story;
     public int Count => chapters?.Length ?? 0;
     public PuzzleChapter this[int index] => chapters[index];
+
+    public bool ValidateStore(out string error)
+    {
+        for (int i = 0; i < Count; i++)
+        {
+            var item = this[i];
+            if (item.starCost <= 0) continue;
+            if (string.IsNullOrWhiteSpace(item.id) || item.id != item.id.Trim()
+                || (item.image == null && item.normalImage == null && item.hardImage == null))
+            { error = "El puzle de tienda " + (i + 1) + " necesita un ID estable sin espacios exteriores y al menos una imagen."; return false; }
+            for (int j = 0; j < Count; j++)
+                if (i != j && this[j].id == item.id)
+                { error = "ID de puzle de tienda repetido: " + item.id; return false; }
+        }
+        for (int i = 0; i < WallpaperCount; i++)
+        {
+            var item = WallpaperAt(i);
+            if (item == null || item.starCost <= 0) continue;
+            if (item.image == null || string.IsNullOrWhiteSpace(item.Id))
+            { error = "El fondo de tienda " + (i + 1) + " necesita una imagen y un ID estable."; return false; }
+            for (int j = 0; j < WallpaperCount; j++)
+                if (i != j && WallpaperAt(j)?.Id == item.Id)
+                { error = "ID de fondo de tienda repetido: " + item.Id; return false; }
+        }
+        error = null;
+        return true;
+    }
 }

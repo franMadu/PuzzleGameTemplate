@@ -93,13 +93,16 @@ public class PuzzleLibrary
         var stars = MenuControls.Get<PuzzleStarsGraphic>(content, "Grade/Stars");
         stars.Stars = completed ? Mathf.Max(1, PuzzleProgress.BestStars(puzzle, difficulty, catalog.ProgressId)) : 0;
         stars.gameObject.SetActive(completed);
-        MenuControls.Bind(content, "Play", () => Launch(section, difficulty)).interactable = texture != null;
+        MenuControls.Bind(content, "Play", () => Launch(section, difficulty)).interactable = texture != null
+            && (catalog[puzzle].starCost == 0 || StarEconomy.OwnsPuzzle(catalog, puzzle));
         MenuControls.Bind(content, "Back", () => Subchapters(chapter, page));
     }
 
     private void Launch(StorySubchapter section, int difficulty)
     {
         if (!StoryProgress.IsUnlocked(catalog, section) || ScreenTransition.IsBusy) return;
+        int puzzle = catalog.Story.PuzzleIn(section);
+        if (puzzle >= 0 && catalog[puzzle].starCost > 0 && !StarEconomy.OwnsPuzzle(catalog, puzzle)) return;
         PuzzleSession.StoryMode = false;
         PuzzleSession.Difficulty = difficulty;
         PuzzleSession.ReplayIndex = catalog.Story.IndexOf(section.firstStepId);

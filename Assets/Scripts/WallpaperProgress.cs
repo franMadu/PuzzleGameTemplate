@@ -10,6 +10,7 @@ public static class WallpaperProgress
     {
         var wallpaper = catalog.WallpaperAt(index);
         return wallpaper?.image != null && (wallpaper.image == catalog.MenuBackground
+            || StarEconomy.OwnsWallpaper(catalog, index)
             || PlayerPrefs.GetInt(Key(catalog, wallpaper), 0) != 0);
     }
 

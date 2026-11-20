@@ -16,6 +16,7 @@ public class PuzzleSceneController : MonoBehaviour
     private bool storyMode;
     private string storyStepId;
     private int replayStep = -1;
+    private int earnedStars;
     private bool SequenceStory => storyMode && catalog.Story != null && storyStepId != null;
     [SerializeField] private RectTransform victoryScreen;
     private Coroutine completionRoutine;
@@ -46,7 +47,15 @@ public class PuzzleSceneController : MonoBehaviour
                 return;
             }
         }
-        else chapter = Mathf.Clamp(PuzzleSession.Chapter, 0, PuzzleProgress.Unlocked(catalog.Count, catalog.ProgressId) - 1);
+        else
+        {
+            chapter = Mathf.Clamp(PuzzleSession.Chapter, 0, catalog.Count - 1);
+            // Directly opening a difficulty scene still supports the first free puzzle.
+            if (!StarEconomy.CanPlayPuzzle(catalog, chapter) && !(chapter == 0 && catalog[chapter].starCost == 0))
+            { ScreenTransition.LoadScene(PuzzleSession.MenuScene); enabled = false; return; }
+        }
+        if (catalog[chapter].starCost > 0 && !StarEconomy.OwnsPuzzle(catalog, chapter))
+        { ScreenTransition.LoadScene(PuzzleSession.MenuScene); enabled = false; return; }
         if (storyMode)
         {
             PuzzleSession.Difficulty = catalog[chapter].StoryDifficulty;
@@ -113,7 +122,8 @@ public class PuzzleSceneController : MonoBehaviour
 
     private void OnCompleted()
     {
-        PuzzleProgress.Complete(chapter, Difficulty, catalog.Count, puzzle.Moves, puzzle.MinimumMoves, catalog.ProgressId);
+        earnedStars = PuzzleProgress.Complete(chapter, Difficulty, catalog.Count, puzzle.Moves, puzzle.MinimumMoves, catalog.ProgressId,
+            catalog[chapter].starCost == 0);
         if (SequenceStory)
         {
             StoryProgress.Advance(catalog, storyStepId);
@@ -151,6 +161,7 @@ public class PuzzleSceneController : MonoBehaviour
         victoryScreen.gameObject.SetActive(true);
         victoryScreen.SetAsLastSibling();
         var content = victoryScreen.Find("Content");
+        CanvasText.Set(MenuControls.Get<Text>(content, "Star Reward"), 0, earnedStars, StarEconomy.Balance(catalog));
         MenuControls.Get<Text>(content, "Title").text = catalog[chapter].title;
         MenuControls.SetTexture(MenuControls.Get<RawImage>(content, "Artwork"), catalog[chapter].ImageForDifficulty(Difficulty));
         MenuControls.Get<PuzzleStarsGraphic>(content, "Grade").Stars = puzzle.Stars;
@@ -175,7 +186,7 @@ public class PuzzleSceneController : MonoBehaviour
         else
         {
             CanvasText.Set(nextLabel, 3);
-            MenuControls.Bind(content, "Next", () => ReturnToMenu(PuzzleMenuPage.Library));
+            MenuControls.Bind(content, "Next", () => ReturnToMenu(catalog[chapter].starCost > 0 ? PuzzleMenuPage.Shop : PuzzleMenuPage.Library));
         }
         MenuControls.Bind(content, "Play Again", () => ScreenTransition.Change(PlayAgain));
         MenuControls.Bind(content, "Back", () => ReturnToMenu(PuzzleMenuPage.Main));
