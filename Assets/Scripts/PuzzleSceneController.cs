@@ -153,9 +153,9 @@ public class PuzzleSceneController : MonoBehaviour
         var content = victoryScreen.Find("Content");
         MenuControls.Get<Text>(content, "Title").text = catalog[chapter].title;
         MenuControls.SetTexture(MenuControls.Get<RawImage>(content, "Artwork"), catalog[chapter].ImageForDifficulty(Difficulty));
-        CanvasText.Set(MenuControls.Get<Text>(content, "Grade"), 0, puzzle.Grade);
+        MenuControls.Get<PuzzleStarsGraphic>(content, "Grade").Stars = puzzle.Stars;
         CanvasText.Set(MenuControls.Get<Text>(content, "Moves"), 0, puzzle.Moves, puzzle.MinimumMoves);
-        CanvasText.Set(MenuControls.Get<Text>(content, "Best"), 0, PuzzleProgress.BestGrade(chapter, Difficulty, catalog.ProgressId));
+        MenuControls.Get<PuzzleStarsGraphic>(content, "Best/Stars").Stars = PuzzleProgress.BestStars(chapter, Difficulty, catalog.ProgressId);
         bool next = chapter + 1 < catalog.Count;
         var nextLabel = MenuControls.Get<Text>(content, "Next/Label");
         if (replayStep >= 0 || SequenceStory)

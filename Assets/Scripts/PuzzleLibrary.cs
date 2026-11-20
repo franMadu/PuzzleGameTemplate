@@ -89,8 +89,10 @@ public class PuzzleLibrary
         bool completed = (PuzzleProgress.CompletedMask(puzzle, catalog.ProgressId) & (1 << difficulty)) != 0;
         MenuControls.SetTexture(MenuControls.Get<RawImage>(content, "Artwork"), completed ? texture : null);
         content.Find("Hidden").gameObject.SetActive(!completed || texture == null);
-        string grade = PuzzleProgress.BestGrade(puzzle, difficulty, catalog.ProgressId);
-        CanvasText.Set(MenuControls.Get<Text>(content, "Grade"), completed ? 1 : 0, grade);
+        CanvasText.Set(MenuControls.Get<Text>(content, "Grade"), completed ? 1 : 0);
+        var stars = MenuControls.Get<PuzzleStarsGraphic>(content, "Grade/Stars");
+        stars.Stars = completed ? Mathf.Max(1, PuzzleProgress.BestStars(puzzle, difficulty, catalog.ProgressId)) : 0;
+        stars.gameObject.SetActive(completed);
         MenuControls.Bind(content, "Play", () => Launch(section, difficulty)).interactable = texture != null;
         MenuControls.Bind(content, "Back", () => Subchapters(chapter, page));
     }

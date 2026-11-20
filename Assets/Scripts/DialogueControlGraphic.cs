@@ -6,6 +6,14 @@ using UnityEngine.UI;
 public class DialogueControlGraphic : MaskableGraphic
 {
     [SerializeField] private bool closeIcon;
+    [SerializeField] private bool hideIcon;
+
+    public void SetHideIcon(bool hide)
+    {
+        hideIcon = hide;
+        closeIcon = false;
+        SetVerticesDirty();
+    }
 
     public void SetCloseIcon(bool close)
     {
@@ -16,7 +24,15 @@ public class DialogueControlGraphic : MaskableGraphic
     protected override void OnPopulateMesh(VertexHelper mesh)
     {
         mesh.Clear();
-        if (closeIcon)
+        if (hideIcon)
+        {
+            Line(mesh, new Vector2(-0.3f, 0), new Vector2(0, 0.19f));
+            Line(mesh, new Vector2(0, 0.19f), new Vector2(0.3f, 0));
+            Line(mesh, new Vector2(0.3f, 0), new Vector2(0, -0.19f));
+            Line(mesh, new Vector2(0, -0.19f), new Vector2(-0.3f, 0));
+            Line(mesh, new Vector2(-0.27f, -0.27f), new Vector2(0.27f, 0.27f));
+        }
+        else if (closeIcon)
         {
             Line(mesh, new Vector2(-0.19f, -0.19f), new Vector2(0.19f, 0.19f));
             Line(mesh, new Vector2(-0.19f, 0.19f), new Vector2(0.19f, -0.19f));
