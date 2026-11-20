@@ -61,12 +61,16 @@ MonoBehaviour:
   - id: 3b31220c36a591047ad1329ff717bc45
     image: {fileID: 2800000, guid: 3b31220c36a591047ad1329ff717bc45, type: 3}
   - id: 27b2fd31505d4cb1b184ca32befc4c0c
+    starCost: 2
     image: {fileID: 2800000, guid: 27b2fd31505d4cb1b184ca32befc4c0c, type: 3}
   - id: 1c4e37bd177a4c5e97837d61b219c193
+    starCost: 2
     image: {fileID: 2800000, guid: 1c4e37bd177a4c5e97837d61b219c193, type: 3}
   - id: 02afca901fc540e0870557eb614a5c41
+    starCost: 2
     image: {fileID: 2800000, guid: 02afca901fc540e0870557eb614a5c41, type: 3}
   - id: 365ecd6be5b54cf8bd838506d34e107f
+    starCost: 2
     image: {fileID: 2800000, guid: 365ecd6be5b54cf8bd838506d34e107f, type: 3}
   endingText: "Continuará."
   story: {fileID: 11400000, guid: 0fe7b6d02491400f9a2d7c07c4ff8111, type: 2}
@@ -79,7 +83,9 @@ MonoBehaviour:
     difficulty: 0
     introduction: {fileID: 0}
     conclusion: {fileID: 0}
-  - title: La costa
+  - id: desafio-costa
+    starCost: 3
+    title: La costa
     story: Una amiga te espera junto al faro. Explora la costa, entra en la sala de la linterna y descubre la promesa que os llevó hasta allí.
     image: {fileID: 2800000, guid: de6c02fbb9dd472da38c8fa3e4102b7e, type: 3}
     normalImage: {fileID: 2800000, guid: 302747fa8bf54d86877b098c197ef86e, type: 3}
@@ -87,7 +93,9 @@ MonoBehaviour:
     difficulty: 1
     introduction: {fileID: 11400000, guid: 4c1a9f36df4e46a5b2acdbed4e4a0003, type: 2}
     conclusion: {fileID: 11400000, guid: 4c1a9f36df4e46a5b2acdbed4e4a0004, type: 2}
-  - title: El desierto
+  - id: desafio-desierto
+    starCost: 5
+    title: El desierto
     story: Tras un descanso en el campamento, los tres amigos alcanzan el mirador. La última imagen guarda el final de una promesa y el principio de otro viaje.
     image: {fileID: 2800000, guid: 302747fa8bf54d86877b098c197ef86e, type: 3}
     normalImage: {fileID: 2800000, guid: 51d1be85345d40f18aa79160e1d881a2, type: 3}
