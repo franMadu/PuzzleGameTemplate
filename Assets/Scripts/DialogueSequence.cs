@@ -30,6 +30,15 @@ public class DialogueReaction
 [Serializable]
 public class DialogueLine
 {
+    [InspectorName("Fondo")]
+    [Tooltip("Cambia el escenario al comenzar esta intervención. Vacío conserva el fondo anterior.")]
+    public Texture2D background;
+    [InspectorName("Efecto de sonido")]
+    [Tooltip("Se reproduce una sola vez al comenzar esta intervención, aunque el texto ocupe varias páginas. Vacío no reproduce ningún efecto.")]
+    public AudioClip soundEffect;
+    [InspectorName("Volumen del efecto"), Range(0, 1)]
+    [Tooltip("Volumen relativo del sonido. También respeta el volumen de efectos de las opciones.")]
+    public float soundEffectVolume = 1;
     [Tooltip("Personaje que habla. Con reparto, su posición se elige automáticamente.")]
     public DialogueCharacter character;
     [Tooltip("Vacío conserva el outfit actual. Elegir Predeterminado vuelve al retrato base del personaje.")]

@@ -28,6 +28,9 @@ public class DialogueController : MonoBehaviour
 
     private sealed class Page
     {
+        public Texture2D background;
+        public AudioClip soundEffect;
+        public float soundEffectVolume;
         public string speaker;
         public string text;
         public bool isThought;
@@ -114,6 +117,8 @@ public class DialogueController : MonoBehaviour
             {
                 foreach (var stage in stages)
                     AddPages(new Page {
+                        background = stage.Line.background, soundEffect = stage.Line.soundEffect,
+                        soundEffectVolume = stage.Line.soundEffectVolume,
                         speaker = stage.Speaker != null ? stage.Speaker.DisplayName : stage.Line.speaker,
                         text = stage.Line.text, isThought = stage.Line.isThought, speakerSide = stage.SpeakingSide,
                         leftActor = stage.Left, rightActor = stage.Right,
@@ -135,6 +140,7 @@ public class DialogueController : MonoBehaviour
                     if (line.hideRightCharacter) right = null;
                     else if (line.rightCharacter != null) right = line.rightCharacter;
                     AddPages(new Page { speaker = line.speaker, text = line.text, isThought = line.isThought, speakerSide = line.speakerSide,
+                        background = line.background, soundEffect = line.soundEffect, soundEffectVolume = line.soundEffectVolume,
                         leftCharacter = left, rightCharacter = right, leftFacesLeft = sequence.LeftFacesLeft, rightFacesLeft = sequence.RightFacesLeft });
                 }
             }
@@ -148,16 +154,7 @@ public class DialogueController : MonoBehaviour
         }
         onFinished = finished;
         if (sequence != null && sequence.Background != null) image = sequence.Background;
-        backdrop.texture = image;
-        backdrop.gameObject.SetActive(image != null);
-        if (image != null)
-        {
-            float imageAspect = image.width / (float)image.height;
-            float screenAspect = screen.rect.width / Mathf.Max(1, screen.rect.height);
-            float width = Mathf.Min(1, screenAspect / imageAspect);
-            float height = Mathf.Min(1, imageAspect / screenAspect);
-            backdrop.uvRect = new Rect((1 - width) / 2, (1 - height) / 2, width, height);
-        }
+        SetBackground(image);
         if (EventSystem.current != null)
         {
             previousSelection = EventSystem.current.currentSelectedGameObject;
@@ -169,6 +166,20 @@ public class DialogueController : MonoBehaviour
         screen.SetAsLastSibling();
         ShowPage(true);
         ActiveChanged?.Invoke(true);
+    }
+
+    private void SetBackground(Texture2D image)
+    {
+        backdrop.texture = image;
+        backdrop.gameObject.SetActive(image != null);
+        if (image != null)
+        {
+            float imageAspect = image.width / (float)image.height;
+            float screenAspect = screen.rect.width / Mathf.Max(1, screen.rect.height);
+            float width = Mathf.Min(1, screenAspect / imageAspect);
+            float height = Mathf.Min(1, imageAspect / screenAspect);
+            backdrop.uvRect = new Rect((1 - width) / 2, (1 - height) / 2, width, height);
+        }
     }
 
     public void Advance()
@@ -267,6 +278,8 @@ public class DialogueController : MonoBehaviour
     private void ShowPage(bool snapFocus = false)
     {
         var page = pages[PageIndex];
+        if (page.background != null) SetBackground(page.background);
+        GameAudio.PlayDialogueEffect(page.soundEffect, page.soundEffectVolume, this);
         var style = bodyText.GetComponent<DialogueTextStyle>();
         if (style != null) style.Apply(page.isThought);
         speakerText.text = page.speaker;
@@ -313,6 +326,7 @@ public class DialogueController : MonoBehaviour
         finishing = false;
         IsPlaying = false;
         GameAudio.StopMusic(this);
+        GameAudio.StopDialogueEffects(this);
         IsTyping = false;
         SetDialogueHidden(false);
         leftFocus.motion = rightFocus.motion = Motion.None;
@@ -436,6 +450,7 @@ public class DialogueController : MonoBehaviour
     private void AddPages(Page source)
     {
         string remaining = source.text.Trim();
+        bool firstPage = true;
         var settings = bodyText.GetGenerationSettings(new Vector2(bodyText.rectTransform.rect.width, 0));
         var style = bodyText.GetComponent<DialogueTextStyle>();
         if (style != null) settings.fontStyle = style.GetFontStyle(source.isThought);
@@ -459,12 +474,15 @@ public class DialogueController : MonoBehaviour
                 if (space > end / 2) end = space;
             }
             pages.Add(new Page { speaker = source.speaker, speakerSide = source.speakerSide,
+                background = source.background,
+                soundEffect = firstPage ? source.soundEffect : null, soundEffectVolume = source.soundEffectVolume,
                 isThought = source.isThought,
                 leftCharacter = source.leftCharacter, rightCharacter = source.rightCharacter,
                 leftActor = source.leftActor, rightActor = source.rightActor,
                 leftFacesLeft = source.leftFacesLeft, rightFacesLeft = source.rightFacesLeft,
                 text = remaining.Substring(0, end).TrimEnd() });
             remaining = remaining.Substring(end).TrimStart();
+            firstPage = false;
         }
     }
 
