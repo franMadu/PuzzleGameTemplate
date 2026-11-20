@@ -233,6 +233,8 @@ public static class CanvasValidation
     private static void ValidateBackgroundAndGallery(PuzzleCatalog source, PuzzleGallery gallery)
     {
         var catalog = UnityEngine.Object.Instantiate(source);
+        // This gallery fixture exercises story unlocks independently of shop pricing.
+        for (int i = 0; i < catalog.Count; i++) catalog[i].starCost = 0;
         // Gallery fixtures must not depend on which puzzles the authored story contains.
         var story = ScriptableObject.CreateInstance<StorySequence>();
         typeof(StorySequence).GetField("steps", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(story,
