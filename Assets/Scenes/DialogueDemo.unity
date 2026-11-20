@@ -486,7 +486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier:
   finishScreen: {fileID: 920000046}
   dialogue: {fileID: 900000087}
-  conversation: {fileID: 11400000, guid: 284b53cc519d450796a5747219384724, type: 2}
+  conversation: {fileID: 11400000, guid: d376fc8d7fddff5478b411378afa6378, type: 2}
   background: {fileID: 2800000, guid: 51d1be85345d40f18aa79160e1d881a2, type: 3}
 --- !u!114 &900000087
 MonoBehaviour:

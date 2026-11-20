@@ -1,4 +1,4 @@
-%YAML 1.1
+﻿%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
@@ -13,104 +13,27 @@ MonoBehaviour:
   m_Name: Story
   m_EditorClassIdentifier:
   chapters:
-  - title: El valle
+  - title: Capítulo 1
     subchapters:
-    - title: Llegada al valle
-      firstStepId: valley-arrival
-      lastStepId: valley-arrival
-    - title: El paso del valle
-      firstStepId: valley-bridge
-      lastStepId: valley-departure
-  - title: La costa
-    subchapters:
-    - title: Llegada a la costa
-      firstStepId: coast-arrival
-      lastStepId: coast-arrival
-    - title: Al pie del faro
-      firstStepId: lighthouse-arrival
-      lastStepId: lighthouse-arrival
-    - title: Dentro del faro
-      firstStepId: lighthouse-interior
-      lastStepId: coast-departure
-  - title: El desierto
-    subchapters:
-    - title: Entre las dunas
-      firstStepId: desert-arrival
-      lastStepId: desert-arrival
-    - title: El campamento
-      firstStepId: desert-camp
-      lastStepId: desert-camp
-    - title: El mirador de las dunas
-      firstStepId: desert-overlook
-      lastStepId: journey-end
+    - title: 1-1
+      firstStepId: chapter-1-1
+      lastStepId: chapter-1-1
+    - title: 1-2
+      firstStepId: chapter-1-2
+      lastStepId: chapter-1-2-puzzle
   steps:
-  - id: valley-arrival
-    title: El valle
+  - id: chapter-1-1
+    title: Capítulo 1 · 1-1
     kind: 0
-    conversation: {fileID: 11400000, guid: 4c1a9f36df4e46a5b2acdbed4e4a0001, type: 2}
+    conversation: {fileID: 11400000, guid: d376fc8d7fddff5478b411378afa6378, type: 2}
     puzzleIndex: 0
-  - id: valley-bridge
-    title: El paso del valle
+  - id: chapter-1-2
+    title: Capítulo 1 · 1-2
     kind: 0
-    conversation: {fileID: 11400000, guid: 7c30ba519f774631b730245b2cb74a01, type: 2}
+    conversation: {fileID: 11400000, guid: eda63df6edfdf014b9fa4991621c6c84, type: 2}
     puzzleIndex: 0
-  - id: valley-puzzle
-    title: El camino del valle
+  - id: chapter-1-2-puzzle
+    title: Puzle 1-2
     kind: 1
     conversation: {fileID: 0}
-    puzzleIndex: 0
-  - id: valley-departure
-    title: Rumbo al mar
-    kind: 0
-    conversation: {fileID: 11400000, guid: 4c1a9f36df4e46a5b2acdbed4e4a0002, type: 2}
-    puzzleIndex: 0
-  - id: coast-arrival
-    title: Llegada a la costa
-    kind: 0
-    conversation: {fileID: 11400000, guid: 0fe7b6d02491400f9a2d7c07c4ff8112, type: 2}
-    puzzleIndex: 0
-  - id: lighthouse-arrival
-    title: Al pie del faro
-    kind: 0
-    conversation: {fileID: 11400000, guid: 0fe7b6d02491400f9a2d7c07c4ff8113, type: 2}
-    puzzleIndex: 0
-  - id: lighthouse-interior
-    title: Dentro del faro
-    kind: 0
-    conversation: {fileID: 11400000, guid: 4c1a9f36df4e46a5b2acdbed4e4a0003, type: 2}
-    puzzleIndex: 0
-  - id: lighthouse-puzzle
-    title: El recuerdo de la costa
-    kind: 1
-    conversation: {fileID: 0}
-    puzzleIndex: 1
-  - id: coast-departure
-    title: La luz del faro
-    kind: 0
-    conversation: {fileID: 11400000, guid: 4c1a9f36df4e46a5b2acdbed4e4a0004, type: 2}
-    puzzleIndex: 0
-  - id: desert-arrival
-    title: Entre las dunas
-    kind: 0
-    conversation: {fileID: 11400000, guid: 4c1a9f36df4e46a5b2acdbed4e4a0005, type: 2}
-    puzzleIndex: 0
-  - id: desert-camp
-    title: El campamento
-    kind: 0
-    conversation: {fileID: 11400000, guid: 7c30ba519f774631b730245b2cb74a02, type: 2}
-    puzzleIndex: 0
-  - id: desert-overlook
-    title: El mirador de las dunas
-    kind: 0
-    conversation: {fileID: 11400000, guid: 7c30ba519f774631b730245b2cb74a03, type: 2}
-    puzzleIndex: 0
-  - id: desert-puzzle
-    title: La última imagen
-    kind: 1
-    conversation: {fileID: 0}
-    puzzleIndex: 2
-  - id: journey-end
-    title: El final del viaje
-    kind: 0
-    conversation: {fileID: 11400000, guid: 4c1a9f36df4e46a5b2acdbed4e4a0006, type: 2}
     puzzleIndex: 0

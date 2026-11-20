@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb51e91d8e364cbeae55b799c94b0a66, type: 3}
+  m_Name: Shouta
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueCharacter
+  displayName: Shouta
+  portrait: {fileID: 359066512, guid: 5e3c682d9a7349cb8ca6cfcbd710bc14, type: 3}
+  facing: 1
+  outfits:
+  - id: baloncesto
+    portrait: {fileID: 359066512, guid: a64f73c7560b444aac5ee220907c61eb, type: 3}
+    facing: 1
+    expressions:
+    - id: bostezando
+      portrait: {fileID: 359066512, guid: a09173746933426f9d1688e360201cda, type: 3}
+    - id: desperezandose
+      portrait: {fileID: 359066512, guid: 5e1e4df971104c63835149c7190bceb7, type: 3}
+    - id: aburrimiento
+      portrait: {fileID: 359066512, guid: 9f5745f8c8684ec2b496cb07d66060e0, type: 3}
+    - id: somnoliento_confuso
+      portrait: {fileID: 359066512, guid: 313da2126b4c41dc94184357860f5147, type: 3}
+    - id: protesta_leve
+      portrait: {fileID: 359066512, guid: 6acb1b6b4dc849958dfeb0aea529cacd, type: 3}
+    - id: resignacion
+      portrait: {fileID: 359066512, guid: 5614ceb244c9461cbad4fc166076ed90, type: 3}
+    - id: decepcion
+      portrait: {fileID: 359066512, guid: 8ab76de5467a42e1be7de3966126bb35, type: 3}
+    - id: ironia
+      portrait: {fileID: 359066512, guid: 86c122915f8240c893975f0aa914b7df, type: 3}
+    - id: sorpresa_contenida
+      portrait: {fileID: 359066512, guid: 453a23c1957e483da2e196f5c9e12411, type: 3}
+    - id: preocupacion
+      portrait: {fileID: 359066512, guid: 8413aa2602e240fe9addba37adf8e121, type: 3}
+    - id: alarma
+      portrait: {fileID: 359066512, guid: f87670cede414dbebf89dd243dd6f591, type: 3}
+    - id: estupor
+      portrait: {fileID: 359066512, guid: 2dd467cde93f4a0c8fbeb25f3fbdfb30, type: 3}
+  expressions:
+  - id: seria
+    portrait: {fileID: 359066512, guid: ccfdfa878b4347cea4fa8825fa1bdddf, type: 3}
+  - id: simpatica
+    portrait: {fileID: 359066512, guid: 3a0c160a0d014c5b9d8996a7ba96b590, type: 3}
+  - id: sorpresa
+    portrait: {fileID: 359066512, guid: 3e7acc58678c42aea6cf065dc3d23fbf, type: 3}
+  - id: sueno
+    portrait: {fileID: 359066512, guid: 47d754f595984c72912720e459d4df26, type: 3}
+  - id: aburrimiento
+    portrait: {fileID: 359066512, guid: 2135e6dcafee41cfb6b5c0e68b8cf2aa, type: 3}
+  - id: felicidad
+    portrait: {fileID: 359066512, guid: 57d238c2aaac4911a0edfdc31928da20, type: 3}
+  - id: neutra_feliz
+    portrait: {fileID: 359066512, guid: 9eb3bf0bbcd148ada9f0296c1b5f2868, type: 3}

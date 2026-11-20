@@ -1,0 +1,141 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5e33e446cc4bc88bde152074d89f2a, type: 3}
+  m_Name: 1-2
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  background: {fileID: 2800000, guid: cc8eba7de32b19347ad6a33d08fac3c0, type: 3}
+  music: {fileID: 0}
+  characters:
+  - {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
+  - {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+  enterOnFirstSpeech: 0
+  initialOutfits:
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: baloncesto
+  initialExpressions:
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    expression: resignacion
+  leftCharacter: {fileID: 0}
+  rightCharacter: {fileID: 0}
+  leftCharacterFacing: 0
+  rightCharacterFacing: 0
+  lines:
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: resignacion
+    reactions: []
+    speaker: Shouta
+    text: "(El coche se detiene frente a una casa de verano. Está pegada a un pequeño bosque; entre los árboles puedo ver la playa. Empiezo a recordar la casa de la abuela.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Shouta, sal del coche y ven a saludar, rápido."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: ironia
+    reactions: []
+    speaker: 
+    text: "(Hago lo que me dice papá con cierta desgana. Intento retrasar todo lo posible el momento de salir del coche. Intento que dure, no sé, unas dos semanas.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "¡Qué raro! No hay nadie para recibirnos. Ven, vamos a mirar en la parte de atrás."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: resignacion
+    reactions: []
+    speaker: 
+    text: "(Empezamos a andar hacia el jardín trasero y, de repente, ocurre...)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: sorpresa_contenida
+    reactions: []
+    speaker: 
+    text: "(Una chica aparece de la nada con un cubo de agua en la mano.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: alarma
+    reactions: []
+    speaker: 
+    text: "(En apenas un segundo, la chica choca con mi padre, se asusta y grita. Pierde el equilibrio, se vuelca el cubo de agua por encima y cae al suelo.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
+    outfit: 
+    expression: 
+    reactions:
+    - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+      expression: preocupacion
+    speaker: 
+    text: "Sayo, ¿eres tú? ¿Estás bien, niña?"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: estupor
+    reactions: []
+    speaker: 
+    text: "(Papá corre a ayudar a la chica que está en el suelo. Yo me quedo congelado; lo único que puedo hacer es contemplar la escena que tengo ante mis ojos.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0

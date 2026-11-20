@@ -1,0 +1,416 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5e33e446cc4bc88bde152074d89f2a, type: 3}
+  m_Name: 1-1
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  background: {fileID: 2800000, guid: 23d77d00ca384895ba1665cba852b7c2, type: 3}
+  music: {fileID: 0}
+  characters:
+  - {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
+  - {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+  enterOnFirstSpeech: 1
+  initialOutfits:
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: baloncesto
+  initialExpressions:
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    expression: bostezando
+  leftCharacter: {fileID: 0}
+  rightCharacter: {fileID: 0}
+  leftCharacterFacing: 0
+  rightCharacterFacing: 0
+  lines:
+  - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "\xBFShouta?"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: Shouta, despierta. Casi hemos llegado.
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: somnoliento_confuso
+    reactions: []
+    speaker: 
+    text: "(El sol del mediod\xEDa me deslumbra cuando abro los ojos. Tardo un rato
+      en recordar d\xF3nde estoy. \xBFCu\xE1ndo me he dormido? Me he debido quedar
+      sopa por haber entrenado hasta tarde ayer y por el traqueteo del coche. Aunque
+      el aire acondicionado est\xE1 puesto, el ambiente es h\xFAmedo y caluroso.)"
+    isThought: 1
+    speakerSide: 1
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: bostezando
+    reactions: []
+    speaker: 
+    text: "Ugh, \xBFqu\xE9 pasa?"
+    isThought: 0
+    speakerSide: 1
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Mira qu\xE9 pinta tienes. Anda, l\xEDmpiate la boca y p\xE9inate un poco.
+      No querr\xE1s que la abuela te vea as\xED."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: protesta_leve
+    reactions: []
+    speaker: 
+    text: "\xBFPor qu\xE9?"
+    isThought: 0
+    speakerSide: 1
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Ya conoces a la abuela: no le gusta que la gente vaya desali\xF1ada."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: protesta_leve
+    reactions: []
+    speaker: 
+    text: "Quiero decir que por qu\xE9 tengo que pasar dos semanas con la abuela.
+      Podr\xEDa quedarme en casa; ya estoy acostumbrado."
+    isThought: 0
+    speakerSide: 1
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Hijo, estamos hablando de dos semanas, no de uno o dos d\xEDas. Tu madre
+      no podr\xEDa disfrutar del viaje sabiendo que est\xE1s solo en casa."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: decepcion
+    reactions: []
+    speaker: 
+    text: "\xBFNo puedo ir con vosotros?"
+    isThought: 0
+    speakerSide: 1
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Hijo... es nuestro aniversario. Tu madre y yo llevamos unos meses muy
+      duros en el trabajo y nos apetece tener algo de tiempo para nosotros. Cuando
+      seas mayor lo entender\xE1s."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: ironia
+    reactions: []
+    speaker: 
+    text: "(Ya no soy un ni\xF1o; s\xE9 perfectamente a lo que te refieres...)"
+    isThought: 1
+    speakerSide: 1
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: desperezandose
+    reactions: []
+    speaker: 
+    text: "(M\xE1s o menos consigo desperezarme. Al otro lado de la ventanilla hay
+      un bosque tan frondoso que no puedo ver a partir de la segunda l\xEDnea de
+      \xE1rboles. No se parece en nada a Tokio: no se ve ni un solo rascacielos.)"
+    isThought: 1
+    speakerSide: 1
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: decepcion
+    reactions: []
+    speaker: 
+    text: "(El silencio en el coche se va volviendo poco a poco m\xE1s inc\xF3modo.
+      Mi padre y yo nos miramos a trav\xE9s del espejo retrovisor. Se da cuenta de
+      mi cara de decepci\xF3n.)"
+    isThought: 1
+    speakerSide: 1
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "T\xF3matelo como unas vacaciones."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: ironia
+    reactions: []
+    speaker: 
+    text: "Pasarme dos semanas cuidando de una se\xF1ora de m\xE1s de cien a\xF1os...
+      Menudas vacaciones."
+    isThought: 0
+    speakerSide: 1
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Tu abuela no llega a los ochenta. No seas irrespetuoso. Acu\xE9rdate de
+      que hasta hace unos a\xF1os pas\xE1bamos las vacaciones en su casa."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: resignacion
+    reactions: []
+    speaker: 
+    text: (Eso fue hace mucho tiempo; apenas me acuerdo.)
+    isThought: 1
+    speakerSide: 1
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
+    outfit: 
+    expression: 
+    reactions:
+    - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+      expression: sorpresa_contenida
+    speaker: 
+    text: "Adem\xE1s, tu prima tambi\xE9n estar\xE1 all\xED. Ten\xE9is casi la misma
+      edad; algo se os ocurrir\xE1 para entreteneros."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: sorpresa_contenida
+    reactions: []
+    speaker: 
+    text: "Espera, \xBFprima? \xBFQu\xE9 prima?"
+    isThought: 0
+    speakerSide: 1
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Tu prima Sayo. \xBFNo te acuerdas de ella? Tambi\xE9n se quedaba en casa
+      de la abuela en vacaciones."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: sorpresa_contenida
+    reactions: []
+    speaker: 
+    text: "\xBFSayo?"
+    isThought: 0
+    speakerSide: 1
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Te acordar\xE1s en cuanto la veas. \xBFNo te ha dicho tu madre nada de
+      Sayo?"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: sorpresa_contenida
+    reactions: []
+    speaker: 
+    text: No, primera noticia que tengo.
+    isThought: 0
+    speakerSide: 1
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
+    outfit: 
+    expression: 
+    reactions:
+    - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+      expression: preocupacion
+    speaker: 
+    text: "Se le habr\xE1 olvidado con todo el l\xEDo del viaje. Ver\xE1s, Sayo vive
+      con la abuela desde hace un a\xF1o. Sus padres, la hermana de tu madre y su
+      marido, murieron en un accidente de coche."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: preocupacion
+    reactions: []
+    speaker: 
+    text: "No lo sab\xEDa. Tampoco me acuerdo de ellos."
+    isThought: 0
+    speakerSide: 1
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Viv\xEDan en Takayama, as\xED que no ten\xEDamos mucho contacto con ellos.
+      Mam\xE1 fue al funeral."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: preocupacion
+    reactions: []
+    speaker: 
+    text: Ya veo.
+    isThought: 0
+    speakerSide: 1
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Se alegrar\xE1n mucho de verte tras tantos a\xF1os. Procura portarte bien
+      y no sacar el tema de tus t\xEDos."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: preocupacion
+    reactions: []
+    speaker: 
+    text: "Ser\xE9 bueno, no te preocupes."
+    isThought: 0
+    speakerSide: 1
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0

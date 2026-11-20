@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb51e91d8e364cbeae55b799c94b0a66, type: 3}
+  m_Name: Sayo
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueCharacter
+  displayName: Sayo
+  portrait: {fileID: -1067827879, guid: 7d67e7b55078411b8a0d9d9d05b512aa, type: 3}
+  facing: 0
+  outfits: []
+  expressions:
+  - id: seria
+    portrait: {fileID: -1067827879, guid: 2ab41d1ff597415bbbb37b52a3ddb528, type: 3}
+  - id: simpatica
+    portrait: {fileID: -1067827879, guid: 53468e0aa64c4eec92d112e197d717cf, type: 3}
+  - id: sorpresa
+    portrait: {fileID: -1067827879, guid: de7a4b50e43a4b719694994d95cad968, type: 3}
+  - id: sueno
+    portrait: {fileID: -1067827879, guid: 58172b0966f34cf28fb4ac092964c0fa, type: 3}
+  - id: aburrimiento
+    portrait: {fileID: -1067827879, guid: d1a6b9c3b69940d6a417001bdacb6eac, type: 3}
+  - id: felicidad
+    portrait: {fileID: -1067827879, guid: d42cd44170e6426db6714efdf8e35fa6, type: 3}
+  - id: neutra_feliz
+    portrait: {fileID: -1067827879, guid: 234b0d04189b481d9fe6bb46b4fd5988, type: 3}
