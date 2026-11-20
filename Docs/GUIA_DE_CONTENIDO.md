@@ -56,6 +56,18 @@ Cada conversación empieza con sus propios outfits iniciales. No se modifica el 
 
 El Inspector señala identificadores duplicados, sprites sin asignar y selecciones que ya no existen. Si se renombra un `Id`, actualizar las conversaciones que lo usan; un identificador inválido emite un aviso al reproducir y utiliza el retrato predeterminado. `Tools > One Hand Puzzle > Validate Dialogue Outfits` comprueba los cambios de outfit, las orientaciones, las salidas y entradas, la paginación y la compatibilidad con las conversaciones existentes.
 
+## Economía de estrellas y tienda
+
+Las estrellas de los puzles son también moneda. Cada puzle y dificultad tiene su propio récord y puede aportar como máximo tres estrellas al saldo durante toda la partida: `0 → 1` suma una, `1 → 1` suma cero, `1 → 2` suma una y `1 → 3` suma dos. Los umbrales de rendimiento siguen siendo los de la puntuación del puzle. Gastar estrellas no borra récords ni permite volver a cobrarlos. La pantalla de resultado muestra lo ganado en ese intento y el saldo disponible; el menú principal y la tienda muestran el saldo junto a un icono de estrella.
+
+El saldo, los récords ya remunerados y las compras se conservan por `Progress Id`. Las partidas anteriores reciben una sola vez las estrellas de sus mejores resultados, incluidas las antiguas notas S–D convertidas a estrellas. Reiniciar o repetir la historia conserva las compras y el saldo. No reutilizar el `Progress Id` para otro juego, ni reordenar las entradas de `Chapters`: los récords anteriores identifican los puzles por su índice y dificultad.
+
+Para vender un fondo, ir a `PuzzleCatalog > Fondos de pantalla`, mantener su `Id` permanente, asignar la imagen y poner **Precio en estrellas** mayor que cero. El fondo aparecerá en la pestaña de fondos de la tienda. Una compra lo desbloquea en la galería y permite usarlo como fondo del menú. Si ya se ganó por historia o es el fondo inicial, no se cobra. Un precio de cero conserva el sistema de fondo inicial y recompensas por subcapítulo.
+
+Para vender un puzle o desafío extra, añadirlo a `PuzzleCatalog > Chapters`, asignarle un **Id** único y permanente, su título, imágenes por dificultad y **Precio en estrellas** mayor que cero. Se ofrece en **Puzles y desafíos**; una compra desbloquea sus dificultades con imagen asignada y permite repetirlo desde la tienda, con sus récords y recompensas habituales. No es necesario añadir los desafíos independientes a `Story`. Completar un desafío comprado no adelanta la historia ni desbloquea otros artículos de pago. Precio cero conserva el acceso habitual de la historia.
+
+El botón **Tienda**, el saldo, las seis filas reutilizables, sus textos y el mensaje de recompensa viven en los Canvas de las escenas. Se pueden editar en el Inspector. `Tools > One Hand Puzzle > Add Star Economy to Canvas` añade estos controles a escenas antiguas. `Validate Star Economy` comprueba premios, compras, migración y las referencias de la tienda.
+
 ## Crear conversaciones
 
 Crear un asset con `Create → One Hand Puzzle → Dialogue`.

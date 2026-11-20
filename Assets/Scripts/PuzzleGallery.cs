@@ -20,7 +20,7 @@ public class PuzzleGallery : MonoBehaviour
                 if (WallpaperProgress.IsUnlocked(catalog, i)) completed.Add(i);
         }
         else for (int i = 0; i < catalog.Count; i++)
-            if (StoryProgress.IsPuzzleUnlocked(catalog, i))
+            if (StarEconomy.CanPlayPuzzle(catalog, i))
                 for (int difficulty = 0; difficulty < 3; difficulty++)
                     if ((PuzzleProgress.CompletedMask(i, catalog.ProgressId) & (1 << difficulty)) != 0
                         && catalog[i].ImageForDifficulty(difficulty) != null)

@@ -13,6 +13,7 @@ public class PuzzleMenu : MonoBehaviour
     [SerializeField] private RectTransform chaptersScreen;
     [SerializeField] private RectTransform subchaptersScreen;
     [SerializeField] private RectTransform difficultyScreen;
+    [SerializeField] private RectTransform shopScreen;
     private RectTransform screen;
     private int selected;
     private bool storyMode;
@@ -24,7 +25,7 @@ public class PuzzleMenu : MonoBehaviour
     private void Start()
     {
         foreach (var panel in new[] { titleScreen, mainScreen, galleryScreen, imageScreen,
-                     selectionScreen, settingsScreen, chaptersScreen, subchaptersScreen, difficultyScreen })
+                     selectionScreen, settingsScreen, chaptersScreen, subchaptersScreen, difficultyScreen, shopScreen })
             panel.gameObject.SetActive(false);
         GameAudio.PlayMusic(null);
         selected = Mathf.Clamp(PuzzleSession.Chapter, 0, Unlocked - 1);
@@ -36,6 +37,7 @@ public class PuzzleMenu : MonoBehaviour
             else ShowTitle();
         }
         else if (page == PuzzleMenuPage.Library) ShowLibrary();
+        else if (page == PuzzleMenuPage.Shop) ShowShop(0, true);
         else ShowSelection(true);
     }
 
@@ -67,6 +69,8 @@ public class PuzzleMenu : MonoBehaviour
         var content = Open(mainScreen);
         MenuControls.SafeArea(content);
         var texture = GamePreferences.MenuBackground(catalog);
+        MenuControls.Get<Text>(content, "Wallet/Amount").text = StarEconomy.Balance(catalog).ToString();
+        MenuControls.Bind(content, "Shop", () => ShowShop());
         var image = MenuControls.Get<RawImage>(mainScreen, "Menu Background/Artwork");
         MenuControls.SetTexture(image, texture, false);
         if (texture != null)
@@ -100,6 +104,43 @@ public class PuzzleMenu : MonoBehaviour
         if (!HasStory) return;
         new PuzzleLibrary(catalog, name => Open(name == "Chapter Selection" ? chaptersScreen :
             name == "Subchapter Selection" ? subchaptersScreen : difficultyScreen), ShowMain).Open();
+    }
+
+    private void ShowShop(int page = 0, bool puzzles = false)
+    {
+        Open(shopScreen).GetComponent<StarShop>().Build(catalog, page, puzzles,
+            ShowShop, index => ShowShopPuzzle(index, 0, page), ShowMain);
+    }
+
+    private void ShowShopPuzzle(int index, int difficulty, int page)
+    {
+        if (!StarEconomy.OwnsPuzzle(catalog, index)) return;
+        var content = Open(difficultyScreen);
+        MenuControls.Get<Text>(content, "Title").text = catalog[index].title;
+        for (int i = 0; i < 3; i++)
+        {
+            int choice = i;
+            MenuControls.Bind(content, "Difficulty " + i, () => ShowShopPuzzle(index, choice, page)).GetComponent<Image>().color
+                = i == difficulty ? PuzzleUI.Accent : PuzzleUI.Panel;
+        }
+        bool completed = (CompletedMask(index) & (1 << difficulty)) != 0;
+        var image = catalog[index].ImageForDifficulty(difficulty);
+        MenuControls.SetTexture(MenuControls.Get<RawImage>(content, "Artwork"), completed ? image : null);
+        content.Find("Hidden").gameObject.SetActive(!completed || image == null);
+        CanvasText.Set(MenuControls.Get<Text>(content, "Grade"), completed ? 1 : 0);
+        var stars = MenuControls.Get<PuzzleStarsGraphic>(content, "Grade/Stars");
+        stars.Stars = PuzzleProgress.BestStars(index, difficulty, catalog.ProgressId);
+        stars.gameObject.SetActive(completed);
+        MenuControls.Bind(content, "Play", () =>
+        {
+            if (!StarEconomy.CanPlayPuzzle(catalog, index)) return;
+            PuzzleSession.EndReplay();
+            PuzzleSession.Chapter = index;
+            PuzzleSession.Difficulty = difficulty;
+            PuzzleSession.StoryMode = false;
+            ScreenTransition.LoadScene(PuzzleSession.GameScenes[difficulty]);
+        }).interactable = image != null;
+        MenuControls.Bind(content, "Back", () => ShowShop(page, true));
     }
 
     private void ShowGallery(int page = 0, GalleryCategory category = GalleryCategory.Puzzles)

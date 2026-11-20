@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum PuzzleMenuPage { Main, Story, Library }
+public enum PuzzleMenuPage { Main, Story, Library, Shop }
 
 // Only selection data crosses scene boundaries; every scene owns its own objects.
 public static class PuzzleSession
@@ -48,13 +48,15 @@ public static class PuzzleProgress
         return saved >= 1 && saved <= 5 ? ((PuzzleGrade)(saved - 1)).ToString() : "";
     }
 
-    public static void Complete(int chapter, int difficulty, int count, int moves, int minimum, string gameId = "OneHandPuzzle")
+    public static int Complete(int chapter, int difficulty, int count, int moves, int minimum, string gameId = "OneHandPuzzle", bool unlockNext = true)
     {
         int stars = PuzzleRating.StarsFor(moves, minimum);
+        int earned = StarEconomy.RecordResult(gameId, chapter, difficulty, stars, count);
         string key = gameId + ".BestStars." + chapter + "." + difficulty;
         PlayerPrefs.SetInt(key, Mathf.Max(BestStars(chapter, difficulty, gameId), stars));
         PlayerPrefs.SetInt(gameId + ".Completed." + chapter, CompletedMask(chapter, gameId) | (1 << difficulty));
-        PlayerPrefs.SetInt(gameId + ".Unlocked", Mathf.Max(Unlocked(count, gameId), Mathf.Min(chapter + 2, count)));
+        if (unlockNext) PlayerPrefs.SetInt(gameId + ".Unlocked", Mathf.Max(Unlocked(count, gameId), Mathf.Min(chapter + 2, count)));
         PlayerPrefs.Save();
+        return earned;
     }
 }

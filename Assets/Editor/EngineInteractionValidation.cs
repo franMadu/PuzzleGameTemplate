@@ -140,7 +140,7 @@ public static class EngineInteractionValidation
         }
         finally
         {
-            foreach (string key in new[] { ".BestGrade.0.0", ".BestStars.0.0", ".Completed.0", ".Unlocked" }) PlayerPrefs.DeleteKey(game + key);
+            foreach (string key in new[] { ".BestGrade.0.0", ".BestStars.0.0", ".Completed.0", ".Unlocked", ".StarEconomy.v1" }) PlayerPrefs.DeleteKey(game + key);
             PlayerPrefs.Save();
         }
     }

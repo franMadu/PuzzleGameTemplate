@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class PuzzleStarsGraphic : MaskableGraphic
 {
     [SerializeField, Range(0, 3)] private int stars;
+    [SerializeField, Range(1, 3)] private int slots = 3;
+    public int Slots { get => slots; set { slots = Mathf.Clamp(value, 1, 3); SetVerticesDirty(); } }
     [SerializeField] private Color emptyColor = new Color(0.25f, 0.32f, 0.34f, 1);
     public int Stars
     {
@@ -17,10 +19,10 @@ public class PuzzleStarsGraphic : MaskableGraphic
     {
         mesh.Clear();
         var rect = rectTransform.rect;
-        float size = Mathf.Min(rect.height, rect.width / 3.5f);
-        for (int star = 0; star < 3; star++)
+        float size = Mathf.Min(rect.height, rect.width / (slots == 1 ? 1 : slots * 1.2f - 0.1f));
+        for (int star = 0; star < slots; star++)
         {
-            Vector2 center = rect.center + Vector2.right * ((star - 1) * size * 1.2f);
+            Vector2 center = rect.center + Vector2.right * ((star - (slots - 1) / 2f) * size * 1.2f);
             Color tint = star < stars ? color : emptyColor;
             int first = mesh.currentVertCount;
             mesh.AddVert(center, tint, Vector2.zero);
