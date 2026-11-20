@@ -61,7 +61,9 @@ El texto aparece en un cuadro semitransparente casi pegado al borde inferior. El
 
 | Control | Acción |
 | --- | --- |
-| Flecha inferior derecha, Espacio o Intro | Completar el texto que se está escribiendo; después avanzar de página. |
+| Cuadro de texto, Espacio o Intro | Completar el texto que se está escribiendo; después avanzar de página. La flecha indica que el texto ha terminado. |
+| Ocultar diálogo | Ocultar el cuadro; pulsar sobre la pantalla lo muestra de nuevo. |
+| Menú principal, esquina superior izquierda | Volver al menú sin completar la conversación. Al continuar, esa conversación comienza desde el principio. |
 | X inferior izquierda o Escape | Omitir el resto de la conversación actual y continuar el flujo. |
 
 El reparto puede contener más de dos personajes, aunque solo hay dos visibles a la vez. Los cambios de personaje tienen salida y entrada lateral, y las imágenes se reflejan según su posición y orientación original.
