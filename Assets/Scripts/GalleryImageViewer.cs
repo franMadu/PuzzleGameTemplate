@@ -10,7 +10,7 @@ public class GalleryImageViewer : MonoBehaviour, IScrollHandler, IDragHandler
     private float zoom = 1;
     private Vector2 pan;
 
-    public void Build(Texture2D texture, Action close, Action selectBackground, bool selected)
+    public void Build(Texture2D texture, Action close, Action selectBackground = null, bool selected = false)
     {
         artwork = MenuControls.Get<RawImage>(transform, "Viewport/Artwork");
         viewport = MenuControls.Get<RectTransform>(transform, "Viewport");
@@ -25,11 +25,13 @@ public class GalleryImageViewer : MonoBehaviour, IScrollHandler, IDragHandler
         MenuControls.Bind(controls, "Zoom Out", () => ChangeZoom(-0.5f));
         var use = MenuControls.Bind(controls, "Use Background", () =>
         {
+            if (selectBackground == null) return;
             selectBackground();
             CanvasText.Set(MenuControls.Get<Text>(controls, "Use Background/Label"), 1);
             MenuControls.Get<Button>(controls, "Use Background").interactable = false;
         });
-        use.interactable = !selected;
+        use.gameObject.SetActive(selectBackground != null);
+        use.interactable = selectBackground != null && !selected;
         CanvasText.Set(MenuControls.Get<Text>(controls, "Use Background/Label"), selected ? 1 : 0);
     }
 

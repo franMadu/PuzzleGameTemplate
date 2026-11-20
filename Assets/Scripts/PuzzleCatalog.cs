@@ -9,6 +9,15 @@ public enum PuzzleDifficulty
 }
 
 [Serializable]
+public class GalleryWallpaper
+{
+    [Tooltip("Identificador estable del fondo para conservar la selección al reordenar la lista.")]
+    public string id;
+    public Texture2D image;
+    public string Id => !string.IsNullOrWhiteSpace(id) ? id : image != null ? image.name : "";
+}
+
+[Serializable]
 public class PuzzleChapter
 {
     public string title;
@@ -39,12 +48,16 @@ public class PuzzleCatalog : ScriptableObject
     [SerializeField] private string gameTitle = "ONE HAND\nPUZZLE";
     [Tooltip("Imagen de fondo del menú principal. Se recorta para llenar la pantalla sin deformarse.")]
     [SerializeField] private Texture2D menuBackground;
+    [SerializeField, InspectorName("Fondos de pantalla")]
+    private GalleryWallpaper[] wallpapers;
     [SerializeField, TextArea(2, 4)] private string endingText = "Has completado el viaje.";
     [SerializeField] private StorySequence story;
     [SerializeField] private PuzzleChapter[] chapters;
     public string ProgressId => string.IsNullOrWhiteSpace(progressId) ? "OneHandPuzzle" : progressId;
     public string GameTitle => gameTitle;
     public Texture2D MenuBackground => menuBackground;
+    public int WallpaperCount => wallpapers?.Length ?? 0;
+    public GalleryWallpaper WallpaperAt(int index) => index >= 0 && index < WallpaperCount ? wallpapers[index] : null;
     public string EndingText => endingText;
     public StorySequence Story => story;
     public int Count => chapters?.Length ?? 0;

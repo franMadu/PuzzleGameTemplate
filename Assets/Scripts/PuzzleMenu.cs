@@ -102,18 +102,23 @@ public class PuzzleMenu : MonoBehaviour
             name == "Subchapter Selection" ? subchaptersScreen : difficultyScreen), ShowMain).Open();
     }
 
-    private void ShowGallery(int page = 0)
+    private void ShowGallery(int page = 0, GalleryCategory category = GalleryCategory.Puzzles)
     {
         Open(galleryScreen).GetComponent<PuzzleGallery>().Build(catalog, page,
-            ShowGallery, index => ShowGalleryImage(index, page), ShowMain);
+            next => ShowGallery(next, category), index => ShowGalleryImage(index, page, category), ShowMain,
+            category, next => ShowGallery(0, next));
     }
 
-    private void ShowGalleryImage(int index, int page)
+    private void ShowGalleryImage(int index, int page, GalleryCategory category)
     {
         Open(imageScreen);
-        imageScreen.GetComponent<GalleryImageViewer>().Build(catalog[index / 3].ImageForDifficulty(index % 3),
-            () => ShowGallery(page), () => GamePreferences.SetMenuBackground(catalog, index),
-            GamePreferences.MenuBackgroundIndex(catalog) == index);
+        if (category == GalleryCategory.Wallpapers)
+            imageScreen.GetComponent<GalleryImageViewer>().Build(catalog.WallpaperAt(index).image,
+                () => ShowGallery(page, category), () => GamePreferences.SetMenuBackground(catalog, index),
+                GamePreferences.MenuBackgroundIndex(catalog) == index);
+        else
+            imageScreen.GetComponent<GalleryImageViewer>().Build(catalog[index / 3].ImageForDifficulty(index % 3),
+                () => ShowGallery(page, category));
     }
 
     private void ShowSelection(bool story)
