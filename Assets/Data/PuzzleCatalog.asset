@@ -14,7 +14,52 @@ MonoBehaviour:
   m_EditorClassIdentifier:
   progressId: OneHandPuzzle.PrimerJuego
   gameTitle: PRIMER JUEGO
-  menuBackground: {fileID: 2800000, guid: 51d1be85345d40f18aa79160e1d881a2, type: 3}
+  menuBackground: {fileID: 2800000, guid: cc8eba7de32b19347ad6a33d08fac3c0, type: 3}
+  wallpapers:
+  - id: 0630d303da254be39d97147a07bec096
+    image: {fileID: 2800000, guid: 0630d303da254be39d97147a07bec096, type: 3}
+  - id: cc8eba7de32b19347ad6a33d08fac3c0
+    image: {fileID: 2800000, guid: cc8eba7de32b19347ad6a33d08fac3c0, type: 3}
+  - id: 6c01f35ca03447bf97cf039047027e76
+    image: {fileID: 2800000, guid: 6c01f35ca03447bf97cf039047027e76, type: 3}
+  - id: 42322801ed74c4148b5266a3ea53c793
+    image: {fileID: 2800000, guid: 42322801ed74c4148b5266a3ea53c793, type: 3}
+  - id: 403abcba4b668a24d81f69d4513f96e8
+    image: {fileID: 2800000, guid: 403abcba4b668a24d81f69d4513f96e8, type: 3}
+  - id: 30fe82d17cca6db4eb2c4e8da62eb075
+    image: {fileID: 2800000, guid: 30fe82d17cca6db4eb2c4e8da62eb075, type: 3}
+  - id: a7d4415ec30ee9049b79219436d6467c
+    image: {fileID: 2800000, guid: a7d4415ec30ee9049b79219436d6467c, type: 3}
+  - id: 035b46ca499c68d419c00ba1591be056
+    image: {fileID: 2800000, guid: 035b46ca499c68d419c00ba1591be056, type: 3}
+  - id: 81a68506b8902ad4391b180db00a1869
+    image: {fileID: 2800000, guid: 81a68506b8902ad4391b180db00a1869, type: 3}
+  - id: 57d762f9b7cc9b148b22131c7990f7c2
+    image: {fileID: 2800000, guid: 57d762f9b7cc9b148b22131c7990f7c2, type: 3}
+  - id: eef48a9009bd12b4ab993a4603b11ae3
+    image: {fileID: 2800000, guid: eef48a9009bd12b4ab993a4603b11ae3, type: 3}
+  - id: 16896a737c25be149944f729027dc476
+    image: {fileID: 2800000, guid: 16896a737c25be149944f729027dc476, type: 3}
+  - id: 62563a89c9d670a4fb9075b404a3a208
+    image: {fileID: 2800000, guid: 62563a89c9d670a4fb9075b404a3a208, type: 3}
+  - id: 902ab50670cbf4f41ba60edf4ffec1bd
+    image: {fileID: 2800000, guid: 902ab50670cbf4f41ba60edf4ffec1bd, type: 3}
+  - id: bc919e3b279f8e34c927df9726822c3a
+    image: {fileID: 2800000, guid: bc919e3b279f8e34c927df9726822c3a, type: 3}
+  - id: b16b95d61e4b3b340a2f51c9aaf6a7bb
+    image: {fileID: 2800000, guid: b16b95d61e4b3b340a2f51c9aaf6a7bb, type: 3}
+  - id: f2bd67210cb532242b9ae2b119c7e8dd
+    image: {fileID: 2800000, guid: f2bd67210cb532242b9ae2b119c7e8dd, type: 3}
+  - id: 23d77d00ca384895ba1665cba852b7c2
+    image: {fileID: 2800000, guid: 23d77d00ca384895ba1665cba852b7c2, type: 3}
+  - id: 6871cb5a3179a3743ad2913b7274f69a
+    image: {fileID: 2800000, guid: 6871cb5a3179a3743ad2913b7274f69a, type: 3}
+  - id: 9becb57c77aff6a428f4c8b5d721c9ad
+    image: {fileID: 2800000, guid: 9becb57c77aff6a428f4c8b5d721c9ad, type: 3}
+  - id: 193eac593cc18764fb89500d480f41c7
+    image: {fileID: 2800000, guid: 193eac593cc18764fb89500d480f41c7, type: 3}
+  - id: 3b31220c36a591047ad1329ff717bc45
+    image: {fileID: 2800000, guid: 3b31220c36a591047ad1329ff717bc45, type: 3}
   endingText: "Continuará."
   story: {fileID: 11400000, guid: 0fe7b6d02491400f9a2d7c07c4ff8111, type: 2}
   chapters:
