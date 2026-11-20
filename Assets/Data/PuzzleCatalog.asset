@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier:
   progressId: OneHandPuzzle.PrimerJuego
   gameTitle: PRIMER JUEGO
-  menuBackground: {fileID: 2800000, guid: cc8eba7de32b19347ad6a33d08fac3c0, type: 3}
+  menuBackground: {fileID: 2800000, guid: 23d77d00ca384895ba1665cba852b7c2, type: 3}
   wallpapers:
   - id: 0630d303da254be39d97147a07bec096
     image: {fileID: 2800000, guid: 0630d303da254be39d97147a07bec096, type: 3}

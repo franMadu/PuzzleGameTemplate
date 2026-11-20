@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier:
   chapters:
   - title: Capítulo 1
-    wallpaperRewards:
-    - {fileID: 2800000, guid: a7d4415ec30ee9049b79219436d6467c, type: 3}
-    - {fileID: 2800000, guid: 035b46ca499c68d419c00ba1591be056, type: 3}
+    wallpaperRewards: []
     subchapters:
     - title: 1-1
       firstStepId: chapter-1-1
       lastStepId: chapter-1-1
+      wallpaperRewards:
+      - {fileID: 2800000, guid: cc8eba7de32b19347ad6a33d08fac3c0, type: 3}
     - title: 1-2
       firstStepId: chapter-1-2
       lastStepId: chapter-1-2-puzzle
