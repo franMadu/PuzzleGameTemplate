@@ -235,6 +235,8 @@ En `Story → Chapters → Fondos al completar el capítulo`, arrastrar una o va
 
 La galería separa `Puzles` de `Fondos de pantalla`. Solo estos últimos ofrecen **Usar como fondo**; la elección se guarda para las siguientes sesiones. La vista ampliada de ambas categorías dispone de zoom de 1× a 4× y arrastre cuando la imagen supera el tamaño de pantalla.
 
+Para conceder un fondo al terminar una parte concreta, usar `Story → Chapters → Subchapters → Fondos al completar el subcapítulo`. Por ejemplo, asignar el coche como `Fondo inicial` y la entrada de día como recompensa del subcapítulo `1-1`: al comenzar solo estará disponible el coche y al terminar `1-1` se añadirá la entrada, sin esperar al resto del capítulo. Las recompensas del capítulo y de sus subcapítulos son independientes y pueden combinarse.
+
 Las escenas utilizan una resolución de referencia de Canvas de 900×1000. El contenido de menú utiliza un área de 720×920. El cuadro de conversación y el visor de galería se anclan al tamaño de pantalla.
 
 En `DialogueController` se pueden ajustar velocidad base, opacidad, escala del oyente, duración del cambio de foco y duración de entrada y salida. La posición y distancia al borde de los personajes se editan en los RectTransform `Dialogue/Content/Left Character` y `Right Character` de cada Canvas. Los ajustes guardados de opacidad y velocidad del jugador pueden modificar el resultado visible.

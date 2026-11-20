@@ -12,6 +12,9 @@ public class StorySubchapter
     public string firstStepId;
     [Tooltip("Identificador del último paso, incluido. Puede ser el mismo que el primero.")]
     public string lastStepId;
+    [InspectorName("Fondos al completar el subcapítulo")]
+    [Tooltip("Uno o varios fondos del catálogo que se ganan al terminar el último paso de este subcapítulo.")]
+    public Texture2D[] wallpaperRewards;
 }
 
 [Serializable]
@@ -76,16 +79,7 @@ public class StorySequence : ScriptableObject
             if (error != null) break;
             if (chapter == null || string.IsNullOrWhiteSpace(chapter.title) || chapter.subchapters == null)
             { error = "Cada capítulo necesita un título y subcapítulos."; break; }
-            if (chapter.wallpaperRewards != null)
-                foreach (var image in chapter.wallpaperRewards)
-                {
-                    if (image == null) continue;
-                    bool registered = false;
-                    for (int i = 0; i < catalog.WallpaperCount; i++)
-                        if (catalog.WallpaperAt(i)?.image == image) { registered = true; break; }
-                    if (!registered)
-                    { error = $"El fondo {image.name} de {chapter.title} debe añadirse a Fondos de pantalla del catálogo."; break; }
-                }
+            error = ValidateRewards(catalog, chapter.wallpaperRewards, chapter.title);
             if (error != null) break;
             foreach (var section in chapter.subchapters)
             {
@@ -93,6 +87,8 @@ public class StorySequence : ScriptableObject
                 int last = section == null ? -1 : IndexOf(section.lastStepId);
                 if (first < 0 || last < first || string.IsNullOrWhiteSpace(section.title))
                 { error = "Subcapítulo con título o rango de pasos incorrecto."; break; }
+                error = ValidateRewards(catalog, section.wallpaperRewards, section.title);
+                if (error != null) break;
                 int puzzles = 0;
                 for (int i = first; i <= last; i++)
                 {
@@ -104,6 +100,20 @@ public class StorySequence : ScriptableObject
             }
         }
         return error == null;
+    }
+
+    private static string ValidateRewards(PuzzleCatalog catalog, Texture2D[] rewards, string title)
+    {
+        if (rewards == null) return null;
+        foreach (var image in rewards)
+        {
+            if (image == null) continue;
+            bool registered = false;
+            for (int i = 0; i < catalog.WallpaperCount; i++)
+                if (catalog.WallpaperAt(i)?.image == image) { registered = true; break; }
+            if (!registered) return $"El fondo {image.name} de {title} debe añadirse a Fondos de pantalla del catálogo.";
+        }
+        return null;
     }
 
     public int PuzzleIn(StorySubchapter section)

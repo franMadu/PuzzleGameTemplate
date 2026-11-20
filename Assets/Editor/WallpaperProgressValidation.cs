@@ -29,6 +29,7 @@ public static class WallpaperProgressValidation
             Set(story, "steps", new[] { Step("a"), Step("b"), Step("c") });
             var chapter = new StoryChapter { title = "First", wallpaperRewards = new[] { images[1], images[2], null },
                 subchapters = new[] { Section("a", "a"), Section("b", "b") } };
+            chapter.subchapters[0].wallpaperRewards = new[] { images[2] };
             Set(story, "chapters", new[] { chapter,
                 new StoryChapter { title = "Second", wallpaperRewards = new[] { images[3] },
                     subchapters = new[] { Section("c", "c") } } });
@@ -51,6 +52,8 @@ public static class WallpaperProgressValidation
             Require(!StoryProgress.Advance(catalog, "wrong"), "Stale advance does not change progress");
             Require(StoryProgress.Advance(catalog, "a"), "Finish first subchapter");
             Require(!WallpaperProgress.IsUnlocked(catalog, 1), "Reaching last chapter step does not earn rewards");
+            Require(WallpaperProgress.IsUnlocked(catalog, 2), "Subchapter reward unlocks before the whole chapter ends");
+            RequireVisible(catalog, 2);
             Require(StoryProgress.Advance(catalog, "b"), "Finish chapter at its last puzzle");
             Require(WallpaperProgress.IsUnlocked(catalog, 1) && WallpaperProgress.IsUnlocked(catalog, 2), "Multiple rewards unlock together");
             Require(!WallpaperProgress.IsUnlocked(catalog, 3), "Next chapter remains locked");
