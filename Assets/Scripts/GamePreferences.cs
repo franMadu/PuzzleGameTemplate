@@ -5,25 +5,30 @@ public static class GamePreferences
 {
     private const string Prefix = "Game.Settings.";
     public static int MenuBackgroundIndex(PuzzleCatalog catalog)
-        => PlayerPrefs.GetInt(Prefix + "MenuBackground." + catalog.ProgressId, -1);
+    {
+        // A separate key intentionally ignores old puzzle-image background selections.
+        string selected = PlayerPrefs.GetString(Prefix + "MenuWallpaper." + catalog.ProgressId, "");
+        if (string.IsNullOrEmpty(selected)) return -1;
+        for (int i = 0; i < catalog.WallpaperCount; i++)
+        {
+            var wallpaper = catalog.WallpaperAt(i);
+            if (wallpaper?.image != null && wallpaper.Id == selected) return i;
+        }
+        return -1;
+    }
 
     public static void SetMenuBackground(PuzzleCatalog catalog, int index)
     {
-        PlayerPrefs.SetInt(Prefix + "MenuBackground." + catalog.ProgressId, index);
+        var wallpaper = catalog.WallpaperAt(index);
+        if (wallpaper?.image == null) return;
+        PlayerPrefs.SetString(Prefix + "MenuWallpaper." + catalog.ProgressId, wallpaper.Id);
         Save();
     }
 
     public static Texture2D MenuBackground(PuzzleCatalog catalog)
     {
         int index = MenuBackgroundIndex(catalog);
-        if (index >= 0 && index / 3 < catalog.Count
-            && StoryProgress.IsPuzzleUnlocked(catalog, index / 3)
-            && (PuzzleProgress.CompletedMask(index / 3, catalog.ProgressId) & (1 << (index % 3))) != 0)
-        {
-            var texture = catalog[index / 3].ImageForDifficulty(index % 3);
-            if (texture != null) return texture;
-        }
-        return catalog.MenuBackground;
+        return index >= 0 ? catalog.WallpaperAt(index).image : catalog.MenuBackground;
     }
     public static bool GodMode
     {

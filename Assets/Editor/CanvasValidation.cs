@@ -192,6 +192,22 @@ public static class CanvasValidation
         Require(Field<float>(viewer, "zoom") == 1, "Lower zoom bound");
         viewer.Build(texture, () => { }, () => { }, true);
         Require(!MenuControls.Get<Button>(viewer.transform, "Controls/Use Background").interactable, "Selected background state");
+        int selectedWallpapers = 0;
+        viewer.Build(texture, () => { }, () => selectedWallpapers++);
+        Require(MenuControls.Get<Button>(viewer.transform, "Controls/Use Background").gameObject.activeSelf, "Wallpaper selection is available");
+        viewer.Build(texture, () => { });
+        var useBackground = MenuControls.Get<Button>(viewer.transform, "Controls/Use Background");
+        Require(!useBackground.gameObject.activeSelf && !useBackground.interactable, "Puzzle images cannot be selected as backgrounds");
+        var audioField = typeof(GameAudio).GetField("instance", BindingFlags.Static | BindingFlags.NonPublic);
+        var previousAudio = audioField.GetValue(null);
+        var testAudio = new GameObject("Gallery Validation Audio", typeof(GameAudio));
+        try
+        {
+            audioField.SetValue(null, testAudio.GetComponent<GameAudio>());
+            useBackground.onClick.Invoke();
+            Require(selectedWallpapers == 0, "Puzzle viewer clears the previous wallpaper callback");
+        }
+        finally { audioField.SetValue(null,previousAudio); UnityEngine.Object.DestroyImmediate(testAudio); }
         Func<string, RectTransform> panel = name => (RectTransform)Content(name == "Chapter Selection" ? "chaptersScreen" : name == "Subchapter Selection" ? "subchaptersScreen" : "difficultyScreen");
         if (catalog.Story != null)
         {
@@ -222,7 +238,12 @@ public static class CanvasValidation
         serialized.FindProperty("progressId").stringValue = id;
         serialized.FindProperty("story").objectReferenceValue = story;
         serialized.ApplyModifiedPropertiesWithoutUndo();
-        string backgroundKey = "Game.Settings.MenuBackground." + id;
+        string backgroundKey = "Game.Settings.MenuWallpaper." + id;
+        string legacyKey = "Game.Settings.MenuBackground." + id;
+        var wallpapers = Enumerable.Range(0,7).Select(index => new GalleryWallpaper {
+            id = "wallpaper-" + index, image = source[0].ImageForDifficulty(0)
+        }).ToArray();
+        typeof(PuzzleCatalog).GetField("wallpapers", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(catalog, wallpapers);
         try
         {
             Require(GamePreferences.MenuBackground(catalog) == catalog.MenuBackground, "Default background");
@@ -239,19 +260,29 @@ public static class CanvasValidation
             gallery.Build(catalog, int.MaxValue, _ => { }, _ => { }, () => { });
             int lastPage = Enumerable.Range(0, 6).Count(slot => gallery.transform.Find("Image " + slot).gameObject.activeSelf);
             Require(lastPage == (completed == 0 ? 0 : (completed - 1) % 6 + 1), "Gallery last page");
-            int index = source[0].ImageForDifficulty(1) != null ? 1 : 0;
+            PlayerPrefs.SetInt(legacyKey, 0);
+            Require(GamePreferences.MenuBackgroundIndex(catalog) == -1 && GamePreferences.MenuBackground(catalog) == catalog.MenuBackground, "Old puzzle backgrounds are ignored");
+            gallery.Build(catalog, 0, _ => { }, _ => { }, () => { }, GalleryCategory.Wallpapers);
+            Require(Enumerable.Range(0,6).All(slot => gallery.transform.Find("Image " + slot).gameObject.activeSelf), "Wallpaper first page");
+            gallery.Build(catalog, int.MaxValue, _ => { }, _ => { }, () => { }, GalleryCategory.Wallpapers);
+            Require(Enumerable.Range(0,6).Count(slot => gallery.transform.Find("Image " + slot).gameObject.activeSelf) == 1, "Wallpaper last page");
+            int index = 1;
             GamePreferences.SetMenuBackground(catalog, index);
-            Require(PlayerPrefs.GetInt(backgroundKey, -1) == index, "Saved background index");
-            Require(GamePreferences.MenuBackground(catalog) == catalog[0].ImageForDifficulty(index), "Selected difficulty background");
+            Require(PlayerPrefs.GetString(backgroundKey, "") == wallpapers[index].Id, "Saved stable wallpaper identifier");
+            Require(GamePreferences.MenuBackground(catalog) == wallpapers[index].image, "Selected wallpaper background");
             GamePreferences.SetMenuBackground(catalog, int.MaxValue);
-            Require(GamePreferences.MenuBackground(catalog) == catalog.MenuBackground, "Removed image fallback");
-            GamePreferences.SetMenuBackground(catalog, index);
+            Require(GamePreferences.MenuBackgroundIndex(catalog) == index, "Invalid index does not overwrite selection");
             PlayerPrefs.SetInt(id + ".Completed.0", 0);
-            Require(GamePreferences.MenuBackground(catalog) == catalog.MenuBackground, "Locked image fallback");
+            Require(GamePreferences.MenuBackground(catalog) == wallpapers[index].image, "Wallpapers do not depend on puzzle completion");
+            Array.Reverse(wallpapers);
+            Require(GamePreferences.MenuBackgroundIndex(catalog) == 5, "Reordering wallpapers preserves selection");
+            wallpapers[5].image = null;
+            Require(GamePreferences.MenuBackgroundIndex(catalog) == -1 && GamePreferences.MenuBackground(catalog) == catalog.MenuBackground, "Removed wallpaper fallback");
         }
         finally
         {
             PlayerPrefs.DeleteKey(backgroundKey);
+            PlayerPrefs.DeleteKey(legacyKey);
             PlayerPrefs.DeleteKey(id + ".Story.Furthest");
             for (int chapter = 0; chapter < catalog.Count; chapter++) PlayerPrefs.DeleteKey(id + ".Completed." + chapter);
             PlayerPrefs.Save();
