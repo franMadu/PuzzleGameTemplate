@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier:
   chapters:
   - title: Capítulo 1
-    wallpaperRewards: []
     subchapters:
     - title: 1-1
       firstStepId: chapter-1-1
