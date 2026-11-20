@@ -4,6 +4,13 @@ using UnityEngine.Serialization;
 
 public enum DialogueSpeakerSide { Left, Right, Narration }
 
+public enum DialogueMusicAction
+{
+    [InspectorName("Conservar música actual")] Keep,
+    [InspectorName("Cambiar música")] Play,
+    [InspectorName("Detener música")] Stop
+}
+
 [Serializable]
 public class DialogueOutfitSelection
 {
@@ -33,6 +40,12 @@ public class DialogueLine
     [InspectorName("Fondo")]
     [Tooltip("Cambia el escenario al comenzar esta intervención. Vacío conserva el fondo anterior.")]
     public Texture2D background;
+    [InspectorName("Música de fondo")]
+    [Tooltip("Conservar mantiene la pista actual. Cambiar reproduce la pista asignada en bucle con fundido. Detener deja la escena en silencio con fundido.")]
+    public DialogueMusicAction musicAction;
+    [InspectorName("Pista de música")]
+    [Tooltip("Pista que se utilizará al elegir Cambiar música. Se aplica una sola vez al entrar en la intervención, aunque ocupe varias páginas.")]
+    public AudioClip music;
     [InspectorName("Efecto de sonido")]
     [Tooltip("Se reproduce una sola vez al comenzar esta intervención, aunque el texto ocupe varias páginas. Vacío no reproduce ningún efecto.")]
     public AudioClip soundEffect;
@@ -128,7 +141,23 @@ public class DialogueSequence : ScriptableObject
     }
 
     public bool ValidateAppearances(out string error)
-        => ValidateOutfits(out error) && ValidateExpressions(out error);
+        => ValidateOutfits(out error) && ValidateExpressions(out error) && ValidateMusic(out error);
+
+    public bool ValidateMusic(out string error)
+    {
+        for (int i = 0; i < Lines.Length; i++)
+        {
+            var line = Lines[i];
+            if (line == null || string.IsNullOrWhiteSpace(line.text)) continue;
+            if (line.musicAction == DialogueMusicAction.Play && line.music == null)
+            {
+                error = name + ": asigna Pista de música al elegir Cambiar música en la intervención " + (i + 1);
+                return false;
+            }
+        }
+        error = null;
+        return true;
+    }
 
     public bool ValidateExpressions(out string error)
     {
