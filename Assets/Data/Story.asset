@@ -23,6 +23,9 @@ MonoBehaviour:
     - title: 1-2
       firstStepId: chapter-1-2
       lastStepId: chapter-1-2-puzzle
+    - title: 1-3
+      firstStepId: chapter-1-3
+      lastStepId: chapter-1-3
   steps:
   - id: chapter-1-1
     title: Capítulo 1 · 1-1
@@ -38,4 +41,9 @@ MonoBehaviour:
     title: Puzle 1-2
     kind: 1
     conversation: {fileID: 0}
+    puzzleIndex: 0
+  - id: chapter-1-3
+    title: Capítulo 1 · 1-3
+    kind: 0
+    conversation: {fileID: 11400000, guid: 8dba8af2a02e67a4dbc79f52bef648d1, type: 2}
     puzzleIndex: 0

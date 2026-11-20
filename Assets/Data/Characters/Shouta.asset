@@ -44,6 +44,10 @@ MonoBehaviour:
       portrait: {fileID: 359066512, guid: f87670cede414dbebf89dd243dd6f591, type: 3}
     - id: estupor
       portrait: {fileID: 359066512, guid: 2dd467cde93f4a0c8fbeb25f3fbdfb30, type: 3}
+    - id: ilusion_contenida
+      portrait: {fileID: 359066512, guid: b4ba839b71804761a4875568b6ac6f22, type: 3}
+    - id: inseguridad
+      portrait: {fileID: 359066512, guid: 70668ef3874b478bbc118ab678db8bff, type: 3}
   expressions:
   - id: seria
     portrait: {fileID: 359066512, guid: ccfdfa878b4347cea4fa8825fa1bdddf, type: 3}

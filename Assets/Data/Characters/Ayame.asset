@@ -31,3 +31,9 @@ MonoBehaviour:
     portrait: {fileID: -1067827879, guid: d42cd44170e6426db6714efdf8e35fa6, type: 3}
   - id: neutra_feliz
     portrait: {fileID: -1067827879, guid: 234b0d04189b481d9fe6bb46b4fd5988, type: 3}
+  - id: disculpa
+    portrait: {fileID: -1067827879, guid: aa04d2143f304e0ba8edada2d21d487d, type: 3}
+  - id: desconcierto
+    portrait: {fileID: -1067827879, guid: 45b0cf1df2d04f739a3e85e661b65594, type: 3}
+  - id: seguridad
+    portrait: {fileID: -1067827879, guid: 58cd737013ed47f9ae9111d7433bdfa6, type: 3}
