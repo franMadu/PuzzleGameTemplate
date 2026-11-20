@@ -60,6 +60,14 @@ MonoBehaviour:
     image: {fileID: 2800000, guid: 193eac593cc18764fb89500d480f41c7, type: 3}
   - id: 3b31220c36a591047ad1329ff717bc45
     image: {fileID: 2800000, guid: 3b31220c36a591047ad1329ff717bc45, type: 3}
+  - id: 27b2fd31505d4cb1b184ca32befc4c0c
+    image: {fileID: 2800000, guid: 27b2fd31505d4cb1b184ca32befc4c0c, type: 3}
+  - id: 1c4e37bd177a4c5e97837d61b219c193
+    image: {fileID: 2800000, guid: 1c4e37bd177a4c5e97837d61b219c193, type: 3}
+  - id: 02afca901fc540e0870557eb614a5c41
+    image: {fileID: 2800000, guid: 02afca901fc540e0870557eb614a5c41, type: 3}
+  - id: 365ecd6be5b54cf8bd838506d34e107f
+    image: {fileID: 2800000, guid: 365ecd6be5b54cf8bd838506d34e107f, type: 3}
   endingText: "Continuará."
   story: {fileID: 11400000, guid: 0fe7b6d02491400f9a2d7c07c4ff8111, type: 2}
   chapters:
