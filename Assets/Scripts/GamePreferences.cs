@@ -9,10 +9,11 @@ public static class GamePreferences
         // A separate key intentionally ignores old puzzle-image background selections.
         string selected = PlayerPrefs.GetString(Prefix + "MenuWallpaper." + catalog.ProgressId, "");
         if (string.IsNullOrEmpty(selected)) return -1;
+        WallpaperProgress.Synchronize(catalog);
         for (int i = 0; i < catalog.WallpaperCount; i++)
         {
             var wallpaper = catalog.WallpaperAt(i);
-            if (wallpaper?.image != null && wallpaper.Id == selected) return i;
+            if (wallpaper?.image != null && wallpaper.Id == selected && WallpaperProgress.IsUnlocked(catalog, i)) return i;
         }
         return -1;
     }
@@ -20,7 +21,8 @@ public static class GamePreferences
     public static void SetMenuBackground(PuzzleCatalog catalog, int index)
     {
         var wallpaper = catalog.WallpaperAt(index);
-        if (wallpaper?.image == null) return;
+        WallpaperProgress.Synchronize(catalog);
+        if (wallpaper?.image == null || !WallpaperProgress.IsUnlocked(catalog, index)) return;
         PlayerPrefs.SetString(Prefix + "MenuWallpaper." + catalog.ProgressId, wallpaper.Id);
         Save();
     }

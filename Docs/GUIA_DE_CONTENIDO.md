@@ -20,7 +20,7 @@ Un capítulo narrativo puede contener solo conversaciones y no necesita una entr
 
 1. Crear o duplicar un catálogo. El menú de creación es `Create → One Hand Puzzle → Catalog`.
 2. Darle un `Progress Id` permanente y propio, por ejemplo `OneHandPuzzle.NuevoViaje`. Ese valor separa el progreso de otros catálogos.
-3. Configurar `Game Title`, `Menu Background`, `Ending Text` y la referencia `Story`. `Game Title` aparece en la pantalla inicial; `Menu Background` es la textura del menú principal, ajustada para cubrir la pantalla sin deformarse. El ejemplo reutiliza `PuzzleLandscape.png`; se puede sustituir por una ilustración propia del menú.
+3. Configurar `Game Title`, `Fondo inicial`, `Ending Text` y la referencia `Story`. `Game Title` aparece en la pantalla inicial; `Fondo inicial` es la textura del menú principal, ajustada para cubrir la pantalla sin deformarse. Esta imagen está disponible desde el principio.
 4. Crear o duplicar la secuencia con `Create → One Hand Puzzle → Story Sequence`.
 5. Preparar los personajes, conversaciones, definiciones de puzzles y agrupaciones narrativas descritos a continuación.
 6. Asignar el mismo catálogo al `PuzzleMenu` de `MainMenu` y a los `PuzzleSceneController` de `PuzzleEasy`, `PuzzleNormal` y `PuzzleHard`, además del `StorySceneController` de `Story`.
@@ -229,7 +229,11 @@ Los textos fijos se editan en el componente `Text` de cada objeto. Los textos qu
 
 Las escenas `PuzzleEasy`, `PuzzleNormal` y `PuzzleHard` contienen los botones del tablero, las capas de revelado, el panel de resultados y el diálogo. `Story` contiene el diálogo y los paneles de final y error; `DialogueDemo`, el diálogo y sus botones finales. El código actualiza imágenes, valores, visibilidad y acciones sin reconstruir estos controles. Mantener los nombres de los objetos y las referencias serializadas al editar la jerarquía. `Tools > One Hand Puzzle > Validate Canvas References` comprueba las seis escenas sin modificar las escenas abiertas.
 
-`Menu Background` del catálogo es el fondo inicial del menú principal. Desde la galería, el jugador puede abrir una imagen completada y pulsar **Usar como fondo** para sustituirlo; la elección se guarda por identificador de juego. La vista ampliada dispone de zoom de 1× a 4× y arrastre cuando la imagen supera el tamaño de pantalla.
+`Fondo inicial` del catálogo es el fondo del menú al comenzar una partida. Añadirlo también a `Fondos de pantalla` permite volver a seleccionarlo desde la galería. Registrar en esa lista todas las imágenes que puedan utilizarse como fondo, cada una con un `Id` único y permanente.
+
+En `Story → Chapters → Fondos al completar el capítulo`, arrastrar una o varias imágenes registradas en el catálogo. Se desbloquean cuando el jugador termina el último paso de todos los subcapítulos de ese capítulo, incluido su último puzzle o diálogo. Dejar la lista vacía no concede fondos. Los fondos pendientes no aparecen en la galería ni pueden seleccionarse. Los ganados se guardan por identificador de juego y de fondo, sobreviven a repetir la historia y se conceden también a partidas anteriores que ya hayan completado el capítulo.
+
+La galería separa `Puzles` de `Fondos de pantalla`. Solo estos últimos ofrecen **Usar como fondo**; la elección se guarda para las siguientes sesiones. La vista ampliada de ambas categorías dispone de zoom de 1× a 4× y arrastre cuando la imagen supera el tamaño de pantalla.
 
 Las escenas utilizan una resolución de referencia de Canvas de 900×1000. El contenido de menú utiliza un área de 720×920. El cuadro de conversación y el visor de galería se anclan al tamaño de pantalla.
 

@@ -244,6 +244,10 @@ public static class CanvasValidation
             id = "wallpaper-" + index, image = source[0].ImageForDifficulty(0)
         }).ToArray();
         typeof(PuzzleCatalog).GetField("wallpapers", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(catalog, wallpapers);
+        typeof(StorySequence).GetField("chapters", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(story,
+            new[] { new StoryChapter { title = "Rewards", wallpaperRewards = new[] { wallpapers[0].image },
+                subchapters = new[] { new StorySubchapter { title = "All", firstStepId = story[0].id,
+                    lastStepId = story[story.Count - 1].id } } } });
         try
         {
             Require(GamePreferences.MenuBackground(catalog) == catalog.MenuBackground, "Default background");
@@ -281,6 +285,8 @@ public static class CanvasValidation
         }
         finally
         {
+            foreach (var wallpaper in wallpapers)
+                PlayerPrefs.DeleteKey(id + ".Wallpaper.Unlocked." + wallpaper.Id);
             PlayerPrefs.DeleteKey(backgroundKey);
             PlayerPrefs.DeleteKey(legacyKey);
             PlayerPrefs.DeleteKey(id + ".Story.Furthest");
