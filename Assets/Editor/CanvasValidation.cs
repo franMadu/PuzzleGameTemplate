@@ -245,9 +245,9 @@ public static class CanvasValidation
         }).ToArray();
         typeof(PuzzleCatalog).GetField("wallpapers", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(catalog, wallpapers);
         typeof(StorySequence).GetField("chapters", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(story,
-            new[] { new StoryChapter { title = "Rewards", wallpaperRewards = new[] { wallpapers[0].image },
+            new[] { new StoryChapter { title = "Rewards",
                 subchapters = new[] { new StorySubchapter { title = "All", firstStepId = story[0].id,
-                    lastStepId = story[story.Count - 1].id } } } });
+                    lastStepId = story[story.Count - 1].id, wallpaperRewards = new[] { wallpapers[0].image } } } } });
         try
         {
             Require(GamePreferences.MenuBackground(catalog) == catalog.MenuBackground, "Default background");

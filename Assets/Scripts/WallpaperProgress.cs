@@ -13,7 +13,7 @@ public static class WallpaperProgress
             || PlayerPrefs.GetInt(Key(catalog, wallpaper), 0) != 0);
     }
 
-    // Also grants rewards for chapters finished before this feature was introduced.
+    // Also grants rewards for subchapters finished before this feature was introduced.
     public static void Synchronize(PuzzleCatalog catalog)
     {
         var story = catalog.Story;
@@ -23,19 +23,14 @@ public static class WallpaperProgress
         foreach (var chapter in story.Chapters)
         {
             if (chapter?.subchapters == null || chapter.subchapters.Length == 0) continue;
-            int last = -1;
-            bool valid = true;
             foreach (var section in chapter.subchapters)
             {
                 int first = section == null ? -1 : story.IndexOf(section.firstStepId);
                 int end = section == null ? -1 : story.IndexOf(section.lastStepId);
-                if (first < 0 || end < first) { valid = false; continue; }
+                if (first < 0 || end < first) continue;
+                // Furthest points to the next step: reaching the last step earns nothing yet.
                 if (furthest > end) changed |= Grant(catalog, section.wallpaperRewards);
-                last = Mathf.Max(last, end);
             }
-            // Furthest points to the next step: merely reaching the last puzzle earns nothing.
-            if (!valid || furthest <= last) continue;
-            changed |= Grant(catalog, chapter.wallpaperRewards);
         }
         if (changed) PlayerPrefs.Save();
     }

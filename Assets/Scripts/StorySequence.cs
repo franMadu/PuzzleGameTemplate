@@ -21,9 +21,6 @@ public class StorySubchapter
 public class StoryChapter
 {
     public string title;
-    [InspectorName("Fondos al completar el capítulo")]
-    [Tooltip("Uno o varios fondos del catálogo que se desbloquean al terminar todos los subcapítulos. Arrastra sus imágenes aquí.")]
-    public Texture2D[] wallpaperRewards;
     public StorySubchapter[] subchapters;
 }
 
@@ -79,8 +76,6 @@ public class StorySequence : ScriptableObject
             if (error != null) break;
             if (chapter == null || string.IsNullOrWhiteSpace(chapter.title) || chapter.subchapters == null)
             { error = "Cada capítulo necesita un título y subcapítulos."; break; }
-            error = ValidateRewards(catalog, chapter.wallpaperRewards, chapter.title);
-            if (error != null) break;
             foreach (var section in chapter.subchapters)
             {
                 int first = section == null ? -1 : IndexOf(section.firstStepId);

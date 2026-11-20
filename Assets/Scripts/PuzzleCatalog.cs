@@ -48,7 +48,7 @@ public class PuzzleCatalog : ScriptableObject
     [SerializeField] private string gameTitle = "ONE HAND\nPUZZLE";
     [Tooltip("Fondo inicial del menú, siempre disponible. Añádelo también a Fondos de pantalla para poder volver a seleccionarlo en la galería.")]
     [SerializeField, InspectorName("Fondo inicial")] private Texture2D menuBackground;
-    [Tooltip("Catálogo de fondos. Solo se muestran el fondo inicial y los ganados al completar capítulos de Story.")]
+    [Tooltip("Catálogo de fondos. Solo se muestran el fondo inicial y los ganados al completar subcapítulos de Story.")]
     [SerializeField, InspectorName("Fondos de pantalla")]
     private GalleryWallpaper[] wallpapers;
     [SerializeField, TextArea(2, 4)] private string endingText = "Has completado el viaje.";
