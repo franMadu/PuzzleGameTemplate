@@ -62,6 +62,14 @@ Crear un asset con `Create → One Hand Puzzle → Dialogue`.
 
 ### Fondo y música
 
+El fondo también puede cambiar dentro de la misma conversación. En `Lines`, cada intervención tiene **Fondo**: asignar una textura cambia el escenario al comenzar esa intervención; dejarlo vacío conserva el anterior. El cambio es inmediato, mantiene la proporción de la imagen y no altera el reparto, las expresiones ni la música. El `Background` de la conversación sigue siendo su fondo inicial. Al repetir o iniciar otra conversación se restablece su propio fondo inicial.
+
+Por ejemplo, una sola conversación puede empezar en el cuarto, cambiar a las escaleras en la línea donde Shouta baja y pasar al baño en otra línea. Todo puede pertenecer a un único subcapítulo. Además, un subcapítulo ya admite varios pasos de conversación: su `First Step Id` y `Last Step Id` delimitan el conjunto, sin necesidad de crear un subcapítulo por escenario.
+
+Cada intervención también ofrece **Efecto de sonido** (`AudioClip`) y **Volumen del efecto** (0–1). Para una caída, asignar el clip a la intervención que describe el golpe. Se reproduce al entrar en esa intervención, una sola vez, incluso si el texto se divide en varias páginas. Completar el texto y ocultar o restaurar el cuadro no lo repiten. El volumen respeta las opciones de efectos y no modifica la música. Los efectos pueden terminar durante las líneas siguientes; terminar, saltar o cancelar la conversación los detiene. Los campos vacíos conservan el comportamiento de las conversaciones existentes.
+
+Para usar un archivo nuevo, importarlo en `Assets/Audio` (o la carpeta de audio del proyecto) y arrastrarlo desde Project al campo **Efecto de sonido**. No es necesario añadir objetos al Canvas. La comprobación `Tools > One Hand Puzzle > Validate Dialogue Backgrounds and Sounds (Play Mode)` verifica cambios de fondo, paginación, efectos y compatibilidad.
+
 `Background` es el fondo de esa conversación. Tiene prioridad sobre la imagen que pueda pasarle el controlador. En el flujo normal de `Story` no se proporciona un fondo alternativo: asignarlo en cada conversación cuando se quiera una imagen de fondo. El fondo se recorta para cubrir la pantalla conservando la proporción.
 
 `Music` acepta un `AudioClip` y se reproduce en bucle. Dejarlo vacío produce silencio de fondo, con un fundido de salida si había una pista anterior. No se hereda automáticamente la música del puzzle ni de la conversación anterior.

@@ -13,6 +13,8 @@ public class GameAudio : MonoBehaviour
     private AudioClip tilePlace;
     private float nextDragSound;
     private AudioSource musicSource;
+    private AudioSource dialogueSource;
+    private Object dialogueOwner;
     private AudioClip targetMusic;
     private Object musicOwner;
     private Coroutine musicTransition;
@@ -47,6 +49,9 @@ public class GameAudio : MonoBehaviour
         instance.musicSource.spatialBlend = 0;
         instance.musicSource.loop = true;
         instance.musicSource.volume = 0;
+        instance.dialogueSource = root.AddComponent<AudioSource>();
+        instance.dialogueSource.playOnAwake = false;
+        instance.dialogueSource.spatialBlend = 0;
         instance.buttonClick = Resources.Load<AudioClip>("Audio/ButtonClick");
         instance.tileSlide = Resources.Load<AudioClip>("Audio/TileSlide");
         instance.tilePlace = Resources.Load<AudioClip>("Audio/TilePlace");
@@ -90,6 +95,23 @@ public class GameAudio : MonoBehaviour
         audio.musicTransition = audio.StartCoroutine(audio.ChangeMusic(clip));
     }
 
+    public static void PlayDialogueEffect(AudioClip clip, float volume, Object owner)
+    {
+        if (clip == null) return;
+        var audio = EnsureInstance();
+        if (audio.dialogueOwner != owner) audio.dialogueSource.Stop();
+        audio.dialogueOwner = owner;
+        audio.dialogueSource.volume = GamePreferences.EffectsVolume;
+        audio.dialogueSource.PlayOneShot(clip, Mathf.Clamp01(volume));
+    }
+
+    public static void StopDialogueEffects(Object owner)
+    {
+        if (instance == null || instance.dialogueOwner != owner) return;
+        instance.dialogueSource.Stop();
+        instance.dialogueOwner = null;
+    }
+
     public static void StopMusic(Object owner)
     {
         // Old scene callbacks must not stop a new conversation's soundtrack.
@@ -123,7 +145,11 @@ public class GameAudio : MonoBehaviour
         ApplyMusicVolume();
     }
 
-    private void Update() => ApplyMusicVolume();
+    private void Update()
+    {
+        ApplyMusicVolume();
+        dialogueSource.volume = GamePreferences.EffectsVolume;
+    }
     private void ApplyMusicVolume()
     {
         if (musicSource != null) musicSource.volume = musicFade * GamePreferences.MusicVolume * 0.55f;
