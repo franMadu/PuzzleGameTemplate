@@ -27,21 +27,24 @@ public static class WallpaperProgressValidation
                 wallpapers[i] = new GalleryWallpaper { id = "wallpaper-" + i, image = images[i] };
             Set(catalog, "wallpapers", wallpapers);
             Set(story, "steps", new[] { Step("a"), Step("b"), Step("c") });
-            var chapter = new StoryChapter { title = "First", wallpaperRewards = new[] { images[1], images[2], null },
+            var chapter = new StoryChapter { title = "First",
                 subchapters = new[] { Section("a", "a"), Section("b", "b") } };
             chapter.subchapters[0].wallpaperRewards = new[] { images[2] };
+            chapter.subchapters[1].wallpaperRewards = new[] { images[1], images[2], null };
+            var rewardSection = chapter.subchapters[1];
+            var finalSection = Section("c", "c");
+            finalSection.wallpaperRewards = new[] { images[3] };
             Set(story, "chapters", new[] { chapter,
-                new StoryChapter { title = "Second", wallpaperRewards = new[] { images[3] },
-                    subchapters = new[] { Section("c", "c") } } });
+                new StoryChapter { title = "Second", subchapters = new[] { finalSection } } });
             Require(story.Validate(catalog, out var error), "Reward configuration is valid: " + error);
-            chapter.wallpaperRewards = new[] { new Texture2D(1, 1) };
+            rewardSection.wallpaperRewards = new[] { new Texture2D(1, 1) };
             try { Require(!story.Validate(catalog, out _), "Unregistered reward images produce an authoring error"); }
-            finally { UnityEngine.Object.DestroyImmediate(chapter.wallpaperRewards[0]); }
-            chapter.wallpaperRewards = new[] { images[1], images[2], null };
+            finally { UnityEngine.Object.DestroyImmediate(rewardSection.wallpaperRewards[0]); }
+            rewardSection.wallpaperRewards = new[] { images[1], images[2], null };
 
             WallpaperProgress.Synchronize(catalog);
             Require(WallpaperProgress.IsUnlocked(catalog, 0), "Initial wallpaper is always available");
-            Require(!WallpaperProgress.IsUnlocked(catalog, 1), "Chapter rewards start locked");
+            Require(!WallpaperProgress.IsUnlocked(catalog, 1), "Subchapter rewards start locked");
             RequireVisible(catalog, 1);
             Require(!WallpaperProgress.IsUnlocked(catalog, -1), "Invalid wallpaper is locked");
             GamePreferences.SetMenuBackground(catalog, 1);
@@ -51,29 +54,29 @@ public static class WallpaperProgressValidation
             PlayerPrefs.DeleteKey(selectedKey);
             Require(!StoryProgress.Advance(catalog, "wrong"), "Stale advance does not change progress");
             Require(StoryProgress.Advance(catalog, "a"), "Finish first subchapter");
-            Require(!WallpaperProgress.IsUnlocked(catalog, 1), "Reaching last chapter step does not earn rewards");
+            Require(!WallpaperProgress.IsUnlocked(catalog, 1), "Reaching the next subchapter does not earn its rewards");
             Require(WallpaperProgress.IsUnlocked(catalog, 2), "Subchapter reward unlocks before the whole chapter ends");
             RequireVisible(catalog, 2);
-            Require(StoryProgress.Advance(catalog, "b"), "Finish chapter at its last puzzle");
+            Require(StoryProgress.Advance(catalog, "b"), "Finish subchapter at its last puzzle");
             Require(WallpaperProgress.IsUnlocked(catalog, 1) && WallpaperProgress.IsUnlocked(catalog, 2), "Multiple rewards unlock together");
-            Require(!WallpaperProgress.IsUnlocked(catalog, 3), "Next chapter remains locked");
+            Require(!WallpaperProgress.IsUnlocked(catalog, 3), "Next subchapter remains locked");
             RequireVisible(catalog, 3);
             GamePreferences.SetMenuBackground(catalog, 2);
             Require(GamePreferences.MenuBackground(catalog) == images[2], "Earned background can be selected");
             StoryProgress.Restart(catalog);
-            chapter.wallpaperRewards = Array.Empty<Texture2D>();
+            rewardSection.wallpaperRewards = Array.Empty<Texture2D>();
             WallpaperProgress.Synchronize(catalog);
             Require(WallpaperProgress.IsUnlocked(catalog, 1) && GamePreferences.MenuBackground(catalog) == images[2],
                 "Restarting and later reward edits preserve earned backgrounds and selection");
-            chapter.wallpaperRewards = new[] { images[1], images[2] };
+            rewardSection.wallpaperRewards = new[] { images[1], images[2] };
 
             for (int i = 0; i < wallpapers.Length; i++) PlayerPrefs.DeleteKey(id + ".Wallpaper.Unlocked." + wallpapers[i].Id);
             WallpaperProgress.Synchronize(catalog);
             Require(WallpaperProgress.IsUnlocked(catalog, 1) && WallpaperProgress.IsUnlocked(catalog, 2)
-                && !WallpaperProgress.IsUnlocked(catalog, 3), "Existing save receives only completed chapter rewards");
+                && !WallpaperProgress.IsUnlocked(catalog, 3), "Existing save receives only completed subchapter rewards");
             Require(StoryProgress.Advance(catalog, "a") && StoryProgress.Advance(catalog, "b")
                 && StoryProgress.Advance(catalog, "c"), "Finish the story");
-            Require(WallpaperProgress.IsUnlocked(catalog, 3), "Last chapter reward unlocks at story completion");
+            Require(WallpaperProgress.IsUnlocked(catalog, 3), "Last subchapter reward unlocks at story completion");
             RequireVisible(catalog, 4);
             StoryProgress.Restart(catalog);
             Require(WallpaperProgress.IsUnlocked(catalog, 3), "Final reward survives restart");
