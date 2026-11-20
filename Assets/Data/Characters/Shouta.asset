@@ -16,6 +16,10 @@ MonoBehaviour:
   portrait: {fileID: 359066512, guid: 5e3c682d9a7349cb8ca6cfcbd710bc14, type: 3}
   facing: 1
   outfits:
+  - id: toalla
+    portrait: {fileID: 870320369, guid: dc10e67c58a040da822a6f762500505a, type: 3}
+    facing: 1
+    expressions: []
   - id: baloncesto
     portrait: {fileID: 359066512, guid: a64f73c7560b444aac5ee220907c61eb, type: 3}
     facing: 1
