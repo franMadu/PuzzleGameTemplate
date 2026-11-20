@@ -52,7 +52,8 @@ public static class CanvasValidation
                         var layout = Field<GameObject>(controller, "gameLayout").transform;
                         Check<Button>(layout, "Back to Menu", "Continue After Reveal", "Shuffle Button");
                         var content = Field<RectTransform>(controller, "victoryScreen").Find("Content");
-                        Check<Text>(content, "Title", "Grade", "Moves", "Best", "Next/Label");
+                        Check<Text>(content, "Title", "Moves", "Best", "Next/Label");
+                        Check<PuzzleStarsGraphic>(content, "Grade", "Best/Stars");
                         Check<RawImage>(content, "Artwork");
                         Check<Button>(content, "Next", "Play Again", "Back");
                     }

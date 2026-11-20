@@ -20,6 +20,7 @@ public class DialogueController : MonoBehaviour
     [SerializeField, Min(1)] private int maxLinesPerPage = 4;
     public bool IsPlaying { get; private set; }
     public bool IsTyping { get; private set; }
+    public bool IsDialogueHidden { get; private set; }
     public int PageIndex { get; private set; }
     public int PageCount => pages.Count;
     public bool IsTransitioning => Replacing(leftFocus) || Replacing(rightFocus);
@@ -69,6 +70,9 @@ public class DialogueController : MonoBehaviour
     private Text bodyText;
     private Button advanceButton;
     private Button skipButton;
+    private RectTransform dialogueBox;
+    private GameObject nextIcon;
+    private Button restoreButton;
     private RectTransform speakerTab;
     private RawImage backdrop;
     private Image leftCharacter;
@@ -99,6 +103,7 @@ public class DialogueController : MonoBehaviour
         finishing = false;
         GameAudio.PlayMusic(sequence != null ? sequence.Music : null, this);
         screen.gameObject.SetActive(true);
+        SetDialogueHidden(false);
         Canvas.ForceUpdateCanvases();
         pages.Clear();
         if (sequence != null)
@@ -169,6 +174,7 @@ public class DialogueController : MonoBehaviour
     public void Advance()
     {
         if (!IsPlaying || finishing || ScreenTransition.IsBusy) return;
+        if (IsDialogueHidden) { RestoreDialogue(); return; }
         if (IsTransitioning) return;
         if (IsTyping)
         {
@@ -182,6 +188,32 @@ public class DialogueController : MonoBehaviour
     public void Skip() => Finish(true);
     public void Cancel() => Finish(false);
 
+    public void HideDialogue()
+    {
+        if (!IsPlaying || finishing || ScreenTransition.IsBusy) return;
+        SetDialogueHidden(true);
+    }
+
+    public void RestoreDialogue()
+    {
+        if (!IsPlaying || !IsDialogueHidden || finishing || ScreenTransition.IsBusy) return;
+        SetDialogueHidden(false);
+    }
+
+    private void SetDialogueHidden(bool hidden)
+    {
+        IsDialogueHidden = hidden;
+        dialogueBox.gameObject.SetActive(!hidden);
+        restoreButton.gameObject.SetActive(hidden);
+        if (hidden && EventSystem.current != null) EventSystem.current.SetSelectedGameObject(null);
+    }
+
+    private void UpdateAdvanceControl()
+    {
+        advanceButton.interactable = !IsTransitioning;
+        nextIcon.SetActive(!IsTyping && !IsTransitioning);
+    }
+
     private void OnDisable() => Cancel();
 
     private void Update()
@@ -189,8 +221,8 @@ public class DialogueController : MonoBehaviour
         if (!IsPlaying || finishing || ScreenTransition.IsBusy) return;
         UpdateFocus(leftCharacter, leftFocus);
         UpdateFocus(rightCharacter, rightFocus);
-        advanceButton.interactable = !IsTransitioning;
-        if (!IsTransitioning && IsTyping && TextSpeed > 0)
+        UpdateAdvanceControl();
+        if (!IsDialogueHidden && !IsTransitioning && IsTyping && TextSpeed > 0)
         {
             revealProgress += Time.unscaledDeltaTime * TextSpeed;
             Reveal(Mathf.Min(textElements.Length, (int)revealProgress));
@@ -198,9 +230,19 @@ public class DialogueController : MonoBehaviour
 #if ENABLE_INPUT_SYSTEM
         var keyboard = Keyboard.current;
         if (keyboard == null) return;
+        if (IsDialogueHidden)
+        {
+            if (keyboard.escapeKey.wasPressedThisFrame || keyboard.spaceKey.wasPressedThisFrame || keyboard.enterKey.wasPressedThisFrame || keyboard.numpadEnterKey.wasPressedThisFrame) RestoreDialogue();
+            return;
+        }
         if (keyboard.escapeKey.wasPressedThisFrame) Skip();
         else if (keyboard.spaceKey.wasPressedThisFrame || keyboard.enterKey.wasPressedThisFrame || keyboard.numpadEnterKey.wasPressedThisFrame) Advance();
 #elif ENABLE_LEGACY_INPUT_MANAGER
+        if (IsDialogueHidden)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) RestoreDialogue();
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.Escape)) Skip();
         else if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) Advance();
 #endif
@@ -235,6 +277,7 @@ public class DialogueController : MonoBehaviour
         IsTyping = count < textElements.Length;
         string text = pages[PageIndex].text;
         bodyText.text = IsTyping ? text.Substring(0, textElements[count]) : text;
+        UpdateAdvanceControl();
     }
 
     private void Finish(bool invokeCallback)
@@ -255,6 +298,7 @@ public class DialogueController : MonoBehaviour
         IsPlaying = false;
         GameAudio.StopMusic(this);
         IsTyping = false;
+        SetDialogueHidden(false);
         leftFocus.motion = rightFocus.motion = Motion.None;
         var callback = onFinished;
         onFinished = null;
@@ -409,11 +453,14 @@ public class DialogueController : MonoBehaviour
         rightCharacter = MenuControls.Get<Image>(screen, "Content/Right Character");
         leftFocus.basePosition = leftCharacter.rectTransform.anchoredPosition;
         rightFocus.basePosition = rightCharacter.rectTransform.anchoredPosition;
-        var panel = MenuControls.Get<RectTransform>(screen, "Content/Dialogue Box");
+        var panel = dialogueBox = MenuControls.Get<RectTransform>(screen, "Content/Dialogue Box");
         speakerTab = MenuControls.Get<RectTransform>(panel, "Speaker Name Box");
         speakerText = MenuControls.Get<Text>(speakerTab, "Name");
         bodyText = MenuControls.Get<Text>(panel, "Body");
-        advanceButton = MenuControls.Bind(panel, "Advance", Advance);
+        advanceButton = MenuControls.Bind(screen, "Content/Dialogue Box", Advance);
+        nextIcon = panel.Find("Next Icon").gameObject;
+        MenuControls.Bind(panel, "Hide", HideDialogue);
+        restoreButton = MenuControls.Bind(screen, "Restore Dialogue", RestoreDialogue);
         skipButton = MenuControls.Bind(panel, "Skip", Skip);
         uiBound = true;
     }

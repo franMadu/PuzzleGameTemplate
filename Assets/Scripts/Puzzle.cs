@@ -8,6 +8,7 @@ public class Puzzle : MonoBehaviour
     public int Moves => moves;
     public int MinimumMoves { get; private set; }
     public PuzzleGrade Grade => PuzzleRating.GradeFor(moves, MinimumMoves);
+    public int Stars => PuzzleRating.StarsFor(moves, MinimumMoves);
     public bool IsRevealingCompletion { get; private set; }
     public event System.Action Completed;
     [SerializeField] private Texture2D puzzleImage;
