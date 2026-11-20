@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5e33e446cc4bc88bde152074d89f2a, type: 3}
+  m_Name: 1-4 Cierre
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  background: {fileID: 0}
+  music: {fileID: 0}
+  characters:
+  - {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+  - {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+  enterOnFirstSpeech: 0
+  initialOutfits:
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+  initialExpressions: []
+  leftCharacter: {fileID: 0}
+  rightCharacter: {fileID: 0}
+  leftCharacterFacing: 0
+  rightCharacterFacing: 0
+  lines:
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "(Ayame me est\xE1 hablando pero no escucho lo que dice.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: (Lo unico que existe en mi mente es su trasero. Lo unico que huelo es su
+      olor natural mezclado con el limpiasuelos.)
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "(Se me ha olvidado como andar, esta situaci\xF3n ocupa todos mis pensamientos.
+      Si tropiezo ahora y me caigo har\xE9 el mayor ridiculo de mi vida.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "\xBFShouta? \xBFTe pasa algo?"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "(Se gira hacia mi. Pierdo su trasero de vista. Pero ahora lo que veo es
+      su cara pegada a la m\xEDa. \xBFSiempre ha tenido esos ojos azules tan profundos?)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Est\xE1s colorado. \xBFNo tendr\xE1s fiebre?"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: No. Es que hace mucho calor es solo eso. No estoy acostumbrado a este clima.
+      No es como el de Tokio.
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Que susto me has dado. Si, hoy hace bastante calor. Pero a partir de ma\xF1ana
+      bajan un poco las temperaturas."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Que susto me has dado. Si, hoy hace bastante calor. Pero a partir de ma\xF1ana
+      bajan un poco las temperaturas."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Ven, tu cuarto est\xE1 justo aqu\xED."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Si, perdona. No quer\xEDa asustarte, prima."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0

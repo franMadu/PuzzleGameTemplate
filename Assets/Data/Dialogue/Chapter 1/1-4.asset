@@ -1,0 +1,182 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5e33e446cc4bc88bde152074d89f2a, type: 3}
+  m_Name: 1-4
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  background: {fileID: 0}
+  music: {fileID: 0}
+  characters:
+  - {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+  - {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+  enterOnFirstSpeech: 0
+  initialOutfits:
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: baloncesto
+  initialExpressions: []
+  leftCharacter: {fileID: 0}
+  rightCharacter: {fileID: 0}
+  leftCharacterFacing: 0
+  rightCharacterFacing: 0
+  lines:
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: Bienvenido, sientete como en casa.
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Ojal\xE1..."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "\xBFUm? \xBFHas dicho algo?"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: No, esto...
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: Creo... Si recuerdo esta casa. No ha cambiado mucho.
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "A la abuela le gusta tal y como est\xE1. Aunque siendo sinceros la he
+      modernizado un poco. Hace unos meses que la convenc\xED para que tirara un
+      VHS y se comprara una televis\xF3n oled."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: Cosa de abuelas imagino.
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Aqu\xED a la derecha tienes el sal\xF3n. Al fondo est\xE1 la lavabo y
+      el ba\xF1o. Arriba est\xE1n las habitaciones. Ven te ense\xF1ar\xE9 la tuya."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: Te sigo.
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: (Cojo en peso mi maleta y empiezo a subir las estrechas escaleras.)
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "(Pienso en lo largas que se me van a hacer estas dos semanas. Ayame no
+      parece la t\xEDpica chica que le gusten los videojuegos y hace a\xF1o que no
+      nos vemos. No s\xE9 de que hablar con ella sin que acabemos hablando de sus
+      padres.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: (Estoy tan absorto en mis pensamientos que no me doy cuenta en lo rapido
+      que subo las escaleras. Cuando miro hacia arriba lo tengo justo en mis narices.)
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0

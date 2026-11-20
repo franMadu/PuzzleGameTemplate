@@ -1,0 +1,439 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5e33e446cc4bc88bde152074d89f2a, type: 3}
+  m_Name: 1-5
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  background: {fileID: 2800000, guid: 0630d303da254be39d97147a07bec096, type: 3}
+  music: {fileID: 0}
+  characters:
+  - {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+  - {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+  enterOnFirstSpeech: 0
+  initialOutfits:
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: baloncesto
+  initialExpressions: []
+  leftCharacter: {fileID: 0}
+  rightCharacter: {fileID: 0}
+  leftCharacterFacing: 0
+  rightCharacterFacing: 0
+  lines:
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Hemos llegado, este es tu cuarto. \xBFQue te parece?"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Guau. Me encanta. Es m\xE1s grande que el mio. Y hasta tiene mucha m\xE1s
+      luz."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "\xBFEn serio? Me alegra que te guste."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: Esto... Shouta...
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "\xBFQu\xE9 ocurre prima?"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Despu\xE9s de instalarte, \xBFte gustar\xEDa hacer algo?"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Ver\xE1s, esta noche no he dormido mucho. \xBFPodr\xEDa echar una siesta?"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Si, claro, sin problema. Yo a\xFAn tengo que seguir limpiado la planta
+      baja. \xBFTe parece si te aviso para cenar?"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: Si, claro. Gracias prima.
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: Bien, te dejo entonces que te instales.
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Una cosa m\xE1s Shouta."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: Dime.
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Prima es demasiado formal. Llamam\xE9 Ayame. \xBFDe acuerdo?"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: Si, prim... Digo, Ay.. Aya...
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "\xA1\xA1AYAME!!"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: Ha ha. Descansa Shouta.
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "(Ayame desaparece tras la puerta del dormitorio. \xBFPor qu\xE9 me ha
+      costado tanto decir su nombre esta vez?)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 1
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "(Seguro que piensa que soy un friki. Que verg\xFCenza.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 1
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "(Dejo mi maleta a un lado. Y examino la habitaci\xF3n con m\xE1s detalle.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 1
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "(Hay una ventana enorme desde la que se ve el mar. No me extra\xF1a que
+      sea tan luminosa.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 1
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "(La abro con la esperanza de que entre un poco de brisa. No s\xE9 que
+      me ocurre. Estoy acalorado y tenso. Miro por encima del hombro constantemente
+      por si Ayame decide aparecer de nuevo.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 1
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: (Aspiro una bocanada de aire para tranquilizarme.)
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 1
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: Arg. Maldita sea.
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 1
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "(Es lo peor que podr\xEDa haber hecho. La habitaci\xF3n huele al limpiasuelos.
+      Ha tenido que limpiarla hace poco. Inconscientemete me acuerdo de Ayame y su
+      cuerpo empapado me viene a la mente.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 1
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: Espabila Shouta. Tengo que hacer algo para dejar de pensar en ella.
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 1
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Entre el calor y lo nervioso que estoy ahora no creo que pueda dormir
+      ahora, por muy cansando de que est\xE9."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 1
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Ya s\xE9. Entrenar\xE9 un rato. Todav\xEDa tengo que probar como han balanceado
+      a los personajes en el ultimo parche."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 1
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: (Enciendo la consola y me pongo a jugar.)
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 1
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: (Durante un rato consigo olvidarme de todo y centrarme en el juego. )
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 1
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "(Aunque poco a poco me noto m\xE1s espeso. No soy capaz de realizar ning\xFAn
+      combo, aunque estoy peleando contra la maquina pierdo sin remedio.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 1
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: (Una vez, y otra vez, y otra vez, y otra.)
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 1
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: (Tras diez partidas arrojo la consola contra la cama.)
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 1
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: 'Voy a intentar dormir un rato. El olor a limpiasuelos ya se ha disipado
+      un poco y fuera empieza a refrescar. '
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 1
+    hideRightCharacter: 0
