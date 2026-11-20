@@ -7,6 +7,68 @@ using UnityEngine.UI;
 // Editor authoring only. Runtime shop and wallet reuse these serialized Canvas objects.
 public static class StarEconomyCanvasUpgrade
 {
+    [InitializeOnLoadMethod]
+    private static void ScheduleLoadedMenuRepair()
+    {
+        EditorApplication.delayCall += RepairLoadedMenus;
+        EditorApplication.playModeStateChanged -= RepairWhenEditing;
+        EditorApplication.playModeStateChanged += RepairWhenEditing;
+    }
+    private static void RepairWhenEditing(PlayModeStateChange state)
+    {
+        if (state == PlayModeStateChange.EnteredEditMode) EditorApplication.delayCall += RepairLoadedMenus;
+    }
+
+    [MenuItem("Tools/One Hand Puzzle/Repair Loaded Star Shop Reference")]
+    public static void RepairLoadedMenus()
+    {
+        if (EditorApplication.isPlayingOrWillChangePlaymode) return;
+        foreach (var menu in Resources.FindObjectsOfTypeAll<PuzzleMenu>())
+        {
+            var scene = menu.gameObject.scene;
+            if (!scene.IsValid() || !scene.isLoaded || EditorSceneManager.IsPreviewScene(scene)
+                || scene.path != "Assets/Scenes/MainMenu.unity") continue;
+            var serialized = new SerializedObject(menu);
+            if (serialized.FindProperty("shopScreen").objectReferenceValue != null) continue;
+            // A scene already open during the upgrade can retain its older, unassigned field.
+            // Copy only missing authored UI from disk, preserving all other unsaved scene edits.
+            var preview = EditorSceneManager.OpenPreviewScene(scene.path);
+            try
+            {
+                var authored = preview.GetRootGameObjects().SelectMany(r => r.GetComponentsInChildren<PuzzleMenu>(true)).SingleOrDefault();
+                if (authored == null) continue;
+                var source = new SerializedObject(authored);
+                var shop = source.FindProperty("shopScreen").objectReferenceValue as RectTransform;
+                if (shop == null) continue;
+                var mainScreen = serialized.FindProperty("mainScreen").objectReferenceValue as RectTransform;
+                if (mainScreen == null) continue;
+                var currentShop = mainScreen.parent.Find(shop.name) as RectTransform;
+                if (currentShop == null)
+                {
+                    var copy = Object.Instantiate(shop.gameObject, mainScreen.parent);
+                    copy.name = shop.name;
+                    currentShop = copy.GetComponent<RectTransform>();
+                    Undo.RegisterCreatedObjectUndo(copy, "Add authored star shop");
+                }
+                var main = mainScreen.Find("Content");
+                var authoredMain = ((RectTransform)source.FindProperty("mainScreen").objectReferenceValue).Find("Content");
+                foreach (string name in new[] { "Wallet", "Shop" })
+                    if (main.Find(name) == null)
+                    {
+                        var copy = Object.Instantiate(authoredMain.Find(name).gameObject, main);
+                        copy.name = name;
+                        Undo.RegisterCreatedObjectUndo(copy, "Add authored star shop control");
+                    }
+                Undo.RecordObject(menu, "Assign star shop screen");
+                serialized.FindProperty("shopScreen").objectReferenceValue = currentShop;
+                serialized.ApplyModifiedProperties();
+                EditorSceneManager.MarkSceneDirty(scene);
+                Debug.Log("STAR_SHOP_LOADED_SCENE_REPAIRED: assigned authored shop screen; other unsaved scene edits preserved.", menu);
+            }
+            finally { EditorSceneManager.ClosePreviewScene(preview); }
+        }
+    }
+
     [MenuItem("Tools/One Hand Puzzle/Add Star Economy to Canvas")]
     public static void Run()
     {
