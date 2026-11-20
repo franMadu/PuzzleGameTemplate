@@ -355,6 +355,13 @@ public class DialogueController : MonoBehaviour
     private static void AssignPending(Image image, CharacterFocus focus)
     {
         image.sprite = focus.pendingSprite;
+        if (focus.pendingSprite != null)
+        {
+            // Fit portraits to the authored height. A fixed width makes wider sprites look shorter.
+            var spriteRect = focus.pendingSprite.rect;
+            image.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal,
+                image.rectTransform.rect.height * spriteRect.width / spriteRect.height);
+        }
         focus.actor = focus.pendingActor;
         focus.mirrored = focus.pendingMirror;
         image.gameObject.SetActive(focus.pendingSprite != null);

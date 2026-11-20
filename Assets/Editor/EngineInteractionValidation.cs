@@ -24,6 +24,7 @@ public static class EngineInteractionValidation
                 screen.gameObject.SetActive(true);
                 int before = screen.GetComponentsInChildren<Transform>(true).Length;
                 Invoke(controller, "EnsureUI");
+                ValidatePortraitHeight(controller);
                 var panel = Field<RectTransform>(controller, "dialogueBox");
                 Require(panel.GetComponent<Button>() != null && panel.GetComponent<Image>().raycastTarget, "Whole panel must receive clicks");
                 Require(panel.Find("Next Icon").GetComponent<Button>() == null && !panel.Find("Next Icon").GetComponent<Graphic>().raycastTarget, "Next icon must not intercept clicks");
@@ -71,6 +72,41 @@ public static class EngineInteractionValidation
         if (File.ReadAllText("Logs/CanvasValidation.result").StartsWith("FAIL")) throw new Exception("Canvas validation failed");
         File.WriteAllText("Logs/EngineInteractionValidation.result", "PASS: five dialogue Canvases, click/reveal/advance, hide/restore without progression, paused typing, authored UI, star thresholds, legacy save conversion and best-score persistence");
         Debug.Log("ENGINE_INTERACTION_VALIDATION_PASS");
+    }
+
+    static void ValidatePortraitHeight(DialogueController controller)
+    {
+        var texture = new Texture2D(64, 128);
+        var sprites = new[] {
+            Sprite.Create(texture, new Rect(0, 0, 64, 128), Vector2.one / 2),
+            Sprite.Create(texture, new Rect(0, 0, 64, 103), Vector2.one / 2),
+            Sprite.Create(texture, new Rect(0, 0, 64, 110), Vector2.one / 2)
+        };
+        try
+        {
+            foreach (string side in new[] { "left", "right" })
+            {
+                var image = Field<Image>(controller, side + "Character");
+                var focus = Field<object>(controller, side + "Focus");
+                float height = image.rectTransform.rect.height;
+                foreach (var sprite in sprites)
+                {
+                    Invoke(controller, "SetCharacter", image, sprite, null, false, true, side == "right", focus, true);
+                    var bounds = (Vector4)typeof(Image).GetMethod("GetDrawingDimensions", BindingFlags.Instance | BindingFlags.NonPublic)
+                        .Invoke(image, new object[] { true });
+                    Require(Mathf.Abs(bounds.w - bounds.y - height) < 0.01f,
+                        "Different portrait aspect ratios must retain the full authored drawing height");
+                    Require(Mathf.Abs(image.rectTransform.rect.width / height - sprite.rect.width / sprite.rect.height) < 0.0001f,
+                        "Portraits must retain their original proportions");
+                }
+                Invoke(controller, "SetCharacter", image, null, null, false, true, side == "right", focus, true);
+            }
+        }
+        finally
+        {
+            foreach (var sprite in sprites) UnityEngine.Object.DestroyImmediate(sprite);
+            UnityEngine.Object.DestroyImmediate(texture);
+        }
     }
 
     static void ValidateStars()

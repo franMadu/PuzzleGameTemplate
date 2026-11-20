@@ -241,4 +241,6 @@ Las escenas utilizan una resolución de referencia de Canvas de 900×1000. El co
 
 En `DialogueController` se pueden ajustar velocidad base, opacidad, escala del oyente, duración del cambio de foco y duración de entrada y salida. La posición y distancia al borde de los personajes se editan en los RectTransform `Dialogue/Content/Left Character` y `Right Character` de cada Canvas. Los ajustes guardados de opacidad y velocidad del jugador pueden modificar el resultado visible.
 
+Los retratos utilizan la altura de esos RectTransform; su ancho se adapta a la proporción de cada sprite. Así, una imagen más ancha no reduce la altura del personaje al cambiar de expresión. Mantener el mismo encuadre vertical entre los sprites de un personaje; la reducción de escala del oyente se aplica después.
+
 En el componente `Puzzle` de cada escena se configuran `Slide Duration`, `Completion Flash In Duration`, `Completion Flash Out Duration` y `Completed Image Hold Duration`. Sus valores por defecto son 0,16 s, 1 s, 1,1 s y 0,9 s, respectivamente. Son configuraciones de escena: revisar las tres dificultades al cambiarlas.
