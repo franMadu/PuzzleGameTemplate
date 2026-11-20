@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum PuzzleMenuPage { Main, Story, Library, Shop }
+public enum PuzzleMenuPage { Main, Story, Library, Shop, Challenges }
 
 // Only selection data crosses scene boundaries; every scene owns its own objects.
 public static class PuzzleSession

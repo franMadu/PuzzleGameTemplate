@@ -31,7 +31,7 @@ public static class CanvasValidation
                     foreach (var text in components.OfType<CanvasText>()) ValidateText(text);
                     foreach (var component in components)
                     {
-                        string[] fields = component is PuzzleMenu ? new[] { "catalog", "titleScreen", "mainScreen", "galleryScreen", "imageScreen", "selectionScreen", "settingsScreen", "chaptersScreen", "subchaptersScreen", "difficultyScreen", "shopScreen" }
+                        string[] fields = component is PuzzleMenu ? new[] { "catalog", "titleScreen", "mainScreen", "galleryScreen", "imageScreen", "selectionScreen", "settingsScreen", "chaptersScreen", "subchaptersScreen", "difficultyScreen", "shopScreen", "challengesScreen" }
                             : component is DialogueController ? new[] { "screen" }
                             : component is PuzzleSceneController ? new[] { "victoryScreen", "completionContinue", "gameLayout", "gameTitle", "catalog", "puzzle", "dialogue" }
                             : component is Puzzle ? new[] { "completedImage", "completionFlash", "board", "status" }
@@ -309,7 +309,7 @@ public static class CanvasValidation
     private static void Invoke(object target, string name, params object[] args) => target.GetType().GetMethod(name, BindingFlags.Instance | BindingFlags.NonPublic).Invoke(target, args);
     private static void Check<T>(Transform root, params string[] paths) where T : Component
     {
-        foreach (string path in paths) Require(root.Find(path) != null && root.Find(path).GetComponent<T>() != null, root.name + "/" + path + ": missing " + typeof(T).Name);
+        foreach (string path in paths) Require(root.Find(path) != null && MenuControls.Get<T>(root,path) != null, root.name + "/" + path + ": missing " + typeof(T).Name);
     }
     private static void Require(bool condition, string message) { if (!condition) throw new InvalidOperationException(message); }
 }

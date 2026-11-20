@@ -186,7 +186,7 @@ public class PuzzleSceneController : MonoBehaviour
         else
         {
             CanvasText.Set(nextLabel, 3);
-            MenuControls.Bind(content, "Next", () => ReturnToMenu(catalog[chapter].starCost > 0 ? PuzzleMenuPage.Shop : PuzzleMenuPage.Library));
+            MenuControls.Bind(content, "Next", () => ReturnToMenu(PuzzleMenuPage.Challenges));
         }
         MenuControls.Bind(content, "Play Again", () => ScreenTransition.Change(PlayAgain));
         MenuControls.Bind(content, "Back", () => ReturnToMenu(PuzzleMenuPage.Main));

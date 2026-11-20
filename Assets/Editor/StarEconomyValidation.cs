@@ -104,7 +104,24 @@ public static class StarEconomyValidation
             var main = Field<RectTransform>(menu, "mainScreen").Find("Content");
             var icon = MenuControls.Get<PuzzleStarsGraphic>(main, "Wallet/Icon");
             Require(icon.Slots == 1 && icon.Stars == 1 && !icon.raycastTarget, "Wallet uses one authored star icon");
-            Require(MenuControls.Get<Button>(main, "Shop").GetComponentInChildren<Text>().text == "Tienda", "Shop button has visible text");
+            Require(MenuControls.Get<Button>(main, "Navigation/Shop").GetComponentInChildren<Text>().text == "Tienda", "Shop navigation button has visible text");
+            foreach(string field in new[]{"mainScreen","galleryScreen","chaptersScreen","subchaptersScreen","selectionScreen","difficultyScreen","settingsScreen","shopScreen","challengesScreen"})
+            {
+                var content=Field<RectTransform>(menu,field).Find("Content");
+                Require(content.Find("Wallet/Amount")!=null,"Every menu has the same wallet location");
+                foreach(string item in new[]{"Home","Chapters","Gallery","Challenges","Shop"})
+                {
+                    var symbol=content.Find("Navigation/"+item+"/Icon").GetComponent<MenuIconGraphic>();
+                    Require(symbol!=null && symbol.canvasRenderer!=null,"Five visible authored navigation icons");
+                }
+            }
+            var challenge=Field<RectTransform>(menu,"challengesScreen").Find("Content").GetComponent<PuzzleChallenges>();
+            int count=challenge.GetComponentsInChildren<Transform>(true).Length;
+            challenge.Build(catalog,0,_=>{},_=>{},()=>{},()=>{});
+            challenge.Build(catalog,int.MaxValue,_=>{},_=>{},()=>{},()=>{});
+            Require(count==challenge.GetComponentsInChildren<Transform>(true).Length,"Challenges reuse authored cards");
+            var gallery=Field<RectTransform>(menu,"galleryScreen").Find("Content");
+            for(int i=0;i<6;i++)Require(gallery.Find("Image "+i).GetComponentsInChildren<Text>(true).Length==0,"Gallery cards remain image-only");
         }
         finally { EditorSceneManager.ClosePreviewScene(scene); }
     }

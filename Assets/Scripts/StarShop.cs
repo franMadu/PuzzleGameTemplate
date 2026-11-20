@@ -39,7 +39,7 @@ public class StarShop : MonoBehaviour
             int cost = puzzles ? catalog[index].starCost : catalog.WallpaperAt(index).starCost;
             Texture2D image = puzzles ? catalog[index].image ?? catalog[index].normalImage ?? catalog[index].hardImage : catalog.WallpaperAt(index).image;
             MenuControls.SetTexture(MenuControls.Get<RawImage>(row, "Artwork"), image);
-            MenuControls.Get<Text>(row, "Title").text = puzzles ? catalog[index].title : image.name;
+            MenuControls.Get<Text>(row, "Title").text = puzzles ? catalog[index].title : image.name.Replace('_', ' ');
             CanvasText.Set(MenuControls.Get<Text>(row, "Price"), owned ? 1 : 0, cost);
             CanvasText.Set(MenuControls.Get<Text>(row, "Buy/Label"), owned ? (puzzles ? 1 : 2) : 0);
             MenuControls.Bind(row, "Buy", () =>
