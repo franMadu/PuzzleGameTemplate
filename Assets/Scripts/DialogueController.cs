@@ -29,6 +29,8 @@ public class DialogueController : MonoBehaviour
     private sealed class Page
     {
         public Texture2D background;
+        public DialogueMusicAction musicAction;
+        public AudioClip music;
         public AudioClip soundEffect;
         public float soundEffectVolume;
         public string speaker;
@@ -118,6 +120,7 @@ public class DialogueController : MonoBehaviour
                 foreach (var stage in stages)
                     AddPages(new Page {
                         background = stage.Line.background, soundEffect = stage.Line.soundEffect,
+                        musicAction = stage.Line.musicAction, music = stage.Line.music,
                         soundEffectVolume = stage.Line.soundEffectVolume,
                         speaker = stage.Speaker != null ? stage.Speaker.DisplayName : stage.Line.speaker,
                         text = stage.Line.text, isThought = stage.Line.isThought, speakerSide = stage.SpeakingSide,
@@ -141,6 +144,7 @@ public class DialogueController : MonoBehaviour
                     else if (line.rightCharacter != null) right = line.rightCharacter;
                     AddPages(new Page { speaker = line.speaker, text = line.text, isThought = line.isThought, speakerSide = line.speakerSide,
                         background = line.background, soundEffect = line.soundEffect, soundEffectVolume = line.soundEffectVolume,
+                        musicAction = line.musicAction, music = line.music,
                         leftCharacter = left, rightCharacter = right, leftFacesLeft = sequence.LeftFacesLeft, rightFacesLeft = sequence.RightFacesLeft });
                 }
             }
@@ -279,6 +283,8 @@ public class DialogueController : MonoBehaviour
     {
         var page = pages[PageIndex];
         if (page.background != null) SetBackground(page.background);
+        if (page.musicAction == DialogueMusicAction.Play && page.music != null) GameAudio.PlayMusic(page.music, this);
+        else if (page.musicAction == DialogueMusicAction.Stop) GameAudio.PlayMusic(null, this);
         GameAudio.PlayDialogueEffect(page.soundEffect, page.soundEffectVolume, this);
         var style = bodyText.GetComponent<DialogueTextStyle>();
         if (style != null) style.Apply(page.isThought);
@@ -475,6 +481,7 @@ public class DialogueController : MonoBehaviour
             }
             pages.Add(new Page { speaker = source.speaker, speakerSide = source.speakerSide,
                 background = source.background,
+                musicAction = firstPage ? source.musicAction : DialogueMusicAction.Keep, music = source.music,
                 soundEffect = firstPage ? source.soundEffect : null, soundEffectVolume = source.soundEffectVolume,
                 isThought = source.isThought,
                 leftCharacter = source.leftCharacter, rightCharacter = source.rightCharacter,

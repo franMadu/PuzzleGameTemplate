@@ -62,6 +62,10 @@ Crear un asset con `Create → One Hand Puzzle → Dialogue`.
 
 ### Fondo y música
 
+La música también puede cambiar varias veces durante la conversación. En cada intervención de `Lines`, **Música de fondo** permite elegir **Conservar música actual** (predeterminado), **Cambiar música** o **Detener música**. Para cambiarla, seleccionar **Cambiar música** y arrastrar un `AudioClip` a **Pista de música**. La nueva pista se reproduce en bucle con los fundidos existentes y se mantiene hasta otro cambio. **Detener música** hace un fundido a silencio; las intervenciones posteriores lo conservan hasta asignar otra pista. El campo `Music` general sigue siendo la pista inicial.
+
+Ejemplo: `Music` = pista tranquila; en la intervención del tropiezo, **Cambiar música** = pista de sorpresa; al terminar el susto, **Detener música**; al entrar al baño, **Cambiar música** = pista relajante. Puede hacerse dentro de una sola conversación y combinarse con cambios de fondo y efectos de sonido. Los cambios musicales se aplican una vez por intervención y no se repiten al paginar, completar el texto u ocultar el cuadro. Repetir la conversación recupera la pista inicial; terminarla, saltarla o salir detiene su música. Las conversaciones existentes conservan su comportamiento.
+
 El fondo también puede cambiar dentro de la misma conversación. En `Lines`, cada intervención tiene **Fondo**: asignar una textura cambia el escenario al comenzar esa intervención; dejarlo vacío conserva el anterior. El cambio es inmediato, mantiene la proporción de la imagen y no altera el reparto, las expresiones ni la música. El `Background` de la conversación sigue siendo su fondo inicial. Al repetir o iniciar otra conversación se restablece su propio fondo inicial.
 
 Por ejemplo, una sola conversación puede empezar en el cuarto, cambiar a las escaleras en la línea donde Shouta baja y pasar al baño en otra línea. Todo puede pertenecer a un único subcapítulo. Además, un subcapítulo ya admite varios pasos de conversación: su `First Step Id` y `Last Step Id` delimitan el conjunto, sin necesidad de crear un subcapítulo por escenario.

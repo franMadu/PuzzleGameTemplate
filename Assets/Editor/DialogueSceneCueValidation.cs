@@ -46,7 +46,7 @@ public static class DialogueSceneCueValidation
             Require(controller != null, "Missing dialogue controller");
             Check(controller, false);
             Check(controller, true);
-            Debug.Log("DIALOGUE_SCENE_CUE_VALIDATION_PASS: manual and cast conversations; background inheritance, crop and reset; sound once per line across pagination, reveal and hide; volume; cancel and completion cleanup; authored Canvas unchanged.");
+            Debug.Log("DIALOGUE_SCENE_CUE_VALIDATION_PASS: manual and cast conversations; background inheritance, crop and reset; sound once per line; music change, keep, stop, restart, replay and cleanup; pagination, reveal and hide; volume; authored Canvas unchanged.");
             SessionState.SetInt(Key + ".Phase", 1);
         }
         catch (Exception error)
@@ -65,15 +65,22 @@ public static class DialogueSceneCueValidation
         var stairs = new Texture2D(9, 16);
         var fallback = new Texture2D(4, 3);
         var clip = AudioClip.Create("Fall test", 44100, 1, 44100, false);
+        var musicA = AudioClip.Create("Music A", 44100, 1, 44100, false);
+        var musicB = AudioClip.Create("Music B", 44100, 1, 44100, false);
+        var musicC = AudioClip.Create("Music C", 44100, 1, 44100, false);
         try
         {
             Set(sequence, "background", room);
+            Set(sequence, "music", musicA);
             if (cast) Set(sequence, "characters", new[] { actor });
             Set(sequence, "lines", new[] {
                 new DialogueLine { character = cast ? actor : null, speaker = "Room", text = "Start." },
-                new DialogueLine { character = cast ? actor : null, speaker = "Stairs", text = string.Join(" ", Enumerable.Repeat("Texto largo para probar varias páginas.", 60)), background = stairs, soundEffect = clip, soundEffectVolume = 0.4f },
+                new DialogueLine { character = cast ? actor : null, speaker = "Stairs", text = string.Join(" ", Enumerable.Repeat("Texto largo para probar varias páginas.", 60)), background = stairs, soundEffect = clip, soundEffectVolume = 0.4f, musicAction = DialogueMusicAction.Play, music = musicB },
                 new DialogueLine { character = cast ? actor : null, speaker = "Same stairs", text = "Keep the previous background." },
-                new DialogueLine { character = cast ? actor : null, speaker = "Back", text = "Return.", background = room }
+                new DialogueLine { character = cast ? actor : null, speaker = "Back", text = "Return.", background = room, musicAction = DialogueMusicAction.Stop },
+                new DialogueLine { character = cast ? actor : null, text = "Silence continues." },
+                new DialogueLine { character = cast ? actor : null, text = "Third track.", musicAction = DialogueMusicAction.Play, music = musicC },
+                new DialogueLine { character = cast ? actor : null, text = "Original track again.", musicAction = DialogueMusicAction.Play, music = musicA }
             });
             var screen = Field<RectTransform>(controller, "screen");
             int count = screen.GetComponentsInChildren<Transform>(true).Length;
@@ -82,13 +89,22 @@ public static class DialogueSceneCueValidation
             var backdrop = Field<RawImage>(controller, "backdrop");
             Require(backdrop.texture == room, "Sequence background overrides fallback");
             var pages = Field<IList>(controller, "pages");
-            Require(pages.Count > 4, "Test must span multiple pages");
+            Require(pages.Count > 7, "Test must span multiple pages");
             Require(pages.Cast<object>().Count(p => Field<AudioClip>(p, "soundEffect") != null) == 1, "Sound must only appear on first page of line");
+            Require(pages.Cast<object>().Count(p => Field<DialogueMusicAction>(p, "musicAction") != DialogueMusicAction.Keep) == 4,
+                "Music changes must only appear on first page of each authored line");
             Texture expected = room;
+            AudioClip expectedMusic = musicA;
             for (int i = 0; i < pages.Count; i++)
             {
                 var background = Field<Texture2D>(pages[i], "background");
                 if (background != null) expected = background;
+                var musicAction = Field<DialogueMusicAction>(pages[i], "musicAction");
+                if (musicAction == DialogueMusicAction.Play) expectedMusic = Field<AudioClip>(pages[i], "music");
+                else if (musicAction == DialogueMusicAction.Stop) expectedMusic = null;
+                var musicAudio = StaticField<GameAudio>(typeof(GameAudio), "instance");
+                Require(Field<AudioClip>(musicAudio, "targetMusic") == expectedMusic, "Music changes, stop and inheritance must follow page order");
+                var transition = Field<Coroutine>(musicAudio, "musicTransition");
                 Require(backdrop.texture == expected, "Background changes and persists on the correct page");
                 Require(backdrop.uvRect.width > 0 && backdrop.uvRect.width <= 1 && backdrop.uvRect.height > 0 && backdrop.uvRect.height <= 1,
                     "Background crop must preserve cover bounds");
@@ -102,20 +118,32 @@ public static class DialogueSceneCueValidation
                 GameAudio.StopDialogueEffects(controller);
                 controller.HideDialogue(); controller.RestoreDialogue();
                 if (controller.IsTyping) controller.Advance();
+                Require(Field<AudioClip>(musicAudio, "targetMusic") == expectedMusic && Field<Coroutine>(musicAudio, "musicTransition") == transition,
+                    "Reveal and hide must not restart music or its fade");
                 var activeAudio = StaticField<GameAudio>(typeof(GameAudio), "instance");
                 Require(Field<UnityEngine.Object>(activeAudio, "dialogueOwner") == null, "Reveal/hide must not replay effect");
                 controller.Advance();
             }
             Require(completed && !controller.IsPlaying, "Conversation completes normally");
+            var finishedAudio = StaticField<GameAudio>(typeof(GameAudio), "instance");
+            Require(Field<AudioClip>(finishedAudio, "targetMusic") == null, "Completion stops the final track");
             Require(count == screen.GetComponentsInChildren<Transform>(true).Length, "No runtime UI creation");
             controller.Play(sequence, fallback);
             Require(backdrop.texture == room, "Replay resets initial background");
+            Require(Field<AudioClip>(finishedAudio, "targetMusic") == musicA, "Replay restores initial music");
             GameAudio.PlayDialogueEffect(clip, 1, controller);
             var instance = StaticField<GameAudio>(typeof(GameAudio), "instance");
             GameAudio.StopDialogueEffects(actor);
             Require(Field<UnityEngine.Object>(instance, "dialogueOwner") == controller, "Old owner cannot stop active sound");
             controller.Cancel();
             Require(Field<UnityEngine.Object>(instance, "dialogueOwner") == null, "Cancel clears conversation sound");
+            Require(Field<AudioClip>(instance, "targetMusic") == null, "Cancel stops music");
+            var invalidLine = new DialogueLine { text = "Missing music", musicAction = DialogueMusicAction.Play };
+            Set(sequence, "lines", new[] { invalidLine });
+            Require(!sequence.ValidateMusic(out _), "Changing music requires a clip");
+            invalidLine.musicAction = DialogueMusicAction.Keep;
+            Require(sequence.ValidateMusic(out _), "Default keep supports existing dialogue assets");
+            Set(sequence, "music", null);
             Set(sequence, "background", null);
             controller.Play(sequence, fallback);
             Require(backdrop.texture == fallback, "Legacy fallback remains supported");
@@ -127,7 +155,7 @@ public static class DialogueSceneCueValidation
         finally
         {
             controller.Cancel();
-            foreach (var item in new UnityEngine.Object[] { sequence, actor, room, stairs, fallback, clip }) UnityEngine.Object.Destroy(item);
+            foreach (var item in new UnityEngine.Object[] { sequence, actor, room, stairs, fallback, clip, musicA, musicB, musicC }) UnityEngine.Object.Destroy(item);
         }
     }
 
