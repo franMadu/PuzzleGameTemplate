@@ -15,8 +15,9 @@ public class PuzzleGallery : MonoBehaviour
         var completed = new List<int>();
         if (category == GalleryCategory.Wallpapers)
         {
+            WallpaperProgress.Synchronize(catalog);
             for (int i = 0; i < catalog.WallpaperCount; i++)
-                if (catalog.WallpaperAt(i)?.image != null) completed.Add(i);
+                if (WallpaperProgress.IsUnlocked(catalog, i)) completed.Add(i);
         }
         else for (int i = 0; i < catalog.Count; i++)
             if (StoryProgress.IsPuzzleUnlocked(catalog, i))

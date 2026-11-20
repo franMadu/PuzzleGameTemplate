@@ -72,7 +72,9 @@ Las expresiones son independientes del outfit. `Expression` cambia la de quien h
 
 ### Galería
 
-Cada combinación de puzzle y dificultad completada tiene una entrada independiente, siempre que el puzzle se haya alcanzado en la historia. Las miniaturas muestran solo la imagen con un marco fino. Pulsar una miniatura abre la imagen completa ajustada a la pantalla, sin deformarla. Los botones **+** y **−** y la rueda del ratón permiten ampliar hasta 4×; al ampliar se puede arrastrar la imagen. **Volver** regresa a la galería. **Usar como fondo** guarda esa imagen como fondo del menú principal, también para las siguientes sesiones.
+La galería tiene dos categorías: **Puzles** y **Fondos de pantalla**. Cada combinación de puzzle y dificultad completada tiene una entrada independiente, siempre que el puzzle se haya alcanzado en la historia. Los fondos muestran la imagen inicial y las recompensas ganadas al terminar capítulos completos. Un capítulo puede conceder varios fondos; los desbloqueos se conservan al repetir la historia y se recuperan para las partidas anteriores.
+
+Las miniaturas muestran solo la imagen con un marco fino. Pulsar una miniatura abre la imagen completa ajustada a la pantalla, sin deformarla. Los botones **+** y **−** y la rueda del ratón permiten ampliar hasta 4×; al ampliar se puede arrastrar la imagen. **Volver** regresa a la galería. Solo los fondos desbloqueados ofrecen **Usar como fondo**, que guarda la elección para las siguientes sesiones.
 
 ### Configuración y salida
 

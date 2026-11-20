@@ -86,6 +86,7 @@ public static class StoryProgress
         bool finished = index >= catalog.Story.Count;
         PlayerPrefs.SetString(Key(catalog, "Step"), finished ? "" : catalog.Story[index].id);
         PlayerPrefs.SetInt(Key(catalog, "Completed"), finished ? 1 : 0);
+        WallpaperProgress.Synchronize(catalog);
         PlayerPrefs.Save();
     }
 }
