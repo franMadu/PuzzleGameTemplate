@@ -7,7 +7,7 @@ using UnityEngine.UI;
 // Editor authoring only: all panels, labels and controls are saved in their scene Canvas.
 public static class GameplayCanvasUpgrade
 {
-    private static readonly string[] Scenes = { "Story", "DialogueDemo", "PuzzleEasy", "PuzzleNormal", "PuzzleHard" };
+    private static readonly string[] Scenes = { "Story", "PuzzleEasy", "PuzzleNormal", "PuzzleHard" };
     private static readonly Color Gold = new Color(.85f, .69f, .40f, 1);
     private static readonly Color Surface = new Color(.065f, .09f, .12f, .96f);
     private static Font font;
@@ -92,16 +92,6 @@ public static class GameplayCanvasUpgrade
         {
             Finish(Reference<RectTransform>(story, "endingScreen"), "Title", "Ending");
             Finish(Reference<RectTransform>(story, "errorScreen"), null, "Error");
-        }
-        var demo = root.GetComponent<DialogueDemoController>();
-        if (demo != null)
-        {
-            var panel = Reference<RectTransform>(demo, "finishScreen");
-            Finish(panel, null, null);
-            var content = panel.Find("Content");
-            Place(content.Find("Replay"), .30f, .35f, .70f, .45f);
-            StyleButton(content.Find("Replay"), true); Caption(content.Find("Replay/Label"), "Repetir diálogo", 24);
-            Place(content.Find("Back"), .30f, .21f, .70f, .31f);
         }
         var serialized = new SerializedObject(dialogue);
         serialized.FindProperty("visualStyleVersion").intValue = 1;

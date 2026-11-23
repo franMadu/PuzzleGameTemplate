@@ -11,7 +11,7 @@ public static class EngineCanvasUpgrade
     [MenuItem("Tools/One Hand Puzzle/Upgrade Dialogue Controls and Stars")]
     public static void Run()
     {
-        foreach (var name in new[] { "MainMenu", "Story", "DialogueDemo", "PuzzleEasy", "PuzzleNormal", "PuzzleHard" })
+        foreach (var name in new[] { "MainMenu", "Story", "PuzzleEasy", "PuzzleNormal", "PuzzleHard" })
         {
             var scene = EditorSceneManager.OpenScene("Assets/Scenes/" + name + ".unity");
             var components = scene.GetRootGameObjects().SelectMany(root => root.GetComponentsInChildren<MonoBehaviour>(true)).ToArray();

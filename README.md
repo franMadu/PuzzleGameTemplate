@@ -2,9 +2,11 @@
 
 Base en Unity para una serie de juegos narrativos con conversaciones y puzzles deslizantes. La historia puede encadenar varias conversaciones antes de cada puzzle. El contenido alcanzado se puede repetir desde una biblioteca de capítulos y las imágenes completadas se conservan en una galería.
 
-Estado documentado: 19 de noviembre de 2026. Juego de ejemplo: **El camino de los recuerdos**.
+Estado documentado: 23 de noviembre de 2026. Contenido actual: **capítulo 1 de Shouta y Ayame**.
 
 ## Documentación
+
+El [documento editable de diálogos](Docs/DIALOGOS_DEL_JUEGO.docx) reúne las conversaciones del capítulo 1, con personajes, pensamientos y números de intervención. Se puede corregir en Word o LibreOffice; los cambios del documento se trasladan después a Unity y no se aplican automáticamente al juego.
 
 | Documento | Contenido |
 | --- | --- |
@@ -17,9 +19,8 @@ Estado documentado: 19 de noviembre de 2026. Juego de ejemplo: **El camino de lo
 1. Abrir el proyecto con **Unity 6000.3.16f1**. Las dependencias están declaradas en [Packages/manifest.json](Packages/manifest.json); se utilizan uGUI, Input System y Universal Render Pipeline.
 2. Abrir [MainMenu.unity](Assets/Scenes/MainMenu.unity).
 3. Entrar en Play, pulsar **Empezar juego** y elegir **Modo historia**.
-4. Para probar solo las conversaciones, abrir [DialogueDemo.unity](Assets/Scenes/DialogueDemo.unity).
 
-El menú principal es la primera escena habilitada para la compilación. También están habilitadas `Story`, las tres escenas de dificultad y `DialogueDemo`. La escena de demostración no forma parte del recorrido normal del juego.
+El menú principal es la primera escena habilitada para la compilación. También están habilitadas `Story` y las tres escenas de dificultad.
 
 ## Funcionamiento para el jugador
 
@@ -85,15 +86,11 @@ El engranaje abre los controles de volumen general, música, efectos, silencio, 
 En Unity Editor aparece además **Modo dios**, que señala la pieza del siguiente movimiento óptimo. Esta opción y el solucionador de pistas están excluidos de las compilaciones del juego, incluidas las de desarrollo.
 
 
-## Contenido de ejemplo
+## Contenido actual
 
-| Capítulo | Subcapítulos | Dificultad del puzzle en historia |
-| --- | --- | --- |
-| El valle | Llegada al valle; El paso del valle | Fácil |
-| La costa | Llegada a la costa; Al pie del faro; Dentro del faro | Normal |
-| El desierto | Entre las dunas; El campamento; El mirador de las dunas | Difícil |
+El capítulo 1 contiene ocho conversaciones escritas: `1-1`, `1-2`, `1-3`, `1-4`, `1-4 Cierre`, `1-5`, `1-6` y `1-6 cierre`. Los personajes configurados son Shouta, Ayame y el padre de Shouta.
 
-El ejemplo contiene 14 pasos: 11 conversaciones y 3 puzzles. Los personajes son Viajera, Guía y Mensajera. Las tres imágenes disponibles se reutilizan como variantes de dificultad; todavía no hay nueve ilustraciones originales diferentes. La música de las conversaciones y puzzles está sin asignar, por lo que esos tramos permanecen sin música de fondo.
+`Story.asset` enlaza actualmente las conversaciones `1-1`, `1-2` y `1-3`, con el puzle `1-2` entre las dos últimas. Las cinco conversaciones restantes están preparadas como assets y todavía no forman parte del recorrido. El catálogo conserva un único puzle, con imágenes propias para las tres dificultades.
 
 ## Estructura del proyecto
 
@@ -106,7 +103,7 @@ Assets/
     Characters/        Personajes reutilizables
     Dialogue/          Conversaciones
   Resources/Audio/     Sonidos de botones y piezas
-  Scenes/              Menú, historia, dificultades y demostración
+  Scenes/              Menú, historia y dificultades
   Scripts/             Sistemas del juego
 Docs/                  Guías y referencia
 ```

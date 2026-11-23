@@ -12,14 +12,215 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd5e33e446cc4bc88bde152074d89f2a, type: 3}
   m_Name: 1-6
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
-  background: {fileID: 0}
+  background: {fileID: 2800000, guid: 02afca901fc540e0870557eb614a5c41, type: 3}
   music: {fileID: 0}
-  characters: []
+  characters:
+  - {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+  - {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
   enterOnFirstSpeech: 0
-  initialOutfits: []
+  initialOutfits:
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: toalla
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: baloncesto
   initialExpressions: []
   leftCharacter: {fileID: 0}
   rightCharacter: {fileID: 0}
   leftCharacterFacing: 0
   rightCharacterFacing: 0
-  lines: []
+  lines:
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: Zzzzzzzzzzz...
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "\xBFEh? \xBFQu\xE9? \xBFCuanto he dormido? \xBFQu\xE9 hora es?"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: Hala, que tarde es. Casi es hora de cenar.
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Snif, snif. Puaj, huelo fatal. Estoy todo sudado. Ser\xE1 mejor que antes
+      me de un ba\xF1o."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 2800000, guid: 27b2fd31505d4cb1b184ca32befc4c0c, type: 3}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "A ver, Ayame me dijo que el ba\xF1o estaba al fondo. \xBFDonde estar\xE1
+      por cierto?"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 2800000, guid: 27b2fd31505d4cb1b184ca32befc4c0c, type: 3}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "A ver, Ayame me dijo que el ba\xF1o estaba al fondo. "
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 2800000, guid: eef48a9009bd12b4ab993a4603b11ae3, type: 3}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Lo encontr\xE9. A ver, creo que puedo dejar la ropa por aqu\xED. Y aqu\xED
+      hay un par de toallas limpias."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 2800000, guid: eef48a9009bd12b4ab993a4603b11ae3, type: 3}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: toalla
+    expression: 
+    reactions: []
+    speaker: 
+    text: "El ba\xF1o me va a sentar genial."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 2800000, guid: eef48a9009bd12b4ab993a4603b11ae3, type: 3}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: toalla
+    expression: 
+    reactions: []
+    speaker: 
+    text: "(Cuando abro la puerta lo primero que oigo es un suave tarareo procedente
+      del interior del ba\xF1o. Decido ignorarlo. Mi primer error.) "
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 2800000, guid: eef48a9009bd12b4ab993a4603b11ae3, type: 3}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: toalla
+    expression: 
+    reactions: []
+    speaker: 
+    text: (El vapor empieza a disiparse y una silueta se empieza a definir, parece
+      una persona. Se gira hacia mi y me mira con unos ojos profundos y azules. Su
+      mirada se clava en mis ojos. Yo, por el contrario, examino todo su cuerpo intentando
+      memorizar todas sus formas. Segudno error.)
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 2800000, guid: eef48a9009bd12b4ab993a4603b11ae3, type: 3}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: toalla
+    expression: 
+    reactions: []
+    speaker: 
+    text: "(Pronuncia mi nombre extra\xF1ada. Yo sigo paralizado en el umbral del
+      ba\xF1o.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0

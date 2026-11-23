@@ -10,7 +10,7 @@ public static class DialogueMenuCanvasUpgrade
     [MenuItem("Tools/One Hand Puzzle/Add Main Menu Button to Dialogues")]
     public static void Run()
     {
-        foreach (string name in new[] { "Story", "DialogueDemo", "PuzzleEasy", "PuzzleNormal", "PuzzleHard" })
+        foreach (string name in new[] { "Story", "PuzzleEasy", "PuzzleNormal", "PuzzleHard" })
         {
             var scene = EditorSceneManager.OpenScene("Assets/Scenes/" + name + ".unity");
             var components = scene.GetRootGameObjects().SelectMany(root => root.GetComponentsInChildren<MonoBehaviour>(true)).ToArray();

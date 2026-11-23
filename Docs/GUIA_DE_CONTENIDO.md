@@ -42,7 +42,7 @@ Crear un asset con `Create → One Hand Puzzle → Dialogue Character` y complet
 
 Importar los retratos como sprites y conservar su transparencia. El sistema refleja horizontalmente el dibujo para orientar a los personajes según el lado que ocupan. No hace falta duplicar el recurso para tener una versión izquierda y otra derecha.
 
-Los personajes de prueba están en `Assets/Data/Characters`: `Traveler`, `Guide` y `Messenger`.
+Los personajes del juego están en `Assets/Data/Characters`: `Shouta`, `Ayame` y `Shouta_Father`.
 
 ### Varios outfits para un personaje
 
@@ -145,11 +145,10 @@ En el modo manual, un sprite vacío conserva el anterior y un campo de ocultaci�
 
 ### Probar una conversación
 
-1. Abrir `Assets/Scenes/DialogueDemo.unity`.
-2. Localizar `DialogueDemoController` en la jerarquía.
-3. Asignar el asset en `Conversation`. El campo `Background` de la demostración sirve de alternativa cuando el diálogo no tiene fondo propio.
-4. Entrar en Play y comprobar nombre, páginas, posiciones, orientación, entradas laterales y música.
-5. Al finalizar, usar **Repetir diálogo** para volver a probarlo o **Volver al menú**.
+1. Abrir `Assets/Scenes/MainMenu.unity` y entrar en Play.
+2. Continuar la historia o abrir un subcapítulo disponible en **Capítulos**.
+3. Comprobar nombre, páginas, posiciones, orientación, entradas laterales y música.
+4. Para revisar una conversación nueva, añadir su paso a `Story.asset` y asignarle un subcapítulo, como se explica más abajo.
 
 ## Configurar un puzzle
 
@@ -178,12 +177,12 @@ En `Story.asset → Steps`, añadir los pasos en el orden en que debe vivirlos e
 
 | Campo de un paso | Configuración |
 | --- | --- |
-| `Id` | Identificador único y permanente, por ejemplo `faro-introduccion`. Se utiliza en el guardado. |
+| `Id` | Identificador único y permanente, por ejemplo `chapter-1-3`. Se utiliza en el guardado. |
 | `Title` | Nombre del lugar o momento que puede aparecer en la vista de continuar historia. |
 | `Kind = Conversation` | Asignar `Conversation` al asset de diálogo. `Puzzle Index` no se utiliza. |
 | `Kind = Puzzle` | Indicar en `Puzzle Index` la posición de su definición en el catálogo. `Conversation` no se utiliza. |
 
-Se permiten conversaciones consecutivas, por ejemplo llegada a la costa, llegada al faro, interior del faro y después puzzle. Cada conversación puede tener su propio fondo, reparto y música.
+Se permiten conversaciones consecutivas, por ejemplo llegada a la casa, conversación en el salón y después puzzle. Cada conversación puede tener su propio fondo, reparto y música.
 
 Mantener los identificadores de los pasos ya publicados. Si se cambia un identificador guardado, puede dejar de encontrarse el punto de continuación. Mantener también los índices de puzzles existentes: se usan en los pasos y en las notas guardadas. Para ampliar el catálogo, añadir entradas al final.
 
@@ -211,17 +210,17 @@ Los pasos sin agrupar siguen ejecutándose en la historia, pero no tendrán una 
 
 ## Añadir un capítulo con introducción puzzle y cierre
 
-Ejemplo: añadir un cuarto capítulo, **El bosque**, con un puzzle nuevo.
+Ejemplo: añadir un segundo capítulo, **El bosque**, con un puzzle nuevo.
 
 1. Crear `BosqueIntro` y `BosqueCierre` como assets de diálogo. Asignar personajes, texto, fondo y música opcional a cada uno.
-2. Añadir la definición del puzzle al final de `PuzzleCatalog → Chapters`. Como el ejemplo ya tiene tres, su índice será **3**.
+2. Añadir la definición del puzzle al final de `PuzzleCatalog → Chapters`. Como el catálogo actual tiene uno, su índice será **1**.
 3. Asignar las tres imágenes de dificultad, un título, la música opcional y la dificultad de historia; por ejemplo, `Normal`.
 4. Añadir estos tres pasos al final de `Story → Steps`:
 
 | Id | Kind | Conversation | Puzzle Index |
 | --- | --- | --- | --- |
 | `bosque-intro` | Conversation | BosqueIntro | No se utiliza |
-| `bosque-puzzle` | Puzzle | No se utiliza | 3 |
+| `bosque-puzzle` | Puzzle | No se utiliza | 1 |
 | `bosque-cierre` | Conversation | BosqueCierre | No se utiliza |
 
 5. Añadir un capítulo **El bosque** en `Story → Chapters`.
@@ -232,40 +231,27 @@ Ejemplo: añadir un cuarto capítulo, **El bosque**, con un puzzle nuevo.
 
 Para insertar una conversación de llegada independiente, añadir antes un paso `bosque-llegada` y darle otro subcapítulo cuyo primer y último Id sean ese mismo valor. Para un capítulo solo de conversación, omitir la entrada de puzzle en el catálogo y agrupar únicamente pasos `Conversation`.
 
-## Organización del ejemplo actual
+## Organización actual del juego
 
-| Capítulo | Subcapítulo | Primer paso | Último paso | Puzzle |
+| Capítulo | Subcapítulo | Primer paso | Último paso | Puzle |
 | --- | --- | --- | --- | --- |
-| El valle | Llegada al valle | valley-arrival | valley-arrival | Ninguno |
-| El valle | El paso del valle | valley-bridge | valley-departure | Índice 0, fácil en historia |
-| La costa | Llegada a la costa | coast-arrival | coast-arrival | Ninguno |
-| La costa | Al pie del faro | lighthouse-arrival | lighthouse-arrival | Ninguno |
-| La costa | Dentro del faro | lighthouse-interior | coast-departure | Índice 1, normal en historia |
-| El desierto | Entre las dunas | desert-arrival | desert-arrival | Ninguno |
-| El desierto | El campamento | desert-camp | desert-camp | Ninguno |
-| El desierto | El mirador de las dunas | desert-overlook | journey-end | Índice 2, difícil en historia |
+| Capítulo 1 | 1-1 | chapter-1-1 | chapter-1-1 | Ninguno |
+| Capítulo 1 | 1-2 | chapter-1-2 | chapter-1-2-puzzle | Índice 0, fácil en historia |
+| Capítulo 1 | 1-3 | chapter-1-3 | chapter-1-3 | Ninguno |
 
-Las variantes de imagen de prueba son:
-
-| Puzzle | Fácil | Normal | Difícil |
-| --- | --- | --- | --- |
-| El valle | PuzzleLandscape | PuzzleCoast | PuzzleDesert |
-| La costa | PuzzleDesert | PuzzleCoast | PuzzleLandscape |
-| El desierto | PuzzleCoast | PuzzleLandscape | PuzzleDesert |
-
-Esta distribución reutiliza los recursos disponibles para probar imágenes independientes; puede sustituirse por ilustraciones definitivas en el Inspector.
+El catálogo contiene únicamente el puzle `1-2`, con las imágenes `1-2_Easy`, `1-2_Normal` y `1-2_Hard`. Las conversaciones `1-4`, `1-4 Cierre`, `1-5`, `1-6` y `1-6 cierre` están escritas en `Assets/Data/Dialogue/Chapter 1`, pendientes de enlazar a la historia. El reparto actual es Shouta, Ayame y el padre de Shouta.
 
 ## Ajustar la presentación
 
 Las conversaciones y los puzles comparten la paleta de los menús: superficies azul oscuro, texto crema y acentos dorados. El diálogo conserva cuatro líneas por página, los pensamientos en azul y cursiva, el clic para completar o avanzar y los controles **Ocultar**, **Saltar** y **Menú principal**. Sus colores y posiciones se editan en `Dialogue/Content/Dialogue Box`; el estilo de pensamiento está en `Body > DialogueTextStyle`.
 
-En las tres escenas de puzle, `Puzzle Layout` contiene la cabecera con el saldo de estrellas, el tablero central, el contador de movimientos y las acciones inferiores. `Puzzle Complete/Content` contiene la imagen, las estrellas, el récord, la recompensa y los botones de continuación. La imagen de resultado se ajusta dentro de `Artwork/Image`. Las pantallas de fin de historia y de demostración utilizan la misma presentación. `Tools > One Hand Puzzle > Style Dialogue and Puzzle Screens` permite volver a aplicar el estilo inicial; sobrescribe los ajustes visuales de estas cinco escenas. El motor utiliza los controles ya guardados en sus Canvas.
+En las tres escenas de puzle, `Puzzle Layout` contiene la cabecera con el saldo de estrellas, el tablero central, el contador de movimientos y las acciones inferiores. `Puzzle Complete/Content` contiene la imagen, las estrellas, el récord, la recompensa y los botones de continuación. La imagen de resultado se ajusta dentro de `Artwork/Image`. La pantalla de fin de historia utiliza la misma presentación. `Tools > One Hand Puzzle > Style Dialogue and Puzzle Screens` permite volver a aplicar el estilo inicial; sobrescribe los ajustes visuales de estas cuatro escenas. El motor utiliza los controles ya guardados en sus Canvas.
 
 Los elementos estáticos de la interfaz están guardados en los Canvas de las escenas. En `MainMenu`, expandir `Main Menu Canvas` para editar título, menú principal, galería, visor, selección de historia, ajustes y recapitulación. Cada panel tiene sus controles dentro de `Content`; el visor utiliza `Viewport` y `Controls`. Activar temporalmente un panel en el editor permite ajustar posiciones, tamaños, colores y textos. Al iniciar el juego, el controlador activa la pantalla correspondiente.
 
 Los textos fijos se editan en el componente `Text` de cada objeto. Los textos que cambian de estado o muestran valores (ajustes, fondo seleccionado, movimientos, notas y paginación) tienen además un componente `CanvasText`: editar su lista **Textos por estado**, conservando los marcadores `{0}`, `{1}`, etc. para los valores del juego. Estas variantes se guardan en la escena y el código respeta su contenido. Los títulos de capítulos y las conversaciones se editan en sus assets de catálogo e historia.
 
-Las escenas `PuzzleEasy`, `PuzzleNormal` y `PuzzleHard` contienen los botones del tablero, las capas de revelado, el panel de resultados y el diálogo. `Story` contiene el diálogo y los paneles de final y error; `DialogueDemo`, el diálogo y sus botones finales. El código actualiza imágenes, valores, visibilidad y acciones sin reconstruir estos controles. Mantener los nombres de los objetos y las referencias serializadas al editar la jerarquía. `Tools > One Hand Puzzle > Validate Canvas References` comprueba las seis escenas sin modificar las escenas abiertas.
+Las escenas `PuzzleEasy`, `PuzzleNormal` y `PuzzleHard` contienen los botones del tablero, las capas de revelado, el panel de resultados y el diálogo. `Story` contiene el diálogo y los paneles de final y error. El código actualiza imágenes, valores, visibilidad y acciones sin reconstruir estos controles. Mantener los nombres de los objetos y las referencias serializadas al editar la jerarquía. `Tools > One Hand Puzzle > Validate Canvas References` comprueba las cinco escenas sin modificar las escenas abiertas.
 
 `Fondo inicial` del catálogo es el fondo del menú al comenzar una partida. Añadirlo también a `Fondos de pantalla` permite volver a seleccionarlo desde la galería. Registrar en esa lista todas las imágenes que puedan utilizarse como fondo, cada una con un `Id` único y permanente.
 

@@ -19,7 +19,7 @@ public static class CanvasValidation
         Directory.CreateDirectory("Logs");
         try
         {
-            foreach (string name in new[] { "MainMenu", "PuzzleEasy", "PuzzleNormal", "PuzzleHard", "Story", "DialogueDemo" })
+            foreach (string name in new[] { "MainMenu", "PuzzleEasy", "PuzzleNormal", "PuzzleHard", "Story" })
             {
                 var scene = EditorSceneManager.OpenPreviewScene("Assets/Scenes/" + name + ".unity");
                 try
@@ -35,8 +35,7 @@ public static class CanvasValidation
                             : component is DialogueController ? new[] { "screen" }
                             : component is PuzzleSceneController ? new[] { "victoryScreen", "completionContinue", "gameLayout", "gameTitle", "catalog", "puzzle", "dialogue" }
                             : component is Puzzle ? new[] { "completedImage", "completionFlash", "board", "status" }
-                            : component is StorySceneController ? new[] { "endingScreen", "errorScreen", "catalog", "dialogue" }
-                            : component is DialogueDemoController ? new[] { "finishScreen", "dialogue", "conversation" } : Array.Empty<string>();
+                            : component is StorySceneController ? new[] { "endingScreen", "errorScreen", "catalog", "dialogue" } : Array.Empty<string>();
                         foreach (string field in fields)
                             Require(Field<UnityEngine.Object>(component, field) != null, name + ": missing " + component.GetType().Name + "." + field);
                     }
@@ -69,8 +68,8 @@ public static class CanvasValidation
                 }
                 finally { EditorSceneManager.ClosePreviewScene(scene); }
             }
-            File.WriteAllText(ResultPath, "PASS: all six scenes, serialized references, editable text states/formats, menu bindings, gallery pagination/reuse, background persistence/fallback, zoom bounds, dialogue bindings and unchanged UI object counts.");
-            Debug.Log("Canvas validation passed for all six scenes.");
+            File.WriteAllText(ResultPath, "PASS: all five scenes, serialized references, editable text states/formats, menu bindings, gallery pagination/reuse, background persistence/fallback, zoom bounds, dialogue bindings and unchanged UI object counts.");
+            Debug.Log("Canvas validation passed for all five scenes.");
         }
         catch (Exception error)
         {

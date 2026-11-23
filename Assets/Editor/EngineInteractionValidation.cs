@@ -14,7 +14,7 @@ public static class EngineInteractionValidation
     public static void Run()
     {
         ValidateStars();
-        foreach (var name in new[] { "Story", "DialogueDemo", "PuzzleEasy", "PuzzleNormal", "PuzzleHard" })
+        foreach (var name in new[] { "Story", "PuzzleEasy", "PuzzleNormal", "PuzzleHard" })
         {
             var scene = EditorSceneManager.OpenPreviewScene("Assets/Scenes/" + name + ".unity");
             try

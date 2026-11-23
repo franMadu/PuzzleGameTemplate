@@ -1,0 +1,286 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5e33e446cc4bc88bde152074d89f2a, type: 3}
+  m_Name: 1-6 cierre
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
+  background: {fileID: 2800000, guid: 02afca901fc540e0870557eb614a5c41, type: 3}
+  music: {fileID: 0}
+  characters:
+  - {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+  - {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+  enterOnFirstSpeech: 0
+  initialOutfits:
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: toalla
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: baloncesto
+  initialExpressions: []
+  leftCharacter: {fileID: 0}
+  rightCharacter: {fileID: 0}
+  leftCharacterFacing: 0
+  rightCharacterFacing: 0
+  lines:
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "(Empiezo a caminar hacia atr\xE1s lentamente y consigo articular alguna
+      palabra)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "Yo... yo... no... quer\xEDa..."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "(Consigo reacionar y salgo del ba\xF1o. A toda prisa recupero mi mont\xF3n
+      de ropa y vuelvo corriendo a mi habitaci\xF3n.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: Espera... No te...
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 2800000, guid: 02afca901fc540e0870557eb614a5c41, type: 3}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "(Mierda. \xBFQu\xE9 he hecho? Ahora se pensar\xE1 que soy un pervertido.
+      Seguro que est\xE1 enfadada conmigo. Seguro que me echar\xE1 de la casa.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 2800000, guid: 02afca901fc540e0870557eb614a5c41, type: 3}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "(R\xE1pidamente echo el pestillo de la habitaci\xF3n para que no pueda
+      entrar. \xBFLo hago por verg\xFCenza o por que no quiero que me eche de casa?)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 2800000, guid: 02afca901fc540e0870557eb614a5c41, type: 3}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "(Si ya estaba sudado antes, ahora sudo mucho m\xE1s. El coraz\xF3n se
+      agita velozmente en mi pecho. Tengo hambre pero no me atrevo a salir del cuarto.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 2800000, guid: 02afca901fc540e0870557eb614a5c41, type: 3}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: (Espero unos minutos frente a la puerta. Esperando a que Ayame empiece
+      a aporrearla exigiendo la abra.... Pero no pasa nada.)
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 2800000, guid: 02afca901fc540e0870557eb614a5c41, type: 3}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "(Poco a poco me voy haciendo a la idea de que no va a subir. Pero estaba
+      enfadada, \xBFverdad? Si yo fuera ella estar\xEDa hecha una furia.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 2800000, guid: 02afca901fc540e0870557eb614a5c41, type: 3}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "(Me vuelvo a la cama. Hoy no he hecho m\xE1s que dormir. Me tapo con la
+      sabana hasta la cabeza. Otra barrera m\xE1s para protegerme del enfado de mi
+      prima.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 2800000, guid: 365ecd6be5b54cf8bd838506d34e107f, type: 3}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "(Quiero cerrar los ojos pero en cuanto lo hago se me vienen a la mente
+      imagenes e ideas extra\xF1as que hace que me duela la entrepierna. No puedo
+      tener estos pensamientos con mi prima, eso no est\xE1 bien.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 2800000, guid: 365ecd6be5b54cf8bd838506d34e107f, type: 3}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "(Se hace de noche. Mi respiraci\xF3n sigue siendo tensa y sigo alerta.
+      \xBFCuanto tiempo ha pasado? \xBFUna, dos o tres horas? \xBFDiez minutos? No
+      lo s\xE9 bien.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 2800000, guid: 365ecd6be5b54cf8bd838506d34e107f, type: 3}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "(Intento tranquilizarme. En todo este tiempo nadie ha llamado a mi puerta.
+      Ni siquiera he oido pasos cerca. El dormitorio de Ayame est\xE1 en el otro
+      extremo del pasillo. Ni siqueira ha hecho el intento de acercarse a mi habitaci\xF3n.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 2800000, guid: 365ecd6be5b54cf8bd838506d34e107f, type: 3}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 0
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: 
+    reactions: []
+    speaker: 
+    text: "(Empiezo a ordenar mis pensamientos. A ensayar una disculpa. Ma\xF1ana
+      tendr\xE9 que ser convincente, seguro que me cae una buena rega\xF1ina, eso
+      se inevitable. Pero necesito que me deje seguir quedandome en la casa.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
