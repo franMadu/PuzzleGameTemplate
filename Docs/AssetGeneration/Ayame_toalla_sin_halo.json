@@ -1,0 +1,11 @@
+{
+  "tool": "built-in image_gen",
+  "prompt": "Use case: identity-preserve and background-extraction. Regenerate a clean transparent game sprite of Ayame wrapped securely in a white bath towel. IMAGE 1 defines the towel outfit, standing pose, character placement and portrait framing; its dark hazy background is a defect and must be removed entirely. IMAGE 2 defines the canonical character identity and illustration style. Match Ayame's shoulder-length charcoal black hair with side swept bangs, dark navy blue eyes, warm tan skin, gentle closed-mouth smile, face shape and established body proportions. Adult woman in a neutral nonsexual standing character reference. White opaque thick terry-cloth bath towel wrapped securely from above the bust to just above the knees, complete chest and hip coverage, natural overlapping fold and soft fabric folds. Arms relaxed at sides as in image 1. Do not exaggerate anatomy or add accessories. Match the clean anime linework and soft daylight of image 2. Portrait 1024x1536 canvas, centered character, from head to just above knees, maintain image 1's position and scale approximately with whole silhouette inside x210 to x810. CRITICAL: genuine transparent alpha background right up to the contour, no glow, halo, vignette, haze, cast shadow, backdrop, rim lighting or colored fringes. Empty pixels must be fully transparent. No text or objects.",
+  "references": [
+    "Assets/Art/Ayame/BathOutfit/Ayame_toalla_mediodia.png",
+    "Assets/Art/Ayame/PrincipalExpressions/Ayame_principal_mediodia_v2.png"
+  ],
+  "output": "Assets/Art/Ayame/BathOutfit/Ayame_toalla_mediodia.png",
+  "transparent_background": true,
+  "validation": "RGBA; exterior samples fully transparent; alpha>2 silhouette bounds x205..820 y10..1535. Sprite rectangle expanded to x200 width625 height1536 to avoid clipping."
+}

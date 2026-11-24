@@ -6,7 +6,7 @@ Estado documentado: 23 de noviembre de 2026. Contenido actual: **capítulo 1 de 
 
 ## Documentación
 
-El [documento editable de diálogos](Docs/DIALOGOS_DEL_JUEGO.docx) reúne las conversaciones del capítulo 1, con personajes, pensamientos y números de intervención. Se puede corregir en Word o LibreOffice; los cambios del documento se trasladan después a Unity y no se aplican automáticamente al juego.
+El [guion editable de diálogos](Docs/GUION_DEL_JUEGO.docx) reúne las conversaciones del capítulo 1 en formato teatral, organizadas por escenas, con el nombre del personaje seguido de su intervención y los pensamientos indicados como «para sí». Se puede corregir en Word o LibreOffice; los cambios del documento se trasladan después a Unity y no se aplican automáticamente al juego.
 
 | Documento | Contenido |
 | --- | --- |

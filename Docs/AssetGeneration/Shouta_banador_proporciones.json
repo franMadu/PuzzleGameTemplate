@@ -1,0 +1,10 @@
+{
+  "tool": "built-in image_gen",
+  "prompt": "Use case: identity-preserve. Two reference images: IMAGE 1 is the MASTER for exact character identity, anatomy, pose, head size, proportions, camera crop and pixel placement. IMAGE 2 provides ONLY the red knee-length swim shorts design. Edit IMAGE 1: replace its white waist towel with loose opaque red knee-length board shorts, elastic waist, white drawstring and the same muted red fabric styling as image 2. Keep everything else from IMAGE 1 unchanged: exact large head size and face, black hair, gray-violet eyes, original torso length and width, shoulders, arms, hands, compact build, neutral pose, lighting and anime linework. Do NOT use the taller elongated proportions of image 2. Match image 1's 887x1774 transparent canvas, head placement and lower crop. It is fine for the bottom of the knee-length shorts or knees to fall below the frame; preserving image 1's scale is more important than showing all of the shorts. Neutral nonsexual beachwear costume sprite, simple natural bare upper torso; loose fully covering opaque shorts, no anatomical emphasis. Transparent background with clean alpha outline. No text, no props, no towel.",
+  "references": [
+    "Assets/Art/Shouta/BathOutfit/Shouta_toalla_mediodia.png",
+    "Assets/Art/Shouta/SwimOutfit/Shouta_banador_rojo_mediodia.png"
+  ],
+  "output": "Assets/Art/Shouta/SwimOutfit/Shouta_banador_rojo_mediodia.png",
+  "transparent_background": true
+}

@@ -1,0 +1,8 @@
+{
+  "tool": "built-in image_gen",
+  "prompt": "Create a neutral nonsexual summer costume sprite for the character shown in the reference. Outfit: loose red knee-length board shorts, elastic waistband, white drawstring, subtle modern side seams, matte opaque fabric, no logos. No shirt, ordinary bare upper torso drawn simply without emphasis. Calm neutral expression and relaxed standing pose, arms at sides. Preserve recognizable black hair, gray-violet eyes and anime illustration style. Frame the character from head through knees so the full length of the long swimming shorts is visible. Transparent background, clean outline, natural daylight shading. Ordinary beachwear character sheet suitable for a general-audience game; no suggestive posing or intimate detail.",
+  "reference": "Assets/Art/Shouta/IndoorExpressions/Shouta_default_mediodia.png",
+  "output": "Assets/Art/Shouta/SwimOutfit/Shouta_banador_rojo_mediodia.png",
+  "outfit_id": "banador",
+  "transparent_background": true
+}

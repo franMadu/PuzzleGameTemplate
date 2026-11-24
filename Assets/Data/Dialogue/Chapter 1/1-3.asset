@@ -47,7 +47,7 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
     outfit:
-    expression:
+    expression: 
     reactions: []
     speaker:
     text: "Perdona, Ayame, no te había visto. ¿Estás bien? ¿Te has hecho daño?"
@@ -84,9 +84,7 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
     outfit:
     expression: sorpresa
-    reactions:
-    - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
-      expression: sorpresa_contenida
+    reactions: []
     speaker:
     text: "¡¿Tío?! ¡¿Shouta?! ¡¿Qué hacéis aquí?!"
     isThought: 0
@@ -97,10 +95,8 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
     outfit:
-    expression:
-    reactions:
-    - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
-      expression: desconcierto
+    expression: 
+    reactions: []
     speaker:
     text: "¿Cómo dices? ¿No te ha contado nada tu abuela? Shouta se queda con vosotras dos semanas."
     isThought: 0
@@ -123,10 +119,8 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
     outfit:
-    expression:
-    reactions:
-    - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
-      expression: sorpresa
+    expression: 
+    reactions: []
     speaker:
     text: "No, le dije a tu abuela que era la primera semana de julio."
     isThought: 0
@@ -161,7 +155,7 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
     outfit:
-    expression:
+    expression: 
     reactions: []
     speaker:
     text: "Vaya, menudo lío. Bueno, voy a hablar con ella y se lo voy a explicar. Espero que a vuestra abuela no le importe."
@@ -173,7 +167,7 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
     outfit:
-    expression: desconcierto
+    expression: disculpa
     reactions: []
     speaker:
     text: "Es que... ella... no está aquí."
@@ -185,7 +179,7 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
     outfit:
-    expression:
+    expression: 
     reactions: []
     speaker:
     text: "La podemos esperar, no tengo prisa."
@@ -197,12 +191,10 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
     outfit:
-    expression: desconcierto
-    reactions:
-    - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
-      expression: ilusion_contenida
+    expression: seria
+    reactions: []
     speaker:
-    text: "No, es que ella no está. Está en un crucero con sus amigas; no volverá hasta el mes que viene."
+    text: "No va a volver hoy. Está en un crucero con sus amigas; no volverá hasta el mes que viene."
     isThought: 0
     speakerSide: 0
     leftCharacter: {fileID: 0}
@@ -223,10 +215,8 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
     outfit:
-    expression:
-    reactions:
-    - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
-      expression: ilusion_contenida
+    expression: 
+    reactions: []
     speaker:
     text: "Esto es increíble... ¿Qué hago contigo ahora, Shouta?"
     isThought: 0
@@ -237,10 +227,10 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
     outfit:
-    expression: ilusion_contenida
+    expression: ironia
     reactions: []
     speaker:
-    text: "Bueno, papá, podrías..."
+    text: "Qué pena, papá, parece que no te queda más remedio que…"
     isThought: 0
     speakerSide: 0
     leftCharacter: {fileID: 0}
@@ -252,7 +242,7 @@ MonoBehaviour:
     expression: seguridad
     reactions:
     - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
-      expression: sorpresa_contenida
+      expression: alarma
     speaker:
     text: "¡Yo podría cuidarlo!"
     isThought: 0
@@ -275,10 +265,8 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
     outfit:
-    expression:
-    reactions:
-    - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
-      expression: seria
+    expression: 
+    reactions: []
     speaker:
     text: "¿Tú? No sé, Ayame. Sin vuestra abuela al cargo sería un poco arriesgado. ¿Y si os ocurre algo?"
     isThought: 0
@@ -290,9 +278,7 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
     outfit:
     expression: seguridad
-    reactions:
-    - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
-      expression: protesta_leve
+    reactions: []
     speaker:
     text: "Tranquilo, tío. He estado cuidando a la abuela todo este tiempo. Soy responsable, puedo cuidar de Shouta yo sola."
     isThought: 0
@@ -306,7 +292,7 @@ MonoBehaviour:
     expression: protesta_leve
     reactions: []
     speaker:
-    text: "(¿Qué dices? Calla. Aún podría convencer a papá de que me lleve de vuelta a casa.)"
+    text: "(¿Qué dices? Cállate. Aún podría convencer a papá de que me lleve de vuelta a casa.)"
     isThought: 1
     speakerSide: 0
     leftCharacter: {fileID: 0}
@@ -315,7 +301,7 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
     outfit:
-    expression: seria
+    expression: seguridad
     reactions: []
     speaker:
     text: "Además, sin la abuela creo que lo podría cuidar mejor. Últimamente está más despistada de lo normal."
@@ -327,7 +313,7 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
     outfit:
-    expression: seguridad
+    expression: simpatica
     reactions: []
     speaker:
     text: "Si quieres quedarte más tranquilo, llámala al móvil; siempre lo lleva encima. Seguro que no tiene ningún inconveniente."
@@ -339,8 +325,10 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
     outfit:
-    expression:
-    reactions: []
+    expression: 
+    reactions:
+    - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+      expression: decepcion
     speaker:
     text: "Está bien. Quedaos aquí los dos. Voy a hablar con tu madre y con tu abuela."
     isThought: 0
@@ -351,7 +339,7 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
     outfit:
-    expression: preocupacion
+    expression: decepcion
     reactions: []
     speaker:
     text: "(Maldición, esto va mal. Espero que mamá diga que no.)"
@@ -363,10 +351,8 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
     outfit:
-    expression: disculpa
-    reactions:
-    - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
-      expression: resignacion
+    expression: simpatica
+    reactions: []
     speaker:
     text: "Esto... hola, Shouta. Soy Ayame, ¿me recuerdas?"
     isThought: 0
@@ -392,7 +378,7 @@ MonoBehaviour:
     expression: neutra_feliz
     reactions: []
     speaker:
-    text: "Han pasado seis años. Es normal. He cambiado mucho. Aunque eras más joven que yo, eras más alto."
+    text: "No me extraña. Han pasado casi seis años. Yo… he cambiado mucho. Eras más pequeño que yo, pero ya me sacabas altura."
     isThought: 0
     speakerSide: 0
     leftCharacter: {fileID: 0}
@@ -404,7 +390,7 @@ MonoBehaviour:
     expression: default
     reactions: []
     speaker:
-    text: "Sí, me acuerdo. Siempre pensé que yo era el mayor."
+    text: "Sí, me acuerdo. Siempre pensé que yo era mayor."
     isThought: 0
     speakerSide: 0
     leftCharacter: {fileID: 0}
@@ -413,7 +399,7 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
     outfit:
-    expression: simpatica
+    expression: neutra_feliz
     reactions: []
     speaker:
     text: "Tú también has crecido un poco."
@@ -425,10 +411,8 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
     outfit:
-    expression: inseguridad
-    reactions:
-    - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
-      expression: simpatica
+    expression: decepcion
+    reactions: []
     speaker:
     text: "Aunque digas eso... soy el más bajito de mi clase. Creo que no voy a crecer mucho más."
     isThought: 0
@@ -439,10 +423,8 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
     outfit:
-    expression: seguridad
-    reactions:
-    - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
-      expression: default
+    expression: simpatica
+    reactions: []
     speaker:
     text: "Seguro que en un par de años pegas el estirón y te vuelves el más alto."
     isThought: 0
@@ -451,9 +433,345 @@ MonoBehaviour:
     rightCharacter: {fileID: 0}
     hideLeftCharacter: 0
     hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit:
+    expression: inseguridad
+    reactions: []
+    speaker:
+    text: "(La miro brevemente, tiene una sonrisa amable e inocente. Parece que no ha roto un plato en su vida. Mi mirada vuelve a bajar a la camiseta mojada y la aparto enseguida.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit:
+    expression: desconcierto
+    reactions: []
+    speaker:
+    text: "¿Pasa algo? No serás tímido."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit:
+    expression: inseguridad
+    reactions: []
+    speaker:
+    text: "(La vuelvo a mirar. Ahora su cara refleja extrañeza. ¿Pensará que soy raro?)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit:
+    expression: inseguridad
+    reactions: []
+    speaker:
+    text: "O… oye. Estás empapada, ¿no tendrías que secarte o algo? ¿Necesitas una toalla?"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit:
+    expression: simpatica
+    reactions: []
+    speaker:
+    text: "Solo es un poco de agua sucia, no te preocupes. Además, con este calor no se está tan mal."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit:
+    expression: default
+    reactions: []
+    speaker:
+    text: "¿Siempre hace tanto calor aquí?"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit:
+    expression: neutra_feliz
+    reactions: []
+    speaker:
+    text: "Justo esta semana hemos tenido una ola de calor. Esta noche también será calurosa, pero a partir de mañana la temperatura será más suave."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit:
+    expression: default
+    reactions: []
+    speaker:
+    text: "…"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit:
+    expression: simpatica
+    reactions: []
+    speaker:
+    text: "¿No me cuentas nada de ti? ¿Cómo te han ido las cosas?"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit:
+    expression: default
+    reactions: []
+    speaker:
+    text: "Bien, sin nada especial que contar. ¿Y a ti?"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit:
+    expression: seria
+    reactions: []
+    speaker:
+    text: "¿A mí? Bueno, verás…"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit:
+    expression: alarma
+    reactions: []
+    speaker:
+    text: "(Mierda, me había olvidado de lo de sus padres.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit:
+    expression: ilusion_contenida
+    reactions: []
+    speaker:
+    text: "Bueno, espera, sí que hay algo. ¿Sabías que soy subcampeón regional de Super Smash Brawlers?"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit:
+    expression: felicidad
+    reactions: []
+    speaker:
+    text: "¿De verdad? Shouta, eso es genial."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit:
+    expression: ilusion_contenida
+    reactions: []
+    speaker:
+    text: "¿A que sí? No lo suelo ir contando por ahí pero…"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit:
+    expression: sorpresa_contenida
+    reactions: []
+    speaker:
+    text: "Espera, ¿en serio es genial? Cuando lo cuento la gente me mira raro."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit:
+    expression: simpatica
+    reactions: []
+    speaker:
+    text: "Lo digo muy en serio, eres increíble."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit:
+    expression: inseguridad
+    reactions: []
+    speaker:
+    text: "Bueno, yo…"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit:
+    expression: desconcierto
+    reactions: []
+    speaker:
+    text: "Pero… ¿Qué es eso? ¿Es algún deporte nuevo?"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit:
+    expression: default
+    reactions: []
+    speaker:
+    text: "¿Deporte? No, es un videojuego."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit:
+    expression: default
+    reactions: []
+    speaker:
+    text: "Oh, ya veo."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit:
+    expression: inseguridad
+    reactions: []
+    speaker:
+    text: "(Es cosa mía, ¿o parece un poco decepcionada? Creo que ahora piensa que además de raro soy un friki. ¿Para qué le cuento esto?)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit:
+    expression: simpatica
+    reactions: []
+    speaker:
+    text: "¿Y ya tienes novia?"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit:
+    expression: sorpresa_contenida
+    reactions: []
+    speaker:
+    text: "(¿Qué clase de pregunta es esa?)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit:
+    expression: inseguridad
+    reactions: []
+    speaker:
+    text: "Yo… claro, no soy un friki de esos solitarios que solo juegan a videojuegos."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit:
+    expression: default
+    reactions: []
+    speaker:
+    text: "Me alegro por ti."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit:
+    expression: inseguridad
+    reactions: []
+    speaker:
+    text: "(En realidad, sí que solo juego a videojuegos… Y las chicas ni se me acercan.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit:
+    expression: inseguridad
+    reactions: []
+    speaker:
+    text: "(Aunque no ha sonado como si de verdad se alegrara. Parece aún más decepcionada.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
     outfit:
-    expression:
+    expression: 
     reactions:
     - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
       expression: decepcion
@@ -467,10 +785,10 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
     outfit:
-    expression: decepcion
+    expression: protesta_leve
     reactions: []
     speaker:
-    text: "¿En serio, papá?"
+    text: "Pero, papá, yo…"
     isThought: 0
     speakerSide: 0
     leftCharacter: {fileID: 0}
@@ -479,10 +797,8 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
     outfit:
-    expression:
-    reactions:
-    - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
-      expression: protesta_leve
+    expression: 
+    reactions: []
     speaker:
     text: "No te preocupes, hijo. Estarás bien."
     isThought: 0
@@ -505,7 +821,7 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
     outfit:
-    expression:
+    expression: 
     reactions: []
     speaker:
     text: "Ayame, ¿no te importa hacerte cargo?"
@@ -517,7 +833,7 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
     outfit:
-    expression: simpatica
+    expression: seguridad
     reactions: []
     speaker:
     text: "Por supuesto que no. Vete tranquilo, te lo devolveré como nuevo."
@@ -529,10 +845,8 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
     outfit:
-    expression:
-    reactions:
-    - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
-      expression: ironia
+    expression: 
+    reactions: []
     speaker:
     text: "Gracias, Ayame. Nos has ahorrado un verdadero problema, ¿verdad, Shouta?"
     isThought: 0
@@ -555,10 +869,8 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 05f84f0548cb501478830ab5786d51f5, type: 2}
     outfit:
-    expression:
-    reactions:
-    - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
-      expression: resignacion
+    expression: 
+    reactions: []
     speaker:
     text: "Bueno, chicos, os dejo, que se ha hecho tarde. Shouta, pórtate bien y no des problemas a tu prima. Ayame, llámanos si surge algún problema."
     isThought: 0
@@ -569,7 +881,7 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
     outfit:
-    expression: seguridad
+    expression: simpatica
     reactions: []
     speaker:
     text: "Tranquilo, sabremos organizarnos bien."
@@ -593,7 +905,7 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
     outfit:
-    expression:
+    expression: resignacion
     reactions: []
     speaker:
     text: "(Arranca el motor y, poco a poco, el coche se va alejando.)"
@@ -605,7 +917,7 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
     outfit:
-    expression: neutra_feliz
+    expression: simpatica
     reactions: []
     speaker:
     text: "Ven, Shouta, coge tu maleta. Te enseñaré tu habitación."

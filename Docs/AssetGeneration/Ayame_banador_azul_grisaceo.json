@@ -1,0 +1,10 @@
+{
+  "tool": "built-in image_gen",
+  "use_case": "identity-preserve",
+  "reference": "Assets/Art/Ayame/PrincipalExpressions/Ayame_principal_mediodia_v2.png",
+  "output": "Assets/Art/Ayame/SwimOutfit/Ayame_banador_azul_grisaceo_mediodia.png",
+  "outfit_id": "banador",
+  "transparent_background": true,
+  "prompt": "Edit the provided character sprite into a new outfit variant for a visual novel. Ayame is an adult woman, age 18. Replace her white long sleeveless top with a fitted opaque one-piece swimsuit in muted grayish blue (slate blue, approximately #63788B), with conventional shoulder straps and a simple modest neckline. Neutral standing character reference, nonsexual presentation. Preserve her exact recognizable face, dark navy blue eyes, black shoulder-length hair, tan skin, adult proportions, relaxed pose with hands behind her back, soft smile, anime illustration style, linework and lighting. Keep the same 1254 by 1254 canvas, character position, scale, and mid-thigh framing as the reference. The swimsuit must be visibly a one-piece, with no skirt or shorts, no logos, no extra accessories. Clean transparent background, smooth clean alpha edges without colored fringes. Only change clothing; maintain character identity.",
+  "cleanup_prompt": "Clean up this exact transparent adult character sprite. Remove ONLY the stray bright red, yellow and cyan pixels/fringes around the outside contour, especially the left arm, hips and hair. Replace stray pixels outside the intended silhouette with full transparency and leave a clean antialiased edge. Preserve the exact character artwork, face, navy blue eyes, grayish blue one-piece swimsuit, pose, colors, dimensions 1254x1254, framing and transparent background. Do not redesign, change anatomy, change clothing or add anything."
+}

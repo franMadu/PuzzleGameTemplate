@@ -34,7 +34,7 @@ MonoBehaviour:
     expression: resignacion
     reactions: []
     speaker: Shouta
-    text: "(El coche se detiene frente a una casa de verano. Está pegada a un pequeño bosque; entre los árboles puedo ver la playa. Empiezo a recordar la casa de la abuela.)"
+    text: "(El coche se detiene frente a una pequeña casa rural, junto a un bosque. Entre los árboles puedo ver la playa. Me quedo en el coche mirando la casa. Sí, es la casa de la abuela. No ha cambiado nada en estos años.)"
     isThought: 1
     speakerSide: 0
     leftCharacter: {fileID: 0}
@@ -58,7 +58,7 @@ MonoBehaviour:
     expression: ironia
     reactions: []
     speaker: 
-    text: "(Hago lo que me dice papá con cierta desgana. Intento retrasar todo lo posible el momento de salir del coche. Intento que dure, no sé, unas dos semanas.)"
+    text: "(Lentamente abro la puerta y salgo del coche. Intento retrasar todo lo posible este momento. Intento que dure, no sé, unas dos semanas.)"
     isThought: 1
     speakerSide: 0
     leftCharacter: {fileID: 0}
@@ -79,22 +79,10 @@ MonoBehaviour:
     hideRightCharacter: 0
   - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
     outfit: 
-    expression: resignacion
-    reactions: []
-    speaker: 
-    text: "(Empezamos a andar hacia el jardín trasero y, de repente, ocurre...)"
-    isThought: 1
-    speakerSide: 0
-    leftCharacter: {fileID: 0}
-    rightCharacter: {fileID: 0}
-    hideLeftCharacter: 0
-    hideRightCharacter: 0
-  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
-    outfit: 
     expression: sorpresa_contenida
     reactions: []
     speaker: 
-    text: "(Una chica aparece de la nada con un cubo de agua en la mano.)"
+    text: "(Al doblar la esquina de la casa, una chica aparece con un cubo de agua en la mano.)"
     isThought: 1
     speakerSide: 0
     leftCharacter: {fileID: 0}
@@ -106,7 +94,7 @@ MonoBehaviour:
     expression: alarma
     reactions: []
     speaker: 
-    text: "(En apenas un segundo, la chica choca con mi padre, se asusta y grita. Pierde el equilibrio, se vuelca el cubo de agua por encima y cae al suelo.)"
+    text: "(Choca de frente con mi padre y suelta un grito. Intenta recuperar el equilibrio, pero el cubo se le vuelca encima. Un instante después, está en el suelo.)"
     isThought: 1
     speakerSide: 0
     leftCharacter: {fileID: 0}
@@ -118,9 +106,9 @@ MonoBehaviour:
     expression: 
     reactions:
     - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
-      expression: preocupacion
+      expression: estupor
     speaker: 
-    text: "Ayame, ¿eres tú? ¿Estás bien, niña?"
+    text: "Ayame, ¿eres tú? ¿Estás bien?"
     isThought: 0
     speakerSide: 0
     leftCharacter: {fileID: 0}

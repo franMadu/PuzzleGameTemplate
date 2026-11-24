@@ -1,0 +1,7 @@
+{
+  "tool": "built-in image_gen",
+  "reference": "Assets/Art/Ayame/SwimOutfit/Ayame_banador_azul_grisaceo_mediodia.png",
+  "output": "Assets/Art/Ayame/SwimOutfit/Ayame_banador_azul_grisaceo_mediodia.png",
+  "prompt": "Use case: identity-preserve. Edit target: the supplied adult woman character sprite. Refine only the grayish-blue one-piece swimsuit to have a closer athletic fit: smooth opaque stretch fabric, fewer loose wrinkles, a neat fitted waist and a more streamlined sports-swimwear silhouette. Keep the same neckline, straps, leg openings and coverage. Nonsexual neutral character-design illustration; fully opaque lined fabric without intimate anatomical details. Preserve her exact face, dark navy blue eyes, black hair, skin tone, body proportions, standing pose, expression, lighting and anime rendering. Do not enlarge or reshape body parts. Same 1254x1254 transparent canvas and framing. Clean alpha edges; no colored fringe, background, accessories, text or other changes.",
+  "transparent_background": true
+}

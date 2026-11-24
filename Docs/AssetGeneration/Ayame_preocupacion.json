@@ -1,0 +1,7 @@
+{
+  "tool": "built-in image_gen",
+  "reference": "Assets/Art/Ayame/PrincipalExpressions/Ayame_seria_mediodia_v2.png",
+  "asset": "Assets/Art/Ayame/PrincipalExpressions/Ayame_preocupacion_mediodia.png",
+  "transparent_background": true,
+  "prompt": "Use case: identity-preserve. Asset type: transparent PNG character sprite for a visual novel. EDIT TARGET: the provided existing Ayame character sprite. Primary request: create one new facial-expression variant showing sincere everyday concern for a friend who might be feeling unwell. Ayame is an adult woman, age 18. Change ONLY the facial expression: eyebrows gently raised toward the center, eyes attentive and gently worried, mouth slightly parted without a smile. The emotion is caring concern, not anger, fear, seduction or crying. Invariants: keep the exact same character identity, hair, eye color, skin tone, linework, painting style, original body proportions, body pose, hands, opaque white sleeveless clothing, framing, silhouette and lighting as the source. Do not alter the clothes or make them transparent. Keep the exact source orientation and canvas composition so this can replace another expression sprite in the game. Transparent background with clean alpha edges, no background scenery, no text, no watermark, no extra objects or characters. Return just one sprite."
+}

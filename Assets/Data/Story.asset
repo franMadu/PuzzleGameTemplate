@@ -33,6 +33,26 @@ MonoBehaviour:
     kind: 0
     conversation: {fileID: 11400000, guid: 8dba8af2a02e67a4dbc79f52bef648d1, type: 2}
     puzzleIndex: 0
+  - id: chapter-1-4
+    title: "Cap\xEDtulo 1 \xB7 1-4"
+    kind: 0
+    conversation: {fileID: 11400000, guid: 7fea30db65ef7164d981870c3304609c, type: 2}
+    puzzleIndex: 0
+  - id: chapter-1-4-puzzle
+    title: Puzle 1-4
+    kind: 1
+    conversation: {fileID: 0}
+    puzzleIndex: 1
+  - id: chapter-1-4-cierre
+    title: "Cap\xEDtulo 1 \xB7 1-4 Cierre"
+    kind: 0
+    conversation: {fileID: 11400000, guid: c2a58082df32eca4d9ac2d7d1211401a, type: 2}
+    puzzleIndex: 0
+  - id: chapter-1-5
+    title: "Cap\xEDtulo 1 \xB7 1-5"
+    kind: 0
+    conversation: {fileID: 11400000, guid: f196a59d125107a46a175dbca9f87bb8, type: 2}
+    puzzleIndex: 0
   chapters:
   - title: "Cap\xEDtulo 1"
     subchapters:
@@ -48,4 +68,12 @@ MonoBehaviour:
     - title: 1-3
       firstStepId: chapter-1-3
       lastStepId: chapter-1-3
+      wallpaperRewards: []
+    - title: 1-4
+      firstStepId: chapter-1-4
+      lastStepId: chapter-1-4-cierre
+      wallpaperRewards: []
+    - title: 1-5
+      firstStepId: chapter-1-5
+      lastStepId: chapter-1-5
       wallpaperRewards: []

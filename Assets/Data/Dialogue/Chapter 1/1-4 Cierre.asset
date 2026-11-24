@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd5e33e446cc4bc88bde152074d89f2a, type: 3}
   m_Name: 1-4 Cierre
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
-  background: {fileID: 0}
+  background: {fileID: 2800000, guid: 6c01f35ca03447bf97cf039047027e76, type: 3}
   music: {fileID: 0}
   characters:
   - {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
@@ -22,55 +22,83 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
     outfit: 
   - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
-    outfit: 
-  initialExpressions: []
+    outfit: baloncesto
+  initialExpressions:
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    expression: simpatica
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    expression: estupor
   leftCharacter: {fileID: 0}
   rightCharacter: {fileID: 0}
   leftCharacterFacing: 0
   rightCharacterFacing: 0
   lines:
-  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
     outfit: 
-    expression: 
+    expression: estupor
     reactions: []
     speaker: 
-    text: "(Ayame me est\xE1 hablando pero no escucho lo que dice.)"
+    text: "(Ayame me est\xE1 hablando, pero no escucho lo que dice.)"
     isThought: 1
     speakerSide: 0
     leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
     hideLeftCharacter: 0
     hideRightCharacter: 0
-  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
     outfit: 
-    expression: 
+    expression: estupor
     reactions: []
     speaker: 
-    text: (Lo unico que existe en mi mente es su trasero. Lo unico que huelo es su
-      olor natural mezclado con el limpiasuelos.)
+    text: "(Lo \xFAnico que existe en mi mente es su trasero. Lo \xFAnico que huelo
+      es su olor natural mezclado con el limpiasuelos. Se me agita el pulso. \xBFSoy
+      yo o de repente hace m\xE1s calor?)"
     isThought: 1
     speakerSide: 0
     leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
     hideLeftCharacter: 0
     hideRightCharacter: 0
-  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
     outfit: 
-    expression: 
+    expression: alarma
     reactions: []
     speaker: 
-    text: "(Se me ha olvidado como andar, esta situaci\xF3n ocupa todos mis pensamientos.
-      Si tropiezo ahora y me caigo har\xE9 el mayor ridiculo de mi vida.)"
+    text: "(Se me ha olvidado c\xF3mo andar, esta situaci\xF3n ocupa todos mis pensamientos.
+      Si tropiezo ahora y me caigo me dar\xE9 de bruces con ella. Mi cara se estrellar\xE1
+      contra su trasero. Tengo que parar y tranquilizarme.)"
     isThought: 1
     speakerSide: 0
     leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
     hideLeftCharacter: 0
     hideRightCharacter: 0
-  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
     outfit: 
-    expression: 
-    reactions: []
+    expression: desconcierto
+    reactions:
+    - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+      expression: sorpresa_contenida
     speaker: 
     text: "\xBFShouta? \xBFTe pasa algo?"
     isThought: 0
@@ -79,73 +107,142 @@ MonoBehaviour:
     rightCharacter: {fileID: 0}
     hideLeftCharacter: 0
     hideRightCharacter: 0
-  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
     outfit: 
-    expression: 
+    expression: estupor
     reactions: []
     speaker: 
-    text: "(Se gira hacia mi. Pierdo su trasero de vista. Pero ahora lo que veo es
-      su cara pegada a la m\xEDa. \xBFSiempre ha tenido esos ojos azules tan profundos?)"
+    text: "(Se gira hacia m\xED. Pierdo su trasero de vista. Mi cara ahora queda
+      a la altura de su pelvis. Se inclina hacia m\xED y su cara queda pegada a la
+      m\xEDa. Por primera vez me fijo bien en sus ojos. Azules muy oscuros. Como
+      un agujero negro absorben todos mis pensamientos y me vuelvo a quedar sin nada
+      que decir.)"
     isThought: 1
     speakerSide: 0
     leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
     hideLeftCharacter: 0
     hideRightCharacter: 0
-  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
     outfit: 
-    expression: 
+    expression: preocupacion
     reactions: []
     speaker: 
-    text: "Est\xE1s colorado. \xBFNo tendr\xE1s fiebre?"
+    text: "Est\xE1s colorado y sudando. \xBFEst\xE1s bien? \xBFNo te habr\xE1s puesto
+      enfermo? \xBFVerdad?"
     isThought: 0
     speakerSide: 0
     leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
     hideLeftCharacter: 0
     hideRightCharacter: 0
-  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
     outfit: 
-    expression: 
+    expression: inseguridad
+    reactions:
+    - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+      expression: preocupacion
+    speaker: 
+    text: "(Sus manos se posan en mis mejillas. Son tan suaves. Su contacto hace
+      que vuelva en m\xED y vuelvo a pensar con cierta claridad.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: inseguridad
     reactions: []
     speaker: 
-    text: No. Es que hace mucho calor es solo eso. No estoy acostumbrado a este clima.
-      No es como el de Tokio.
+    text: "No\u2026 no pasa nada. Es que hace mucho calor, es solo eso. No estoy
+      acostumbrado a este clima. No es como el de Tokio."
     isThought: 0
     speakerSide: 0
     leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
     hideLeftCharacter: 0
     hideRightCharacter: 0
-  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
     outfit: 
-    expression: 
+    expression: disculpa
     reactions: []
     speaker: 
-    text: "Que susto me has dado. Si, hoy hace bastante calor. Pero a partir de ma\xF1ana
-      bajan un poco las temperaturas."
+    text: "Qu\xE9 susto me has dado."
     isThought: 0
     speakerSide: 0
     leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
     hideLeftCharacter: 0
     hideRightCharacter: 0
-  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
     outfit: 
-    expression: 
+    expression: simpatica
     reactions: []
     speaker: 
-    text: "Que susto me has dado. Si, hoy hace bastante calor. Pero a partir de ma\xF1ana
-      bajan un poco las temperaturas."
+    text: "No vale ponerse enfermo el primer d\xEDa, \xBFde acuerdo?"
     isThought: 0
     speakerSide: 0
     leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
     hideLeftCharacter: 0
     hideRightCharacter: 0
-  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
     outfit: 
-    expression: 
+    expression: resignacion
+    reactions: []
+    speaker: 
+    text: "S\xED, claro."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: simpatica
     reactions: []
     speaker: 
     text: "Ven, tu cuarto est\xE1 justo aqu\xED."
@@ -155,12 +252,53 @@ MonoBehaviour:
     rightCharacter: {fileID: 0}
     hideLeftCharacter: 0
     hideRightCharacter: 0
-  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
     outfit: 
-    expression: 
+    expression: resignacion
     reactions: []
     speaker: 
-    text: "Si, perdona. No quer\xEDa asustarte, prima."
+    text: "(Ayame sube las escaleras. Yo me detengo un momento para darle espacio,
+      cuando ha llegado a la planta de arriba empiezo a moverme. Si guardo las distancias
+      estar\xE9 bien.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: desconcierto
+    reactions: []
+    speaker: 
+    text: "\xBFVienes o prefieres quedarte en las escaleras?"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: inseguridad
+    reactions: []
+    speaker: 
+    text: "S\xED, digo\u2026 No, ya voy, prima."
     isThought: 0
     speakerSide: 0
     leftCharacter: {fileID: 0}

@@ -1,0 +1,145 @@
+{
+  "tool": "built-in image_gen",
+  "operation": "edit",
+  "scope": "Ayame character portraits and expressions",
+  "iris_color": "dark navy blue",
+  "target_color": "#102A58",
+  "base_prompt": "Use case: precise-object-edit. Edit the supplied EXISTING character sprite, not a new drawing. Ayame is an adult woman, age 18. Make exactly ONE correction: recolor ONLY the visible IRIS areas of BOTH eyes from charcoal/gray to a rich DARK NAVY BLUE, approximately #102A58 with subtle #254675 lower-iris shading, clearly blue but very dark. Preserve the black pupils, white sclera, catchlights, eyelids, eyelashes and the exact existing eye shape and gaze. Keep every other feature and region unchanged: facial expression, eyebrows, mouth, head angle, hair, skin color, blush, anatomy, opaque clothing, pose, hands, framing, canvas dimensions, character placement, outlines, shading, background and alpha silhouette. Do not enlarge or brighten the eyes, do not add makeup, do not open closed eyes. No new objects, text or watermark. Output one edited PNG with exactly the same canvas size and composition as this input.",
+  "refined_prompt": "Use case: precise-object-edit. Edit the supplied EXISTING character sprite, not a new drawing. Ayame is an adult woman, age 18. Make exactly ONE correction: recolor ONLY the visible IRIS areas of BOTH eyes from charcoal/gray to a rich DARK NAVY BLUE, approximately #102A58 with subtle #254675 lower-iris shading, clearly blue but very dark. Preserve the black pupils, white sclera, catchlights, eyelids, eyelashes and the exact existing eye shape and gaze. Keep every other feature and region unchanged: facial expression, eyebrows, mouth, head angle, hair, skin color, blush, anatomy, opaque clothing, pose, hands, framing, canvas dimensions, character placement, outlines, shading, background and alpha silhouette. Do not enlarge or brighten the eyes, do not add makeup, do not open closed eyes. No new objects, text or watermark. Output one edited PNG with exactly the same canvas size and composition as this input. Critical: do not introduce any new colored or white fringe, patches, speckles, halos or marks anywhere outside the existing eye irises. The original transparent silhouette must be preserved exactly.",
+  "unchanged_closed_eyes": "D:/Proyectos Unity/OneHandPuzzle/Assets/Art/Ayame/PrincipalExpressions/Ayame_felicidad_mediodia_v2.png",
+  "images": [
+    {
+      "index": 0,
+      "source": "D:/Proyectos Unity/OneHandPuzzle/Assets/Art/Ayame/PrincipalExpressions/Ayame_principal_mediodia_v2.png",
+      "output": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-b217fa3c-570f-4047-974c-2ba7098f9031.png",
+      "hint": "Generated images are saved to C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e as C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-b217fa3c-570f-4047-974c-2ba7098f9031.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "project_asset": "Assets/Art/Ayame/PrincipalExpressions/Ayame_principal_mediodia_v2.png",
+      "backup": "Logs/ArtBackups/AyameEyes-20261124-130826-520141/PrincipalExpressions/Ayame_principal_mediodia_v2.png",
+      "original_sha256": "fba291eca82d1e9c3eed28c196646b62c07038ce5349a39c829c1e7c16fed88f",
+      "edited_sha256": "0ade1bcb69231bca4bad5b51642e9a7a3177c8ba6643e643bcbd3cbcea0bdc25"
+    },
+    {
+      "index": 1,
+      "source": "D:/Proyectos Unity/OneHandPuzzle/Assets/Art/Ayame/PrincipalExpressions/Ayame_neutra_feliz_mediodia_v2.png",
+      "output": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-a4b1ad3d-2b2c-4ef2-9ed1-82a40f13dcaf.png",
+      "hint": "Generated images are saved to C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e as C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-a4b1ad3d-2b2c-4ef2-9ed1-82a40f13dcaf.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "project_asset": "Assets/Art/Ayame/PrincipalExpressions/Ayame_neutra_feliz_mediodia_v2.png",
+      "backup": "Logs/ArtBackups/AyameEyes-20261124-130826-520141/PrincipalExpressions/Ayame_neutra_feliz_mediodia_v2.png",
+      "original_sha256": "45fad1dd073a34189ee9518cf8bbadd24e5b0f8468c6632126de808c8a158b6c",
+      "edited_sha256": "c048f314f994d5c6266f61538f432a4e75ff8680708ae8ab6643579b533b9308"
+    },
+    {
+      "index": 2,
+      "source": "D:/Proyectos Unity/OneHandPuzzle/Assets/Art/Ayame/PrincipalExpressions/Ayame_simpatica_mediodia_v2.png",
+      "output": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-a673638a-7bec-4e92-a0fb-c94a2ca92516.png",
+      "hint": "Generated images are saved to C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e as C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-a673638a-7bec-4e92-a0fb-c94a2ca92516.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "project_asset": "Assets/Art/Ayame/PrincipalExpressions/Ayame_simpatica_mediodia_v2.png",
+      "backup": "Logs/ArtBackups/AyameEyes-20261124-130826-520141/PrincipalExpressions/Ayame_simpatica_mediodia_v2.png",
+      "original_sha256": "05e7006bd57917b2d90e1569fe2da6519c8604c4b45a873530efb4fc6a84f430",
+      "edited_sha256": "8b4047900a7b60390a06d0521fcbf009393ba6246604e42647e1f70fe72bc37e"
+    },
+    {
+      "index": 4,
+      "source": "D:/Proyectos Unity/OneHandPuzzle/Assets/Art/Ayame/PrincipalExpressions/Ayame_aburrimiento_mediodia_v2.png",
+      "output": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-4152b150-fab7-4075-b790-bc69fc0130eb.png",
+      "hint": "Generated images are saved to C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e as C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-4152b150-fab7-4075-b790-bc69fc0130eb.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "previous": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-8d73158f-37e4-4afe-bb05-217c2e80c2bc.png",
+      "prompt": "Use case: precise-object-edit. Edit the supplied EXISTING character sprite, not a new drawing. Ayame is an adult woman, age 18. Make exactly ONE correction: recolor ONLY the visible IRIS areas of BOTH eyes from charcoal/gray to a rich DARK NAVY BLUE, approximately #102A58 with subtle #254675 lower-iris shading, clearly blue but very dark. Preserve the black pupils, white sclera, catchlights, eyelids, eyelashes and the exact existing eye shape and gaze. Keep every other feature and region unchanged: facial expression, eyebrows, mouth, head angle, hair, skin color, blush, anatomy, opaque clothing, pose, hands, framing, canvas dimensions, character placement, outlines, shading, background and alpha silhouette. Do not enlarge or brighten the eyes, do not add makeup, do not open closed eyes. No new objects, text or watermark. Output one edited PNG with exactly the same canvas size and composition as this input. Critical: do not introduce any new colored or white fringe, patches, speckles, halos or marks anywhere outside the existing eye irises. The original transparent silhouette must be preserved exactly. This is a corrective retry: leave the transparent empty areas between arm and torso and around the outline completely untouched. Do NOT add yellow/red/white markings or any pixels to the background. Work from this ORIGINAL supplied sprite, not from a previous generated version. The sole visual change must be the dark blue irises; copy all other regions faithfully.",
+      "project_asset": "Assets/Art/Ayame/PrincipalExpressions/Ayame_aburrimiento_mediodia_v2.png",
+      "backup": "Logs/ArtBackups/AyameEyes-20261124-130826-520141/PrincipalExpressions/Ayame_aburrimiento_mediodia_v2.png",
+      "original_sha256": "c34b96f12b18e4397f525e72abd32a329c64a0f2c962b095ccd78d83ecb1be3d",
+      "edited_sha256": "78e21c8ff51ff8d7f7f0de0d4e67b5cd61afe612c9645dfa5f5d55293288c989"
+    },
+    {
+      "index": 5,
+      "source": "D:/Proyectos Unity/OneHandPuzzle/Assets/Art/Ayame/PrincipalExpressions/Ayame_sorpresa_mediodia_v2.png",
+      "output": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-20022a68-53f9-4788-bd25-64a84cd2e71d.png",
+      "hint": "Generated images are saved to C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e as C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-20022a68-53f9-4788-bd25-64a84cd2e71d.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "previous": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-924cea75-9a53-4acc-9cb7-42358a43881a.png",
+      "prompt": "Use case: precise-object-edit. Edit the supplied EXISTING character sprite, not a new drawing. Ayame is an adult woman, age 18. Make exactly ONE correction: recolor ONLY the visible IRIS areas of BOTH eyes from charcoal/gray to a rich DARK NAVY BLUE, approximately #102A58 with subtle #254675 lower-iris shading, clearly blue but very dark. Preserve the black pupils, white sclera, catchlights, eyelids, eyelashes and the exact existing eye shape and gaze. Keep every other feature and region unchanged: facial expression, eyebrows, mouth, head angle, hair, skin color, blush, anatomy, opaque clothing, pose, hands, framing, canvas dimensions, character placement, outlines, shading, background and alpha silhouette. Do not enlarge or brighten the eyes, do not add makeup, do not open closed eyes. No new objects, text or watermark. Output one edited PNG with exactly the same canvas size and composition as this input. Critical: do not introduce any new colored or white fringe, patches, speckles, halos or marks anywhere outside the existing eye irises. The original transparent silhouette must be preserved exactly. This is a corrective retry: leave the transparent empty areas between arm and torso and around the outline completely untouched. Do NOT add yellow/red/white markings or any pixels to the background. Work from this ORIGINAL supplied sprite, not from a previous generated version. The sole visual change must be the dark blue irises; copy all other regions faithfully.",
+      "project_asset": "Assets/Art/Ayame/PrincipalExpressions/Ayame_sorpresa_mediodia_v2.png",
+      "backup": "Logs/ArtBackups/AyameEyes-20261124-130826-520141/PrincipalExpressions/Ayame_sorpresa_mediodia_v2.png",
+      "original_sha256": "679525eabba2f3f540ac9777d0070731b9e8eb9297a1431245c0f97acf934eb4",
+      "edited_sha256": "f17445ea9ca6816a512a2ae1bfc5e4d08ba2368706d687c4bbce2bcb5004a557"
+    },
+    {
+      "index": 6,
+      "source": "D:/Proyectos Unity/OneHandPuzzle/Assets/Art/Ayame/PrincipalExpressions/Ayame_sueno_mediodia_v2.png",
+      "output": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-d144b2eb-7b34-415a-9486-8aefeebdc847.png",
+      "hint": "Generated images are saved to C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e as C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-d144b2eb-7b34-415a-9486-8aefeebdc847.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "project_asset": "Assets/Art/Ayame/PrincipalExpressions/Ayame_sueno_mediodia_v2.png",
+      "backup": "Logs/ArtBackups/AyameEyes-20261124-130826-520141/PrincipalExpressions/Ayame_sueno_mediodia_v2.png",
+      "original_sha256": "85fc009c95a889b9cc3e89e0c6ed2d61e112b0135044e9b2f6b5cd09743f9c72",
+      "edited_sha256": "15707b2d355c8617c182813c7c9c42af2cdf090d234502977c372897fe434396"
+    },
+    {
+      "index": 7,
+      "source": "D:/Proyectos Unity/OneHandPuzzle/Assets/Art/Ayame/PrincipalExpressions/Ayame_disculpa_mediodia.png",
+      "output": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-2536c71a-7843-4bb2-af37-ebc293fdcd4a.png",
+      "hint": "Generated images are saved to C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e as C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-2536c71a-7843-4bb2-af37-ebc293fdcd4a.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "project_asset": "Assets/Art/Ayame/PrincipalExpressions/Ayame_disculpa_mediodia.png",
+      "backup": "Logs/ArtBackups/AyameEyes-20261124-130826-520141/PrincipalExpressions/Ayame_disculpa_mediodia.png",
+      "original_sha256": "28000669265122249706c63e52fde47d72d529fa76ffc953cfc73e4ff7dc5938",
+      "edited_sha256": "922d416d070229e8b7b186cd843174f451cc5ec790f8d38e972ffb3f31a2b6fc"
+    },
+    {
+      "index": 8,
+      "source": "D:/Proyectos Unity/OneHandPuzzle/Assets/Art/Ayame/PrincipalExpressions/Ayame_desconcierto_mediodia.png",
+      "output": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-760c0798-526d-4964-9bbb-834e06ce8652.png",
+      "hint": "Generated images are saved to C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e as C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-760c0798-526d-4964-9bbb-834e06ce8652.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "project_asset": "Assets/Art/Ayame/PrincipalExpressions/Ayame_desconcierto_mediodia.png",
+      "backup": "Logs/ArtBackups/AyameEyes-20261124-130826-520141/PrincipalExpressions/Ayame_desconcierto_mediodia.png",
+      "original_sha256": "fd83d8f91f6c3d3ea216584217d1d2fe977036d3ec28de02e5f7a6a63b6171ca",
+      "edited_sha256": "4474d955e736444aa5acc6905b442b192053c9a03fb926fb3d0803a3cb93615b"
+    },
+    {
+      "index": 9,
+      "source": "D:/Proyectos Unity/OneHandPuzzle/Assets/Art/Ayame/PrincipalExpressions/Ayame_seguridad_mediodia.png",
+      "output": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-23d0504c-7664-451f-9570-c849f70bb293.png",
+      "hint": "Generated images are saved to C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e as C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-23d0504c-7664-451f-9570-c849f70bb293.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "project_asset": "Assets/Art/Ayame/PrincipalExpressions/Ayame_seguridad_mediodia.png",
+      "backup": "Logs/ArtBackups/AyameEyes-20261124-130826-520141/PrincipalExpressions/Ayame_seguridad_mediodia.png",
+      "original_sha256": "e2c3cb34f675da1f98d16035454ce3b1770c1cbb79ef0721a0a6cea298613817",
+      "edited_sha256": "716b90e25303bdfe4e4139c1cb689627b66d1d9bf7dc1511eb6b351cf3283ebe"
+    },
+    {
+      "index": 10,
+      "source": "D:/Proyectos Unity/OneHandPuzzle/Assets/Art/Ayame/PrincipalExpressions/Ayame_seria_mediodia_v2.png",
+      "output": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-dffe01ea-4133-46b8-88f2-33b987e0e1fe.png",
+      "hint": "Generated images are saved to C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e as C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-dffe01ea-4133-46b8-88f2-33b987e0e1fe.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "project_asset": "Assets/Art/Ayame/PrincipalExpressions/Ayame_seria_mediodia_v2.png",
+      "backup": "Logs/ArtBackups/AyameEyes-20261124-130826-520141/PrincipalExpressions/Ayame_seria_mediodia_v2.png",
+      "original_sha256": "88e0fc1d493eae0654193d5016c5ee5b5a83413ec5195de3a48b79996f7b184c",
+      "edited_sha256": "d3d023116dfeb85a7897af0edcfb580eccacf920886f5c3dec3cb5524492e29f"
+    },
+    {
+      "index": 11,
+      "source": "D:/Proyectos Unity/OneHandPuzzle/Assets/Art/Ayame/PrincipalExpressions/Ayame_preocupacion_mediodia.png",
+      "output": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-b7cd2394-4bbe-4722-8b93-83af7032df03.png",
+      "hint": "Generated images are saved to C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e as C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-b7cd2394-4bbe-4722-8b93-83af7032df03.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "project_asset": "Assets/Art/Ayame/PrincipalExpressions/Ayame_preocupacion_mediodia.png",
+      "backup": "Logs/ArtBackups/AyameEyes-20261124-130826-520141/PrincipalExpressions/Ayame_preocupacion_mediodia.png",
+      "original_sha256": "1380f7fd80a22c59cdffe404fbbe541e56db3015360b99559ef11002850bfc52",
+      "edited_sha256": "693c1e0309811e09389fd2fe49b5805047eb89fdc67cf54c0a1995a744f9018d"
+    },
+    {
+      "index": 12,
+      "source": "D:/Proyectos Unity/OneHandPuzzle/Assets/Art/Ayame/BathOutfit/Ayame_toalla_mediodia.png",
+      "output": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-93156605-591a-43fa-9810-f83c53ecbf42.png",
+      "hint": "Generated images are saved to C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e as C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a207e3-3dd0-75c0-a1e1-170dfc6a426e\\exec-93156605-591a-43fa-9810-f83c53ecbf42.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+      "project_asset": "Assets/Art/Ayame/BathOutfit/Ayame_toalla_mediodia.png",
+      "backup": "Logs/ArtBackups/AyameEyes-20261124-130826-520141/BathOutfit/Ayame_toalla_mediodia.png",
+      "original_sha256": "3d0b0628233a01647513106c47df90da8b976a35ee3127603c0d7a674873c059",
+      "edited_sha256": "85fdfacab40a686cc1d24b0a3826597e42112ed45504fd8ed2e0ad00d081aaa9"
+    }
+  ],
+  "backup_directory": "Logs/ArtBackups/AyameEyes-20261124-130826-520141",
+  "validation": {
+    "edited_portraits": 12,
+    "closed_eyes_portrait_preserved": true,
+    "original_dimensions_preserved": true,
+    "sprite_rectangles_fit": true,
+    "unity_metadata_unchanged": true,
+    "all_game_data_unchanged": true
+  }
+}

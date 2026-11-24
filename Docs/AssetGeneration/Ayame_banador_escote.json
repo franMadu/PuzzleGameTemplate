@@ -1,0 +1,6 @@
+{
+  "tool": "built-in image_gen",
+  "prompt": "Use case: identity-preserve. Edit the supplied adult woman character sprite. Tailoring change ONLY: slightly reduce the amount of fabric in the upper portion of the grayish-blue one-piece swimsuit by lowering its rounded scoop neckline a small amount, and making the shoulder straps slightly slimmer. A normal supportive conventional one-piece swimsuit with complete opaque coverage of the breasts, no nudity, no see-through material or intimate anatomical details. Neutral nonsexual apparel design reference. Keep her actual body anatomy and proportions exactly unchanged, and preserve her face, navy blue eyes, black hair, tan skin, expression, standing pose, anime art style, lighting, existing leg cut, waist, stitching, fabric folds and grayish blue color. Keep the original mid-thigh framing, character position and 1254x1254 transparent canvas. Do not change any other part of the image. Clean alpha edges.",
+  "output": "Assets/Art/Ayame/SwimOutfit/Ayame_banador_azul_grisaceo_mediodia.png",
+  "transparent_background": true
+}

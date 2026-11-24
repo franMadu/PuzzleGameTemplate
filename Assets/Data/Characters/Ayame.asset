@@ -20,6 +20,10 @@ MonoBehaviour:
     portrait: {fileID: -1067827879, guid: ee0c881265034e93b1b0683a6b790269, type: 3}
     facing: 0
     expressions: []
+  - id: banador
+    portrait: {fileID: -1067827879, guid: 9d5b1df97dac4db78c5bf25073ba9445, type: 3}
+    facing: 0
+    expressions: []
   expressions:
   - id: seria
     portrait: {fileID: -1067827879, guid: 2ab41d1ff597415bbbb37b52a3ddb528, type: 3}
@@ -41,3 +45,5 @@ MonoBehaviour:
     portrait: {fileID: -1067827879, guid: 45b0cf1df2d04f739a3e85e661b65594, type: 3}
   - id: seguridad
     portrait: {fileID: -1067827879, guid: 58cd737013ed47f9ae9111d7433bdfa6, type: 3}
+  - id: preocupacion
+    portrait: {fileID: -1067827879, guid: 0cad74b3c37e48b991ba14feb3fef87b, type: 3}

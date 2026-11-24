@@ -1,0 +1,7 @@
+{
+  "tool": "built-in image_gen",
+  "prompt": "Use case: identity-preserve. Edit the provided adult woman character sprite only to refine the tailoring of her opaque grayish blue one-piece swimsuit. Make the garment fit a little more closely at the waist with natural small tension folds near the side seams and hips, softly shaded matte stretch fabric, and subtle realistic stitching. Retain some fabric folds instead of making a completely smooth airbrushed surface. Fully lined opaque conventional sports swimwear, no transparency and no intimate anatomical details. Neutral nonsexual standing character reference. Keep her face, dark navy blue eyes, black hair, skin tone, body proportions, expression, pose, original neckline and coverage, anime linework, lighting, framing and character scale unchanged. Do not enlarge or reshape anatomy. Transparent background and clean alpha contour; exact 1254x1254 canvas.",
+  "reference": "Assets/Art/Ayame/SwimOutfit/Ayame_banador_azul_grisaceo_mediodia.png",
+  "output": "Assets/Art/Ayame/SwimOutfit/Ayame_banador_azul_grisaceo_mediodia.png",
+  "transparent_background": true
+}

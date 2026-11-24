@@ -52,6 +52,12 @@ MonoBehaviour:
       portrait: {fileID: 359066512, guid: b4ba839b71804761a4875568b6ac6f22, type: 3}
     - id: inseguridad
       portrait: {fileID: 359066512, guid: 70668ef3874b478bbc118ab678db8bff, type: 3}
+    - id: muy_avergonzado
+      portrait: {fileID: 359066512, guid: b106bd73e1a24c35b3ed6f90228d19e2, type: 3}
+  - id: banador
+    portrait: {fileID: 870320369, guid: d910089352854416aa47dafaa344c61a, type: 3}
+    facing: 1
+    expressions: []
   expressions:
   - id: seria
     portrait: {fileID: 359066512, guid: ccfdfa878b4347cea4fa8825fa1bdddf, type: 3}

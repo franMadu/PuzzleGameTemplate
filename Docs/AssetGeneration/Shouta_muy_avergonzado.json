@@ -1,0 +1,9 @@
+{
+  "tool": "built-in image_gen",
+  "prompt": "Use case: identity-preserve. Edit only the facial expression of this fully clothed anime game character sprite. Shouta looks extremely embarrassed after a socially awkward moment: deep red blushing across the ENTIRE FACE, cheeks, nose, forehead, chin and visible ears, shy averted eyes, raised worried eyebrows, small tense mouth, a tiny nervous sweat drop. Express comic social embarrassment, not anger or illness. Keep the face readable with natural red shading rather than a flat red mask. Preserve his exact face shape, gray-violet eyes, tousled black hair, head size, compact proportions, standing pose, red basketball tank top, black shorts, black headphones around his neck, original anime linework and lighting. Neutral nonsexual fully clothed character illustration. Exact same 887x1774 transparent canvas, framing and character position. No background, halo, text or additional items. Only change facial expression and full-face blush.",
+  "reference": "Assets/Art/Shouta/StreetOutfit/Shouta_baloncesto_inseguridad_mediodia.png",
+  "output": "Assets/Art/Shouta/StreetOutfit/Shouta_baloncesto_muy_avergonzado_mediodia.png",
+  "outfit_id": "baloncesto",
+  "expression_id": "muy_avergonzado",
+  "transparent_background": true
+}

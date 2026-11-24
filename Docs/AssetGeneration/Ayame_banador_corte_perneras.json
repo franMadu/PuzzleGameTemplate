@@ -1,0 +1,7 @@
+{
+  "tool": "built-in image_gen",
+  "prompt": "Use case: identity-preserve. Edit target: this adult woman anime character sprite in a muted grayish blue opaque one-piece swimsuit. Change only the leg-opening tailoring: raise the outer sides of the two leg openings slightly for a conventional moderately high-leg athletic swimsuit cut. Keep the central front panel fully covering the groin, with normal lined opaque fabric and no intimate anatomical details. Not an extreme cut or thong. Preserve the swimsuit color, neckline, shoulder straps, fine stitching, natural fabric folds and matte material. Preserve the exact adult character's face, navy blue eyes, hair, skin tone, body proportions, neutral standing pose and expression, lighting, anime style, framing and scale. Nonsexual catalog-style character reference. Transparent background, clean alpha edges, exact 1254x1254 canvas. No other changes.",
+  "reference": "Assets/Art/Ayame/SwimOutfit/Ayame_banador_azul_grisaceo_mediodia.png",
+  "output": "Assets/Art/Ayame/SwimOutfit/Ayame_banador_azul_grisaceo_mediodia.png",
+  "transparent_background": true
+}

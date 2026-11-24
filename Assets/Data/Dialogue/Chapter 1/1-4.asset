@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd5e33e446cc4bc88bde152074d89f2a, type: 3}
   m_Name: 1-4
   m_EditorClassIdentifier: Assembly-CSharp::DialogueSequence
-  background: {fileID: 0}
+  background: {fileID: 2800000, guid: 27b2fd31505d4cb1b184ca32befc4c0c, type: 3}
   music: {fileID: 0}
   characters:
   - {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
@@ -23,27 +23,41 @@ MonoBehaviour:
     outfit: 
   - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
     outfit: baloncesto
-  initialExpressions: []
+  initialExpressions:
+  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    expression: simpatica
+  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    expression: resignacion
   leftCharacter: {fileID: 0}
   rightCharacter: {fileID: 0}
   leftCharacterFacing: 0
   rightCharacterFacing: 0
   lines:
-  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
     outfit: 
-    expression: 
+    expression: simpatica
     reactions: []
     speaker: 
-    text: Bienvenido, sientete como en casa.
+    text: "Bienvenido, si\xE9ntete como en casa."
     isThought: 0
     speakerSide: 0
     leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
     hideLeftCharacter: 0
     hideRightCharacter: 0
-  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
     outfit: 
-    expression: 
+    expression: ironia
     reactions: []
     speaker: 
     text: "Ojal\xE1..."
@@ -53,10 +67,17 @@ MonoBehaviour:
     rightCharacter: {fileID: 0}
     hideLeftCharacter: 0
     hideRightCharacter: 0
-  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
     outfit: 
-    expression: 
-    reactions: []
+    expression: desconcierto
+    reactions:
+    - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+      expression: inseguridad
     speaker: 
     text: "\xBFUm? \xBFHas dicho algo?"
     isThought: 0
@@ -65,9 +86,14 @@ MonoBehaviour:
     rightCharacter: {fileID: 0}
     hideLeftCharacter: 0
     hideRightCharacter: 0
-  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
     outfit: 
-    expression: 
+    expression: inseguridad
     reactions: []
     speaker: 
     text: No, esto...
@@ -77,60 +103,83 @@ MonoBehaviour:
     rightCharacter: {fileID: 0}
     hideLeftCharacter: 0
     hideRightCharacter: 0
-  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
     outfit: 
-    expression: 
+    expression: default
     reactions: []
     speaker: 
-    text: Creo... Si recuerdo esta casa. No ha cambiado mucho.
+    text: La casa. No ha cambiado nada.
     isThought: 0
     speakerSide: 0
     leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
     hideLeftCharacter: 0
     hideRightCharacter: 0
-  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
     outfit: 
-    expression: 
+    expression: seria
     reactions: []
     speaker: 
-    text: "A la abuela le gusta tal y como est\xE1. Aunque siendo sinceros la he
-      modernizado un poco. Hace unos meses que la convenc\xED para que tirara un
-      VHS y se comprara una televis\xF3n oled."
+    text: "A la abuela le gusta tal y como est\xE1. Y es muy cabezota cuando intento
+      cambiar algo."
     isThought: 0
     speakerSide: 0
     leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
     hideLeftCharacter: 0
     hideRightCharacter: 0
-  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
     outfit: 
-    expression: 
+    expression: ironia
     reactions: []
     speaker: 
-    text: Cosa de abuelas imagino.
+    text: Cosa de abuelas, imagino.
     isThought: 0
     speakerSide: 0
     leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
     hideLeftCharacter: 0
     hideRightCharacter: 0
-  - character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
     outfit: 
-    expression: 
+    expression: simpatica
     reactions: []
     speaker: 
-    text: "Aqu\xED a la derecha tienes el sal\xF3n. Al fondo est\xE1 la lavabo y
-      el ba\xF1o. Arriba est\xE1n las habitaciones. Ven te ense\xF1ar\xE9 la tuya."
+    text: "Ven, deja ah\xED la maleta. Te ense\xF1ar\xE9 la casa."
     isThought: 0
     speakerSide: 0
     leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
     hideLeftCharacter: 0
     hideRightCharacter: 0
-  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
     outfit: 
-    expression: 
+    expression: default
     reactions: []
     speaker: 
     text: Te sigo.
@@ -140,40 +189,319 @@ MonoBehaviour:
     rightCharacter: {fileID: 0}
     hideLeftCharacter: 0
     hideRightCharacter: 0
-  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+  - background: {fileID: 2800000, guid: 6871cb5a3179a3743ad2913b7274f69a, type: 3}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
     outfit: 
-    expression: 
+    expression: seguridad
     reactions: []
     speaker: 
-    text: (Cojo en peso mi maleta y empiezo a subir las estrechas escaleras.)
+    text: "Este es el sal\xF3n. Sigue siendo tradicional, pero, siendo sinceros,
+      lo he modernizado un poco. Hace unos meses que la convenc\xED para que tirara
+      un reproductor de VHS y se comprara una televisi\xF3n OLED."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: default
+    reactions: []
+    speaker: 
+    text: "Me acuerdo de que pas\xE1bamos las tardes aqu\xED haciendo manualidades."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: neutra_feliz
+    reactions: []
+    speaker: 
+    text: "La abuela todav\xEDa conserva algunos de nuestros dibujos. Tengo que ense\xF1\xE1rtelos
+      un d\xEDa de estos."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: ironia
+    reactions: []
+    speaker: 
+    text: Creo que sigo dibujando igual de mal que por entonces.
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: simpatica
+    reactions: []
+    speaker: 
+    text: "A m\xED se me da bastante bien. Un d\xEDa podr\xEDa dibujarte un retrato."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: default
+    reactions: []
+    speaker: 
+    text: "S\xED, claro, \xBFpor qu\xE9 no?"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 2800000, guid: 42322801ed74c4148b5266a3ea53c793, type: 3}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: neutra_feliz
+    reactions: []
+    speaker: 
+    text: "Aqu\xED est\xE1 el ba\xF1o. Esto s\xED que no ha cambiado nada. \xBFTe
+      acuerdas cuando nos ba\xF1\xE1bamos juntos?"
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: sorpresa_contenida
+    reactions: []
+    speaker: 
+    text: "(Menudas preguntas tan extra\xF1as hace.)"
     isThought: 1
     speakerSide: 0
     leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
     hideLeftCharacter: 0
     hideRightCharacter: 0
-  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
     outfit: 
-    expression: 
+    expression: inseguridad
+    reactions: []
+    speaker: 
+    text: "Esto\u2026 No, creo que de eso no me acuerdo."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: simpatica
+    reactions: []
+    speaker: 
+    text: "Siempre te enfadabas si no pod\xEDas ba\xF1arte conmigo."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: resignacion
+    reactions: []
+    speaker: 
+    text: "Supongo que era muy peque\xF1o y me enfadaba con facilidad."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: disculpa
+    reactions: []
+    speaker: 
+    text: "Perdona, me pongo a hablar y no paro. Ven, vamos a ver tu habitaci\xF3n."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 2800000, guid: 6c01f35ca03447bf97cf039047027e76, type: 3}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 2cc228ba2da24648935c80e69a2da2ad, type: 2}
+    outfit: 
+    expression: simpatica
+    reactions: []
+    speaker: 
+    text: "Coge la maleta, tu habitaci\xF3n est\xE1 arriba, la cama todav\xEDa no
+      est\xE1 preparada, pero est\xE1 limpia."
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: default
+    reactions: []
+    speaker: 
+    text: No te preocupes, puedo hacerme la cama.
+    isThought: 0
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: resignacion
+    reactions: []
+    speaker: 
+    text: (Cojo en peso mi maleta y empiezo a subir las estrechas escaleras siguiendo
+      a Ayame.)
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: aburrimiento
     reactions: []
     speaker: 
     text: "(Pienso en lo largas que se me van a hacer estas dos semanas. Ayame no
-      parece la t\xEDpica chica que le gusten los videojuegos y hace a\xF1o que no
-      nos vemos. No s\xE9 de que hablar con ella sin que acabemos hablando de sus
-      padres.)"
+      parece la t\xEDpica chica a la que le gusten los videojuegos y hace a\xF1os
+      que no nos vemos. No s\xE9 de qu\xE9 hablar con ella sin acabar hablando de
+      sus padres.)"
     isThought: 1
     speakerSide: 0
     leftCharacter: {fileID: 0}
     rightCharacter: {fileID: 0}
     hideLeftCharacter: 0
     hideRightCharacter: 0
-  - character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
     outfit: 
-    expression: 
+    expression: sorpresa_contenida
     reactions: []
     speaker: 
-    text: (Estoy tan absorto en mis pensamientos que no me doy cuenta en lo rapido
-      que subo las escaleras. Cuando miro hacia arriba lo tengo justo en mis narices.)
+    text: "(Estoy tan absorto en mis pensamientos que no me doy cuenta en lo r\xE1pido
+      que subo las escaleras. Cuando miro hacia arriba lo tengo justo en mis narices.)"
+    isThought: 1
+    speakerSide: 0
+    leftCharacter: {fileID: 0}
+    rightCharacter: {fileID: 0}
+    hideLeftCharacter: 0
+    hideRightCharacter: 0
+  - background: {fileID: 0}
+    musicAction: 0
+    music: {fileID: 0}
+    soundEffect: {fileID: 0}
+    soundEffectVolume: 1
+    character: {fileID: 11400000, guid: 1665d2ed1296b4d4598f2f6b08458726, type: 2}
+    outfit: 
+    expression: estupor
+    reactions: []
+    speaker: 
+    text: "(Hasta ahora solo me hab\xEDa fijado en la parte delantera, pero tambi\xE9n
+      se ha mojado la parte de atr\xE1s de la camiseta. Es una camiseta larga que
+      le llega hasta los muslos. La parte baja se ha pegado a su trasero y ahora
+      lo tengo a un palmo de mi cara.)"
     isThought: 1
     speakerSide: 0
     leftCharacter: {fileID: 0}
