@@ -1,0 +1,12 @@
+﻿{
+  "tool": "built-in image_gen",
+  "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-105dd6cb-d1e0-40bc-88c9-1da5be9e59f3.png",
+  "prompt": "Use case: precise-object-edit. Asset type: empty visual novel living room background, wide landscape 1672x941. Input image 1 is the EDIT TARGET, the Japanese traditional-modern fusion living room. Input image 2 is a supporting reference for the sensible furniture arrangement and leafy garden setting of the modern living room. Revise image 1 with these three required changes: (1) Remove every video game controller from the coffee table, leaving the tea set, flowers and traditional table decoration. No gamepads anywhere in view. (2) Replace the beach/ocean exterior with a lush enclosed Japanese residential garden like image 2, green trees and bamboo, hydrangeas, a small stone garden lantern, and wood veranda. Absolutely no beach, sand, ocean, sea horizon or coastal view. (3) Rearrange the seating so the cream sofa DIRECTLY FACES the television across the coffee table, like the clear arrangement of image 2: sofa on the left facing right, television and wood media cabinet on the right facing left, with the tea table between them. This is vital: a seated person looking straight ahead from the sofa looks directly at the TV screen. Keep the seats, screen and table at coherent angles and scale. Retain the distinct fusion identity of image 1: traditional tatami flooring edged in dark blue, exposed honey wood posts and ceiling beams, cream walls, shoji sliding screens, tokonoma alcove with wave hanging scroll and bonsai, low tea table with blue-white ceramics, burgundy zabuton floor cushions, plants and woven baskets, and modern cream upholstered sofa with blue and coral cushions and flat screen TV. Recompose the room as needed to accomplish facing furniture, preserve rich detail and polished clean hand-painted anime game background style. Keep the kitchen a separate room, do not show kitchen appliances or kitchen/dining area. Empty room without people or animals. Bright inviting midday natural sunlight from garden windows, warm woods and cream palette, coherent perspective, full bleed opaque landscape background, no text, no watermarks.",
+  "target": "Assets/Art/Backgrounds/Salon_fusion/Salon_fusion_mediodia.png",
+  "changes": [
+    "Remove game controllers",
+    "Garden exterior replacing beach",
+    "Sofa facing television"
+  ],
+  "backup": "Docs/AssetGeneration/Backups/Salon_fusion_mediodia_antes_jardin_20261126.png"
+}

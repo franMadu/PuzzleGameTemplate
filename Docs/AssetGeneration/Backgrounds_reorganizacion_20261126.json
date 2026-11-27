@@ -1,0 +1,156 @@
+{
+  "moves": [
+    {
+      "from": "Assets/Art/Backgrounds/BañoNoche.png",
+      "to": "Assets/Art/Backgrounds/Bano/BañoNoche.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/BañoTarde.png",
+      "to": "Assets/Art/Backgrounds/Bano/BañoTarde.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Camino_bosque_tropical_mediodia.png",
+      "to": "Assets/Art/Backgrounds/Camino_bosque_tropical/Camino_bosque_tropical_mediodia.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Camino_bosque_tropical_noche.png",
+      "to": "Assets/Art/Backgrounds/Camino_bosque_tropical/Camino_bosque_tropical_noche.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Camino_bosque_tropical_tarde.png",
+      "to": "Assets/Art/Backgrounds/Camino_bosque_tropical/Camino_bosque_tropical_tarde.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Cuarto_Shouta_mediodia.png",
+      "to": "Assets/Art/Backgrounds/Cuarto_Shouta/Cuarto_Shouta_mediodia.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Cuarto_Shouta_noche.png",
+      "to": "Assets/Art/Backgrounds/Cuarto_Shouta/Cuarto_Shouta_noche.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Cuarto_Shouta_tarde.png",
+      "to": "Assets/Art/Backgrounds/Cuarto_Shouta/Cuarto_Shouta_tarde.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Entrada Japonesa Frente al Mar.png",
+      "to": "Assets/Art/Backgrounds/Entrada_casa/Entrada Japonesa Frente al Mar.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/EntradaBañoMañana.png",
+      "to": "Assets/Art/Backgrounds/Entrada_bano/EntradaBañoMañana.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/EntradaBañoNoche.png",
+      "to": "Assets/Art/Backgrounds/Entrada_bano/EntradaBañoNoche.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/EntradaBañoTarde.png",
+      "to": "Assets/Art/Backgrounds/Entrada_bano/EntradaBañoTarde.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Escaleras_casa_mediodia.png",
+      "to": "Assets/Art/Backgrounds/Escaleras_casa/Escaleras_casa_mediodia.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Escaleras_casa_noche.png",
+      "to": "Assets/Art/Backgrounds/Escaleras_casa/Escaleras_casa_noche.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Escaleras_casa_tarde.png",
+      "to": "Assets/Art/Backgrounds/Escaleras_casa/Escaleras_casa_tarde.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Gruta_tras_cascada_mediodia.png",
+      "to": "Assets/Art/Backgrounds/Gruta/Gruta_tras_cascada_mediodia.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Imagen de ChatGPT 18 nov 2026, 14_03_36-2.png",
+      "to": "Assets/Art/Backgrounds/Cuarto_rosa/Imagen de ChatGPT 18 nov 2026, 14_03_36-2.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Imagen de ChatGPT 18 nov 2026, 14_03_38-3.png",
+      "to": "Assets/Art/Backgrounds/Bano/Imagen de ChatGPT 18 nov 2026, 14_03_38-3.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Imagen de ChatGPT 18 nov 2026, 14_03_51-1.png",
+      "to": "Assets/Art/Backgrounds/Entrada_casa/Imagen de ChatGPT 18 nov 2026, 14_03_51-1.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Imagen de ChatGPT 18 nov 2026, 14_03_53-2.png",
+      "to": "Assets/Art/Backgrounds/Entrada_casa/Imagen de ChatGPT 18 nov 2026, 14_03_53-2.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Imagen de ChatGPT 18 nov 2026, 14_03_55-3.png",
+      "to": "Assets/Art/Backgrounds/Cuarto_rosa/Imagen de ChatGPT 18 nov 2026, 14_03_55-3.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Imagen de ChatGPT 18 nov 2026, 14_03_56-4.png",
+      "to": "Assets/Art/Backgrounds/Cuarto_rosa/Imagen de ChatGPT 18 nov 2026, 14_03_56-4.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Imagen de ChatGPT 18 nov 2026, 14_45_08.png",
+      "to": "Assets/Art/Backgrounds/Salon_cocina/Imagen de ChatGPT 18 nov 2026, 14_45_08.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Imagen de ChatGPT 18 nov 2026, 14_45_15.png",
+      "to": "Assets/Art/Backgrounds/Salon_cocina/Imagen de ChatGPT 18 nov 2026, 14_45_15.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Imagen de ChatGPT 18 nov 2026, 14_45_21.png",
+      "to": "Assets/Art/Backgrounds/Salon_cocina/Imagen de ChatGPT 18 nov 2026, 14_45_21.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Interior Coche Asientos Traseros.png",
+      "to": "Assets/Art/Backgrounds/Interior_coche/Interior Coche Asientos Traseros.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Lago_cascada_bosque_tropical_mediodia.png",
+      "to": "Assets/Art/Backgrounds/Lago_cascada/Lago_cascada_bosque_tropical_mediodia.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Playa_desierta_mediodia.png",
+      "to": "Assets/Art/Backgrounds/Playa/Playa_desierta_mediodia.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Playa_desierta_noche.png",
+      "to": "Assets/Art/Backgrounds/Playa/Playa_desierta_noche.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Playa_desierta_tarde.png",
+      "to": "Assets/Art/Backgrounds/Playa/Playa_desierta_tarde.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Salón japonés con vistas al mar.png",
+      "to": "Assets/Art/Backgrounds/Salon_tatami/Salón japonés con vistas al mar.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Salón japonés nocturno bajo la luna-3.png",
+      "to": "Assets/Art/Backgrounds/Salon_tatami/Salón japonés nocturno bajo la luna-3.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Salón tatami con vistas al mar-1.png",
+      "to": "Assets/Art/Backgrounds/Salon_tatami/Salón tatami con vistas al mar-1.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Salón tatami japonés al atardecer-2.png",
+      "to": "Assets/Art/Backgrounds/Salon_tatami/Salón tatami japonés al atardecer-2.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Lago_cascada_bosque_tropical_tarde.png",
+      "to": "Assets/Art/Backgrounds/Lago_cascada/Lago_cascada_bosque_tropical_tarde.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Lago_cascada_bosque_tropical_noche.png",
+      "to": "Assets/Art/Backgrounds/Lago_cascada/Lago_cascada_bosque_tropical_noche.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Gruta_tras_cascada_tarde.png",
+      "to": "Assets/Art/Backgrounds/Gruta/Gruta_tras_cascada_tarde.png"
+    },
+    {
+      "from": "Assets/Art/Backgrounds/Gruta_tras_cascada_noche.png",
+      "to": "Assets/Art/Backgrounds/Gruta/Gruta_tras_cascada_noche.png"
+    }
+  ]
+}

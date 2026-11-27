@@ -1,0 +1,10 @@
+{
+  "tool": "built-in image_gen",
+  "use_case": "identity-preserve",
+  "edit_target": "Assets/Art/Ayame/SwimOutfit/Ayame_banador_azul_grisaceo_mediodia.png",
+  "outfit_reference": "Assets/Art/Puzle/Chapter 2/2-2/ComfyUI_temp_npzvm_00427_.png",
+  "output": "Assets/Art/Ayame/SwimOutfit/Ayame_banador_azul_grisaceo_mediodia.png",
+  "outfit_id": "banador",
+  "transparent_background": true,
+  "prompt": "Use case: identity-preserve. Asset type: transparent visual novel character sprite. Input image 1 is the edit target, the existing standing Ayame sprite. Input image 2 is the outfit reference from chapter 2-2. Change ONLY the clothing of image 1 to match the COMPLETE outfit in image 2: an opaque glossy deep navy blue athletic one-piece swimsuit, with the same curved white/light silver side panels along the bust sides, waist and hips, same high upper-chest neckline and shoulder straps, plus a loose white long-sleeved button-down shirt worn completely open over the swimsuit, untucked and reaching the upper thighs, cuffs at wrists, just like the reference. Adapt the clothing to the existing hands-behind-back standing pose of image 1. Ayame is an adult woman. Preserve image 1's exact face, dark navy eyes, black shoulder-length hair and top tuft, soft smile, tan skin, anatomy and proportions, three-quarter orientation, hands-behind-back pose, line art, rendering style and daytime lighting. Do not copy the reference scene, gesture or expression. Neutral standing game sprite. Preserve the original square 1254x1254 canvas, character position and scale, head margin and mid-thigh framing. Entire shirt must fit horizontally within the canvas. Real transparent alpha background, clean antialiased silhouette with no colored fringe. No scene, props, lettering or watermark. Only clothing changes."
+}

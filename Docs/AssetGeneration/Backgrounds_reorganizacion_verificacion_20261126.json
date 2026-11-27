@@ -1,0 +1,230 @@
+﻿[
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\BañoNoche.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Bano\\BañoNoche.png",
+        "ImageHash":  "0B85ECD7CEFA2AD5A8B21A8FA73B5FCAF63CFB0C14611BD1E74551F4F3CAE937",
+        "MetaHash":  "613A9E15BEFF874EDD65E38B563E057BC56CC0A6D2812B595BF1594E96545531"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\BañoTarde.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Bano\\BañoTarde.png",
+        "ImageHash":  "431376DD39733DD180F655B7F61779E4E4510C093F5A86E1DD960C3FB45A5EF7",
+        "MetaHash":  "86F2F721431AF3834692D0D1EB37ED121A25895F5D688478255875B73241769E"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Camino_bosque_tropical_mediodia.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Camino_bosque_tropical\\Camino_bosque_tropical_mediodia.png",
+        "ImageHash":  "A7EAAA42A27D359EF548B5AAA22C4715D349E7406DC1A40770BF063C82CE626F",
+        "MetaHash":  "B41125BF2E340A624C32EF1F25FA549FE474DDF4AF73B54CF9666F8CC982825C"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Camino_bosque_tropical_noche.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Camino_bosque_tropical\\Camino_bosque_tropical_noche.png",
+        "ImageHash":  "7E2B6DCE7D33074D628B49AFF3BE264F14A9A82FD077665CF3FA6BF156013BAF",
+        "MetaHash":  "D8AEA8A58F00A4FFEDCBD0DEA758AB28848DED56B8B8062A6A0733A637EC60D3"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Camino_bosque_tropical_tarde.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Camino_bosque_tropical\\Camino_bosque_tropical_tarde.png",
+        "ImageHash":  "20DFA0536598469632044E935FF056C821D31FFFFB818235C7C3C22D04DD7DFA",
+        "MetaHash":  "038D1188EB3D1658B0691C0DA9FE38C74AC2E4F74BB9720F5DE8EAB7F043F3A5"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Cuarto_Shouta_mediodia.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Cuarto_Shouta\\Cuarto_Shouta_mediodia.png",
+        "ImageHash":  "6F494816DB61BC72834E1B390CA5DCFC27EEE7BAC4C3E96BD4D3B77484628D1F",
+        "MetaHash":  "538718B16BD8EAB2C1A8EFBF50C49B8A9CD60D5679A542E53710C8F23B3843F1"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Cuarto_Shouta_noche.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Cuarto_Shouta\\Cuarto_Shouta_noche.png",
+        "ImageHash":  "E0A74539621559C12449E76B7528F2B5569206A5791F30439235504D44AF102A",
+        "MetaHash":  "C9D773768226878AC760B78E7546837EEA5883001A2E64CE94D70AD553634E69"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Cuarto_Shouta_tarde.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Cuarto_Shouta\\Cuarto_Shouta_tarde.png",
+        "ImageHash":  "B62F4FA540819140B96B0E52993BFCEEE915A3027D7E38DA41DA08B24CC99BD5",
+        "MetaHash":  "B0420AE09B68BF087BC2F111551FC2B19ECF9A9D2596784C2EC2434B89DD2932"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Entrada Japonesa Frente al Mar.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Entrada_casa\\Entrada Japonesa Frente al Mar.png",
+        "ImageHash":  "6D5BA2EC3AC8C899BAE6ADACF5076060B477307F2B9E57499D1F295AE8A4F9AC",
+        "MetaHash":  "27A41BC582192DA1A259A446DE8F6DA3C01EAC5E2A4E65059A9D7B8C0BF39BFE"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\EntradaBañoMañana.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Entrada_bano\\EntradaBañoMañana.png",
+        "ImageHash":  "81DE9F98F22BB3F2A32B786D6A52CFE51030152C2FC23C992C1674231ACE6B0B",
+        "MetaHash":  "D5B8EB0233CFBC9A9833BC6FBA5B11D302AE245537F734D44374A77673105D65"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\EntradaBañoNoche.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Entrada_bano\\EntradaBañoNoche.png",
+        "ImageHash":  "9C4BC53EF5ABDC49736594DE27125A03F5C61C03B68EBFC947C3FBB905E3727B",
+        "MetaHash":  "ECA6E14AA381C75FD07428A4F36EEE4D326912D4F0335B5C0194A0D43096302B"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\EntradaBañoTarde.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Entrada_bano\\EntradaBañoTarde.png",
+        "ImageHash":  "CAB2DE9D8DE1FC8E7B96F786013E98D8DD23C64E98B7393F35A506338C775441",
+        "MetaHash":  "AA6EF58148FDF675F77B0C6C158854A970CDD9020689548D868C40FF1CE7A569"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Escaleras_casa_mediodia.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Escaleras_casa\\Escaleras_casa_mediodia.png",
+        "ImageHash":  "380F871AAA83A8D850E38501B22A467775FA0B8F2241B35D3DFE73CBCAD10C72",
+        "MetaHash":  "80F327FF378C9D8536F69C6DFAF8E0FD7C2B62E09EA5B6FE2D5E83E1ACEA100A"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Escaleras_casa_noche.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Escaleras_casa\\Escaleras_casa_noche.png",
+        "ImageHash":  "7DD5AEB941E9739533788BB81F6823AD76D3B6F415C58BD4AC4CFC7F4AA541BF",
+        "MetaHash":  "E0A02117A48A91444335F16F5E4B2340347D60512A6B9282ACFCA056F2E60BFA"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Escaleras_casa_tarde.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Escaleras_casa\\Escaleras_casa_tarde.png",
+        "ImageHash":  "BBEDC0A5A9D3B6B2F52838C9B86A3455B60F3A43491837D90DB18B9E09E658EB",
+        "MetaHash":  "0A6C52D679AF29A96D771D8FEC0A8D48555D7BC93BB7CFCCCB5B311130198D34"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Gruta_tras_cascada_mediodia.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Gruta\\Gruta_tras_cascada_mediodia.png",
+        "ImageHash":  "08385DAEA1B7D9AD23192927C7A2B658D7BF4CCC7FCE8EB93F13768EFFB4392D",
+        "MetaHash":  "A9E5B5D1DDB35BDC2A279D129281DA18528480A4E5E3391E5BDAFC0ECE9A519B"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Imagen de ChatGPT 18 nov 2026, 14_03_36-2.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Cuarto_rosa\\Imagen de ChatGPT 18 nov 2026, 14_03_36-2.png",
+        "ImageHash":  "62A7D65EBFD60E93A5F0E72CBA31A5DE48630F298A2A9957C30A240DF4D2F7F2",
+        "MetaHash":  "300A9DDBBDB34A1029415D7D1D41948E0BEACAD29340CDA67E61328D197FFF79"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Imagen de ChatGPT 18 nov 2026, 14_03_38-3.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Bano\\Imagen de ChatGPT 18 nov 2026, 14_03_38-3.png",
+        "ImageHash":  "77FED79BBFFE3ECD2B102617FF5815A5BAA7CF225B04A81F09F2CA06E127CD82",
+        "MetaHash":  "246DB6476A5F032BB48C3FE5E9FE41B2DF1F002B8926031453C140AF59F5B403"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Imagen de ChatGPT 18 nov 2026, 14_03_51-1.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Entrada_casa\\Imagen de ChatGPT 18 nov 2026, 14_03_51-1.png",
+        "ImageHash":  "F2E45A0A8418B1DBBFA1CD3C7C7E8CBCF36DF74D6FBEA4A4DB3D5368B8C78ABF",
+        "MetaHash":  "2842D9AF1C042F29CD977B95456E854EDB26A9065877AE258D639DC035423181"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Imagen de ChatGPT 18 nov 2026, 14_03_53-2.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Entrada_casa\\Imagen de ChatGPT 18 nov 2026, 14_03_53-2.png",
+        "ImageHash":  "FF5E763A3DD73BA40C10100A0246C320007E92B94D6B6DC59F8CDFAA34BE0C5F",
+        "MetaHash":  "71BBB34860E2538E98B3C25507649156A57061501FC44CD257F6D31FA93F7F53"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Imagen de ChatGPT 18 nov 2026, 14_03_55-3.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Cuarto_rosa\\Imagen de ChatGPT 18 nov 2026, 14_03_55-3.png",
+        "ImageHash":  "CF43BB41F1AEDCC623E4294C10CBCF70E9A5D61F4E0B1F8A73BEA7AF9A11BA4B",
+        "MetaHash":  "34F530E35A80EC3FAA37E4C1FB377A911A37852C887B916A997091D5FC5C9A91"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Imagen de ChatGPT 18 nov 2026, 14_03_56-4.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Cuarto_rosa\\Imagen de ChatGPT 18 nov 2026, 14_03_56-4.png",
+        "ImageHash":  "AEAD3193363E2B57352D590E0740F81F50E7B18692E5117D708B7CB9C658E815",
+        "MetaHash":  "EAF277AD5E0ABE505FD79F995A34D3AF1A3CA0F54F2F72507A173715B8231FD6"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Imagen de ChatGPT 18 nov 2026, 14_45_08.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Salon_cocina\\Imagen de ChatGPT 18 nov 2026, 14_45_08.png",
+        "ImageHash":  "D85CA89C33DE07DF5CE2FC4CC52ADA89F7585B2193FE3F04A203998DEA53614D",
+        "MetaHash":  "F6E1FF18512B2E7F227C4D76ECE833677C5E318819E5BDEFA63DF4283022A910"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Imagen de ChatGPT 18 nov 2026, 14_45_15.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Salon_cocina\\Imagen de ChatGPT 18 nov 2026, 14_45_15.png",
+        "ImageHash":  "3B30EC4E7B263B700F084A6B01ECF3B0EF60C5B24F2E7876E52D3BC2CDB70167",
+        "MetaHash":  "ADA8F40EAC72FCFCE1FB156A6DE5F590EFA57A3B6930A8E5D2E5BF5A839597AE"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Imagen de ChatGPT 18 nov 2026, 14_45_21.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Salon_cocina\\Imagen de ChatGPT 18 nov 2026, 14_45_21.png",
+        "ImageHash":  "3962C84634D6B9E4A2B3EE864B19A610B23521081EF2E1189C1331E857CBD569",
+        "MetaHash":  "AB4688E04A405DF55879CEA5D124EA7AAB8C9C80F6C553FFA33F0C8B44EC0322"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Interior Coche Asientos Traseros.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Interior_coche\\Interior Coche Asientos Traseros.png",
+        "ImageHash":  "2917EF22BFC328D3289E5976E29FA3C15A04FA261C7FDCE3E1566F69D99C9099",
+        "MetaHash":  "3C453D06EED368240E983AC360007968E370326F461F736BD10AA1379D05B1FE"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Lago_cascada_bosque_tropical_mediodia.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Lago_cascada\\Lago_cascada_bosque_tropical_mediodia.png",
+        "ImageHash":  "34DC288D828697691E23B137BC5A2FD1467619E3C09563AF7CDCD87877A8370C",
+        "MetaHash":  "E1FAB0303C9BA9FC4AF7BA27987B9206007C9BF4FDE794813115E8BACB2EE3BF"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Playa_desierta_mediodia.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Playa\\Playa_desierta_mediodia.png",
+        "ImageHash":  "08E4CE10F090000CB6263B1C62E16342535ACA5F67F90CA86895E9456DC19191",
+        "MetaHash":  "0120C8E0B6F3433541DFEF50B67F76A089F54D52DB8BAAD531EB4EC74C0E22DF"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Playa_desierta_noche.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Playa\\Playa_desierta_noche.png",
+        "ImageHash":  "81E6C66EDADF2ED5CE1C7C7D7CCFDCF2826A1866ADACE4CEC187847EBE6B4046",
+        "MetaHash":  "98B44F7E8C2D14522A957D001D673E168E84B2DCF5395FB108C92FEFE2DE6773"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Playa_desierta_tarde.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Playa\\Playa_desierta_tarde.png",
+        "ImageHash":  "060793886FA1D0BC309344DB82F8E68A66041186E3A1BA54CC5BD2C406050C24",
+        "MetaHash":  "D4D36707F938390BC88D4B99C61836B752BD226DD2F489EE6705605CE750DAFF"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Salón japonés con vistas al mar.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Salon_tatami\\Salón japonés con vistas al mar.png",
+        "ImageHash":  "A09B81713C342A78275C37E0517D2642958414950A3CD531636BE2FAB241500F",
+        "MetaHash":  "C6B1CA56B24445EA15276CCAA11FC667FCBE0B5A0AAE7446DEF35D089C524FF9"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Salón japonés nocturno bajo la luna-3.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Salon_tatami\\Salón japonés nocturno bajo la luna-3.png",
+        "ImageHash":  "D0092EED86D70B08D0761571809CC317DE8C0754522A8E540CB9E44B8AA846DB",
+        "MetaHash":  "8ECD71125D410EE2BBB94524F07EC374CF77298583B76D5B1972202B8925D51B"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Salón tatami con vistas al mar-1.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Salon_tatami\\Salón tatami con vistas al mar-1.png",
+        "ImageHash":  "723AA38F2AB74374EA1D348ABA88B77BFE6B66B2B1513F1E539B5FCC843B176D",
+        "MetaHash":  "3B6F7C7917C3D1F66CB17410BAEB00B9AD704C911FFE3173DC995ED3DEEF49F2"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Salón tatami japonés al atardecer-2.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Salon_tatami\\Salón tatami japonés al atardecer-2.png",
+        "ImageHash":  "B8BFB794ED67241191AD4DC2E98E31B3B99033B8A9020AEB3CD4FB2F54C32000",
+        "MetaHash":  "423F8FB6032B3FAEF38A2D4AEC8EB12CC76D26DBA4CA6B309CDE3C7B000825F3"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Lago_cascada_bosque_tropical_tarde.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Lago_cascada\\Lago_cascada_bosque_tropical_tarde.png",
+        "ImageHash":  "50C3C61152563C92B7B4A13524C56A1B01BBBD5D9FE97A2B2CCEB909EF25E4FD",
+        "MetaHash":  "6347419C3D101208A5A1DB3F06EADA64FE8BB9E8F29273DC29B98B22A43BD0CD"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Lago_cascada_bosque_tropical_noche.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Lago_cascada\\Lago_cascada_bosque_tropical_noche.png",
+        "ImageHash":  "44F4FA6B98C919DDBF2B43DBB1597EE9FB49E9B904A2E908D7C7C0EAA93ED6C8",
+        "MetaHash":  "7938BF8943B180ED1CD5A597CD2ADE68CED17C3EC6AE00473DE69A062E959D82"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Gruta_tras_cascada_tarde.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Gruta\\Gruta_tras_cascada_tarde.png",
+        "ImageHash":  "9F02F609CF7AF2005C284D0ED579292240DF22D3C941416148BAE135A3197653",
+        "MetaHash":  "86E7E78F51DD5F8597DA7EA57AEA340AD76966D810AA9E3039E507C94EACAF85"
+    },
+    {
+        "Source":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Gruta_tras_cascada_noche.png",
+        "Target":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Backgrounds\\Gruta\\Gruta_tras_cascada_noche.png",
+        "ImageHash":  "8FE38CD8FC6F80D2C8733F3E0A48BB3E9C8BCE8A3B063A00EE3258D514132604",
+        "MetaHash":  "CE79E7F64B44C717A5D4A3E0E5581C4CE618F43929BC11EFA14D3BFD9E2E835E"
+    }
+]

@@ -59,29 +59,17 @@ MonoBehaviour:
     id: 902ab50670cbf4f41ba60edf4ffec1bd
     image: {fileID: 2800000, guid: 902ab50670cbf4f41ba60edf4ffec1bd, type: 3}
   - starCost: 0
-    id: bc919e3b279f8e34c927df9726822c3a
-    image: {fileID: 2800000, guid: bc919e3b279f8e34c927df9726822c3a, type: 3}
+    id: aaff6710b8ca42ad9e47359da13199c4
+    image: {fileID: 2800000, guid: aaff6710b8ca42ad9e47359da13199c4, type: 3}
   - starCost: 0
-    id: b16b95d61e4b3b340a2f51c9aaf6a7bb
-    image: {fileID: 2800000, guid: b16b95d61e4b3b340a2f51c9aaf6a7bb, type: 3}
+    id: a25739fc27b74fbcb11df878455b6bc0
+    image: {fileID: 2800000, guid: a25739fc27b74fbcb11df878455b6bc0, type: 3}
   - starCost: 0
-    id: f2bd67210cb532242b9ae2b119c7e8dd
-    image: {fileID: 2800000, guid: f2bd67210cb532242b9ae2b119c7e8dd, type: 3}
+    id: 179e0a5cad674d09821a460dda5ccadc
+    image: {fileID: 2800000, guid: 179e0a5cad674d09821a460dda5ccadc, type: 3}
   - starCost: 0
     id: 23d77d00ca384895ba1665cba852b7c2
     image: {fileID: 2800000, guid: 23d77d00ca384895ba1665cba852b7c2, type: 3}
-  - starCost: 0
-    id: 6871cb5a3179a3743ad2913b7274f69a
-    image: {fileID: 2800000, guid: 6871cb5a3179a3743ad2913b7274f69a, type: 3}
-  - starCost: 0
-    id: 9becb57c77aff6a428f4c8b5d721c9ad
-    image: {fileID: 2800000, guid: 9becb57c77aff6a428f4c8b5d721c9ad, type: 3}
-  - starCost: 0
-    id: 193eac593cc18764fb89500d480f41c7
-    image: {fileID: 2800000, guid: 193eac593cc18764fb89500d480f41c7, type: 3}
-  - starCost: 0
-    id: 3b31220c36a591047ad1329ff717bc45
-    image: {fileID: 2800000, guid: 3b31220c36a591047ad1329ff717bc45, type: 3}
   - starCost: 2
     id: 27b2fd31505d4cb1b184ca32befc4c0c
     image: {fileID: 2800000, guid: 27b2fd31505d4cb1b184ca32befc4c0c, type: 3}

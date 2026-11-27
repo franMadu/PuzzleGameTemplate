@@ -189,7 +189,7 @@ MonoBehaviour:
     rightCharacter: {fileID: 0}
     hideLeftCharacter: 0
     hideRightCharacter: 0
-  - background: {fileID: 2800000, guid: 6871cb5a3179a3743ad2913b7274f69a, type: 3}
+  - background: {fileID: 2800000, guid: aaff6710b8ca42ad9e47359da13199c4, type: 3}
     musicAction: 0
     music: {fileID: 0}
     soundEffect: {fileID: 0}

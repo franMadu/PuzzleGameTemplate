@@ -1,0 +1,7 @@
+{
+  "tool": "built-in image_gen",
+  "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-606d9681-c0a5-424d-a26b-1ba72be4ba40.png",
+  "prompt": "Use case: precise-object-edit. Create an alternate costume sprite by editing this adult woman's existing anime game sprite. Change ONLY the fabric of the navy blue-gray one-piece swimsuit: add three or four small irregular tears with lightly frayed edges at the side waist and upper/lateral abdomen, exposing modest small patches of ordinary skin beneath. These must look like accidental fabric rips rather than decorative symmetric cutouts. Keep the swimsuit structurally intact and opaque, fully covering the bust and pelvic/crotch area. All tears must be below the bust and above the hip line. Keep the open white overshirt intact and unchanged. Preserve EXACT face, slate blue-gray eyes, dark shoulder-length hair, friendly calm expression, adult anatomy, pose, camera framing, silhouette, lighting, palette and polished anime cel shading from the source. No injuries or scratches on skin. Same 1254x1254 canvas and same character placement, do not zoom or crop. Transparent background with clean alpha, no backdrop, no text, no border. Return ONE alternate sprite.",
+  "target": "Assets/Art/Ayame/SwimOutfit/Ayame_banador_roto_mediodia.png",
+  "original": "Assets/Art/Ayame/SwimOutfit/Ayame_banador_azul_grisaceo_mediodia.png"
+}

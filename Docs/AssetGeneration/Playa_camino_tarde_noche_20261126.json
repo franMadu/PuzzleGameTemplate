@@ -1,0 +1,34 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-11-26",
+  "assets": [
+    {
+      "name": "Playa_desierta_tarde",
+      "base": "Playa_desierta_mediodia",
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-1e988f69-0891-4561-8c8f-f0174713cc95.png",
+      "prompt": "Use case: lighting-weather. Edit the supplied game background to create its tarde lighting variant. Change ONLY time of day, sky lighting, light/shadow colors and corresponding water reflections. Late afternoon golden-hour lighting approaching sunset: low warm amber sunlight from the sea side to the right, elongated soft shadows toward the left, warm cream-orange sand, softly golden foliage edges, teal sea with warm glints, sky with peach and soft rose near the horizon blending into gentle blue. Still daylight, inviting calm summer afternoon. Preserve EXACTLY the existing composition, camera, framing, horizon, shoreline or sandy path, all tree and palm positions and shapes, rocks, plants and flowers. Keep the same polished hand-painted anime visual novel style and fine clean outlines. Do not redesign or relocate anything. Preserve source image canvas dimensions 1672x941 and landscape aspect ratio. Scene must remain completely empty: no people, no silhouettes even in the distance, no animals, boats, buildings, objects, footprints, text, borders or watermarks. Opaque full-bleed background.",
+      "destination": "Assets/Art/Backgrounds/Playa_desierta_tarde.png"
+    },
+    {
+      "name": "Playa_desierta_noche",
+      "base": "Playa_desierta_mediodia",
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-874a0044-0d0a-478c-9c64-2d55f746c5c2.png",
+      "prompt": "Use case: lighting-weather. Edit the supplied game background to create its noche lighting variant. Change ONLY time of day, sky lighting, light/shadow colors and corresponding water reflections. True nighttime under natural moonlight: deep indigo blue sky, subtle sparse stars in visible sky, cool silver-blue illumination from off-screen moon to the right, deep blue-green foliage, pale cool sand still readable, silvery highlights on sea and surf. Clearly night with no remaining warm daytime sunlight, but readable detailed scenery suitable for a visual novel, peaceful rather than ominous. No artificial lights, no glowing flowers, no fireflies. Keep the moon itself off screen. Preserve EXACTLY the existing composition, camera, framing, horizon, shoreline or sandy path, all tree and palm positions and shapes, rocks, plants and flowers. Keep the same polished hand-painted anime visual novel style and fine clean outlines. Do not redesign or relocate anything. Preserve source image canvas dimensions 1672x941 and landscape aspect ratio. Scene must remain completely empty: no people, no silhouettes even in the distance, no animals, boats, buildings, objects, footprints, text, borders or watermarks. Opaque full-bleed background.",
+      "destination": "Assets/Art/Backgrounds/Playa_desierta_noche.png"
+    },
+    {
+      "name": "Camino_bosque_tropical_tarde",
+      "base": "Camino_bosque_tropical_mediodia",
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-6f20d9c9-adbb-4a2c-b157-577f9a6821c3.png",
+      "prompt": "Use case: lighting-weather. Edit the supplied game background to create its tarde lighting variant. Change ONLY time of day, sky lighting, light/shadow colors and corresponding water reflections. Late afternoon golden-hour lighting approaching sunset: low warm amber sunlight from the sea side to the right, elongated soft shadows toward the left, warm cream-orange sand, softly golden foliage edges, teal sea with warm glints, sky with peach and soft rose near the horizon blending into gentle blue. Still daylight, inviting calm summer afternoon. Preserve EXACTLY the existing composition, camera, framing, horizon, shoreline or sandy path, all tree and palm positions and shapes, rocks, plants and flowers. Keep the same polished hand-painted anime visual novel style and fine clean outlines. Do not redesign or relocate anything. Preserve source image canvas dimensions 1672x941 and landscape aspect ratio. Scene must remain completely empty: no people, no silhouettes even in the distance, no animals, boats, buildings, objects, footprints, text, borders or watermarks. Opaque full-bleed background.",
+      "destination": "Assets/Art/Backgrounds/Camino_bosque_tropical_tarde.png"
+    },
+    {
+      "name": "Camino_bosque_tropical_noche",
+      "base": "Camino_bosque_tropical_mediodia",
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-77146767-7f28-44ba-86c9-e35ca40079ba.png",
+      "prompt": "Use case: lighting-weather. Edit the supplied game background to create its noche lighting variant. Change ONLY time of day, sky lighting, light/shadow colors and corresponding water reflections. True nighttime under natural moonlight: deep indigo blue sky, subtle sparse stars in visible sky, cool silver-blue illumination from off-screen moon to the right, deep blue-green foliage, pale cool sand still readable, silvery highlights on sea and surf. Clearly night with no remaining warm daytime sunlight, but readable detailed scenery suitable for a visual novel, peaceful rather than ominous. No artificial lights, no glowing flowers, no fireflies. Keep the moon itself off screen. Preserve EXACTLY the existing composition, camera, framing, horizon, shoreline or sandy path, all tree and palm positions and shapes, rocks, plants and flowers. Keep the same polished hand-painted anime visual novel style and fine clean outlines. Do not redesign or relocate anything. Preserve source image canvas dimensions 1672x941 and landscape aspect ratio. Scene must remain completely empty: no people, no silhouettes even in the distance, no animals, boats, buildings, objects, footprints, text, borders or watermarks. Opaque full-bleed background.",
+      "destination": "Assets/Art/Backgrounds/Camino_bosque_tropical_noche.png"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+﻿[
+    {
+        "from":  "Bano/BañoNoche.png",
+        "to":  "Bano/Bano_noche.png",
+        "imageHash":  "0B85ECD7CEFA2AD5A8B21A8FA73B5FCAF63CFB0C14611BD1E74551F4F3CAE937",
+        "metaHash":  "613A9E15BEFF874EDD65E38B563E057BC56CC0A6D2812B595BF1594E96545531"
+    },
+    {
+        "from":  "Bano/BañoTarde.png",
+        "to":  "Bano/Bano_tarde.png",
+        "imageHash":  "431376DD39733DD180F655B7F61779E4E4510C093F5A86E1DD960C3FB45A5EF7",
+        "metaHash":  "86F2F721431AF3834692D0D1EB37ED121A25895F5D688478255875B73241769E"
+    },
+    {
+        "from":  "Bano/Imagen de ChatGPT 18 nov 2026, 14_03_38-3.png",
+        "to":  "Bano/Bano_mediodia.png",
+        "imageHash":  "77FED79BBFFE3ECD2B102617FF5815A5BAA7CF225B04A81F09F2CA06E127CD82",
+        "metaHash":  "246DB6476A5F032BB48C3FE5E9FE41B2DF1F002B8926031453C140AF59F5B403"
+    },
+    {
+        "from":  "Cuarto_rosa/Imagen de ChatGPT 18 nov 2026, 14_03_36-2.png",
+        "to":  "Cuarto_rosa/Cuarto_rosa_mediodia.png",
+        "imageHash":  "62A7D65EBFD60E93A5F0E72CBA31A5DE48630F298A2A9957C30A240DF4D2F7F2",
+        "metaHash":  "300A9DDBBDB34A1029415D7D1D41948E0BEACAD29340CDA67E61328D197FFF79"
+    },
+    {
+        "from":  "Cuarto_rosa/Imagen de ChatGPT 18 nov 2026, 14_03_55-3.png",
+        "to":  "Cuarto_rosa/Cuarto_rosa_tarde.png",
+        "imageHash":  "CF43BB41F1AEDCC623E4294C10CBCF70E9A5D61F4E0B1F8A73BEA7AF9A11BA4B",
+        "metaHash":  "34F530E35A80EC3FAA37E4C1FB377A911A37852C887B916A997091D5FC5C9A91"
+    },
+    {
+        "from":  "Cuarto_rosa/Imagen de ChatGPT 18 nov 2026, 14_03_56-4.png",
+        "to":  "Cuarto_rosa/Cuarto_rosa_noche.png",
+        "imageHash":  "AEAD3193363E2B57352D590E0740F81F50E7B18692E5117D708B7CB9C658E815",
+        "metaHash":  "EAF277AD5E0ABE505FD79F995A34D3AF1A3CA0F54F2F72507A173715B8231FD6"
+    },
+    {
+        "from":  "Entrada_casa/Entrada Japonesa Frente al Mar.png",
+        "to":  "Entrada_casa/Entrada_casa_mediodia.png",
+        "imageHash":  "6D5BA2EC3AC8C899BAE6ADACF5076060B477307F2B9E57499D1F295AE8A4F9AC",
+        "metaHash":  "27A41BC582192DA1A259A446DE8F6DA3C01EAC5E2A4E65059A9D7B8C0BF39BFE"
+    },
+    {
+        "from":  "Entrada_casa/Imagen de ChatGPT 18 nov 2026, 14_03_51-1.png",
+        "to":  "Entrada_casa/Entrada_casa_tarde.png",
+        "imageHash":  "F2E45A0A8418B1DBBFA1CD3C7C7E8CBCF36DF74D6FBEA4A4DB3D5368B8C78ABF",
+        "metaHash":  "2842D9AF1C042F29CD977B95456E854EDB26A9065877AE258D639DC035423181"
+    },
+    {
+        "from":  "Entrada_casa/Imagen de ChatGPT 18 nov 2026, 14_03_53-2.png",
+        "to":  "Entrada_casa/Entrada_casa_noche.png",
+        "imageHash":  "FF5E763A3DD73BA40C10100A0246C320007E92B94D6B6DC59F8CDFAA34BE0C5F",
+        "metaHash":  "71BBB34860E2538E98B3C25507649156A57061501FC44CD257F6D31FA93F7F53"
+    },
+    {
+        "from":  "Entrada_bano/EntradaBañoMañana.png",
+        "to":  "Entrada_bano/Entrada_bano_mediodia.png",
+        "imageHash":  "81DE9F98F22BB3F2A32B786D6A52CFE51030152C2FC23C992C1674231ACE6B0B",
+        "metaHash":  "D5B8EB0233CFBC9A9833BC6FBA5B11D302AE245537F734D44374A77673105D65"
+    },
+    {
+        "from":  "Entrada_bano/EntradaBañoNoche.png",
+        "to":  "Entrada_bano/Entrada_bano_noche.png",
+        "imageHash":  "9C4BC53EF5ABDC49736594DE27125A03F5C61C03B68EBFC947C3FBB905E3727B",
+        "metaHash":  "ECA6E14AA381C75FD07428A4F36EEE4D326912D4F0335B5C0194A0D43096302B"
+    },
+    {
+        "from":  "Entrada_bano/EntradaBañoTarde.png",
+        "to":  "Entrada_bano/Entrada_bano_tarde.png",
+        "imageHash":  "CAB2DE9D8DE1FC8E7B96F786013E98D8DD23C64E98B7393F35A506338C775441",
+        "metaHash":  "AA6EF58148FDF675F77B0C6C158854A970CDD9020689548D868C40FF1CE7A569"
+    },
+    {
+        "from":  "Interior_coche/Interior Coche Asientos Traseros.png",
+        "to":  "Interior_coche/Interior_coche_asientos_traseros_mediodia.png",
+        "imageHash":  "2917EF22BFC328D3289E5976E29FA3C15A04FA261C7FDCE3E1566F69D99C9099",
+        "metaHash":  "3C453D06EED368240E983AC360007968E370326F461F736BD10AA1379D05B1FE"
+    }
+]

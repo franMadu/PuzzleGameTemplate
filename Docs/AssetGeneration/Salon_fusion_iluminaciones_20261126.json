@@ -1,0 +1,15 @@
+﻿{
+  "tool": "built-in image_gen",
+  "reference": "Assets/Art/Backgrounds/Salon_fusion/Salon_fusion_mediodia.png",
+  "variants": [
+    {
+      "target": "Assets/Art/Backgrounds/Salon_fusion/Salon_fusion_tarde.png",
+      "prompt": "Use case: lighting-weather. Edit the supplied approved living room background ONLY to change time-of-day illumination. Preserve exactly the same camera framing, wide 1672x941 landscape dimensions, architecture, garden, every object, furniture positions, sofa on left directly facing TV on right, tatami, shoji, wave scroll, plants, tea set and cushions. Keep screen off, no game controllers, no people, no text, no additional objects. Maintain the same polished hand-painted anime visual novel background style. Create the LATE AFTERNOON / SUNSET version: low golden amber sunlight entering from the LEFT garden windows, longer soft shadows stretching across tatami, warm peach and orange exterior sky glimpses and golden foliage highlights with cooler garden shadows. Clearly recognizable late afternoon, warm restful atmosphere. Interior remains naturally detailed and readable. Preserve garden greenery, do not turn it autumnal. Same exact room, change lighting only."
+    },
+    {
+      "target": "Assets/Art/Backgrounds/Salon_fusion/Salon_fusion_noche.png",
+      "prompt": "Use case: lighting-weather. Edit the supplied approved living room background ONLY to change time-of-day illumination. Preserve exactly the same camera framing, wide 1672x941 landscape dimensions, architecture, garden, every object, furniture positions, sofa on left directly facing TV on right, tatami, shoji, wave scroll, plants, tea set and cushions. Keep screen off, no game controllers, no people, no text, no additional objects. Maintain the same polished hand-painted anime visual novel background style. Create the NIGHT version: deep blue nighttime garden visible through the same open shoji, soft cool moonlight and subtle blue reflections, no sunlight or sunset. Turn on the existing ceiling pendant, standing lamp and small table/media-cabinet lanterns to cast gentle warm amber pools of light throughout the room. Balanced cozy inhabited-home lighting, enough illumination to clearly read the sofa, tea table, tatami and traditional alcove, gentle shadows. Exterior distinctly darker than interior. No extra light fixtures, no additional objects. Television remains switched off. Preserve all geometry and placement exactly; only lighting and time of day change."
+    }
+  ],
+  "cleanup": "Removed Salon_cocina and Salon_tatami from Assets after reference migration; retained zip backup under Docs/AssetGeneration/Backups."
+}

@@ -1,0 +1,33 @@
+{
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "name": "Lago_cascada_bosque_tropical_tarde",
+      "base": "Lago_cascada_bosque_tropical_mediodia",
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-dbbe5e62-86b0-4f08-843a-b0fe5b4a76ad.png",
+      "prompt": "Use case: lighting-weather. Edit this game background into its tarde variant. Late afternoon golden-hour sunlight: warm amber illumination, peach and muted rose sky, longer soft shadows, golden edges, subtle lavender shade. Still clearly daylight. Warm sky reflections on the lake, golden glints and peach-tinted waterfall highlights. Change only illumination, sky colors, cast shadows and corresponding reflections. Preserve EXACT composition, framing, perspective, source canvas size 1672x941, rock geometry, every plant, sand and scene layout. Preserve waterfall size and position, solid cliff and the extremely small concealed secret entrance. Never restore the old broad cavern opening. Maintain the same polished clean hand-painted anime visual novel art style. Empty scene with NO people, silhouettes, animals, objects, furniture, buildings, text, border or watermark. Opaque full-bleed background.",
+      "destination": "Assets/Art/Backgrounds/Lago_cascada/Lago_cascada_bosque_tropical_tarde.png"
+    },
+    {
+      "name": "Lago_cascada_bosque_tropical_noche",
+      "base": "Lago_cascada_bosque_tropical_mediodia",
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-79389c83-ff2d-485d-a857-dddea29890e0.png",
+      "prompt": "Use case: lighting-weather. Edit this game background into its noche variant. True peaceful nighttime: deep indigo sky with sparse subtle stars in visible sky, cool silver-blue moonlight, blue-green plants, soft deep cool shadows. Clearly night, no residual sunshine or orange glow, yet readable illustrated detail. Cool silvery reflections on the lake and waterfall, softly moonlit pale rock and sand. Moon itself off-screen. The tiny entrance remains hidden behind waterfall and foliage. Change only illumination, sky colors, cast shadows and corresponding reflections. Preserve EXACT composition, framing, perspective, source canvas size 1672x941, rock geometry, every plant, sand and scene layout. Preserve waterfall size and position, solid cliff and the extremely small concealed secret entrance. Never restore the old broad cavern opening. Maintain the same polished clean hand-painted anime visual novel art style. Empty scene with NO people, silhouettes, animals, objects, furniture, buildings, text, border or watermark. Opaque full-bleed background.",
+      "destination": "Assets/Art/Backgrounds/Lago_cascada/Lago_cascada_bosque_tropical_noche.png"
+    },
+    {
+      "name": "Gruta_tras_cascada_tarde",
+      "base": "Gruta_tras_cascada_mediodia",
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-705ad5cc-d009-46b3-baf6-4a550b9d2b15.png",
+      "prompt": "Use case: lighting-weather. Edit this game background into its tarde variant. Late afternoon golden-hour sunlight: warm amber illumination, peach and muted rose sky, longer soft shadows, golden edges, subtle lavender shade. Still clearly daylight. Sunlight enters ONLY through the existing small ceiling skylight, at a lower oblique angle, warming the pale limestone and sandy floor. Change only illumination, sky colors, cast shadows and corresponding reflections. Preserve EXACT composition, framing, perspective, source canvas size 1672x941, rock geometry, every plant, sand and scene layout. Preserve the deep underground chamber, small ceiling skylight and winding narrow passage. No view of lake or waterfall, no broad opening to forest. Maintain the same polished clean hand-painted anime visual novel art style. Empty scene with NO people, silhouettes, animals, objects, furniture, buildings, text, border or watermark. Opaque full-bleed background.",
+      "destination": "Assets/Art/Backgrounds/Gruta/Gruta_tras_cascada_tarde.png"
+    },
+    {
+      "name": "Gruta_tras_cascada_noche",
+      "base": "Gruta_tras_cascada_mediodia",
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-95c169c7-9bb4-402b-b23e-c05d59c253ba.png",
+      "prompt": "Use case: lighting-weather. Edit this game background into its noche variant. True peaceful nighttime: deep indigo sky with sparse subtle stars in visible sky, cool silver-blue moonlight, blue-green plants, soft deep cool shadows. Clearly night, no residual sunshine or orange glow, yet readable illustrated detail. Moonlight enters ONLY through the existing small ceiling skylight, a soft silver-blue patch on the floor and diffuse cool bounced light on the rock walls. The chamber stays welcoming and readable; no new openings, no torches, lamps, luminous crystals or glowing plants. Change only illumination, sky colors, cast shadows and corresponding reflections. Preserve EXACT composition, framing, perspective, source canvas size 1672x941, rock geometry, every plant, sand and scene layout. Preserve the deep underground chamber, small ceiling skylight and winding narrow passage. No view of lake or waterfall, no broad opening to forest. Maintain the same polished clean hand-painted anime visual novel art style. Empty scene with NO people, silhouettes, animals, objects, furniture, buildings, text, border or watermark. Opaque full-bleed background.",
+      "destination": "Assets/Art/Backgrounds/Gruta/Gruta_tras_cascada_noche.png"
+    }
+  ]
+}

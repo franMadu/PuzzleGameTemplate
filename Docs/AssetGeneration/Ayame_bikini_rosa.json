@@ -1,0 +1,8 @@
+{
+  "tool": "built-in image_gen",
+  "prompt": "Use case: identity-preserve. Create a new swimwear costume variant of Ayame, the adult woman shown in the reference. Replace only her white sleeveless shirt and existing undergarments with a simple pink two-piece bikini of a small conventional cut: opaque lined pink triangle-style top with secure coverage, slender straps, and matching pink bikini briefs with full central coverage and normal side straps. Ordinary swimwear, no transparent fabric, no intimate anatomical details. Neutral nonsexual character design reference, relaxed standing pose and gentle smile. Preserve exact character identity: shoulder-length charcoal black hair and side-swept bangs, dark navy blue eyes, warm tan skin, face shape and existing adult body proportions. No reshaping or exaggeration of anatomy. Preserve the original anime linework, shading, daylight, head size, hands-behind-back pose, character scale and head-to-mid-thigh framing. Transparent background, no halo or fringe, no text or accessories. Same 1254x1254 canvas and character placement as the input.",
+  "reference": "Assets/Art/Ayame/PrincipalExpressions/Ayame_principal_mediodia_v2.png",
+  "output": "Assets/Art/Ayame/SwimOutfit/Ayame_bikini_rosa_mediodia.png",
+  "outfit_id": "bikini_rosa",
+  "transparent_background": true
+}

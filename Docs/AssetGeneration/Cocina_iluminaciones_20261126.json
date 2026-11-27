@@ -1,0 +1,14 @@
+﻿{
+  "tool": "built-in image_gen",
+  "reference": "Assets/Art/Backgrounds/Cocina/Cocina_mediodia.png",
+  "variants": [
+    {
+      "target": "Assets/Art/Backgrounds/Cocina/Cocina_tarde.png",
+      "prompt": "Use case: lighting-weather. Edit target: supplied Cocina_mediodia, a visual novel kitchen background. Change ONLY time of day and lighting. Keep exact camera framing, 1672x941 wide composition, hand painted anime background style, wooden cabinetry, tiled floor, garden doors on left, window above sink, garden foliage and hydrangeas, table with four chairs, flowers, fruit bowl, refrigerator, microwave, hanging lamp, utensils and every other object in exactly the same position. Preserve architecture and perspective. No people, no text, no new props. Create late afternoon / sunset lighting: warm low golden sunlight from the left garden doors and window, long soft shadows across floor and table, amber highlights on cabinets and peach-orange sky glimpses behind foliage, cooler garden shadows. Keep foliage green. Clearly late afternoon, inviting tranquil home, detailed readable interior."
+    },
+    {
+      "target": "Assets/Art/Backgrounds/Cocina/Cocina_noche.png",
+      "prompt": "Use case: lighting-weather. Edit target: supplied Cocina_mediodia, a visual novel kitchen background. Change ONLY time of day and lighting. Keep exact camera framing, 1672x941 wide composition, hand painted anime background style, wooden cabinetry, tiled floor, garden doors on left, window above sink, garden foliage and hydrangeas, table with four chairs, flowers, fruit bowl, refrigerator, microwave, hanging lamp, utensils and every other object in exactly the same position. Preserve architecture and perspective. No people, no text, no new props. Create the NIGHT version: deep blue garden outside both left doors and back sink window, cool moonlight with subtle blue edges and reflections, no sun or golden sunlight beams. Existing overhead pendant lamp switched on, casting cozy warm amber light on the dining table, cabinets and floor, softly lit kitchen remains clearly readable. Exterior much darker than interior, gentle natural shadows, nighttime home atmosphere. Keep appliances off, no new fixtures or objects."
+    }
+  ]
+}

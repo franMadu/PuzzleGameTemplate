@@ -1,0 +1,81 @@
+{
+  "tool": "built-in image_gen",
+  "date": "2026-11-26",
+  "basePrompt": "Edit this adult anime character sprite for visual consistency in a puzzle game. Keep the pose, expression, silhouette, opaque white clothing, framing and dimensions. Make only these subtle character design corrections: slightly rounder cheeks, a softer and slightly shorter jaw, slightly rounder eyes with blue-gray irises, and charcoal-black hair ending at the shoulders. Preserve the central fringe and side locks. Clean anime cel shading. Transparent background with clean alpha edges, no halo, no text. Return one sprite.",
+  "referenceRule": "Image 1: target; image 2: corrected principal. Preserve target expression, pose, outfit and canvas; match reference face, eyes and hair.",
+  "backup": "Docs/AssetGeneration/Backups/Ayame_before_puzzle_match_20261126/Ayame",
+  "note": "Towel halo remains visible after background-extraction attempt. Retained existing canvas and Unity metadata.",
+  "assets": [
+    {
+      "target": "PrincipalExpressions/Ayame_principal_mediodia_v2.png",
+      "source": "C:/Users/francisco.madueno/.codex/generated_images/01a216a0-41e1-7110-8a8c-7df960db1bf6/exec-1305c86e-b08b-4e57-b3f4-c84b570e3fc0.png"
+    },
+    {
+      "target": "PrincipalExpressions/Ayame_aburrimiento_mediodia_v2.png",
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-eb2a14a2-7086-46eb-a0cd-c12473045722.png"
+    },
+    {
+      "target": "PrincipalExpressions/Ayame_desconcierto_mediodia.png",
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-069f72ed-d97a-48fd-ade1-49a8d83f8bf7.png"
+    },
+    {
+      "target": "PrincipalExpressions/Ayame_disculpa_mediodia.png",
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-ff745a03-d0df-459e-ac98-3ae565810699.png"
+    },
+    {
+      "target": "PrincipalExpressions/Ayame_felicidad_mediodia_v2.png",
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-1a5bf34c-252d-48ee-8113-db3361384471.png",
+      "prompt": "Edit this adult anime character sprite for visual consistency in a puzzle game. Keep the pose, expression, silhouette, opaque white clothing, framing and dimensions. Make only these subtle character design corrections: slightly rounder cheeks, a softer and slightly shorter jaw, slightly rounder eyes with blue-gray irises, and charcoal-black hair ending at the shoulders. Preserve the central fringe and side locks. Clean anime cel shading. Transparent background with clean alpha edges, no halo, no text. Return one sprite. Image 1 is the edit target; image 2 is the corrected character reference. Match image 2 face proportions, iris color and hair color. Preserve image 1 specific expression, eyebrows, eyelid openness and hand pose. Closed eyes MUST remain closed. Preserve exact canvas dimensions, scale and placement."
+    },
+    {
+      "target": "PrincipalExpressions/Ayame_neutra_feliz_mediodia_v2.png",
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-69c741e2-62dd-42ec-91f4-34217e3b0470.png",
+      "prompt": "Edit this adult anime character sprite for visual consistency in a puzzle game. Keep the pose, expression, silhouette, opaque white clothing, framing and dimensions. Make only these subtle character design corrections: slightly rounder cheeks, a softer and slightly shorter jaw, slightly rounder eyes with blue-gray irises, and charcoal-black hair ending at the shoulders. Preserve the central fringe and side locks. Clean anime cel shading. Transparent background with clean alpha edges, no halo, no text. Return one sprite. Image 1 is the edit target; image 2 is the corrected character reference. Match image 2 face proportions, iris color and hair color. Preserve image 1 specific expression, eyebrows, eyelid openness and hand pose. Closed eyes MUST remain closed. Preserve exact canvas dimensions, scale and placement."
+    },
+    {
+      "target": "PrincipalExpressions/Ayame_preocupacion_mediodia.png",
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-882c7f32-cd27-4602-b7f4-faea73e7ed20.png",
+      "prompt": "Edit this adult anime character sprite for visual consistency in a puzzle game. Keep the pose, expression, silhouette, opaque white clothing, framing and dimensions. Make only these subtle character design corrections: slightly rounder cheeks, a softer and slightly shorter jaw, slightly rounder eyes with blue-gray irises, and charcoal-black hair ending at the shoulders. Preserve the central fringe and side locks. Clean anime cel shading. Transparent background with clean alpha edges, no halo, no text. Return one sprite. Image 1 is the edit target; image 2 is the corrected character reference. Match image 2 face proportions, iris color and hair color. Preserve image 1 specific expression, eyebrows, eyelid openness and hand pose. Closed eyes MUST remain closed. Preserve exact canvas dimensions, scale and placement."
+    },
+    {
+      "target": "PrincipalExpressions/Ayame_seguridad_mediodia.png",
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-e6678f22-283c-4bcd-95a0-bbb31243094a.png",
+      "prompt": "Edit this adult anime character sprite for visual consistency in a puzzle game. Keep the pose, expression, silhouette, opaque white clothing, framing and dimensions. Make only these subtle character design corrections: slightly rounder cheeks, a softer and slightly shorter jaw, slightly rounder eyes with blue-gray irises, and charcoal-black hair ending at the shoulders. Preserve the central fringe and side locks. Clean anime cel shading. Transparent background with clean alpha edges, no halo, no text. Return one sprite. Image 1 is the edit target; image 2 is the corrected character reference. Match image 2 face proportions, iris color and hair color. Preserve image 1 specific expression, eyebrows, eyelid openness and hand pose. Closed eyes MUST remain closed. Preserve exact canvas dimensions, scale and placement."
+    },
+    {
+      "target": "PrincipalExpressions/Ayame_seria_mediodia_v2.png",
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-b3e17d48-3893-4911-97da-c54e00dddaf8.png",
+      "prompt": "Edit this adult anime character sprite for visual consistency in a puzzle game. Keep the pose, expression, silhouette, opaque white clothing, framing and dimensions. Make only these subtle character design corrections: slightly rounder cheeks, a softer and slightly shorter jaw, slightly rounder eyes with blue-gray irises, and charcoal-black hair ending at the shoulders. Preserve the central fringe and side locks. Clean anime cel shading. Transparent background with clean alpha edges, no halo, no text. Return one sprite. Image 1 is the edit target; image 2 is the corrected character reference. Match image 2 face proportions, iris color and hair color. Preserve image 1 specific expression, eyebrows, eyelid openness and hand pose. Sleepy eyes MUST remain half-closed, surprised eyes MUST remain wide open. Preserve exact canvas dimensions, scale and placement."
+    },
+    {
+      "target": "PrincipalExpressions/Ayame_simpatica_mediodia_v2.png",
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-57d6ab46-8f33-4086-bb95-83ffbb0fb799.png",
+      "prompt": "Edit this adult anime character sprite for visual consistency in a puzzle game. Keep the pose, expression, silhouette, opaque white clothing, framing and dimensions. Make only these subtle character design corrections: slightly rounder cheeks, a softer and slightly shorter jaw, slightly rounder eyes with blue-gray irises, and charcoal-black hair ending at the shoulders. Preserve the central fringe and side locks. Clean anime cel shading. Transparent background with clean alpha edges, no halo, no text. Return one sprite. Image 1 is the edit target; image 2 is the corrected character reference. Match image 2 face proportions, iris color and hair color. Preserve image 1 specific expression, eyebrows, eyelid openness and hand pose. Sleepy eyes MUST remain half-closed, surprised eyes MUST remain wide open. Preserve exact canvas dimensions, scale and placement."
+    },
+    {
+      "target": "PrincipalExpressions/Ayame_sorpresa_mediodia_v2.png",
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-8f31af78-9626-4f24-bcb5-786bcf77919b.png",
+      "prompt": "Edit this adult anime character sprite for visual consistency in a puzzle game. Keep the pose, expression, silhouette, opaque white clothing, framing and dimensions. Make only these subtle character design corrections: slightly rounder cheeks, a softer and slightly shorter jaw, slightly rounder eyes with blue-gray irises, and charcoal-black hair ending at the shoulders. Preserve the central fringe and side locks. Clean anime cel shading. Transparent background with clean alpha edges, no halo, no text. Return one sprite. Image 1 is the edit target; image 2 is the corrected character reference. Match image 2 face proportions, iris color and hair color. Preserve image 1 specific expression, eyebrows, eyelid openness and hand pose. Sleepy eyes MUST remain half-closed, surprised eyes MUST remain wide open. Preserve exact canvas dimensions, scale and placement."
+    },
+    {
+      "target": "PrincipalExpressions/Ayame_sueno_mediodia_v2.png",
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-dab64cbd-15fe-44bf-aae9-6400683e1766.png",
+      "prompt": "Edit this adult anime character sprite for visual consistency in a puzzle game. Keep the pose, expression, silhouette, opaque white clothing, framing and dimensions. Make only these subtle character design corrections: slightly rounder cheeks, a softer and slightly shorter jaw, slightly rounder eyes with blue-gray irises, and charcoal-black hair ending at the shoulders. Preserve the central fringe and side locks. Clean anime cel shading. Transparent background with clean alpha edges, no halo, no text. Return one sprite. Image 1 is the edit target; image 2 is the corrected character reference. Match image 2 face proportions, iris color and hair color. Preserve image 1 specific expression, eyebrows, eyelid openness and hand pose. Sleepy eyes MUST remain half-closed, surprised eyes MUST remain wide open. Preserve exact canvas dimensions, scale and placement."
+    },
+    {
+      "target": "BathOutfit/Ayame_toalla_mediodia.png",
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-9c52c0dd-0887-4d14-a2a8-105885273b3f.png",
+      "prompt": "Edit this adult anime character sprite for visual consistency in a puzzle game. Image 1 is the edit target; image 2 is a face and hair design reference ONLY. Change only facial proportions and hair/eye colors: subtly rounder cheeks, softer slightly shorter jaw, blue-gray irises, charcoal-black shoulder-length hair with the original central fringe and side locks. Match the face design in image 2. Keep image 1's exact pose, expression, gaze, body proportions, outfit design and colors, coverage, canvas dimensions, scale and placement. Do not replace the outfit with the reference outfit. Clean anime cel shading. Transparent background with clean alpha edges, remove any existing background halo. No text. Return one sprite."
+    },
+    {
+      "target": "SwimOutfit/Ayame_banador_azul_grisaceo_mediodia.png",
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-31afe669-31ab-4193-bb7f-0c18878ddaba.png",
+      "prompt": "Edit this adult anime character sprite for visual consistency in a puzzle game. Image 1 is the edit target; image 2 is a face and hair design reference ONLY. Change only facial proportions and hair/eye colors: subtly rounder cheeks, softer slightly shorter jaw, blue-gray irises, charcoal-black shoulder-length hair with the original central fringe and side locks. Match the face design in image 2. Keep image 1's exact pose, expression, gaze, body proportions, outfit design and colors, coverage, canvas dimensions, scale and placement. Do not replace the outfit with the reference outfit. Clean anime cel shading. Transparent background with clean alpha edges, remove any existing background halo. No text. Return one sprite."
+    },
+    {
+      "target": "SwimOutfit/Ayame_bikini_rosa_mediodia.png",
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-526e77bd-eb2b-445e-bdfb-fe839690fd83.png",
+      "prompt": "Edit this adult anime character sprite for visual consistency in a puzzle game. Image 1 is the edit target; image 2 is a face and hair design reference ONLY. Change only facial proportions and hair/eye colors: subtly rounder cheeks, softer slightly shorter jaw, blue-gray irises, charcoal-black shoulder-length hair with the original central fringe and side locks. Match the face design in image 2. Keep image 1's exact pose, expression, gaze, body proportions, outfit design and colors, coverage, canvas dimensions, scale and placement. Do not replace the outfit with the reference outfit. Clean anime cel shading. Transparent background with clean alpha edges, remove any existing background halo. No text. Return one sprite."
+    }
+  ]
+}

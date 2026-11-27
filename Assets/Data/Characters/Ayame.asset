@@ -24,6 +24,10 @@ MonoBehaviour:
     portrait: {fileID: -1067827879, guid: 9d5b1df97dac4db78c5bf25073ba9445, type: 3}
     facing: 0
     expressions: []
+  - id: bikini_rosa
+    portrait: {fileID: -1067827879, guid: 5e53b5fb830843a79fa2fbb729dfd446, type: 3}
+    facing: 0
+    expressions: []
   expressions:
   - id: seria
     portrait: {fileID: -1067827879, guid: 2ab41d1ff597415bbbb37b52a3ddb528, type: 3}
