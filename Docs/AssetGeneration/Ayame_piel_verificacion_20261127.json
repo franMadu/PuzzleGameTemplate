@@ -1,0 +1,114 @@
+﻿[
+    {
+        "file":  "PrincipalExpressions/Ayame_principal_mediodia_v2.png",
+        "sha256":  "5B10BEF0BE71C54819626CC60A006C982C2C27AB889287035D59295C770B8808",
+        "metadataUnchanged":  true,
+        "width":  1254,
+        "height":  1254
+    },
+    {
+        "file":  "PrincipalExpressions/Ayame_aburrimiento_mediodia_v2.png",
+        "sha256":  "0034221C2C5E711AAF96AE270F702180D3B4A3CE5C28C97E87ADF51E5F91E355",
+        "metadataUnchanged":  true,
+        "width":  1254,
+        "height":  1254
+    },
+    {
+        "file":  "PrincipalExpressions/Ayame_desconcierto_mediodia.png",
+        "sha256":  "B8522C9EFF33ACEFF67605820673207A9A04719BB1059ADA381BB1A9F245AB8C",
+        "metadataUnchanged":  true,
+        "width":  1254,
+        "height":  1254
+    },
+    {
+        "file":  "PrincipalExpressions/Ayame_disculpa_mediodia.png",
+        "sha256":  "D179AE788FC04CDB84EA09FB2A8344E0FDE471D097E9C4C7AE9A1BA763FD674D",
+        "metadataUnchanged":  true,
+        "width":  1077,
+        "height":  1460
+    },
+    {
+        "file":  "PrincipalExpressions/Ayame_felicidad_mediodia_v2.png",
+        "sha256":  "83B45FDB6B81BB88BD03AAED5FF9E4860B22B7B7B4DC57833B386D6B154925BE",
+        "metadataUnchanged":  true,
+        "width":  1254,
+        "height":  1254
+    },
+    {
+        "file":  "PrincipalExpressions/Ayame_neutra_feliz_mediodia_v2.png",
+        "sha256":  "8C776D0931F7E7D98ADF653E2561360E94F8C6269EFBCEB171805249286A97EE",
+        "metadataUnchanged":  true,
+        "width":  1254,
+        "height":  1254
+    },
+    {
+        "file":  "PrincipalExpressions/Ayame_preocupacion_mediodia.png",
+        "sha256":  "0F3E4172B87C5C9F65E1F3C51EFF5DBC6B9713472F316BA3921F1BA9F00470DE",
+        "metadataUnchanged":  true,
+        "width":  1254,
+        "height":  1254
+    },
+    {
+        "file":  "PrincipalExpressions/Ayame_seguridad_mediodia.png",
+        "sha256":  "3E86FFBEDF3B5F390280A1FD85A6B6330D90061A532E4C9188182A737CF719EC",
+        "metadataUnchanged":  true,
+        "width":  1254,
+        "height":  1254
+    },
+    {
+        "file":  "PrincipalExpressions/Ayame_seria_mediodia_v2.png",
+        "sha256":  "37F60DA6D24C012E4DA6611A961F351D2191E7A847158AC9DDCFD28764775FCD",
+        "metadataUnchanged":  true,
+        "width":  1254,
+        "height":  1254
+    },
+    {
+        "file":  "PrincipalExpressions/Ayame_simpatica_mediodia_v2.png",
+        "sha256":  "D43AFA57F1DC9EB1568C64F3691F8B15CA892FFDCDAE1D9F7A9FA58F07E6EE6C",
+        "metadataUnchanged":  true,
+        "width":  1254,
+        "height":  1254
+    },
+    {
+        "file":  "PrincipalExpressions/Ayame_sorpresa_mediodia_v2.png",
+        "sha256":  "D591C36019605C3A47CF373B0E206A0B5D4EBF4B67EF1A656DCA77C8B6AB0C19",
+        "metadataUnchanged":  true,
+        "width":  1254,
+        "height":  1254
+    },
+    {
+        "file":  "PrincipalExpressions/Ayame_sueno_mediodia_v2.png",
+        "sha256":  "F890FBCB20B9AFF719021B48EE557723AF2D78FC51F1F106C76882E232F1CEC9",
+        "metadataUnchanged":  true,
+        "width":  1254,
+        "height":  1254
+    },
+    {
+        "file":  "SwimOutfit/Ayame_banador_azul_grisaceo_mediodia.png",
+        "sha256":  "964FC2279556191B72A8AC166D57FDD31182B3C5C97DBC5C190093077710459A",
+        "metadataUnchanged":  true,
+        "width":  1254,
+        "height":  1254
+    },
+    {
+        "file":  "SwimOutfit/Ayame_banador_roto_mediodia.png",
+        "sha256":  "A782EDEA7E86D1A96DC7C4F45C36B8D8EF573435B1839C6BFD259BF8DD93AF6A",
+        "metadataUnchanged":  true,
+        "width":  1254,
+        "height":  1254
+    },
+    {
+        "file":  "SwimOutfit/Ayame_bikini_rosa_mediodia.png",
+        "sha256":  "EB1F9FE8D97C0F7F2EB5D2F1C7B559ABACF3777ADF8C313A83B4746B669EEC39",
+        "metadataUnchanged":  true,
+        "width":  1254,
+        "height":  1254
+    },
+    {
+        "file":  "BathOutfit/Ayame_toalla_mediodia.png",
+        "sha256":  "00F72C17A2A6665942146EDA7AC18D0D903EC24638CCB10DD032155E2979EB0A",
+        "metadataUnchanged":  true,
+        "width":  1024,
+        "height":  1536
+    }
+]

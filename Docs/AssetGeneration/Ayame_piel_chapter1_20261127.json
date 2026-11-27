@@ -1,0 +1,120 @@
+﻿{
+  "tool": "built-in image_gen",
+  "visualReference": "Assets/Art/Puzle/Chapter 1/ComfyUI_temp_hqpqz_00349_.png",
+  "backup": "Docs/AssetGeneration/Backups/Ayame_piel_original_20261127_073510",
+  "sprites": [
+    {
+      "file": "PrincipalExpressions/Ayame_principal_mediodia_v2.png",
+      "width": 1254,
+      "height": 1254,
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-8324b670-b867-4a60-a212-296c5a2bc26a.png",
+      "prompt": "Edit this existing clothed character illustration. Apply only a skin color correction: change the light peach skin to a medium warm brown tan, with daylight skin midtones around sRGB #BA8866, shadows around #81543F and highlights around #D5A27D. Retain the existing drawing, facial expression, hair, eyes, white clothing, pose, proportions, placement and lighting exactly. Do not add or remove clothing or change any features. Preserve the original 1254x1254 canvas and transparent background. Output a single sprite."
+    },
+    {
+      "file": "PrincipalExpressions/Ayame_aburrimiento_mediodia_v2.png",
+      "width": 1254,
+      "height": 1254,
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-806c3cd4-b0e0-456b-9264-e7072c22b7f5.png",
+      "prompt": "Edit this existing clothed character illustration. Apply only a skin color correction: change the light peach skin to a medium warm brown tan, with daylight skin midtones around sRGB #BA8866, shadows around #81543F and highlights around #D5A27D. Retain the existing drawing, facial expression, hair, eyes, white clothing, pose, proportions, placement and lighting exactly. Do not add or remove clothing or change any features. Preserve the original 1254x1254 canvas and transparent background. Output a single sprite. Preserve this particular image's exact expression and hand pose. Apply the same brown tan consistently to ALL visible skin including face, neck, arms, hands and legs."
+    },
+    {
+      "file": "PrincipalExpressions/Ayame_desconcierto_mediodia.png",
+      "width": 1254,
+      "height": 1254,
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-590f4fd4-27ec-47b0-9a4d-013125752bcb.png",
+      "prompt": "Edit this existing clothed character illustration. Apply only a skin color correction: change the light peach skin to a medium warm brown tan, with daylight skin midtones around sRGB #BA8866, shadows around #81543F and highlights around #D5A27D. Retain the existing drawing, facial expression, hair, eyes, white clothing, pose, proportions, placement and lighting exactly. Do not add or remove clothing or change any features. Preserve the original 1254x1254 canvas and transparent background. Output a single sprite. Preserve this particular image's exact expression and hand pose. Apply the same brown tan consistently to ALL visible skin including face, neck, arms, hands and legs."
+    },
+    {
+      "file": "PrincipalExpressions/Ayame_disculpa_mediodia.png",
+      "width": 1077,
+      "height": 1460,
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-9aa0a3be-d51e-4c32-b7e3-8286ebf17a44.png",
+      "prompt": "Edit this existing clothed character illustration. Apply only a skin color correction: change the light peach skin to a medium warm brown tan, with daylight skin midtones around sRGB #BA8866, shadows around #81543F and highlights around #D5A27D. Retain the existing drawing, facial expression, hair, eyes, white clothing, pose, proportions, placement and lighting exactly. Do not add or remove clothing or change any features. Preserve the original 1077x1460 canvas and transparent background. Output a single sprite. Preserve this particular image's exact expression and hand pose. Apply the same brown tan consistently to ALL visible skin including face, neck, arms, hands and legs."
+    },
+    {
+      "file": "PrincipalExpressions/Ayame_felicidad_mediodia_v2.png",
+      "width": 1254,
+      "height": 1254,
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-92c8d239-90fa-4dbe-9e49-0e198c5fc896.png",
+      "prompt": "Edit this existing clothed character illustration. Apply only a skin color correction: change the light peach skin to a medium warm brown tan, with daylight skin midtones around sRGB #BA8866, shadows around #81543F and highlights around #D5A27D. Retain the existing drawing, facial expression, hair, eyes, white clothing, pose, proportions, placement and lighting exactly. Do not add or remove clothing or change any features. Preserve the original 1254x1254 canvas and transparent background. Output a single sprite. Preserve this particular image's exact expression and hand pose. Apply the same brown tan consistently to ALL visible skin including face, neck, arms, hands and legs."
+    },
+    {
+      "file": "PrincipalExpressions/Ayame_neutra_feliz_mediodia_v2.png",
+      "width": 1254,
+      "height": 1254,
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-da4b5b81-3149-42bd-8014-aaf5cc88d07a.png",
+      "prompt": "Edit this existing clothed character illustration. Apply only a skin color correction: change the light peach skin to a medium warm brown tan, with daylight skin midtones around sRGB #BA8866, shadows around #81543F and highlights around #D5A27D. Retain the existing drawing, facial expression, hair, eyes, white clothing, pose, proportions, placement and lighting exactly. Do not add or remove clothing or change any features. Preserve the original 1254x1254 canvas and transparent background. Output a single sprite. Preserve this particular image's exact expression and hand pose. Apply the same brown tan consistently to ALL visible skin including face, neck, arms, hands and legs."
+    },
+    {
+      "file": "PrincipalExpressions/Ayame_preocupacion_mediodia.png",
+      "width": 1254,
+      "height": 1254,
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-02718335-61a4-46f0-9302-c90aaca51f07.png",
+      "prompt": "Edit this existing clothed character illustration. Apply only a skin color correction: change the light peach skin to a medium warm brown tan, with daylight skin midtones around sRGB #BA8866, shadows around #81543F and highlights around #D5A27D. Retain the existing drawing, facial expression, hair, eyes, white clothing, pose, proportions, placement and lighting exactly. Do not add or remove clothing or change any features. Preserve the original 1254x1254 canvas and transparent background. Output a single sprite. Preserve this particular image's exact expression and hand pose. Apply the same brown tan consistently to ALL visible skin including face, neck, arms, hands and legs."
+    },
+    {
+      "file": "PrincipalExpressions/Ayame_seguridad_mediodia.png",
+      "width": 1254,
+      "height": 1254,
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-838ef294-0919-4771-b22a-1e3df2ab53eb.png",
+      "prompt": "Edit this existing clothed character illustration. Apply only a skin color correction: change the light peach skin to a medium warm brown tan, with daylight skin midtones around sRGB #BA8866, shadows around #81543F and highlights around #D5A27D. Retain the existing drawing, facial expression, hair, eyes, white clothing, pose, proportions, placement and lighting exactly. Do not add or remove clothing or change any features. Preserve the original 1254x1254 canvas and transparent background. Output a single sprite. Preserve this particular image's exact expression and hand pose. Apply the same brown tan consistently to ALL visible skin including face, neck, arms, hands and legs."
+    },
+    {
+      "file": "PrincipalExpressions/Ayame_seria_mediodia_v2.png",
+      "width": 1254,
+      "height": 1254,
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-974df049-b6d3-428b-973f-8125f19f587c.png",
+      "prompt": "Edit this existing clothed character illustration. Apply only a skin color correction: change the light peach skin to a medium warm brown tan, with daylight skin midtones around sRGB #BA8866, shadows around #81543F and highlights around #D5A27D. Retain the existing drawing, facial expression, hair, eyes, white clothing, pose, proportions, placement and lighting exactly. Do not add or remove clothing or change any features. Preserve the original 1254x1254 canvas and transparent background. Output a single sprite. Preserve this particular image's exact expression and hand pose. Apply the same brown tan consistently to ALL visible skin including face, neck, arms, hands and legs."
+    },
+    {
+      "file": "PrincipalExpressions/Ayame_simpatica_mediodia_v2.png",
+      "width": 1254,
+      "height": 1254,
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-93b32131-e47a-45be-a854-622dd4a692f2.png",
+      "prompt": "Edit this existing clothed character illustration. Apply only a skin color correction: change the light peach skin to a medium warm brown tan, with daylight skin midtones around sRGB #BA8866, shadows around #81543F and highlights around #D5A27D. Retain the existing drawing, facial expression, hair, eyes, white clothing, pose, proportions, placement and lighting exactly. Do not add or remove clothing or change any features. Preserve the original 1254x1254 canvas and transparent background. Output a single sprite. Preserve this particular image's exact expression and hand pose. Apply the same brown tan consistently to ALL visible skin including face, neck, arms, hands and legs."
+    },
+    {
+      "file": "PrincipalExpressions/Ayame_sorpresa_mediodia_v2.png",
+      "width": 1254,
+      "height": 1254,
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-363408bd-f46a-4d09-8fea-d992a879f5b7.png",
+      "prompt": "Edit this existing clothed character illustration. Apply only a skin color correction: change the light peach skin to a medium warm brown tan, with daylight skin midtones around sRGB #BA8866, shadows around #81543F and highlights around #D5A27D. Retain the existing drawing, facial expression, hair, eyes, white clothing, pose, proportions, placement and lighting exactly. Do not add or remove clothing or change any features. Preserve the original 1254x1254 canvas and transparent background. Output a single sprite. Preserve this particular image's exact expression and hand pose. Apply the same brown tan consistently to ALL visible skin including face, neck, arms, hands and legs."
+    },
+    {
+      "file": "PrincipalExpressions/Ayame_sueno_mediodia_v2.png",
+      "width": 1254,
+      "height": 1254,
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-fdac1e6f-c5e6-4cba-88f6-990c17d5888b.png",
+      "prompt": "Edit this existing clothed character illustration. Apply only a skin color correction: change the light peach skin to a medium warm brown tan, with daylight skin midtones around sRGB #BA8866, shadows around #81543F and highlights around #D5A27D. Retain the existing drawing, facial expression, hair, eyes, white clothing, pose, proportions, placement and lighting exactly. Do not add or remove clothing or change any features. Preserve the original 1254x1254 canvas and transparent background. Output a single sprite. Preserve this particular image's exact expression and hand pose. Apply the same brown tan consistently to ALL visible skin including face, neck, arms, hands and legs.",
+      "additionalEdit": "Remove ONLY the unwanted gray cloudy texture/noise in the empty background above and around the character. Make ALL space outside the character fully transparent. Keep the character absolutely unchanged: same warm brown tan skin, exact sleepy expression, hand at mouth, hair, eyes, white clothing, outlines, pose, placement, and 1254x1254 canvas. No atmosphere, mist, smoke, halo, background texture, checkerboard artwork, new props or other additions. Only clean the background transparency, do not redraw the character."
+    },
+    {
+      "file": "SwimOutfit/Ayame_banador_azul_grisaceo_mediodia.png",
+      "width": 1254,
+      "height": 1254,
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-9d26a5ca-5f91-4943-8393-5bb111653c30.png",
+      "prompt": "Edit this existing clothed character illustration. Apply only a skin color correction: change the light peach skin to a medium warm brown tan, with daylight skin midtones around sRGB #BA8866, shadows around #81543F and highlights around #D5A27D. Retain the existing drawing, facial expression, hair, eyes, white clothing, pose, proportions, placement and lighting exactly. Do not add or remove clothing or change any features. Preserve the original 1254x1254 canvas and transparent background. Output a single sprite. Preserve this particular image's exact expression and hand pose. Apply the same brown tan consistently to ALL visible skin including face, neck, arms, hands and legs."
+    },
+    {
+      "file": "SwimOutfit/Ayame_banador_roto_mediodia.png",
+      "width": 1254,
+      "height": 1254,
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-a67a2da8-3de3-450c-b4c0-e95b10727bf7.png",
+      "prompt": "Edit this existing clothed character illustration. Apply only a skin color correction: change the light peach skin to a medium warm brown tan, with daylight skin midtones around sRGB #BA8866, shadows around #81543F and highlights around #D5A27D. Retain the existing drawing, facial expression, hair, eyes, white clothing, pose, proportions, placement and lighting exactly. Do not add or remove clothing or change any features. Preserve the original 1254x1254 canvas and transparent background. Output a single sprite. Preserve this particular image's exact expression and hand pose, the exact clothing design and any existing fabric details. Apply the same brown tan consistently to ALL visible skin including face, neck, arms, hands and legs. Keep the original image's transparency."
+    },
+    {
+      "file": "SwimOutfit/Ayame_bikini_rosa_mediodia.png",
+      "width": 1254,
+      "height": 1254,
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-235223a4-8efe-425a-936b-953cd1cb8372.png",
+      "prompt": "Edit this existing clothed character illustration. Apply only a skin color correction: change the light peach skin to a medium warm brown tan, with daylight skin midtones around sRGB #BA8866, shadows around #81543F and highlights around #D5A27D. Retain the existing drawing, facial expression, hair, eyes, white clothing, pose, proportions, placement and lighting exactly. Do not add or remove clothing or change any features. Preserve the original 1254x1254 canvas and transparent background. Output a single sprite. Preserve this particular image's exact expression and hand pose, the exact clothing design and any existing fabric details. Apply the same brown tan consistently to ALL visible skin including face, neck, arms, hands and legs. Keep the original image's transparency."
+    },
+    {
+      "file": "BathOutfit/Ayame_toalla_mediodia.png",
+      "width": 1024,
+      "height": 1536,
+      "source": "C:\\Users\\francisco.madueno\\.codex\\generated_images\\01a216a0-41e1-7110-8a8c-7df960db1bf6\\exec-15392233-3c3d-489e-b842-1f3d3d378ef2.png",
+      "prompt": "Edit this existing clothed character illustration. Apply only a skin color correction: change the light peach skin to a medium warm brown tan, with daylight skin midtones around sRGB #BA8866, shadows around #81543F and highlights around #D5A27D. Retain the existing drawing, facial expression, hair, eyes, white clothing, pose, proportions, placement and lighting exactly. Do not add or remove clothing or change any features. Preserve the original 1024x1536 canvas and transparent background. Output a single sprite. Preserve this particular image's exact expression and hand pose, the exact clothing design and any existing fabric details. Apply the same brown tan consistently to ALL visible skin including face, neck, arms, hands and legs. Keep the original image's transparency."
+    }
+  ]
+}

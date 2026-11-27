@@ -1,0 +1,82 @@
+﻿[
+    {
+        "path":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Ayame\\BathOutfit\\Ayame_toalla_mediodia.png",
+        "sha256":  "97FA11DDE53DD3173C8D698300A2D9CE35C44A098CDE2EB9791A2428ED1D6FA3",
+        "metaSha256":  "751F280EFA93C292C50D9BB8627BCCF04A086E5993653E121D2AE0B48F7273D5"
+    },
+    {
+        "path":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Ayame\\PrincipalExpressions\\Ayame_aburrimiento_mediodia_v2.png",
+        "sha256":  "584CEBAE24D8D9F1137F8519ECD43E37929604865361AE91E8AE2104A6DDBCE1",
+        "metaSha256":  "EE6A3371FCD318EAD1D70F6C3ED1A89C59B0206AFCBEC5D1A7934F53F4F9145D"
+    },
+    {
+        "path":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Ayame\\PrincipalExpressions\\Ayame_desconcierto_mediodia.png",
+        "sha256":  "4B4B35E5D5BE779DE5D50687EAC1E03300ACFFC31A091897FAA102E6A5DFF2BD",
+        "metaSha256":  "A1D6D779C5843B48FF2703827C6C2BB6FE39967A05FC3314497A90E1955816FB"
+    },
+    {
+        "path":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Ayame\\PrincipalExpressions\\Ayame_disculpa_mediodia.png",
+        "sha256":  "1C6213E658641B3DA3C34AA7D5C8633D73DA23CDBFA4B10F39A740AB32FEBCE6",
+        "metaSha256":  "976BAEDD21DE10F2CA9D21D74EF15F2D23A853F4894B001708CF8505A813BD19"
+    },
+    {
+        "path":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Ayame\\PrincipalExpressions\\Ayame_felicidad_mediodia_v2.png",
+        "sha256":  "FA3C574ECA0813B48FE89AED1DFB4A23315B33696FE250CCA2D85663EB1B7761",
+        "metaSha256":  "E319C02E3F5CD36713CE10817904ED6EB8D743B2A9E5F9ECAA08FCCD2735B7F5"
+    },
+    {
+        "path":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Ayame\\PrincipalExpressions\\Ayame_neutra_feliz_mediodia_v2.png",
+        "sha256":  "70662D757FC90897029603DBE578DBAD36AE880B586BCE93A057A0193D109B0F",
+        "metaSha256":  "0D5DB8027D5CC4B3BDFE832837D95994F1A65E32F6CC5771BB3E285AE472CD86"
+    },
+    {
+        "path":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Ayame\\PrincipalExpressions\\Ayame_preocupacion_mediodia.png",
+        "sha256":  "0758113C3DF1492135C96BF4566C74AEC6179527D751E1BE4E519501723B4221",
+        "metaSha256":  "5ED00DB3D32701DC9D4C4D16A7F2726A4C2670C424DD7D980384BBCAF30403E0"
+    },
+    {
+        "path":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Ayame\\PrincipalExpressions\\Ayame_principal_mediodia_v2.png",
+        "sha256":  "C79E2F67380A8F5278444DEDB8453917072592D01F9C012B3A1C283CB023F034",
+        "metaSha256":  "7FC76DE954E7B9511E543482C7E1B7DB638532DFB890AC59278CE883B003AAAA"
+    },
+    {
+        "path":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Ayame\\PrincipalExpressions\\Ayame_seguridad_mediodia.png",
+        "sha256":  "CA1006D55B27AC5D044512D8C6F41AE65A33B63083AFA9B14571E3B84D799CB8",
+        "metaSha256":  "FC55D6C40D5C4D43B9FE5E7C0DFFE2939DB11143BD1663193BFD1173641B8A50"
+    },
+    {
+        "path":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Ayame\\PrincipalExpressions\\Ayame_seria_mediodia_v2.png",
+        "sha256":  "719557B0E22F47C2167A4FEDA368F4F5B6B782EB76AC082B5933A8308E067957",
+        "metaSha256":  "BBA83DCDD573D1971F257D8ED65CE045CB675553AFD35BFC296BDB710D538754"
+    },
+    {
+        "path":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Ayame\\PrincipalExpressions\\Ayame_simpatica_mediodia_v2.png",
+        "sha256":  "22DF06F96A93DBFCEB97DEC34D99D795D7EA5E8CA0A994F709B6BF50E3F540BE",
+        "metaSha256":  "94AB38E886A878C4EE2F454B94319D9B1D5795B3C8FC86E5B44597A69DAEA508"
+    },
+    {
+        "path":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Ayame\\PrincipalExpressions\\Ayame_sorpresa_mediodia_v2.png",
+        "sha256":  "2FD1839BD184874A48F92A3AFDF1BE1E1B7CDD357EC3104CA31F69677E46A4D2",
+        "metaSha256":  "F0952D2C6372CE62BF40DA1462651B24EEF6AE36CE514BB4DFF6077C1C395174"
+    },
+    {
+        "path":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Ayame\\PrincipalExpressions\\Ayame_sueno_mediodia_v2.png",
+        "sha256":  "B63FB9271F48B62D64CF5FFB00554F1427298D9605F91F7B816B4BD6D0E03A38",
+        "metaSha256":  "EF0B39BA3BF846D775583127060F4E398D455F85812EEFE474F7D184EFA3C546"
+    },
+    {
+        "path":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Ayame\\SwimOutfit\\Ayame_banador_azul_grisaceo_mediodia.png",
+        "sha256":  "3AD920FC54C0B97343FEAB60591D1E8E658915F1623F7F4E5CBE5EC951019E98",
+        "metaSha256":  "7B1BB86A32C28BC291A30373C67BB7267EEAEF73779CE58F8C153E43D210890B"
+    },
+    {
+        "path":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Ayame\\SwimOutfit\\Ayame_banador_roto_mediodia.png",
+        "sha256":  "82A4ED2DE7727F0E2C6B423785E9EAB3EBC7A2DCCE5D25916C384AF83A28D74B",
+        "metaSha256":  "3CD3F180E7F5142F991E6619563D9F70851306362F31ADF6AC85E3FF27901A7A"
+    },
+    {
+        "path":  "D:\\Proyectos Unity\\OneHandPuzzle\\Assets\\Art\\Ayame\\SwimOutfit\\Ayame_bikini_rosa_mediodia.png",
+        "sha256":  "9F0755FDC8CCE462E4ED32E37DC10BDBB21E11390931D60117B9F4522DCF4119",
+        "metaSha256":  "0C1028726C400C6C0F13537260C9DB16826F210D8F12BEF7110C920F11CC46F8"
+    }
+]
